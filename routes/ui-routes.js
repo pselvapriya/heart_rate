@@ -50,6 +50,16 @@ UIRoutes.prototype.init = function () {
         }
     });
 
+     self.router.get('/skin-patches', function (req, res) {
+
+        res.render('skin-patches.html', {
+            layout: false,
+            sessionObj: req.session['sessionObj'],
+            config: self.app.conf,
+            dataObj : "",
+            basePath: self.app.conf.web.basepath
+        });
+    });
     
     self.router.get('/dashboard', sessionCheck, function (req, res) {
 
@@ -79,17 +89,6 @@ UIRoutes.prototype.init = function () {
     self.router.get('/snapshot', function (req, res) {
 
         res.render('snapshot.html', {
-            layout: false,
-            sessionObj: req.session['sessionObj'],
-            config: self.app.conf,
-            dataObj : "",
-            basePath: self.app.conf.web.basepath
-        });
-    });
-
-    self.router.get('/manage-device', function (req, res) {
-
-        res.render('manage-device.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
