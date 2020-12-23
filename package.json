@@ -1,20 +1,19 @@
 {
-  "name": "sample-boodskap-project",
+  "name": "heart_rate",
   "version": "1.0.0",
   "description": "",
-  "main": "node server-web-node.js",
+  "main": "node heart-rate-server.js",
   "author": {
-    "name": "Saravanan S"
+    "name": "Vignesh T"
   },
   "contributors": [
     {
-      "name": "Saravanan S",
-      "email": "saravanans.design@gmail.com",
-      "url": "https://github.com/saravanansdesign"
+      "name": "Vignesh T",
+      "email": "vignesht@boodskap.io"
     }
   ],
   "scripts": {
-    "start": "node server-web-node.js"
+    "start": "node heart-rate-server.js"
   },
   "private": true,
   "dependencies": {

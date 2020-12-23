@@ -3,7 +3,7 @@ var Boodskap = require("../modules/boodskap");
 var Commons = require("../modules/common");
 var Tables = require("../modules/tables");
 
-var Student = require("../modules/student");
+
 
 
 
@@ -16,7 +16,7 @@ var APIRoutes = function (app,router) {
     this.utils = new Utils(app);
     this.common = new Commons(app);
     this.table = new Tables(app);
-    this.student = new Student(app);
+    
 
 
 
@@ -60,9 +60,7 @@ APIRoutes.prototype.init = function () {
             res.json({status:true});
         });
     });
-    self.router.post('/student/:action', sessionCheck, function (req, res) {
-        self.student.performAction(req,res);
-    });
+    
 
    
 
