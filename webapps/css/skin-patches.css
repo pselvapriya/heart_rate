@@ -8,6 +8,7 @@
 .row-bottom{
     border-bottom:2px solid blueviolet;
     margin: 0;
+    margin: 10px auto;
 }
 .col-device{
     padding: 0 0;
@@ -20,17 +21,32 @@
 }
 .add-patch-btn{
     background-color: lightgrey;
+}
+.srch-txt{
+    font-size: 12px;
+}
+.total-patches{
+    font-size: 12px;    margin: 5px 2px;
+
+}
+.second-row{
+    /* margin:7px 0 0 0; */
+}
+.add-patch-btn{
+    background-color: #f2f3f4;
     font-size: 11px;
     height: 27px;
     padding-top: 4px;
 }
 .input-btn{
     border: 1px solid lightgrey;
+    border: 1px solid #f2f3f4;
     border-radius: 3px;
 }
 .entries-txt{
     font-size: 12px;
     margin-left: 11px;
+    /* margin-left: 11px; */
 }
 #showEntries{
     height: 25px;
@@ -39,4 +55,11 @@
     font-size: 12px;
     border: 1px solid lightgrey;
     background-color: lightgrey;
+}
+#example_filter input{
+background-color: white !important;border:1px solid lightgrey!important;
+}
+#example_length select{
+    border:1px solid lightgrey!important;
+    
 }

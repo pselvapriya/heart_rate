@@ -1,0 +1,68 @@
+.head-title2 {
+    text-align: right;
+}
+
+.head-title4 {
+    text-align: right;
+}
+
+.head-1 {
+    margin: 15px 0 0 0;
+    padding-bottom: 20px;
+}
+
+.button1 {
+    border: none;
+    background-color: rgb(21, 185, 226);
+    border-radius: 3px;
+}
+
+.button2 {
+    border: none;
+    border-radius: 3px;
+}
+
+.button3 {
+    border: none;
+    border-radius: 3px;
+}
+
+.button4 {
+    border: none;
+    border-radius: 3px;
+}
+
+.button5 {
+    border: none;
+    border-radius: 100%;
+}
+
+.button6 {
+    text-align: right;
+    padding-left: 95%;
+}
+
+.select-box-1 {
+    border: 1px solid rgb(207, 205, 205);
+    width: 230px;
+    margin: 20px;
+    height: 40px;
+}
+
+.select-box-2 {
+    border: 1px solid rgb(207, 205, 205);
+    width: 230px;
+    margin: 20px;
+    height: 40px;
+}
+
+.select-box-3 {
+    border: 1px solid rgb(207, 205, 205);
+    width: 230px;
+    margin: 20px;
+    height: 40px;
+}
+
+.name {
+    color: rgb(22, 145, 194);
+}

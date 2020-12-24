@@ -21,71 +21,59 @@
 </head>
 
 <body>
-<input type="hidden" value="<%=basePath%>" id="BASE_PATH" />
-<input type="hidden" value="<%=config.url%>" id="BASE_URL" />
-<input type="hidden" id="API_URL" value="<%= config.appApiUrl %>" />
-<section>
-	<div id="blocks" style="position: fixed;width:100%;height: 100%;left:0px;z-index:0"></div>
-	<div class="row no-gutters">
-		<div class="col-lg-4 col-md-5 col-sm-12 offset-lg-4 offset-md-3" >
-			<div class="card cardSection mt-lg-4 mt-md-4">
-				<div class="card-body">
-					<div class="text-center logo">
-						<img src="images/bdskap-logo.png" alt="ndvr-logo">
+	<div class="container-fluid">
+        <div class="row about">   
+             <div class="col-md-8 bgheart">
+                 <div class="heart">
+                    <p>Advance technology makes it possible for can get information about your
+                        heart without interrupting your life.Continues heart monitoring is useful 
+                        for capturing irregular heartbeats that happent infrequently-in some case,
+                        you may not even feel any symptom.Depending on your situation,your doctor
+                        may recomment heart monitoring.
+					</p>
+                 </div>
+                </div>
+                <div class="col-md-4x">
+                    <div class="logo">
+                     <img src="/images/vilpowerLogo.png">
+                     </div>
+                    <div class="form">    
+                     <label for="eid">EmailId:</label><br>
+                     <input type="text" id="eid" name="eid" value="vilpower@boodskap.io"><br>
+                     <label for="pword">Password:</label><br>
+                     <input type="text" id="pword" name="pword" value="welcome123"><br><br>
+                     <input type="checkbox" id="remember" name="remember" value="Me">
+                     <label for="remember">Remember me</label><br>
+                     <button type="button" class="btn btn-primary login-btn" onclick="gotoHome()">Sign me in</button>
 					</div>
-					<h1 style="text-align: center;margin-top: 15px;">Login</h1>
-
-					<div class="loginHtml">
-						<form class="m-t-40" autocomplete="off" action="javascript:void(0)" onsubmit="login()">
-
-							<div class="form-group">
-								<label for="emailId">Email</label>
-									<input id="emailId" required="" type="email" class="form-control input-blue" placeholder=""
-										   aria-label="Email" aria-describedby="basic-addon2" value="">
-								<small class="emailId"></small>
-							</div>
-
-							<div class="form-group position-relative mb-2">
-								<label for="password">Password</label>
-									<input type="password" required="" id="password" class="form-control input-blue" placeholder=""
-										   value=""
-										   aria-label="Password" aria-describedby="basic-addon3">
-									<span toggle="#password" class="login-pswd cursor-pointer fa fa-eye field-eye-icon toggle-password"> <span>Show / Hide</span></span>
-								<small class="password"></small>
-							</div>
-							<label class="container text-muted"> Remember me
-								<input type="checkbox">
-								<span class="checkmark"></span>
-								<span class="pull-right"><a href="javascript:void(0)" class="text-muted">Forgot Password?</a> </span>
-							  </label>
-							<button type="submit" class="mt-2 btn btn-block btn-lg btn-primary mb-3 " id="loginButton">Login</button>
-							<p class="border-bottom mb-0"></p>
-							<button type="button" class="btn btn-block btn-lg btn-secondary mt-3" id="createAccount">Create New Account</button>
-						</form>
-					</div>
-					
-				</div>
-			</div>
-			<p class="text-center mt-4" style="font-size: 12px">
-				© <span class="currentYear">2020</span> All rights reserved. <br>
-				<a href="https://boodskap.io"><img src="images/powered-by-boodskap.svg" height="25"></a>
-			</p>
-		</div>
-	</div>
-</section>
-
-<script src="library/plugin/jquery/jquery-3.2.1.min.js"></script>
-<script src="library/plugin/popper/popper.min.js"></script>
-<script src="library/plugin/bootstrap/dist/js/bootstrap.js"></script>
-<script src="plugins/code/build/js/intlTelInput.js"></script>
-<script src="plugins/moment.js"></script>
-<script src="plugins/sweetalert2.all.js"></script>
-<script src="plugins/js.cookie.js"></script>
-
-<script>
-	var API_URL = $("#API_URL").val();
-</script>
-<script src="js/common.js"></script>
-<script src="js/auth.js"></script>
+					<div class="click">
+						Not a remember yet?<a href="#">click here</a>.<br> 
+					</div>  
+                    <div class="team">
+                        <a href="#" class="text-warning textColor">Terms &amp; Conditions</a>
+                       <span class="bar">|</span>
+                        <a href="#" class="text-warning textColor">Privacy Policy</a>
+                    </div>
+                    <div class="boodskap"> 
+                        <p class="power">
+                        @ 2020 all rights reserved powered by <img src="/images/boodskap.jpg">
+                    </p>
+                    </div>
+                </div>     
+        </div>
+    </div>
+    <div class=" col-8 health">
+        <h2>A HEALTH CARE SYSTEM</h2>
+        <p>Through our hardware and software application,we're working to build a complete virtual
+            care system that makes healthcare providers smarter and more connected-digit
+        </p>
+    </div>
 </body>
+
 </html>
+<script>
+    function gotoHome(){
+        // alert("hoi")
+        window.location.href='http://localhost:7201/hrmonitor/main';
+    }
+</script>
