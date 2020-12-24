@@ -50,6 +50,16 @@ UIRoutes.prototype.init = function () {
         }
     });
 
+    self.router.get('/main', function (req, res) {
+
+        res.render('home/home.html', {
+            layout: '',
+            sessionObj: req.session['sessionObj'],
+            config: self.app.conf,
+            basePath: self.app.conf.web.basepath
+        });
+    });
+
      self.router.get('/skin-patches', function (req, res) {
 
         res.render('skin-patches.html', {
@@ -61,7 +71,7 @@ UIRoutes.prototype.init = function () {
         });
     });
     
-    self.router.get('/dashboard', sessionCheck, function (req, res) {
+    self.router.get('/dashboard', function (req, res) {
 
         res.render('dashboard.html', {
             layout: false,
@@ -74,7 +84,7 @@ UIRoutes.prototype.init = function () {
 
 
     //After Login pages
-  
+    
 
     self.router.get('/patitents-profile', function (req, res) {
 
@@ -108,15 +118,7 @@ UIRoutes.prototype.init = function () {
         });
     });
     
-    self.router.get('/main', sessionCheck, function (req, res) {
-
-        res.render('home/home.html', {
-            layout: '',
-            sessionObj: req.session['sessionObj'],
-            config: self.app.conf,
-            basePath: self.app.conf.web.basepath
-        });
-    });
+    
 
     self.app.use(self.app.conf.web.basepath, self.router);
 };

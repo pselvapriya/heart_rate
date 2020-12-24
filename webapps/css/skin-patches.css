@@ -1,10 +1,42 @@
 .device-txt{
-    color:red;font-size:12px;
+    color:black;font-size:12px;
 }
 .patches-txt{
-    font-size: 14px;
+    font-size: 13px;
+    margin-bottom: 7px;
 }
-.hr-line{
-    background: red;
+.row-bottom{
+    border-bottom:2px solid blueviolet;
     margin: 0;
+}
+.col-device{
+    padding: 0 0;
+}
+.total-patches{
+    font-size: 12px;
+}
+.second-row{
+    margin:7px 0 0 0;
+}
+.add-patch-btn{
+    background-color: lightgrey;
+    font-size: 11px;
+    height: 27px;
+    padding-top: 4px;
+}
+.input-btn{
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+.entries-txt{
+    font-size: 12px;
+    margin-left: 11px;
+}
+#showEntries{
+    height: 25px;
+    color: black;
+    padding-top: 1px;
+    font-size: 12px;
+    border: 1px solid lightgrey;
+    background-color: lightgrey;
 }

@@ -39,12 +39,12 @@
                      </div>
                     <div class="form">    
                      <label for="eid">EmailId:</label><br>
-                     <input type="text" id="eid" name="eid"><br>
+                     <input type="text" id="eid" name="eid" value="vilpower@boodskap.io"><br>
                      <label for="pword">Password:</label><br>
-                     <input type="text" id="pword" name="pword"><br><br>
+                     <input type="text" id="pword" name="pword" value="welcome123"><br><br>
                      <input type="checkbox" id="remember" name="remember" value="Me">
                      <label for="remember">Remember me</label><br>
-                     <button type="button" class="btn btn-primary login-btn">Sign me in</button>
+                     <button type="button" class="btn btn-primary login-btn" onclick="gotoHome()">Sign me in</button>
 					</div>
 					<div class="click">
 						Not a remember yet?<a href="#">click here</a>.<br> 
@@ -69,4 +69,11 @@
         </p>
     </div>
 </body>
+
 </html>
+<script>
+    function gotoHome(){
+        // alert("hoi")
+        window.location.href='http://localhost:7201/hrmonitor/main';
+    }
+</script>
