@@ -86,7 +86,7 @@ UIRoutes.prototype.init = function() {
     //After Login pages
 
 
-    self.router.get('/patitents-profile', function(req, res) {
+    self.router.get('/patients-profile', function(req, res) {
 
         res.render('patients-profile.html', {
             layout: false,
