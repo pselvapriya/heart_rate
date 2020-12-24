@@ -32,6 +32,11 @@
     border-radius: 3px;
 }
 
+.button5 {
+    border: none;
+    border-radius: 100%;
+}
+
 .icofont-5 {
     text-align: right;
     padding-left: 95%;

@@ -1,16 +1,10 @@
 {
   "name": "heart_rate",
   "version": "1.0.0",
-  "description": "",
   "main": "node heart-rate-server.js",
-  "author": {
-    "name": "Vignesh T"
-  },
+  "author": "Vignesh T",
   "contributors": [
-    {
-      "name": "Vignesh T",
-      "email": "vignesht@boodskap.io"
-    }
+    "Vignesh T <vignesht@boodskap.io>"
   ],
   "scripts": {
     "start": "node heart-rate-server.js"
@@ -44,5 +38,16 @@
     "twilio": "^3.45.0",
     "underscore": "^1.10.2",
     "user-agent": "^1.0.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pselvapriya/heart_rate.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pselvapriya/heart_rate/issues"
+  },
+  "homepage": "https://github.com/pselvapriya/heart_rate#readme",
+  "description": ""
 }
