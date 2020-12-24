@@ -1,6 +1,12 @@
 .logo-img{
   height:30px;width:120px;
 }
+.profile-img{
+  width:20px;height:20px;
+}
+.profile-name{
+  font-size: 12px;padding-left: 2px;
+}
 .toggle-btn{
   font-size:25px;cursor:pointer;
 }

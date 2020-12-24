@@ -7,6 +7,9 @@ var Pstatus = require("../modules/patientstatus");
 var Phistory = require("../modules/patienthistory");
 
 
+
+
+
 var APIRoutes = function (app,router) {
 
     this.app = app;
@@ -34,10 +37,8 @@ APIRoutes.prototype.init = function () {
     const self = this;
 
     var sessionCheck = function (req, res, next) {
-       
 
         var sessionObj = req.session['sessionObj'];
-        console.log(sessionObj);
 
         if (sessionObj && sessionObj.token) {
 
@@ -74,6 +75,7 @@ APIRoutes.prototype.init = function () {
     self.router.post('/patienthistory/:action', sessionCheck, function (req, res) {
         self.phistory.performAction(req,res);
     });
+    
 
    
 
