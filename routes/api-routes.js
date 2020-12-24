@@ -2,8 +2,8 @@ var Utils = require("../modules/utils");
 var Boodskap = require("../modules/boodskap");
 var Commons = require("../modules/common");
 var Tables = require("../modules/tables");
-
-
+var Patient = require("../modules/patients");
+var Pstatus = require("../modules/patientstatus");
 
 
 
@@ -16,6 +16,8 @@ var APIRoutes = function (app,router) {
     this.utils = new Utils(app);
     this.common = new Commons(app);
     this.table = new Tables(app);
+    this.patient = new Patient(app);
+    this.pstatus = new Pstatus(app);
     
 
 
@@ -32,8 +34,10 @@ APIRoutes.prototype.init = function () {
     const self = this;
 
     var sessionCheck = function (req, res, next) {
+       
 
         var sessionObj = req.session['sessionObj'];
+        console.log(sessionObj);
 
         if (sessionObj && sessionObj.token) {
 
@@ -59,6 +63,13 @@ APIRoutes.prototype.init = function () {
         boodskap.logout(req,function (status) {
             res.json({status:true});
         });
+    });
+    self.router.post('/patient/:action', sessionCheck, function (req, res) {
+        console.log(req.body);
+        self.patient.performAction(req,res);
+    });
+    self.router.post('/patientstatus/:action', sessionCheck, function (req, res) {
+        self.pstatus.performAction(req,res);
     });
     
 
