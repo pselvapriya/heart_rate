@@ -70,7 +70,7 @@ UIRoutes.prototype.init = function () {
             basePath: self.app.conf.web.basepath
         });
     });
-    
+
     self.router.get('/dashboard', function (req, res) {
 
         res.render('dashboard.html', {
@@ -84,9 +84,9 @@ UIRoutes.prototype.init = function () {
 
 
     //After Login pages
-    
 
-    self.router.get('/patitents-profile', function (req, res) {
+
+    self.router.get('/patients-profile', function(req, res) {
 
         res.render('patients-profile.html', {
             layout: false,
@@ -106,7 +106,7 @@ UIRoutes.prototype.init = function () {
             basePath: self.app.conf.web.basepath
         });
     });
-    
+
     self.router.get('/manage-patients', function (req, res) {
 
         res.render('manage-patients.html', {
@@ -117,8 +117,8 @@ UIRoutes.prototype.init = function () {
             basePath: self.app.conf.web.basepath
         });
     });
-    
-    
+
+
 
     self.app.use(self.app.conf.web.basepath, self.router);
 };
