@@ -13,7 +13,7 @@ Patient.prototype.performAction = function (req,res){
     const self = this;
 
     if(req.params.action === 'insert'){
-        console.log(req.body);
+        
         
         self.common.commonAdd(self.table.PATIENT_TABLE,req,res);
     }
