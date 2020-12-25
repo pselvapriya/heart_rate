@@ -2,7 +2,7 @@
     background-image: url("../images/heart.jpg");
     height: 500px;
     width: 700px;
-    font-size: 8px;
+    font-size: 12px;
     padding-top: 250px;
     color: snow;
 }
@@ -67,7 +67,7 @@
     height: 130px;
     color:snow;
     margin-top: 135px;
-    font-size: 8px;
+    font-size: 10px;
 }
 .health h3{
     margin-left: 40px;
@@ -78,4 +78,24 @@
 }
 .heart p,h1{
     margin-left: 40px;
+}
+
+.health{
+    position: absolute;
+    bottom:0;
+   width: 100%;
+}.heart{
+    
+    position: absolute;
+    top:35%;
+}
+@media screen and (max-width:768px) {
+    .bgheart{
+        display: none;
+        
+}
+@media screen and (max-width:768px) {
+    .form{
+     margin-left: 50px;
+    }
 }

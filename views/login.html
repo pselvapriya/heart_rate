@@ -23,7 +23,7 @@
 <body>
 	<div class="container-fluid">
         <div class="row about">   
-             <div class="col-md-8 bgheart">
+             <div class="col-md-8 bgheart position-relative">
                  <div class="heart">
                      <h1>Heart Rate Monitor System</h1>
                     <p>Advanced technology makes it possible for you can get information about your
@@ -32,8 +32,8 @@
                         you may not even feel any symptom.Depending on your situation,your doctor
                         may recommend heart monitoring.
                     </p>
-                 </div>
-                    <div class="row  health">
+                </div>
+                    <div class="row health">
                         <div class=" col- md-8 ">
                         <h3>A HEALTH CARE SYSTEM</h3>
                          <p>Through our hardware and software application,we're working to build a complete virtual
@@ -41,8 +41,7 @@
                              that serve the need of patient better.
                          </p>
                     </div>
-                 </div>
-                
+                 </div> 
              </div>
                 <div class="col-md-4">
                     <div class="logo">
@@ -52,7 +51,7 @@
                      <label for="eid">EmailId:</label><br>
                      <input type="text" id="eid" name="eid" value="vilpower@boodskap.io"class="name"><br>
                      <label for="pword">Password:</label><br>
-                     <input type="text" id="pword" name="pword" value="welcome123"class="password"><br><br>
+                     <input type="Password" id="pword" name="pword" value="welcome123"class="password"><br><br>
                      <input type="checkbox" id="remember" name="remember" value="Me">
                      <label for="remember">Remember me</label><br>
                      <button type="button" class="btn btn-primary login-btn" onclick="gotoHome()">Sign me in</button>
@@ -77,9 +76,5 @@
 </body>
 
 </html>
-<script>
-    function gotoHome(){
-        // alert("hoi")
-        window.location.href='http://localhost:7201/hrmonitor/main';
-    }
-</script>
+
+<script src="/js/login.js"></script>
