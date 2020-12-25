@@ -21,6 +21,13 @@
 .menu-icon{
   height:20px;width:20px;
 }
+.profile-col{
+  max-width: 86%;
+    height: 104px;
+}
+.user-txt{
+  padding-left: 10px;
+}
 .opne-nav{
   font-size: 20px;
   cursor: pointer;
