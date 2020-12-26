@@ -1,4 +1,6 @@
-
+var dataSet = [
+    ["device1","SIM","1.0.0","HTTP","statys","04/21/2020 pm"]
+]
 
 $(document).ready(function() {
     $('#example_filter').html();
