@@ -1,3 +1,8 @@
+.card {
+    border-top: 2px solid rgb(146, 4, 139);
+    border-radius: 3px;
+}
+
 .head-title2 {
     text-align: right;
 }
@@ -8,27 +13,10 @@
 
 .head-1 {
     margin: 15px 0 0 0;
-    padding-bottom: 20px;
 }
 
 .icofont-5 {
     color: black;
-}
-
-.button1 {
-    border: none;
-    background-color: rgb(21, 185, 226);
-    border-radius: 3px;
-}
-
-.button2 {
-    border: none;
-    border-radius: 3px;
-}
-
-.button3 {
-    border: none;
-    border-radius: 3px;
 }
 
 .button4 {
@@ -50,6 +38,9 @@
 
 .cont {
     display: none;
+    border: 1px solid rgb(207, 205, 205);
+    margin: 0 10px 0 10px;
+    background-color: #eff2f5;
 }
 
 .button7 {
@@ -87,10 +78,6 @@
     width: 240px;
     margin: 20px;
     height: 30px;
-}
-
-.name {
-    color: rgb(22, 145, 194);
 }
 
 
