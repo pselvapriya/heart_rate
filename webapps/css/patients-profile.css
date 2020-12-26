@@ -48,6 +48,10 @@
     background: none;
 }
 
+.cont {
+    display: none;
+}
+
 .button7 {
     border-radius: 100%;
     border: none;
