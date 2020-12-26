@@ -6,26 +6,25 @@ var Patient = function (app){
     this.common = new Common(app);
     this.table = new Table(app);
 }
-module.exports = Patient ;
+module.exports = Patient;
 
 Patient.prototype.performAction = function (req,res){
 
     const self = this;
 
     if(req.params.action === 'insert'){
-        console.log(req.body);
         
-        self.common.commonAdd(self.table.PATIENT_TABLE,req,res);
+        self.common.commonAdd(self.table.PATIENTS_TABLE,req,res);
     }
     else if(req.params.action === 'update'){
         
-        self.common.commonUpdate(self.table.PATIENT_TABLE,req,res);
+        self.common.commonUpdate(self.table.PATIENTS_TABLE,req,res);
     }
     else if(req.params.action === 'delete'){
-        self.common.commonDelete(self.table.PATIENT_TABLE,req,res);
+        self.common.commonDelete(self.table.PATIENTS_TABLE,req,res);
     }
     else if(req.params.action === 'list'){
-        self.common.commonSearch(self.table.PATIENT_TABLE,req,res);
+        self.common.commonSearch(self.table.PATIENTS_TABLE,req,res);
     }
     else{
         res.status(401).json({status:false,message:'Invalid Access'})
