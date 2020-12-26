@@ -11,7 +11,7 @@
         <div class="row head-1">
             <div class="col-md-6 head-title3">
                 <header><label>Total Patients:</label></header>
-                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 50%">
                     <i class="fa fa-calendar"></i>&nbsp;
                     <span></span> <i class="fa fa-caret-down"></i>
                 </div>
@@ -42,29 +42,18 @@
                 <option>Male</option>
                 <option>Female</option>
             </select>
-
-                <input class="js-ion-range-slider" type="text" data-hs-ion-range-slider-options='{
-         "extra_classes": "range-slider-custom range-slider-indicator range-slider-grid",
-         "type": "double",
-         "grid": true,
-         "hide_from_to": false,
-         "prefix": "$",
-         "min": 0,
-         "max": 500,
-         "from": 25,
-         "to": 475,
-         "result_min_target_el": "#rangeSliderExample3MinResult",
-         "result_max_target_el": "#rangeSliderExample3MaxResult"
-       }'>
+                <input type="text" class="js-range-slider" name="my_range" value="" data-type="double" data-min="0" data-max="1000" data-from="200" data-to="500" data-grid="true" />
                 <select class="select-box-2">
                 <option>All Status</option>
                 <option>Low</option>
+                <option>Normal</option>
                 <option>High</option>
             </select>
                 <select class="select-box-3">
                 <option>All Activities</option>
-                <option>Male</option>
-                <option>Female</option>
+                <option>walking</option>
+                <option>running</option>
+                 <option>sleeping</option>
                 </select>
                 <button class="button4"> <i class="fa fa-close icofont-6">Clear</i></button>
             </div>
@@ -78,8 +67,10 @@
 </div>
 </div>
 </div>
+
 <script src="../heart_beat/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/js/patients-profile.js"></script>
 <script type="text/javascript"></script>
 <!-- <script src="../heart_beat/heart.js" type="text/javascript"></script> -->
+
 </body>
