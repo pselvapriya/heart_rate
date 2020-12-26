@@ -5,10 +5,14 @@
 
 # Node artifact files
 /node_modules
+<<<<<<< HEAD
 #package-lock.json
 /package-lock.json
+=======
+/Package-lock.json
+>>>>>>> ca1165e047ed79f21a777f9f584bec4d4daf6132
 # dist/
-
+/package-lock.json
 # Compiled Java class files
 *.class
 

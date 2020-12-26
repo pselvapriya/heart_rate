@@ -1,4 +1,5 @@
 <div class="container-fluid">
+<div class="container-fluid" style="background: #f2f3f4;">
     <div class="row row-bottom">
         <div class="col-md-6 col-device">
             <p class="patches-txt">Manage Skin Patches</p>
@@ -8,6 +9,7 @@
             <span class="device-txt">Manage Device</span>
         </div>
     </div>
+    <div class="container-fluid" style="background-color: white;">
     <div class="row second-row">
         <div class="col-md-6">
             <p class="total-patches">Total Skin Patches: <span>554</span></p>
@@ -16,26 +18,16 @@
             <p><i class="fa fa-filter" aria-hidden="true"></i> &nbsp; <i class="icon-refresh"></i></p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">      
-            <span class="entries-txt">Show</span>
-            <button type="button" class="btn btn-primary dropdown-toggle" id="showEntries" data-toggle="dropdown">10</button>
-            <!-- <div class="dropdown">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  Dropdown button
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Normal</a>
-                  <a class="dropdown-item active" href="#">Active</a>
-                  <a class="dropdown-item disabled" href="#">Disabled</a>
-                </div>
-              </div> -->
-               <span>entries</span>
-        </div>
-        <div class="col-md-6 text-right">
-            <span>Search <input type="text" class="input-btn"/> </span> 
+</div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-12">
             <button type="button" class="btn add-patch-btn"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Skin Patch</button>
             <button type="button" class="btn add-patch-btn"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+            <table id="example" class="display table table-bordered responsive" width="100%"></table>
         </div>
     </div>
+    </div>
 </div>
+
+<!-- <link ref="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
+<script src="/js/skin-patches.js"></script>
