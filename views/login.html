@@ -23,25 +23,35 @@
 <body>
 	<div class="container-fluid">
         <div class="row about">   
-             <div class="col-md-8 bgheart">
+             <div class="col-md-8 bgheart position-relative">
                  <div class="heart">
-                    <p>Advance technology makes it possible for can get information about your
+                     <h1>Heart Rate Monitor System</h1>
+                    <p>Advanced technology makes it possible for you can get information about your
                         heart without interrupting your life.Continues heart monitoring is useful 
-                        for capturing irregular heartbeats that happent infrequently-in some case,
+                        for capturing irregular heartbeats that happen infrequently-in some cases,
                         you may not even feel any symptom.Depending on your situation,your doctor
-                        may recomment heart monitoring.
-					</p>
-                 </div>
+                        may recommend heart monitoring.
+                    </p>
                 </div>
-                <div class="col-md-4x">
+                    <div class="row health">
+                        <div class=" col- md-8 ">
+                        <h3>A HEALTH CARE SYSTEM</h3>
+                         <p>Through our hardware and software application,we're working to build a complete virtual
+                             care system that makes healthcare providers smarter and more connected-digital clinics
+                             that serve the need of patient better.
+                         </p>
+                    </div>
+                 </div> 
+             </div>
+                <div class="col-md-4">
                     <div class="logo">
                      <img src="/images/vilpowerLogo.png">
                      </div>
                     <div class="form">    
                      <label for="eid">EmailId:</label><br>
-                     <input type="text" id="eid" name="eid" value="vilpower@boodskap.io"><br>
+                     <input type="text" id="eid" name="eid" value="vilpower@boodskap.io"class="name"><br>
                      <label for="pword">Password:</label><br>
-                     <input type="text" id="pword" name="pword" value="welcome123"><br><br>
+                     <input type="Password" id="pword" name="pword" value="welcome123"class="password"><br><br>
                      <input type="checkbox" id="remember" name="remember" value="Me">
                      <label for="remember">Remember me</label><br>
                      <button type="button" class="btn btn-primary login-btn" onclick="gotoHome()">Sign me in</button>
@@ -62,18 +72,9 @@
                 </div>     
         </div>
     </div>
-    <div class=" col-8 health">
-        <h2>A HEALTH CARE SYSTEM</h2>
-        <p>Through our hardware and software application,we're working to build a complete virtual
-            care system that makes healthcare providers smarter and more connected-digit
-        </p>
-    </div>
+
 </body>
 
 </html>
-<script>
-    function gotoHome(){
-        // alert("hoi")
-        window.location.href='http://localhost:7201/hrmonitor/main';
-    }
-</script>
+
+<script src="/js/login.js"></script>

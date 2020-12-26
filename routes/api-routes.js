@@ -3,6 +3,12 @@ var Boodskap = require("../modules/boodskap");
 var Commons = require("../modules/common");
 var Tables = require("../modules/tables");
 
+var Pstatus = require("../modules/patientstatus");
+var Phistory = require("../modules/patienthistory");
+
+
+
+
 var Patientasset = require("../modules/patient");
 
 var APIRoutes = function (app,router) {
@@ -14,6 +20,10 @@ var APIRoutes = function (app,router) {
     this.common = new Commons(app);
     this.table = new Tables(app);
     this.patientasset = new Patientasset(app);
+    this.pstatus = new Pstatus(app);
+    this.phistory = new Phistory(app);
+    
+
 
     this.init();
 
@@ -57,9 +67,18 @@ APIRoutes.prototype.init = function () {
     console.log("route");
 
     self.router.post('/patient/:action', sessionCheck, function (req, res) {
-        console.log("route",req);
+    
         self.patientasset.performAction(req,res);
     });
+    self.router.post('/patientstatus/:action', sessionCheck, function (req, res) {
+        self.pstatus.performAction(req,res);
+    });
+    self.router.post('/patienthistory/:action', sessionCheck, function (req, res) {
+        self.phistory.performAction(req,res);
+    });
+    
+
+   
 
     self.app.use(self.app.conf.web.basepath,self.router);
 

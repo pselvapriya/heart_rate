@@ -5,8 +5,9 @@
 
 # Node artifact files
 /node_modules
+#package-lock.json
+package-lock.json
 # dist/
-
 # Compiled Java class files
 *.class
 
