@@ -66,7 +66,6 @@ APIRoutes.prototype.init = function () {
         });
     });
     self.router.post('/patient/:action', sessionCheck, function (req, res) {
-    
         self.patient.performAction(req,res);
     });
     self.router.post('/patientstatus/:action', sessionCheck, function (req, res) {

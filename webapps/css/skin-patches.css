@@ -10,6 +10,12 @@
     margin: 0;
     margin: 10px auto;
 }
+.arrow-icon{
+    transform: rotate(125deg);
+}
+.icon-div{
+    background-color: lightgray;height: 35px;width:20px;float:right;
+}
 .col-device{
     padding: 0 0;
 }
