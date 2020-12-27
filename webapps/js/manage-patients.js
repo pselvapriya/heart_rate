@@ -68,7 +68,7 @@ $(document).ready(function() {
                 sTitle: 'Actions',
                 orderable: false,
                 mRender: function (data, type, row) {
-                    return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true"></i>'+'&nbsp;&nbsp;'+'<i class="fa fa-trash icon-table" aria-hidden="true"></i>';
+                    return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal"></i>'+'&nbsp;&nbsp;'+'<i class="fa fa-trash icon-table" aria-hidden="true"></i>';
                 }
             },
             
