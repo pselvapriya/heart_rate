@@ -1,3 +1,6 @@
+$(function() {
+  // window.location.href='http://localhost:7201/hrmonitor/main';
+});
 $('#myNav .overlay-content .nav-link').on('click', function(){
       document.getElementById("myNav").style.width = "0%";
     });
