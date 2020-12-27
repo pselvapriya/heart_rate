@@ -1,0 +1,18 @@
+.patient-expand-btn {
+    border-radius: 100%;
+    border: none;
+}
+
+.patient-repeat-btn {
+    background-color: black;
+    border-radius: 100%;
+    border: none;
+    color: white;
+}
+#managePatient_filter input{
+    background-color: white !important;border:1px solid lightgrey!important;
+    }
+#dataTables_length select{
+  border:1px solid lightgrey!important;
+  background-color: white !important;
+    }
