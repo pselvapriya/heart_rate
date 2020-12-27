@@ -72,3 +72,14 @@ background-color: white !important;border:1px solid lightgrey!important;
 .icon-table{
     font-size: 16px;cursor:pointer;
 }
+.expand-btn {
+    border-radius: 100%;
+    border: none;
+}
+
+.repeat-btn {
+    background-color: black;
+    border-radius: 100%;
+    border: none;
+    color: white;
+}
