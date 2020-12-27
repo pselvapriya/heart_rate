@@ -123,3 +123,23 @@
     .personal{
     font-size: 10px;
     }
+    .Bpm{
+color: red;
+font-size: 7px;
+    }
+    .time{
+        font-size: 10px;
+    }
+    .reported{
+        font-size: 8px;
+    }
+    .time1{
+margin-right: 2px;
+    }
+    .year{
+        font-size: 8px;
+    }
+    .Running{
+margin-top: 20px;
+font-size: 8px;
+    }
