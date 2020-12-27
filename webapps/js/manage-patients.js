@@ -36,7 +36,7 @@ $(document).ready(function() {
                 sTitle: 'Status',
                 orderable: false,
                 mRender: function (data, type, row) {
-                    return data;
+                    return '<a href="" class="patient-atag" data-toggle="modal" data-target="#myModal">Link</a>';
                 }
             },
             {
