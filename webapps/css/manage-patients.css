@@ -15,4 +15,15 @@
 #dataTables_length select{
   border:1px solid lightgrey!important;
   background-color: white !important;
-    }
+}
+.patient-atag{
+    color: blue;
+    text-decoration: underline;
+}
+.patient-atag:hover{
+    color: blue;
+    text-decoration: underline;
+}
+.modal-div{
+    top:220px;
+}
