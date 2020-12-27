@@ -1,28 +1,31 @@
 .content{
-    border: solid 2px;
+    border: solid 1px;
     border-top: solid 2px purple;
 
 
 }
-/* .icons{
-    /* padding-right: 35px; */
-    
-/* } */ 
+.overview{
+    padding-left: 20px;
+    margin-top: 10px;
+
+} 
 
 .pie{
    
     border-top:solid 2px orange;
     /* border: solid 2px rgb(114, 114, 114); */
-    width: 400px;
-    border-bottom: solid 2px rgb(114, 114, 114);
-    border-left:solid 2px rgb(114, 114, 114) ;
-    border-right:solid 2px rgb(114, 114, 114) ;
+    /* width: 400%; */
+    
+    border-left:solid 1px rgb(168, 167, 167) ;
+    border-right:solid 1px rgb(168, 167, 167) ;
 }
 .data{
     display: flex;
+    
 }
+
 .charts{
-    border: solid 2px rgb(114, 114, 114);  
+    border: solid 1px rgb(168, 167, 167);  
    
 }
 #chart{
@@ -31,14 +34,155 @@
     background-color: snow;
 
 }
-#data{
+.chart1{
+    border: solid 1px rgb(168, 167, 167);
+    
+}
+/* #data{
     width:400px;
     height:400px;
     background-color: snow;
 
-}
+} */
 .icons{
     text-align: right;
     padding-right: 30px;
     /* padding-bottom: 80px; */
+   
+}
+.icon1{
+    padding-right: 20px;
+    margin-top: 10px;
+}
+.first{
+    margin-top: 10px;
+}
+
+#age{
+    height: 400px;
+    width: 400px;
+}
+.button1{
+    border: none;
+    background-color: rgb(204, 202, 202);
+    border-radius: 100%;
+    /* text-size-adjust: 1rem; */
+}
+.button2{
+    border: none;
+    background-color: black;
+    border-radius: 100%;
+    color: white;
+    
+
+}
+.button3{
+    border: none;
+    background-color: rgb(204, 202, 202);
+    border-radius: 100%;
+
+}
+
+.analysis{
+    padding-right: 20px;
+}
+.chart2{
+    border: solid 1px rgb(168, 167, 167);
+    border-top: solid 2px red;
+
+}
+.calendar{
+    margin-top: 7px;
+    padding-left: 21px;
+    padding-right: 3px;
+    /* border: solid 1px  rgb(141, 139, 139) ; */
+}
+#datapick{
+    background: #fff;
+     cursor: pointer;
+      padding: 5px 10px;
+       border: 1px solid #ccc;
+        width: 50%
+}
+.dateformat{
+    border: solid 1px rgb(168, 167, 167);
+    margin-left:0px 
+}
+.stat{
+    padding-left: 190px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.icons2{
+    padding-right: 15px;
+    
+}
+#totalpatients{
+    width: 340px;
+    height: 400px;
+    
+}
+ .state{
+    font-weight:bold;
+    size:3px;
+    padding-left: 20px;
+}
+p{
+    padding-left: 20px;
+    font-weight:lighter;
+    color: rgb(168, 167, 167);
+}
+.barchart{
+    border: solid 1px rgb(168, 167, 167) ;
+    border-top:  solid 2px rgb(128, 207, 238);
+}
+.linechart{
+    width: 400px;
+    height: 400px;
+}
+#heartchart{
+    width:170%;
+    margin:0 auto;
+    height:380px;
+    margin-top: 30px;
+    padding-left: 10px;
+   
+}
+.stateanalysis{
+    margin-top: 40px;
+}
+#barchart1{
+    width: 250px;
+    height: 400px;
+
+}
+#barchart2{
+    width: 250px;
+    height: 400px;
+}
+.statistics1{
+    font-weight: 25px;
+    color: rgb(158, 34, 34);
+    padding-left: 45px;
+}
+.statistics2{
+    font-weight: 25px;
+    color: rgb(91, 178, 212);
+    padding-left: 50px;
+}
+.list{
+    border: solid 1px rgb(168, 167, 167);
+    border-top: solid 2px rgb(62, 135, 163);
+}
+.listing{
+    size: 10px;
+}
+.patientlist{
+    margin-top: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.patient{
+    font-weight: bold;
+    size: 8px;
 }
