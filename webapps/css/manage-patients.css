@@ -46,6 +46,9 @@
 .link-btn:hover,.user-create:hover{
     background-color: blue;border:none;
 }
+#zipCode{
+    font-size: 14px;
+}
 .name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field{
     color:red;font-size:12px;display:none;
 }

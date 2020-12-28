@@ -87,7 +87,7 @@ console.log("add user",inputObj);
                 $('#patientModal').hide();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
                 successMsg("Patients Added Successfully!");
-                // loadStudentList();
+                loadAssetList();
             },
             error: function (e) {
 
@@ -166,6 +166,14 @@ function loadAssetList() {
             }
         },
         {
+            mData: 'age',
+            sTitle: 'Age',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
             title: 'Status',
             sTitle: 'Status',
             orderable: false,
@@ -217,7 +225,7 @@ function loadAssetList() {
             sTitle: 'Actions',
             orderable: false,
             mRender: function (data, type, row) {
-                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true"></i>';
+                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
         }
     ];
@@ -320,18 +328,20 @@ function loadAssetList() {
 
 var patient1=null;
 function editPatient(row){
-    console.log(row);
+    // console.log("row",row);
     sid=row;
     flag=true;
     for(var i=0;i<patient_list.length;i++){
        if(patient_list[i]._id==row){
            patient1= patient_list[i];
            $('#patient_name').val(patient1.patient_name);
-           $('#dob').val(patient1.dob);
-           $('#address').val(patient1.address);
-           $('#city').val(patient1.city);
-           $('#state').val(patient1.state);
-           $('#country').val(patient1.country);
+           $('.editAge').val(patient1.dob );
+           $('#editCity').val(patient1.city);
+           $('#editState').val(patient1.state);
+           $('#editZipCode').val(patient1.editZipCode);
+           $('#editAddress').val(patient1.address);
+           $('#editCountry').val(patient1.country);
+
            console.log(patient1);
        }
     }
@@ -349,13 +359,13 @@ function deletePatient(row){
         type: 'POST',
         success: function (result) {
             //Success -> Show Alert & Refresh the page
-            successMsg(" deleted Successfully!");
-            loadStudentList();
+            successMsg("Patient Deleted Successfully!");
+            loadAssetList();
         },
         error: function (e) {
 
             //Error -> Show Error Alert & Reset the form
-            errorMsg("Registration Failed!");
+            errorMsg("Patient Deleted Failed!");
             // window.location.reload();
         }
     });
