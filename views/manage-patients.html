@@ -49,6 +49,7 @@
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Name</label>
                         <input type="text" class="form-control" id="patientName">
+                        <span class="name-field">Name is Required!</span>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Gender</label>
@@ -61,33 +62,42 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Age</label><br>
-                        <input type="text" class="form-control" id="datepicker" class="dob"></p>
+                        <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob"></p>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">City</label>
                         <input type="text" class="form-control" id="city">
+                        <span class="city-field">City is Required!</span>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">State</label>
                         <input type="text" class="form-control" id="state">
+                        <span class="state-field">State is Required!</span>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Zip Code</label>
-                        <input type="text" class="form-control" id="usr">
+                        <input type="text" class="form-control" id="zipCode">
+                        <span class="zip-field">Zipcode is Required!</span>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label for="usr" class="modal-txt">Address</label>
                         <textarea type="text" class="form-control" id="address"></textarea>
+                        <span class="addr-field">Address is Required!</span>
                     </div>
+                    <div class="col-md-6">
+                      <label for="usr" class="modal-txt">Country</label>
+                      <input type="text" class="form-control" id="country">
+                      <span class="country-field">Country is Required!</span>
+                  </div>
             </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success user-create" data-dismiss="modal" onclick="patientRegistration()">Create</button>
+                <button type="button" class="btn btn-success user-create" onclick="patientRegistration()">Create</button>
             </div>
         </div>
 
@@ -147,7 +157,7 @@
                         <input type="text" class="form-control" id="patient_name">
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Gender</label>
+                        <label for="usr" class="modal-txt">Select</label>
                         <select class="form-control"> 
                             <option>Male</option> 
                             <option>Female</option> 
@@ -171,7 +181,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Zip Code</label>
-                        <input type="text" class="form-control" id="usr">
+                        <input type="text" class="form-control" id="zipCode">
                     </div>
                 </div>
                 <div class="row patient-row-modal">

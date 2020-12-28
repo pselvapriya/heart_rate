@@ -11,35 +11,69 @@ $(document).ready(function(){
 function patientRegistration(){
     if(flag==false){
     var patient_name = $("#patientName").val();
-    var dob = $("#dob").val();
+    selectDate = $("#datepicker[name=datepicker]").val();
+    console.log("selectDate",selectDate);
+    var DOB = new Date(selectDate);
+    var today = new Date();
+    var age = today.getTime() - DOB.getTime();
+    age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
+    console.log(age);
+    // var dob = $(".dob").val();
     var address = $("#address").val();
     var city = $("#city").val();
     var state = $("#state").val();
     var country = $("#country").val();
-
+    var zipcode = $("#zipCode").val();
+   
     //Validate
     if(patient_name === ""){
 
-        alert("Patient Name is Required!");
+        $('.name-field').css('display','block');
+        $('.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
 
-    }else if(dob === ""){
+    }else if(city === ""){
 
-        alert("Age is Required!");
+        $('.city-field').css('display','block');
+        $('.name-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(state === ""){
+
+        $('.state-field').css('display','block');
+        $('.name-field,.city-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(zipcode === ""){
+
+        $('.zip-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
 
     }else if(address === ""){
 
-        alert("Address is Required!");
+        $('.addr-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.country-field').css('display','none');
+        $('#patientModal').show();
 
-    }else{
+    }else if(country === ""){
+
+        $('.country-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.addr-field').css('display','none');
+        $('#patientModal').show();
+
+    }
+    else{
 
         //Build Input Objects
         var inputObj = {
             patient_name : patient_name,
-            dob : dob,
+            dob : age,
             address : address,
             city : city,
             state : state,
             country : country,
+            zipcode : zipcode,
             created_ts : new Date().getTime()
         };
 console.log("add user",inputObj);
@@ -50,15 +84,16 @@ console.log("add user",inputObj);
             contentType: "application/json",
             type: 'POST',
             success: function (result) {
-
+                $('#patientModal').hide();
+                $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
                 //Success -> Show Alert & Refresh the page
-                successMsg("Registration Completed Successfully!");
-                loadStudentList();
+                successMsg("Patients Added Successfully!");
+                // loadStudentList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Registration Failed!");
+                errorMsg("Patients Added Failed!");
                 window.location.reload();
             }
         });
@@ -66,7 +101,7 @@ console.log("add user",inputObj);
 }
 else if(flag==true){
      patient_name = $("#patient_name").val();
-     dob = $("#dob").val();
+    //  dob = $("#dob").val();
      address = $("#address").val();
      city = $("#city").val();
      state = $("#state").val();
@@ -76,7 +111,7 @@ else if(flag==true){
 
             var updateData ={
                 patient_name : patient_name,
-                dob : dob,
+                dob : age,
                address : address,
                 city : city,
                  state : state,
