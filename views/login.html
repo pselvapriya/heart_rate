@@ -20,7 +20,10 @@
 	<base href="<%=config.url%>/">
 </head>
 
-<body>
+<body> 
+    <input type="hidden" value="<%=basePath%>" id="BASE_PATH" />
+    <input type="hidden" value="<%=config.url%>" id="BASE_URL" />
+    <input type="hidden" id="API_URL" value="<%= config.appApiUrl %>" />
 	<div class="container-fluid">
         <div class="row about">   
              <div class="col-md-8 bgheart position-relative">
@@ -47,17 +50,19 @@
                     <div class="logo">
                      <img src="/images/vilpowerLogo.png">
                      </div>
-                    <div class="form">    
-                     <label for="eid">EmailId:</label><br>
-                     <input type="text" id="eid" name="eid" value="vilpower@boodskap.io"class="name"><br>
-                     <label for="pword">Password:</label><br>
-                     <input type="Password" id="pword" name="pword" value="welcome123"class="password"><br><br>
+                    <div class="form"> 
+                        <form autocomplete="off" action=javascript:void(0) onsubmit="login()">   
+                     <label for="emailId">EmailId:</label><br>
+                     <input type="text" id="emailId" name="emailId" class="name" required><br>
+                     <label for="password">Password:</label><br>
+                     <input type="password" id="password" name="password" class="name" required><br><br>
                      <input type="checkbox" id="remember" name="remember" value="Me">
                      <label for="remember">Remember me</label><br>
-                     <button type="button" class="btn btn-primary login-btn" onclick="gotoHome()">Sign me in</button>
-					</div>
+                     <button type="submit" class="btn btn-primary login-btn">Sign me in</button>
+                    </div>
+                </form>
 					<div class="click">
-						Not a remember yet?<a href="#">click here</a>.<br> 
+						<a>Not a remember yet?<a href="#">click here</a>.<br> 
 					</div>  
                     <div class="team">
                         <a href="#" class="text-warning textColor">Terms &amp; Conditions</a>
@@ -72,9 +77,23 @@
                 </div>     
         </div>
     </div>
-
+    <script src="library/plugin/jquery/jquery-3.2.1.min.js"></script>
+    <script src="library/plugin/popper/popper.min.js"></script>
+    <script src="library/plugin/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="plugins/code/build/js/intlTelInput.js"></script>
+    <script src="plugins/moment.js"></script>
+    <script src="plugins/sweetalert2.all.js"></script>
+    <script src="plugins/js.cookie.js"></script>
+    <!-- <script src="plugins/particles.min.js"></script> -->
+    
+    <script>
+        var API_URL = $("#API_URL").val();
+    </script>
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 
 </html>
 
-<script src="/js/login.js"></script>
+
