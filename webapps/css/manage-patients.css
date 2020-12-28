@@ -1,6 +1,6 @@
 .patient-expand-btn {
     border-radius: 100%;
-    border: none;
+    border: none;cursor: pointer;
 }
 
 .patient-repeat-btn {

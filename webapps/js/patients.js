@@ -354,25 +354,3 @@ function deletePatient(row){
 
     
 
-function deletePatient(row){
-    console.log(row);
-
-    $.ajax({
-        url: BASE_PATH+"/patient/delete",
-        data: JSON.stringify({_id:row}),
-        contentType: "application/json",
-        type: 'POST',
-        success: function (result) {
-            //Success -> Show Alert & Refresh the page
-            successMsg(" deleted Successfully!");
-            loadStudentList();
-        },
-        error: function (e) {
-
-            //Error -> Show Error Alert & Reset the form
-            errorMsg("Registration Failed!");
-            // window.location.reload();
-        }
-    });
-
-}
