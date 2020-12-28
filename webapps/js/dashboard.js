@@ -356,18 +356,35 @@ $(function() {
     cb(start, end);
 
 }); 
+function myFunction() {
+    var x = document.getElementById("contt");
+    if (x.style.display === "block") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "block";
+    }
+}
+
+function hideFunction() {
+    var x = document.getElementById("contt");
+    if (x.style.display === "none") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "none";
+    }
+}
 //barchart1
 var myChart = echarts.init(document.querySelector('#barchart1'));
 option = {
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu']
+        data: ['Mon', 'Tue', 'Wed'  ]
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        data: [120, 200, 150, 80],
+        data: [120, 200, 150],
         type: 'bar'
     }]
 };
@@ -377,13 +394,13 @@ var myChart = echarts.init(document.querySelector('#barchart2'));
 option = {
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu']
+        data: ['Mon', 'Tue', 'Wed']
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        data: [120, 200, 150, 80],
+        data: [120, 200, 150],
         type: 'bar'
     }]
 };
