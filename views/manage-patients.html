@@ -31,8 +31,8 @@
     </div>
 </div>
 
-<!-- <link ref="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
-<script src="/js/manage-patients.js"></script>
+
+
 
 
 <!-- patients added modal -->
@@ -48,7 +48,7 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Name</label>
-                        <input type="text" class="form-control" id="usr">
+                        <input type="text" class="form-control" id="patientName">
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Gender</label>
@@ -61,17 +61,17 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Age</label><br>
-                        <input type="text" class="form-control" id="datepicker"></p>
+                        <input type="text" class="form-control" id="datepicker dob"></p>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">City</label>
-                        <input type="text" class="form-control" id="usr">
+                        <input type="text" class="form-control" id="city">
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">State</label>
-                        <input type="text" class="form-control" id="usr">
+                        <input type="text" class="form-control" id="state">
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Zip Code</label>
@@ -81,13 +81,13 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-12">
                         <label for="usr" class="modal-txt">Address</label>
-                        <textarea type="text" class="form-control" id="usr"></textarea>
+                        <textarea type="text" class="form-control" id="address"></textarea>
                     </div>
             </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success user-create" data-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-success user-create" data-dismiss="modal" onclick="patientRegistration()">Create</button>
             </div>
         </div>
 
@@ -118,12 +118,7 @@
                 <div class="row" style="margin-top:20px;">
                     <div class="col-md-12">
                         <label for="usr" class="modal-txt">Patients Id</label>
-                        <select class="form-control"> 
-              <option>Patient1</option> 
-              <option>Patient2</option> 
-              <option>Patient3</option> 
-              <option>Patient4</option> 
-              </select>
+                        <input type="text" class="form-control" id="usr">
                     </div>
                 </div>
             </div>
@@ -194,3 +189,5 @@
 
     </div>
 </div>
+<script src="js/manage-patients.js"></script>
+<script src="js/patients.js"></script>
