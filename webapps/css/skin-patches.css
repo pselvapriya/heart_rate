@@ -3,7 +3,7 @@
 }
 .patches-txt{
     font-size: 13px;
-    margin-bottom: 7px;
+    margin-bottom: 7px;padding-left: 0;
 }
 .row-bottom{
     border-bottom:4px solid blueviolet;
