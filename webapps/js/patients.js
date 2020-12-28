@@ -18,17 +18,17 @@ function patientRegistration(){
     var country = $("#country").val();
 
     //Validate
-    if(sname === ""){
+    if(patient_name === ""){
 
-        alert("Student Name is Required!");
+        alert("Patient Name is Required!");
 
-    }else if(department === ""){
+    }else if(age === ""){
 
-        alert("Department is Required!");
+        alert("Age is Required!");
 
-    }else if(location === ""){
+    }else if(address === ""){
 
-        alert("Location is Required!");
+        alert("Address is Required!");
 
     }else{
 

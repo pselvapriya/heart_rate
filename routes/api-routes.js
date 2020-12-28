@@ -3,11 +3,8 @@ var Boodskap = require("../modules/boodskap");
 var Commons = require("../modules/common");
 var Tables = require("../modules/tables");
 
-var Pstatus = require("../modules/patientstatus");
+var Patientstatus = require("../modules/patientstatus");
 var Phistory = require("../modules/patienthistory");
-
-
-
 
 var Patientasset = require("../modules/patient");
 
@@ -20,7 +17,7 @@ var APIRoutes = function (app,router) {
     this.common = new Commons(app);
     this.table = new Tables(app);
     this.patientasset = new Patientasset(app);
-    this.pstatus = new Pstatus(app);
+    this.patientstatus = new Patientstatus(app);
     this.phistory = new Phistory(app);
     
 
@@ -71,7 +68,7 @@ APIRoutes.prototype.init = function () {
         self.patientasset.performAction(req,res);
     });
     self.router.post('/patientstatus/:action', sessionCheck, function (req, res) {
-        self.pstatus.performAction(req,res);
+        self.patientstatus.performAction(req,res);
     });
     self.router.post('/patienthistory/:action', sessionCheck, function (req, res) {
         self.phistory.performAction(req,res);
