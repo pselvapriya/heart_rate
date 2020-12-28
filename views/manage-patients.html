@@ -10,17 +10,17 @@
             </div>
         </div>
         <div class="container-fluid" style="background-color: white;">
-        <div class="row second-row">
-            <div class="col-md-6">
-                <p class="total-patches">Total Patients: <span>5</span></p>
-            </div>
-            <div class="col-md-6 text-right">
-                <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patients</button>
-                <button class="patient-expand-btn"><i class="fa fa-expand"></i></button>
-            <button class="patient-repeat-btn"><i class="fa fa-repeat"></i></button>
+            <div class="row second-row">
+                <div class="col-md-6">
+                    <p class="total-patches">Total Patients: <span>5</span></p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patients</button>
+                    <button class="patient-expand-btn" onclick="patientExpand()"><i class="fa fa-expand"></i></button>
+                    <button class="patient-repeat-btn"><i class="fa fa-repeat"></i></button>
+                </div>
             </div>
         </div>
-    </div>
         <div class="row" style="margin-top:10px;">
             <div class="col-md-12" style="float:right;">
                 <!-- <button type="button" class="btn add-patch-btn"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patients</button>
@@ -28,133 +28,130 @@
                 <table id="managePatient" class="display table table-bordered responsive" width="100%"></table>
             </div>
         </div>
-        </div>
     </div>
-    
-    <!-- <link ref="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
-    <script src="/js/manage-patients.js"></script>
-   
-    <!-- patients link device modal -->
-    <div class="modal fade" id="patientModal" role="dialog">
-        <div class="modal-dialog">
+</div>
+
+<!-- <link ref="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
+<script src="/js/manage-patients.js"></script>
+
+<!-- patients link device modal -->
+<div class="modal fade" id="patientModal" role="dialog">
+    <div class="modal-dialog">
         <!-- Modal content-->
-         <div class="modal-content modal-div">
+        <div class="modal-content modal-div">
             <div class="modal-header">
-            <h4 class="modal-title user-add-header text-left">Create User</h4>
-            <button type="button" class="close" style="float: right;" data-dismiss="modal">&times;</button>
-              </div>
-            <div class="modal-body">
-              <div class="row patient-row-modal">
-                  <div class="col-md-6">
-                    <label for="usr" class="modal-txt">Patient Name</label>
-                    <input type="text" class="form-control" id="usr">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="usr" class="modal-txt">Patient Addedss</label>
-                    <input type="text" class="form-control" id="usr">
-                  </div>
-              </div>
-              <div class="row patient-row-modal">
-                <div class="col-md-6">
-                  <label for="usr" class="modal-txt">Patient City</label>
-                  <input type="text" class="form-control" id="usr">
-                </div>
-                <div class="col-md-6">
-                  <label for="usr" class="modal-txt">Age</label>
-                  <input type="text" class="form-control" id="usr">
-                </div>
+                <h4 class="modal-title user-add-header text-left">Create User</h4>
+                <button type="button" class="close" style="float: right;" data-dismiss="modal">&times;</button>
             </div>
+            <div class="modal-body">
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient Name</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient Addedss</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient City</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Age</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success user-create" data-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success user-create" data-dismiss="modal">Create</button>
             </div>
-          </div>
-          
         </div>
-      </div>
 
-      <!-- added new patients modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+    </div>
+</div>
+
+<!-- added new patients modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
         <!-- Modal content-->
-         <div class="modal-content modal-div">
+        <div class="modal-content modal-div">
             <div class="modal-header">
-              <h4 class="modal-title user-add-header text-center">Link Device</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title user-add-header text-center">Link Device</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <div class="row">
-                  <div class="col-md-12">
-                    <label for="usr" class="modal-txt">Device List</label>
-                    <select class="form-control"> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="usr" class="modal-txt">Device List</label>
+                        <select class="form-control"> 
                 <option>Device1</option> 
                 <option>Device2</option> 
                 <option>Device3</option> 
                 <option>Device4</option> 
-                </select> 
-                  </div>
-              </div>
-              <div class="row" style="margin-top:20px;">
-                <div class="col-md-12">
-                  <label for="usr" class="modal-txt">Patients Id</label>
-                  <select class="form-control"> 
+                </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-12">
+                        <label for="usr" class="modal-txt">Patients Id</label>
+                        <select class="form-control"> 
               <option>Patient1</option> 
               <option>Patient2</option> 
               <option>Patient3</option> 
               <option>Patient4</option> 
-              </select> 
+              </select>
+                    </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success link-btn" data-dismiss="modal">Link</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- edited patients modal -->
+<div class="modal fade" id="editModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content modal-div">
+            <div class="modal-header">
+                <h4 class="modal-title user-add-header text-center">Edit Patient</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient Name</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient Address</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient City</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Patient Addedss</label>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success link-btn" data-dismiss="modal">Link</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success link-btn" data-dismiss="modal">Update</button>
             </div>
-          </div>
-          
         </div>
-      </div>
 
-       <!-- edited patients modal -->
-    <div class="modal fade" id="editModal" role="dialog">
-      <div class="modal-dialog">
-      <!-- Modal content-->
-       <div class="modal-content modal-div">
-          <div class="modal-header">
-            <h4 class="modal-title user-add-header text-center">Edit Patient</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <div class="row patient-row-modal">
-              <div class="col-md-6">
-                <label for="usr" class="modal-txt">Patient Name</label>
-                <input type="text" class="form-control" id="usr">
-              </div>
-              <div class="col-md-6">
-                <label for="usr" class="modal-txt">Patient Address</label>
-                <input type="text" class="form-control" id="usr">
-              </div>
-          </div>
-          <div class="row patient-row-modal">
-            <div class="col-md-6">
-              <label for="usr" class="modal-txt">Patient City</label>
-              <input type="text" class="form-control" id="usr">
-            </div>
-            <div class="col-md-6">
-              <label for="usr" class="modal-txt">Patient Addedss</label>
-              <input type="text" class="form-control" id="usr">
-            </div>
-        </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success link-btn" data-dismiss="modal">Update</button>
-          </div>
-        </div>
-        
-      </div>
     </div>
-
-
-      
+</div>

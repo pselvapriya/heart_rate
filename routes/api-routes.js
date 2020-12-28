@@ -2,29 +2,32 @@ var Utils = require("../modules/utils");
 var Boodskap = require("../modules/boodskap");
 var Commons = require("../modules/common");
 var Tables = require("../modules/tables");
-var Patient = require("../modules/patients");
-var Pstatus = require("../modules/patientstatus");
-var Phistory = require("../modules/patienthistory");
 var Devicelist = require("../modules/devicelist");
+var Patientstatus = require("../modules/patientstatus");
+var Phistory = require("../modules/patienthistory");
 
-var APIRoutes = function(app, router) {
+var Patientasset = require("../modules/patient");
+
+var APIRoutes = function (app,router) {
+
     this.app = app;
     this.router = router;
     this.conf = app.conf;
-
     this.utils = new Utils(app);
     this.common = new Commons(app);
     this.table = new Tables(app);
-    this.patient = new Patient(app);
-    this.pstatus = new Pstatus(app);
+    this.patientasset = new Patientasset(app);
+    this.patientstatus = new Patientstatus(app);
     this.phistory = new Phistory(app);
     this.devicelist = new Devicelist(app);
 
     this.init();
 };
+
 module.exports = APIRoutes;
 
-APIRoutes.prototype.init = function() {
+APIRoutes.prototype.init = function () {
+
     const self = this;
 
     var sessionCheck = function(req, res, next) {
@@ -51,19 +54,20 @@ APIRoutes.prototype.init = function() {
             res.json({ status: true });
         });
     });
-    self.router.post("/patient/:action", sessionCheck, function(req, res) {
-        self.patient.performAction(req, res);
+    console.log("route");
+
+    self.router.post('/patient/:action', sessionCheck, function (req, res) {
+    
+        self.patientasset.performAction(req,res);
     });
-    self.router.post("/patientstatus/:action", sessionCheck, function(req, res) {
-        self.pstatus.performAction(req, res);
+    self.router.post('/patientstatus/:action', sessionCheck, function (req, res) {
+        self.patientstatus.performAction(req,res);
     });
-    self.router.post(
-        "/patienthistory/:action",
-        sessionCheck,
-        function(req, res) {
-            self.phistory.performAction(req, res);
-        }
-    );
+    self.router.post( "/patienthistory/:action",sessionCheck, function(req, res) {
+
+     self.phistory.performAction(req, res);
+        } );
+   
 
     // devicelist================================================
     self.router.get("/devicelist/:action", sessionCheck, function(req, res) {
@@ -71,5 +75,4 @@ APIRoutes.prototype.init = function() {
         self.devicelist.performAction(req, res);
     });
 
-    self.app.use(self.app.conf.web.basepath, self.router);
 };
