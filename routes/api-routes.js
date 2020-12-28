@@ -2,7 +2,7 @@ var Utils = require("../modules/utils");
 var Boodskap = require("../modules/boodskap");
 var Commons = require("../modules/common");
 var Tables = require("../modules/tables");
-
+var Devicelist = require("../modules/devicelist");
 var Patientstatus = require("../modules/patientstatus");
 var Phistory = require("../modules/patienthistory");
 
