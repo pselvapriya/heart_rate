@@ -6,12 +6,13 @@ var sid;
 $(document).ready(function(){
     loadAssetList();
 });
-// patient Registration API
+// create patients API
 
 function patientRegistration(){
     if(flag==false){
     var patient_name = $("#patient_name").val();
     var dob = $("#dob").val();
+    var gender = $("#gender").val();
     var address = $("#address").val();
     var city = $("#city").val();
     var state = $("#state").val();
@@ -52,13 +53,13 @@ function patientRegistration(){
             success: function (result) {
 
                 //Success -> Show Alert & Refresh the page
-                successMsg("Registration Completed Successfully!");
+                successMsg("created patient Successfully!");
                 loadStudentList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Registration Failed!");
+                errorMsg(" Failed!");
                 window.location.reload();
             }
         });
@@ -98,7 +99,7 @@ else if(flag==true){
                 error: function (e) {
         
                     //Error -> Show Error Alert & Reset the form
-                    errorMsg("Registration Failed!");
+                    errorMsg("update Failed!");
                     //window.location.reload();
                 }
             });
@@ -112,7 +113,7 @@ function loadAssetList() {
 
 if (PatientTable) {
     PatientTable.destroy();
-    $("#patient_table").html("");
+    $("#managePatient").html("");
 }
 
 var fields = [
@@ -305,7 +306,7 @@ var tableOption = {
         }
     };
 
-    PatientTable = $("#passet_table").DataTable(tableOption);
+    PatientTable = $("#managePatient").DataTable(tableOption);
 }
 
 var patient1=null;
