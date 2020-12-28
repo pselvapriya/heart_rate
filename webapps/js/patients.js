@@ -100,24 +100,24 @@ console.log("add user",inputObj);
 }
 else if(flag==true){
      patient_name = $("#patient_name").val();
-    //  dob = $("#dob").val();
-     address = $("#address").val();
-     city = $("#city").val();
-     state = $("#state").val();
-     country = $("#country").val();
-
-            created_ts = new Date().getTime()
-
-            var updateData ={
-                patient_name : patient_name,
-                dob : age,
-               address : address,
-                city : city,
-                 state : state,
-                country : country,
-                created_ts : new Date().getTime()
-
-            };
+     dob = $(".editAge").val();
+     city = $("#editCity").val();
+     state = $("#editState").val();
+     zipcode = $("#editZipCode").val();
+     address = $("#editAddress").val();
+     country = $("#editCountry").val();
+     
+    created_ts = new Date().getTime()
+    var updateData ={
+        patient_name : patient_name,
+        dob : dob,
+        city : city,
+        state : state,
+        zipcode : zipcode,
+        address : address,
+        country : country,
+        created_ts : new Date().getTime()
+    };
             console.log(updateData);
             $.ajax({
                 url: BASE_PATH+"/patient/update",
@@ -126,13 +126,13 @@ else if(flag==true){
                 type: 'POST',
                 success: function (result) {
                     //Success -> Show Alert & Refresh the page
-                    successMsg("update Successfully!");
+                    successMsg("Patient Updated Successfully!");
                     loadAssetList();
                 },
                 error: function (e) {
         
                     //Error -> Show Error Alert & Reset the form
-                    errorMsg("Registration Failed!");
+                    errorMsg("Patient Updated Failed!");
                     //window.location.reload();
                 }
             });
