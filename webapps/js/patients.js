@@ -1,10 +1,12 @@
 var PatientTable = null;
 var patient_list = [];
+var flag=false;
+var sid;
+
 console.log(patient_list);
 $(document).ready(function(){
-    loadPatientList();
+    loadAssetList();
 });
-
 // patient Registration API
 
 function patientRegistration(){
@@ -284,6 +286,52 @@ function editPatient(row){
 
 //delete Api
 
+                patient_list = resultData.data;
+function deletePatient(row){
+    console.log(row);
+
+    $.ajax({
+        url: BASE_PATH+"/patient/delete",
+        data: JSON.stringify({_id:row}),
+        contentType: "application/json",
+        type: 'POST',
+        success: function (result) {
+            //Success -> Show Alert & Refresh the page
+            successMsg(" deleted Successfully!");
+            loadStudentList();
+        },
+        error: function (e) {
+
+            //Error -> Show Error Alert & Reset the form
+            errorMsg("Registration Failed!");
+            // window.location.reload();
+        }
+    });
+
+PatientTable = $("#patient_table").DataTable(tableOption);
+}
+
+var patient1=null;
+function editPatient(row){
+    console.log(row);
+    sid=row;
+    flag=true;
+    for(var i=0;i<patient_list.length;i++){
+       if(patient_list[i]._id==row){
+           patient1= patient_list[i];
+           $('#patient_name').val(patient1.patient_name);
+           $('#dob').val(patient1.dob);
+           $('#address').val(patient1.address);
+           $('#city').val(patient1.city);
+           $('#state').val(patient1.state);
+           $('#country').val(patient1.country);
+           console.log(patient1);
+       }
+    }
+}
+
+//delete Api
+
 function deletePatient(row){
     console.log(row);
 
@@ -306,7 +354,3 @@ function deletePatient(row){
     });
 
 }
-
-    
-
-
