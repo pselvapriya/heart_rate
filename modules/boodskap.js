@@ -261,7 +261,6 @@ Boodskap.prototype.devicelist = function(cbk) {
     const self = this;
     var limit = 15;
     var url = `${self.API_URL}/device/list/${self.API_TOKEN}/${limit}`;
-
     request.get({
             uri: url,
             headers: { "content-type": "application/json" },
