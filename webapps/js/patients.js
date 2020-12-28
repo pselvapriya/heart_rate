@@ -86,7 +86,6 @@ console.log("add user",inputObj);
             success: function (result) {
                 $('#patientModal').hide();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
-                //Success -> Show Alert & Refresh the page
                 successMsg("Patients Added Successfully!");
                 // loadStudentList();
             },
