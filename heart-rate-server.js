@@ -68,6 +68,8 @@ app.use('/css', express.static(__dirname + '/webapps/css', options));
 app.use('/images', express.static(__dirname + '/webapps/images', options));
 app.use('/plugins', express.static(__dirname + '/webapps/plugins', options));
 app.use('/fonts', express.static(__dirname + '/webapps/fonts', options));
+app.use('/js', express.static(__dirname + '/webapps/js', options));
+
 
 
 var controllerOptions = {

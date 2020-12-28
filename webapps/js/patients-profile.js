@@ -43,9 +43,9 @@ function hideFunction() {
 
 
 var dataSet = [
-    ["Malli", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
-    ["Kowsi", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
-    ["Raja", "Kadayam", "123", "High", "running", "12003", "6.12am"],
+    ["Malli", "09/08/1999", "21", "Female", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
+    ["Kowsi", "18/04/1999", "21", "Female", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
+    ["Raja", "31/03/1999", "21", "male", "Kadayam", "123", "High", "running", "12003", "6.12am"],
 
 ];
 
@@ -53,7 +53,10 @@ $(document).ready(function() {
     $('#patients_profile').DataTable({
         data: dataSet,
         columns: [
-            { title: "Name" },
+            { title: "Patient-Name" },
+            { title: "DOB" },
+            { title: "Age" },
+            { title: "Gender" },
             { title: "Address" },
             { title: "Heart Rate" },
             { title: "Status" },
@@ -63,14 +66,4 @@ $(document).ready(function() {
 
         ]
     });
-});
-$(".js-range-slider").ionRangeSlider({
-    skin: "flat",
-    grid: true,
-    min: 0,
-    max: 100,
-    from: 21,
-    max_postfix: "+",
-    prefix: "Age: ",
-    postfix: " years"
 });

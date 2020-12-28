@@ -6,9 +6,15 @@
     margin-bottom: 7px;
 }
 .row-bottom{
-    border-bottom:2px solid blueviolet;
+    border-bottom:4px solid blueviolet;
     margin: 0;
     margin: 10px auto;
+}
+.arrow-icon{
+    transform: rotate(125deg);
+}
+.icon-div{
+    background-color: lightgray;height: 35px;width:20px;float:right;
 }
 .col-device{
     padding: 0 0;
@@ -19,8 +25,8 @@
 .second-row{
     margin:7px 0 0 0;
 }
-.add-patch-btn{
-    background-color: lightgrey;
+.add-patch-btn,.refresh-btn{
+    background-color: lightgray;
 }
 .srch-txt{
     font-size: 12px;
@@ -62,4 +68,18 @@ background-color: white !important;border:1px solid lightgrey!important;
 #example_length select{
     border:1px solid lightgrey!important;
     background-color: white !important;
+}
+.icon-table{
+    font-size: 16px;cursor:pointer;
+}
+.expand-btn {
+    border-radius: 100%;
+    border: none;cursor: pointer;
+}
+
+.repeat-btn {
+    background-color: black;
+    border-radius: 100%;
+    border: none;
+    color: white;
 }
