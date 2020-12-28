@@ -51,24 +51,24 @@
                   <option value="low">low</option>
                   <option value="normal">normal</option>
                 </select>
-                <button class="fill"><i class="fa fa-trash" aria-hidden="true"></i>filter</button>
-               </div>
-               <div class="row head3">
-                 <div class="col-2 data">
-                   <div class="Bio-data">
-               <div  class="  img"><img src="/images/Capture.PNG" alt=""></div> 
-               <div class="personal"><b>Easton alvarez</b></div>
-             <div class="personal">08/05/1925<span class="year">-94 years old</span></div>  
-              <div class="personal"> 57 stillwell avenue scotts wills</div>
-              <div class="personal">oregon us 97375</div> 
-              <div class="personal"><i class="fa fa-phone" aria-hidden="true"></i>978784707</div> 
-              <div class="personal">alvarez@mail.com</div> 
-              <div>127 <span class="Bpm">BPM</span> </div> 
-              <div class="personal"> range 04-108</div>
-              <div class="time">06/27/2019 07:07:10pm</div> 
-              <div class="reported"><i class="fa fa-clock-o time1" aria-hidden="true"></i>last reported time</div> 
-              <div class="Running">Running</div> 
-              </div> 
+            <button class="fill"><i class="fa fa-trash" aria-hidden="true"></i>filter</button>
+        </div>
+        <div class="row head3">
+            <div class="col-2 data">
+                <div class="Bio-data">
+                    <div class="  img"><img src="/images/Capture.PNG" alt=""></div>
+                    <div class="personal"><b>Easton alvarez</b></div>
+                    <div class="personal">08/05/1925<span class="year">-94 years old</span></div>
+                    <div class="personal"> 57 stillwell avenue scotts wills</div>
+                    <div class="personal">oregon us 97375</div>
+                    <div class="personal"><i class="fa fa-phone" aria-hidden="true"></i>978784707</div>
+                    <div class="personal">alvarez@mail.com</div>
+                    <div>127 <span class="Bpm">BPM</span> </div>
+                    <div class="personal"> range 04-108</div>
+                    <div class="time">06/27/2019 07:07:10pm</div>
+                    <div class="reported"><i class="fa fa-clock-o time1" aria-hidden="true"></i>last reported time</div>
+                    <div class="Running">Running</div>
+                </div>
             </div>
               <div class="col-10 pro" >
                   <div class="row">
@@ -88,6 +88,9 @@
             <script src="js/snap.js"></script>
     
 
+        </div>
+    </div>
+</div>
 
 
 
@@ -102,7 +105,7 @@
             trigger: 'axis'
         },
         xAxis: {
-            data: echartdata.map(function (item) {
+            data: echartdata.map(function(item) {
                 return item[0];
             })
         },
@@ -149,7 +152,7 @@
         series: {
             name: 'Beijing AQI',
             type: 'line',
-            data: echartdata.map(function (item) {
+            data: echartdata.map(function(item) {
                 return item[1];
             }),
             markLine: {
@@ -168,6 +171,4 @@
             }
         }
     });
-
-      </script>
-    
+</script>

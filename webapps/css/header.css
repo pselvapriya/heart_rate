@@ -13,6 +13,13 @@
 .profile-img{
     width:20px;height:20px;
 }
+.profile-img1{
+  position: relative;
+    width: 30px;top: 8px;
+    height: 30px;
+    left: 60px;
+    border-radius: 20px;
+}
 .head-tag{
   font-size: 13px !important;
   color: black !important;
@@ -22,11 +29,20 @@
   height:20px;width:20px;
 }
 .profile-col{
-  max-width: 86%;
-    height: 104px;
+  /* max-width: 86%; */
+    height: 132px;
 }
 .user-txt{
-  padding-left: 10px;
+  text-align: center;margin:7px 0 0 0;
+}
+.logout-btn{
+  height: 30px;
+    padding-top: 2px;border:none;
+    left: 42px;background-color: blue;
+    position: relative;top:10px;
+}
+.logout-btn:hover{
+  border: none;background-color: blue;
 }
 .opne-nav{
   font-size: 20px;
