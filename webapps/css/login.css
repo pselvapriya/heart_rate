@@ -10,28 +10,30 @@
 .login{
     margin-right: 10%;
 }
-.name,.password{
+.name{
     border: 1px solid #f2f3f4;
+    width: 252px;
+    height: 33px;
 }
 .logo img{
     width: 110px;
     margin-top: 100px;
-    margin-left: 110px;
+    margin-left: 147px;
 }
 .form{
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 90px;
     border: none;
     
 }
 .click{
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 90px;
 }
 .team{
     font-size: 10px;
     margin-top: 40px;
-    margin-left: 50px;
+    margin-left: 90px;
 }
 .bar{
  color:#B3A6C4 ;  
@@ -54,7 +56,7 @@
 .boodskap{
     font-size: 10px;
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 90px;
 }
 .login-btn{
     background-color:purple;

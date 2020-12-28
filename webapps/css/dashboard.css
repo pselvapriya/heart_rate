@@ -1,6 +1,44 @@
 .content{
-    
+    border: solid 2px;
     border-top: solid 2px purple;
 
 
+}
+/* .icons{
+    /* padding-right: 35px; */
+    
+/* } */ 
+
+.pie{
+   
+    border-top:solid 2px orange;
+    /* border: solid 2px rgb(114, 114, 114); */
+    width: 400px;
+    border-bottom: solid 2px rgb(114, 114, 114);
+    border-left:solid 2px rgb(114, 114, 114) ;
+    border-right:solid 2px rgb(114, 114, 114) ;
+}
+.data{
+    display: flex;
+}
+.charts{
+    border: solid 2px rgb(114, 114, 114);  
+   
+}
+#chart{
+    width:400px;
+    height:400px;
+    background-color: snow;
+
+}
+#data{
+    width:400px;
+    height:400px;
+    background-color: snow;
+
+}
+.icons{
+    text-align: right;
+    padding-right: 30px;
+    /* padding-bottom: 80px; */
 }

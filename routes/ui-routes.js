@@ -52,7 +52,7 @@ UIRoutes.prototype.init = function () {
 
     self.router.get('/main', function (req, res) {
 
-        res.render('home/home.html', {
+        res.render('dashboard.html', {
             layout: '',
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
