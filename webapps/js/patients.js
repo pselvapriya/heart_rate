@@ -112,7 +112,7 @@ function loadAssetList() {
 
 if (PatientTable) {
     PatientTable.destroy();
-    $("#patient_table").html("");
+    $("#managePatient").html("");
 }
 
 var fields = [
@@ -305,7 +305,7 @@ var tableOption = {
         }
     };
 
-    PatientTable = $("#passet_table").DataTable(tableOption);
+    PatientTable = $("#managePatient").DataTable(tableOption);
 }
 
 var patient1=null;

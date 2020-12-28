@@ -10,6 +10,10 @@ var dataSet = [
 ]
 
 $(document).ready(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker1" ).datepicker();
+
+    
     $('#managePatient_filter').html('<div>' + 'errrr' + '</div>');
     $('#managePatient').DataTable({
         data: dataSet,
@@ -77,7 +81,7 @@ $(document).ready(function() {
 });
 
 var elem = document.documentElement;
-    function patientExpand() {
+    function skinpatchesExpand() {
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
         } else if (elem.webkitRequestFullscreen) { 
