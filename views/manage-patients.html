@@ -31,51 +31,80 @@
     </div>
 </div>
 
-<!-- <link ref="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
-<script src="/js/manage-patients.js"></script>
-<script src="/js/patients.js"></script>
 
-<!-- patients link device modal -->
+
+
+
+<!-- patients added modal -->
 <div class="modal fade" id="patientModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content modal-div">
             <div class="modal-header">
-                <h4 class="modal-title user-add-header text-left">Create User</h4>
+                <h4 class="modal-title user-add-header text-left">Add Patients</h4>
                 <button type="button" class="close" style="float: right;" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient Name</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">Name</label>
+                        <input type="text" class="form-control" id="patientName">
+                        <span class="name-field">Name is Required!</span>
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient Addedss</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">Gender</label>
+                        <select class="form-control"> 
+                            <option>Male</option> 
+                            <option>Female</option> 
+                        </select>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient City</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">Age</label><br>
+                        <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob"></p>
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Age</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">City</label>
+                        <input type="text" class="form-control" id="city">
+                        <span class="city-field">City is Required!</span>
                     </div>
                 </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">State</label>
+                        <input type="text" class="form-control" id="state">
+                        <span class="state-field">State is Required!</span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Zip Code</label>
+                        <input type="number" class="form-control" id="zipCode">
+                        <span class="zip-field">Zipcode is Required!</span>
+                    </div>
+                </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Address</label>
+                        <textarea type="text" class="form-control" id="address"></textarea>
+                        <span class="addr-field">Address is Required!</span>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="usr" class="modal-txt">Country</label>
+                      <input type="text" class="form-control" id="country">
+                      <span class="country-field">Country is Required!</span>
+                  </div>
+            </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success user-create" data-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-success user-create" onclick="patientRegistration()">Create</button>
             </div>
         </div>
 
     </div>
 </div>
 
-<!-- added new patients modal -->
+<!-- Link modal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -99,12 +128,7 @@
                 <div class="row" style="margin-top:20px;">
                     <div class="col-md-12">
                         <label for="usr" class="modal-txt">Patients Id</label>
-                        <select class="form-control"> 
-              <option>Patient1</option> 
-              <option>Patient2</option> 
-              <option>Patient3</option> 
-              <option>Patient4</option> 
-              </select>
+                        <input type="text" class="form-control" id="usr">
                     </div>
                 </div>
             </div>
@@ -129,24 +153,47 @@
             <div class="modal-body">
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient Name</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">Name</label>
+                        <input type="text" class="form-control" id="patient_name">
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient Address</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">Select</label>
+                        <select class="form-control"> 
+                            <option>Male</option> 
+                            <option>Female</option> 
+                        </select>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient City</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">Age</label><br>
+                        <input type="text" class="form-control" id="datepicker1" class="editAge">
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Patient Addedss</label>
-                        <input type="text" class="form-control" id="usr">
+                        <label for="usr" class="modal-txt">City</label>
+                        <input type="text" class="form-control" id="editCity">
                     </div>
                 </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">State</label>
+                        <input type="text" class="form-control" id="editState">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Zip Code</label>
+                        <input type="text" class="form-control" id="editZipCode">
+                    </div>
+                </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-12">
+                        <label for="usr" class="modal-txt">Address</label>
+                        <textarea type="text" class="form-control" id="editAddress"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                      <label for="usr" class="modal-txt">Country</label>
+                      <input type="text" class="form-control" id="editCountry">
+                  </div>
+            </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -156,3 +203,5 @@
 
     </div>
 </div>
+<script src="js/manage-patients.js"></script>
+<script src="js/patients.js"></script>

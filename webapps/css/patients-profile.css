@@ -271,3 +271,6 @@ input[type=range]::-ms-thumb {
     background: #a1d0ff;
     cursor: flat;
 }
+.eye-icon{
+    cursor: pointer;color:blue;
+}

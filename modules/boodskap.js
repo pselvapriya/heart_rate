@@ -265,13 +265,13 @@ Boodskap.prototype.devicelist = function(cbk) {
     // };
     var limit = 15;
     var url = `${self.API_URL}/device/list/${self.API_TOKEN}/${limit}`;
-    // console.log("device list url: ", url);
+//   console.log("device list url: ", url);
     request.get({
             uri: url,
             headers: { "content-type": "application/json" },
         },
         function(err, res, body) {
-            // console.log("body", body);
+            // console.log("body", body,res);
             if (!err) {
                 if (res.statusCode === 200) {
                     // var resultObj = self.utils.elasticQueryFormatter(JSON.parse(body));
