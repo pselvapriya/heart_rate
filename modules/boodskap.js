@@ -259,29 +259,21 @@ Boodskap.prototype.elasticInsert = function(rid, data, cbk) {
 // devicelist=============================================
 Boodskap.prototype.devicelist = function(cbk) {
     const self = this;
-    // var result = {
-    //     status: false,
-    //     data: [],
-    // };
     var limit = 15;
     var url = `${self.API_URL}/device/list/${self.API_TOKEN}/${limit}`;
-    // console.log("device list url: ", url);
+
     request.get({
             uri: url,
             headers: { "content-type": "application/json" },
         },
         function(err, res, body) {
-            // console.log("body", body);
             if (!err) {
                 if (res.statusCode === 200) {
-                    // var resultObj = self.utils.elasticQueryFormatter(JSON.parse(body));
-                    // cbk(true, resultObj);
                     var data = JSON.parse(body);
                     cbk(!!data.length, data);
-                    // console.log("boodskap", result);
+                    console.log("boodskap", cbk);
                 } else {
                     self.logger.error("record search error in platform =>", res.body);
-
                     cbk(false, JSON.parse(body));
                 }
             } else {
