@@ -3,7 +3,6 @@ var patient_list = [];
 var flag=false;
 var sid;
 
-console.log(patient_list);
 $(document).ready(function(){
     loadAssetList();
 });
@@ -19,17 +18,17 @@ function patientRegistration(){
     var country = $("#country").val();
 
     //Validate
-    if(sname === ""){
+    if(patient_name === ""){
 
-        alert("Student Name is Required!");
+        alert("Patient Name is Required!");
 
-    }else if(department === ""){
+    }else if(age === ""){
 
-        alert("Department is Required!");
+        alert("Age is Required!");
 
-    }else if(location === ""){
+    }else if(address === ""){
 
-        alert("Location is Required!");
+        alert("Address is Required!");
 
     }else{
 
@@ -107,133 +106,177 @@ else if(flag==true){
 
     }
 
-// patient list API
+// Patient list API
 
-function loadPatientList() {
+function loadAssetList() {
 
-    if (PatientTable) {
-        PatientTable.destroy();
-        $("#passet_table").html("");
-    }
+if (PatientTable) {
+    PatientTable.destroy();
+    $("#patient_table").html("");
+}
 
-    var fields = [
-        {
-            mData: 'patient_name',
-            sTitle: 'Student Name',
-            sWidth: '20%',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'location',
-            sTitle: 'Location',
-            sWidth: '20%',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-
-        {
-            mData: 'department',
-            sWidth: '20%',
-            sTitle: 'Department',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'created_ts',
-            sTitle: 'Created Time',
-            "classname": 'sortingtable',
-            mRender: function (data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
-            }
-        },
-        {
-            sTitle: 'Actions',
-            orderable: false,
-            mRender: function (data, type, row) {
-                var actionsHtml = '<button class="btn btn-default" onclick="deletePatient(\'' + row._id + '\')"><i class="fa fa-trash"></i></button>'+'<button class="btn btn-default" onclick="editPatient(\'' + row._id + '\')" style="margin-left:5px;"><i class="fa fa-pencil-square-o"></i></button>';
-                return actionsHtml;
-            }
+var fields = [
+    {
+        mData: 'patient_name',
+        sTitle: 'patient name',
+        sWidth: '20%',
+        orderable: false,
+        mRender: function (data, type, row) {
+            return data;
         }
-    ];
+    },
 
-    var queryParams = {
-        query: {
-            "bool": {
-                "must": []
-                /*,
-                "filter":{"range":{"created_ts":{
-                            "gte":new Date(startDate.toISOString()).getTime(),
-                            "lte":new Date(endDate.toISOString()).getTime()
-                        }}}*/
-            }
-        },
-        sort: [{ "created_ts": { "order": "asc" } }]
-    };
+    {
+        mData: 'dob',
+        sTitle: 'dob',
+        sWidth: '20%',
+        orderable: false,
+        mRender: function (data, type, row) {
+            return data;
+        }
+    },
+    {
+        mData: 'did',
+        sTitle: 'device id',
+        sWidth: '20%',
+        orderable: false,
+        mRender: function (data, type, row) {
+            return data;
+        }
+    },
+    {
+        mData: 'address',
+        sTitle: 'address',
+        sWidth: '20%',
+        orderable: false,
+        mRender: function (data, type, row) {
+            return data;
+        }
+    },
 
-    patient_list = [];
+    {
+        mData: 'city',
+        sTitle: 'city',
+        sWidth: '20%',
+        orderable: false,
+        mRender: function (data, type, row) {
+            return data;
+        }
+    },
+    {
+        mData: 'country',
+        sTitle: 'country',
+        sWidth: '20%',
+        orderable: false,
+        mRender: function (data, type, row) {
+            return data;
+        }
+    },
 
-    var tableOption = {
-        fixedHeader: false,
-        responsive: false,
-        paging: true,
-        searching: true,
-        aaSorting: [[3, 'desc']],
-        "ordering": true,
-        iDisplayLength: 10,
-        lengthMenu: [[10, 50, 100], [10, 50, 100]],
-        aoColumns: fields,
-        "bProcessing": true,
-        "language": {
-            "emptyTable": "No data found!",
-            "processing": '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing'
+    {
+        mData: 'created_ts',
+        sWidth: '20%',
+        sTitle: 'created_time',
+        orderable: false,
+        "className": 'sortingtable',
+        mRender: function (data, type, row) {
+            // return data;
+            return moment(data).format(DATE_TIME_FORMAT);
+        }
+    },
+    {
+        mData: 'linked_ts',
+        sTitle: 'linked Time',
+        sWidth: '20%',
+        orderable: false,    
+         "className": 'sortingtable',
+        mRender: function (data, type, row) {
+            // return data;
+             return moment(data).format(DATE_TIME_FORMAT);
+        }
+    },
 
-        },
-        "bServerSide": true,
-        "sAjaxSource": BASE_PATH+'/patient/list',
-        "fnServerData": function (sSource, aoData, fnCallback, oSettings) {
+    {
+        sTitle: 'Actions',
+        orderable: false,
+        mRender: function (data, type, row) {
+            var actionsHtml = '<button class="btn btn-default" onclick="deletePatient(\'' +row["_id"]+'\')"><i class="fa fa-trash"></i></button> <button class="btn btn-default" onclick="editPatient(\'' + row["_id"]+ '\')"><i class="fa fa-edit"></i></button> ';
+            return actionsHtml;
+        }
+    }
+];
+
+var queryParams = {
+    query: {
+        "bool": {
+            "must": []
+            /*,
+            "filter":{"range":{"created_ts":{
+                        "gte":new Date(startDate.toISOString()).getTime(),
+                        "lte":new Date(endDate.toISOString()).getTime()
+                    }}}*/
+        }
+    },
+    sort: [{ "created_ts": { "order": "asc" } }]
+};
+
+patient_list = [];
+
+var tableOption = {
+    fixedHeader: false,
+    responsive: false,
+    paging: true,
+    searching: true,
+    aaSorting: [[3, 'desc']],
+    "ordering": true,
+    iDisplayLength: 10,
+    lengthMenu: [[10, 50, 100], [10, 50, 100]],
+    aoColumns: fields,
+    "bProcessing": true,
+    "language": {
+        "emptyTable": "No data found!",
+        "processing": '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing'
+
+    },
+    "bServerSide": true,
+    "sAjaxSource": BASE_PATH+'/patient/list',
+    "fnServerData": function (sSource, aoData, fnCallback, oSettings) {
 
 
-            queryParams.query['bool']['must'] = [];
-            queryParams.query['bool']['should'] = [];
-            delete queryParams.query['bool']["minimum_should_match"];
+        queryParams.query['bool']['must'] = [];
+        queryParams.query['bool']['should'] = [];
+        delete queryParams.query['bool']["minimum_should_match"];
 
-            var keyName = fields[oSettings.aaSorting[0][0]]
+        var keyName = fields[oSettings.aaSorting[0][0]]
 
-            var sortingJson = {};
-            sortingJson[keyName['mData']] = { "order": oSettings.aaSorting[0][1] };
-            queryParams.sort = [sortingJson];
+        var sortingJson = {};
+        sortingJson[keyName['mData']] = { "order": oSettings.aaSorting[0][1] };
+        queryParams.sort = [sortingJson];
 
-            queryParams['size'] = oSettings._iDisplayLength;
-            queryParams['from'] = oSettings._iDisplayStart;
+        queryParams['size'] = oSettings._iDisplayLength;
+        queryParams['from'] = oSettings._iDisplayStart;
 
-            // queryParams.query['bool']['must'].push({ "match": { "acc_id":SESSION_OBJ.orgs[0]  } });
+        // queryParams.query['bool']['must'].push({ "match": { "acc_id":SESSION_OBJ.orgs[0]  } });
 
-            var searchText = oSettings.oPreviousSearch.sSearch.trim();
+        var searchText = oSettings.oPreviousSearch.sSearch.trim();
 
-            if (searchText) {
-                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "patient_name.keyword": "*" + searchText + "*"
+        if (searchText) {
+            queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText + "*" } });
+            queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toLowerCase() + "*" } });
+            queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toUpperCase() + "*" } });
+            queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + capitalizeFLetter(searchText) + "*" } })
+            queryParams.query['bool']["minimum_should_match"] = 1;
+            queryParams.query['bool']['should'].push({
+                "match_phrase": {
+                    "patient_name.keyword": "*" + searchText + "*"
+                }
+            })
+            queryParams.query['bool']['should'].push({
+                "match_phrase_prefix": {
+                    "patient_name.keyword": {
+                        "query": "*" + searchText + "*"
                     }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "patient_name.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
+                }
                 });
             }
 
@@ -286,52 +329,6 @@ function editPatient(row){
 
 //delete Api
 
-                patient_list = resultData.data;
-function deletePatient(row){
-    console.log(row);
-
-    $.ajax({
-        url: BASE_PATH+"/patient/delete",
-        data: JSON.stringify({_id:row}),
-        contentType: "application/json",
-        type: 'POST',
-        success: function (result) {
-            //Success -> Show Alert & Refresh the page
-            successMsg(" deleted Successfully!");
-            loadStudentList();
-        },
-        error: function (e) {
-
-            //Error -> Show Error Alert & Reset the form
-            errorMsg("Registration Failed!");
-            // window.location.reload();
-        }
-    });
-
-PatientTable = $("#patient_table").DataTable(tableOption);
-}
-
-var patient1=null;
-function editPatient(row){
-    console.log(row);
-    sid=row;
-    flag=true;
-    for(var i=0;i<patient_list.length;i++){
-       if(patient_list[i]._id==row){
-           patient1= patient_list[i];
-           $('#patient_name').val(patient1.patient_name);
-           $('#dob').val(patient1.dob);
-           $('#address').val(patient1.address);
-           $('#city').val(patient1.city);
-           $('#state').val(patient1.state);
-           $('#country').val(patient1.country);
-           console.log(patient1);
-       }
-    }
-}
-
-//delete Api
-
 function deletePatient(row){
     console.log(row);
 
@@ -354,3 +351,6 @@ function deletePatient(row){
     });
 
 }
+
+    
+
