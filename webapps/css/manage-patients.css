@@ -1,0 +1,48 @@
+.patient-expand-btn {
+    border-radius: 100%;
+    border: none;
+}
+
+.patient-repeat-btn {
+    background-color: black;
+    border-radius: 100%;
+    border: none;
+    color: white;
+}
+#managePatient_filter input{
+    background-color: white !important;border:1px solid lightgrey!important;
+    }
+#managePatient_length select{
+  border:1px solid lightgrey!important;
+  background-color: white !important;
+}
+.patient-atag{
+    color: blue;
+    text-decoration: underline;
+}
+.patient-atag:hover{
+    color: blue;
+    text-decoration: underline;
+}
+.modal-div{
+    top:220px;
+}
+.add-patient-btn{
+    background-color: lightgray;
+}
+.user-add-header{
+    font-size: 20px!important;
+    color: black !important;font-weight: 600;
+}
+.patient-row-modal{
+    margin-bottom: 25px;
+}
+.modal-txt{
+    font-size: 15px;
+}
+.link-btn,.user-create{
+    background-color: blue;border:none;
+}
+.link-btn:hover,.user-create:hover{
+    background-color: blue;border:none;
+}
