@@ -41,11 +41,17 @@ function hideFunction() {
     }
 }
 
+function confirmRefresh() {
+    var okToRefresh = confirm("Do you really want to refresh the page?");
+    if (okToRefresh) {
+        setTimeout("location.reload(true);", 1500);
+    }
+}
 
 var dataSet = [
-    ["Malli", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
-    ["Kowsi", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
-    ["Raja", "Kadayam", "123", "High", "running", "12003", "6.12am"],
+    ["Malli", "09/08/1999", "21", "Female", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
+    ["Kowsi", "18/04/1999", "21", "Female", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
+    ["Raja", "31/03/1999", "21", "male", "Kadayam", "123", "High", "running", "12003", "6.12am"],
 
 ];
 
@@ -53,7 +59,10 @@ $(document).ready(function() {
     $('#patients_profile').DataTable({
         data: dataSet,
         columns: [
-            { title: "Name" },
+            { title: "Patient-Name" },
+            { title: "DOB" },
+            { title: "Age" },
+            { title: "Gender" },
             { title: "Address" },
             { title: "Heart Rate" },
             { title: "Status" },
@@ -74,3 +83,47 @@ $(".js-range-slider").ionRangeSlider({
     prefix: "Age: ",
     postfix: " years"
 });
+
+
+
+(function() {
+
+    var parent = document.querySelector(".price-slider");
+    if (!parent) return;
+
+    var
+        rangeS = parent.querySelectorAll("input[type=range]"),
+        numberS = parent.querySelectorAll("input[type=number]");
+
+    rangeS.forEach(function(el) {
+        el.oninput = function() {
+            var slide1 = parseFloat(rangeS[0].value),
+                slide2 = parseFloat(rangeS[1].value);
+
+            if (slide1 > slide2) {
+                [slide1, slide2] = [slide2, slide1];
+            }
+
+            numberS[0].value = slide1;
+            numberS[1].value = slide2;
+        }
+    });
+
+    numberS.forEach(function(el) {
+        el.oninput = function() {
+            var number1 = parseFloat(numberS[0].value),
+                number2 = parseFloat(numberS[1].value);
+
+            if (number1 > number2) {
+                var tmp = number1;
+                numberS[0].value = number2;
+                numberS[1].value = tmp;
+            }
+
+            rangeS[0].value = number1;
+            rangeS[1].value = number2;
+
+        }
+    });
+
+})();
