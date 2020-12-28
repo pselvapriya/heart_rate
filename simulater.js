@@ -15,7 +15,7 @@ var obj = {
     heart_rate: "",
     activity: "",
 };
-// var i = 1;
+
 var active = [
     "runing",
     "sleeping",
@@ -27,13 +27,14 @@ var active = [
     "sleeping",
     "working",
     "jacking",
+    "walking",
 ];
 app.get("/", (req, res) => {
     res.send("server created");
     setInterval(function() {
         for (var j = 1; j <= 10; j++) {
             did = "DEV_" + j;
-            // i = i + 1;
+
             obj.activity = active[j];
 
             obj.heart_rate = Math.floor(Math.random() * (150 - 50) + 50);
@@ -47,12 +48,12 @@ app.get("/", (req, res) => {
                     body: JSON.stringify(obj),
                 },
                 function(err, res, body) {
-                    console.log("responce", body);
+                    console.log("response", body);
                     // console.log("responceerr", err);
                 }
             );
         }
-    }, 3000);
+    }, 6000);
 });
 
 app.listen(8080);

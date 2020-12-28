@@ -12,18 +12,7 @@ Patientstatus .prototype.performAction = function (req,res){
 
     const self = this;
 
-    if(req.params.action === 'insert'){
-        
-        self.common.commonAdd(self.table.PATIENTSTATUS_TABLE,req,res);
-    }
-    else if(req.params.action === 'update'){
-        
-        self.common.commonUpdate(self.table.PATIENTSTATUS_TABLE,req,res);
-    }
-    else if(req.params.action === 'delete'){
-        self.common.commonDelete(self.table.PATIENTSTATUS_TABLE,req,res);
-    }
-    else if(req.params.action === 'list'){
+    if(req.params.action === 'list'){
         self.common.commonSearch(self.table.PATIENTSTATUS_TABLE,req,res);
     }
     else{

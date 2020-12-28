@@ -277,35 +277,35 @@ var tableOption = {
                         "query": "*" + searchText + "*"
                     }
                 }
-            });
-        }
-
-        oSettings.jqXHR = $.ajax({
-            "dataType": 'json',
-            "contentType": 'application/json',
-            "type": "POST",
-            "url": sSource,
-            "data": JSON.stringify({"query":queryParams}),
-            success: function (data) {
-
-                console.log(data);
-
-                var resultData = data.result.data;
-
-                patient_list = resultData.data;
-
-                $(".totalCount").html(data.result.total)
-
-                resultData['draw'] = oSettings.iDraw;
-                fnCallback(resultData);
+                });
             }
-        });
-    },
-    "initComplete": function (settings, json) {
-    }
-};
 
-PatientTable = $("#patient_table").DataTable(tableOption);
+            oSettings.jqXHR = $.ajax({
+                "dataType": 'json',
+                "contentType": 'application/json',
+                "type": "POST",
+                "url": sSource,
+                "data": JSON.stringify({"query":queryParams}),
+                success: function (data) {
+
+                    console.log(data);
+
+                    var resultData = data.result.data;
+
+                    patient_list = resultData.data;
+
+                    $(".totalCount").html(data.result.total)
+
+                    resultData['draw'] = oSettings.iDraw;
+                    fnCallback(resultData);
+                }
+            });
+        },
+        "initComplete": function (settings, json) {
+        }
+    };
+
+    PatientTable = $("#passet_table").DataTable(tableOption);
 }
 
 var patient1=null;
@@ -328,6 +328,31 @@ function editPatient(row){
 }
 
 //delete Api
+
+function deletePatient(row){
+    console.log(row);
+
+    $.ajax({
+        url: BASE_PATH+"/patient/delete",
+        data: JSON.stringify({_id:row}),
+        contentType: "application/json",
+        type: 'POST',
+        success: function (result) {
+            //Success -> Show Alert & Refresh the page
+            successMsg(" deleted Successfully!");
+            loadStudentList();
+        },
+        error: function (e) {
+
+            //Error -> Show Error Alert & Reset the form
+            errorMsg("Registration Failed!");
+            // window.location.reload();
+        }
+    });
+
+}
+
+    
 
 function deletePatient(row){
     console.log(row);
