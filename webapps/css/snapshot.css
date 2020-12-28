@@ -1,11 +1,13 @@
-.head1{
+
+
+.head1 {
     font-size: 20px;
     margin-top: 5px;
-    
-    }
-    .head2{
+}
+
+.head2 {
     text-align: end;
-    margin-top: 15px;
+    margin-top: 10px;
     }
     .profile{
         font-size: 10px;
@@ -28,13 +30,13 @@
     margin-top: 10px;
     border-radius: 20px;
     }
-    #cars1{
-    width: 320px;
+    .expen{
+        text-align:right;
+        
     }
-    #cars2{
-        width: 220px;
-    }
-    
+  /* .full,.once{
+      text-align:right;
+  } */
     
     .comparison{
        
@@ -42,13 +44,11 @@
     height: 30px;
     border-bottom: 1px solid black;
     width: 100%;
-    }
-    
-    
-    .img{
-        padding-left:28% ;
-    width: 100px;
-    border-radius: 150px;
+}
+
+.img {
+    width: 180px;
+    border-radius: 100px;
     }
     .details{
         border:1px solid #C5C3C3;
@@ -57,46 +57,52 @@
     }
     .third{
         border:1px solid rgb(197, 195, 195);
-        border-radius: 3px;
-        border-top:2px solid brown;
+        
         margin-top:10px;
-        height: 450px;
+        height: 650px;
     }
     #cars{
     width: 170px;
     margin-right: 10px;
     margin-left: 10px;
-    
-    }
-    #date{
+}
+
+#date {
     width: 40%;
-    }
-    .data{
-        max-width: 20%;
-    }
-    .drop{
+}
+
+.data {
+    max-width: 20%;
+}
+
+.drop {
     margin-top: 10px;
-    }
-    .Bio-data{
-        /* padding:0 0 10px 10px; */
-        border:1px solid rgb(218, 215, 215);
-        /* margin: 20px; */
-       text-align: center;
-       /* max-width: 91%; */
-       margin-left: 10px;
-       height: 300px;
-    }
-    .pro{
+    
+}
+
+.Bio-data {
+    /* padding:0 0 10px 10px; */
+    border: 1px solid rgb(218, 215, 215);
+    /* margin: 20px; */
+    text-align: center;
+    /* max-width: 91%; */
+    margin-left: 10px;
+    height: 300px;
+}
+
+.pro {
     background-color: #C5C3C3;
     height: 30px;
     border-bottom: 1px solid black;
     max-width: 82%;
-    
-    }
-    /* .data{
+}
+
+
+/* .data{
         height: 550;
     } */
-    .again{
+
+.again {
     color: white;
     }
     .full{
@@ -104,7 +110,7 @@
         border-radius: 100%;
         background-color: #b6b3b3;
         font-size: 10px;
-    }
+        }
     .once{
         border:none;
         background-color: black;
@@ -116,14 +122,26 @@
     }
     .head3{
     margin-top: 10px;
-    }
-    .year{
-    margin-top:2px;
-    }
-    .personal{
+}
+
+.year {
+    margin-top: 2px;
+}
+
+.personal {
+    font-size: 10px;
+}
+
+.Bpm {
+    color: red;
+    font-size: 7px;
+}
+
+.time {
     font-size: 10px;
     }
-    .Bpm{
+    .Bpm
+    {
 color: red;
 font-size: 7px;
     }
@@ -143,3 +161,36 @@ margin-right: 2px;
 margin-top: 20px;
 font-size: 8px;
     }
+    #chart{
+margin-top: 20px;
+    }
+    #snap{
+        font-size: 10px;
+    }
+    #patients{
+margin-left:15px;
+width: 14%;
+    }
+    #activities{
+width: 15%;
+    }
+    #status{
+        width: 15%;
+    }
+    #cars1{
+        width: 325px;
+        margin-left: 8px;
+        }
+   
+       
+        .mydata{
+        
+       
+        margin-left:10px;
+            }
+            .chart-1{
+                border: none;
+                margin-top:15px;
+            }
+           
+     

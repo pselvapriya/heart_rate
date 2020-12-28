@@ -1,47 +1,82 @@
 var PatientTable = null;
 var patient_list = [];
-console.log(patient_list);
-$(document).ready(function(){
-    loadPatientList();
-});
+var flag=false;
+var sid;
 
+$(document).ready(function(){
+    loadAssetList();
+});
 // patient Registration API
 
 function patientRegistration(){
     if(flag==false){
-    var patient_name = $("#patient_name").val();
-    var dob = $("#dob").val();
+    var patient_name = $("#patientName").val();
+    selectDate = $("#datepicker[name=datepicker]").val();
+    console.log("selectDate",selectDate);
+    var DOB = new Date(selectDate);
+    var today = new Date();
+    var age = today.getTime() - DOB.getTime();
+    age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
+    console.log(age);
+    // var dob = $(".dob").val();
     var address = $("#address").val();
     var city = $("#city").val();
     var state = $("#state").val();
     var country = $("#country").val();
-
+    var zipcode = $("#zipCode").val();
+   
     //Validate
-    if(sname === ""){
+    if(patient_name === ""){
 
-        alert("Student Name is Required!");
+        $('.name-field').css('display','block');
+        $('.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
 
-    }else if(department === ""){
+    }else if(city === ""){
 
-        alert("Department is Required!");
+        $('.city-field').css('display','block');
+        $('.name-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
 
-    }else if(location === ""){
+    }else if(state === ""){
 
-        alert("Location is Required!");
+        $('.state-field').css('display','block');
+        $('.name-field,.city-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
 
-    }else{
+    }else if(zipcode === ""){
+
+        $('.zip-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.addr-field,.country-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(address === ""){
+
+        $('.addr-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.country-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(country === ""){
+
+        $('.country-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.addr-field').css('display','none');
+        $('#patientModal').show();
+
+    }
+    else{
 
         //Build Input Objects
         var inputObj = {
             patient_name : patient_name,
-            dob : dob,
+            dob : age,
             address : address,
             city : city,
             state : state,
             country : country,
+            zipcode : zipcode,
             created_ts : new Date().getTime()
         };
-
+console.log("add user",inputObj);
         //Call API
         $.ajax({
             url: BASE_PATH+"/patient/insert",
@@ -49,15 +84,15 @@ function patientRegistration(){
             contentType: "application/json",
             type: 'POST',
             success: function (result) {
-
-                //Success -> Show Alert & Refresh the page
-                successMsg("Registration Completed Successfully!");
-                loadStudentList();
+                $('#patientModal').hide();
+                $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+                successMsg("Patients Added Successfully!");
+                loadAssetList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Registration Failed!");
+                errorMsg("Patients Added Failed!");
                 window.location.reload();
             }
         });
@@ -65,24 +100,24 @@ function patientRegistration(){
 }
 else if(flag==true){
      patient_name = $("#patient_name").val();
-     dob = $("#dob").val();
-     address = $("#address").val();
-     city = $("#city").val();
-     state = $("#state").val();
-     country = $("#country").val();
-
-            created_ts = new Date().getTime()
-
-            var updateData ={
-                patient_name : patient_name,
-                dob : dob,
-               address : address,
-                city : city,
-                 state : state,
-                country : country,
-                created_ts : new Date().getTime()
-
-            };
+     dob = $(".editAge").val();
+     city = $("#editCity").val();
+     state = $("#editState").val();
+     zipcode = $("#editZipCode").val();
+     address = $("#editAddress").val();
+     country = $("#editCountry").val();
+     
+    created_ts = new Date().getTime()
+    var updateData ={
+        patient_name : patient_name,
+        dob : dob,
+        city : city,
+        state : state,
+        zipcode : zipcode,
+        address : address,
+        country : country,
+        created_ts : new Date().getTime()
+    };
             console.log(updateData);
             $.ajax({
                 url: BASE_PATH+"/patient/update",
@@ -91,13 +126,13 @@ else if(flag==true){
                 type: 'POST',
                 success: function (result) {
                     //Success -> Show Alert & Refresh the page
-                    successMsg("update Successfully!");
+                    successMsg("Patient Updated Successfully!");
                     loadAssetList();
                 },
                 error: function (e) {
         
                     //Error -> Show Error Alert & Reset the form
-                    errorMsg("Registration Failed!");
+                    errorMsg("Patient Updated Failed!");
                     //window.location.reload();
                 }
             });
@@ -105,39 +140,74 @@ else if(flag==true){
 
     }
 
-// patient list API
-
-function loadPatientList() {
+// Patient list API
+function loadAssetList() {
 
     if (PatientTable) {
         PatientTable.destroy();
-        $("#passet_table").html("");
+        $("#managePatient").html("");
     }
 
     var fields = [
         {
             mData: 'patient_name',
-            sTitle: 'Student Name',
-            sWidth: '20%',
+            sTitle: 'Patient Name',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
             }
         },
         {
-            mData: 'location',
-            sTitle: 'Location',
-            sWidth: '20%',
+            mData: 'gender',
+            sTitle: 'Gender',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
             }
         },
-
         {
-            mData: 'department',
-            sWidth: '20%',
-            sTitle: 'Department',
+            mData: 'age',
+            sTitle: 'Age',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            title: 'Status',
+            sTitle: 'Status',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<a href="" class="patient-atag" data-toggle="modal" data-target="#myModal">Link</a>';
+            }
+         },
+        {
+            mData: 'city',
+            sTitle: 'City',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'state',
+            sTitle: 'State',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'country',
+            sTitle: 'Country',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'address',
+            sTitle: 'Address',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
@@ -146,7 +216,7 @@ function loadPatientList() {
         {
             mData: 'created_ts',
             sTitle: 'Created Time',
-            "classname": 'sortingtable',
+            "className": 'sortingtable',
             mRender: function (data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             }
@@ -155,8 +225,7 @@ function loadPatientList() {
             sTitle: 'Actions',
             orderable: false,
             mRender: function (data, type, row) {
-                var actionsHtml = '<button class="btn btn-default" onclick="deletePatient(\'' + row._id + '\')"><i class="fa fa-trash"></i></button>'+'<button class="btn btn-default" onclick="editPatient(\'' + row._id + '\')" style="margin-left:5px;"><i class="fa fa-pencil-square-o"></i></button>';
-                return actionsHtml;
+                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
         }
     ];
@@ -165,11 +234,6 @@ function loadPatientList() {
         query: {
             "bool": {
                 "must": []
-                /*,
-                "filter":{"range":{"created_ts":{
-                            "gte":new Date(startDate.toISOString()).getTime(),
-                            "lte":new Date(endDate.toISOString()).getTime()
-                        }}}*/
             }
         },
         sort: [{ "created_ts": { "order": "asc" } }]
@@ -243,10 +307,8 @@ function loadPatientList() {
                 "data": JSON.stringify({"query":queryParams}),
                 success: function (data) {
 
-                    console.log(data);
-
                     var resultData = data.result.data;
-
+ 
                     patient_list = resultData.data;
 
                     $(".totalCount").html(data.result.total)
@@ -260,23 +322,26 @@ function loadPatientList() {
         }
     };
 
-    PatientTable = $("#passet_table").DataTable(tableOption);
+    PatientTable = $("#managePatient").DataTable(tableOption);
 }
+
 
 var patient1=null;
 function editPatient(row){
-    console.log(row);
+    // console.log("row",row);
     sid=row;
     flag=true;
     for(var i=0;i<patient_list.length;i++){
        if(patient_list[i]._id==row){
            patient1= patient_list[i];
            $('#patient_name').val(patient1.patient_name);
-           $('#dob').val(patient1.dob);
-           $('#address').val(patient1.address);
-           $('#city').val(patient1.city);
-           $('#state').val(patient1.state);
-           $('#country').val(patient1.country);
+           $('.editAge').val(patient1.dob );
+           $('#editCity').val(patient1.city);
+           $('#editState').val(patient1.state);
+           $('#editZipCode').val(patient1.editZipCode);
+           $('#editAddress').val(patient1.address);
+           $('#editCountry').val(patient1.country);
+
            console.log(patient1);
        }
     }
@@ -294,13 +359,13 @@ function deletePatient(row){
         type: 'POST',
         success: function (result) {
             //Success -> Show Alert & Refresh the page
-            successMsg(" deleted Successfully!");
-            loadStudentList();
+            successMsg("Patient Deleted Successfully!");
+            loadAssetList();
         },
         error: function (e) {
 
             //Error -> Show Error Alert & Reset the form
-            errorMsg("Registration Failed!");
+            errorMsg("Patient Deleted Failed!");
             // window.location.reload();
         }
     });
@@ -308,5 +373,4 @@ function deletePatient(row){
 }
 
     
-
 

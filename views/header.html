@@ -1,96 +1,100 @@
 <style>
-  body {
-    font-family: 'Lato', sans-serif;
-  }
-  
-  .overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: white;
-    color: black;
-    overflow-x: hidden;
-    transition: 0.5s;
-  }
-  
-  .overlay-content {
-    position: relative;
-    /* top: 25%; */
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color:black;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .overlay .nav-link:hover, .overlay .nav-link:focus {
-    color: black;background-color:lightgrey;
-  }
-  
-  .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    /* right: 45px; */
-    font-size: 40px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 30px;
-    top: 15px;
-    /* right: 35px; */
+    body {
+        font-family: 'Lato', sans-serif;
     }
-  }
-  </style>
-  <div id="myNav" class="overlay">
+    #myNav{
+        top: 32px;
+    border-top: 2px solid #f7f7f7;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        color: black;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+    
+    .overlay-content {
+        position: relative;
+        /* top: 25%; */
+        width: 100%;
+        margin-top: 12px;
+    }
+    
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .overlay .nav-link:hover,
+    .overlay .nav-link:focus {
+        color: black;
+        background-color: lightgrey;
+    }
+    
+    .overlay .closebtn {
+        position: absolute;
+        top: 15px;
+        /* right: 45px; */
+        font-size: 28px;
+    }
+    
+    @media screen and (max-height: 450px) {
+        .overlay a {
+            font-size: 20px
+        }
+        .overlay .closebtn {
+            font-size: 28px;
+            top: 15px;
+            /* right: 35px; */
+        }
+    }
+</style>
+<div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-      <a class="head-tag">Home</a>
-        <a class="nav-link" onclick="loadMainPage('/dashboard')" href="#/dashboard" ><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Dashboard</a>
-        <a class="nav-link" onclick="loadMainPage('/snapshot')" href="#/snapshot"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patient Profile</a>
+        <a class="head-tag">Home</a>
+        <a class="nav-link" onclick="loadMainPage('/dashboard')" href="#/dashboard"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Dashboard</a>
+        <a class="nav-link" onclick="loadMainPage('/patients-profile')" href="#/patients-profile"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients Profile</a>
+        <!-- <a class="nav-link" onclick="loadMainPage('/snapshot')" href="#/snapshot"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patient Profile</a> -->
         <a class="head-tag">Adminstration</a>
-        <a class="nav-link" onclick="loadMainPage('/patients-profile')" href="#/patients-profile"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients</a>
-        <a class="nav-link"  onclick="loadMainPage('/skin-patches')" href="#/skin-patches"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; skin-patches</a>
-        <a class="nav-link"  onclick="loadMainPage('/manage-patients')" href="#/manage-patients"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; manage-patients</a>
+        <a class="nav-link" onclick="loadMainPage('/manage-patients')" href="#/manage-patients"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients</a>
+        <a class="nav-link" onclick="loadMainPage('/skin-patches')" href="#/skin-patches"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Skin Patches</a>
     </div>
-  </div>
-  
-  <div class="row" style="background-color: white;">
+</div>
+
+<div class="row" style="background-color: white;">
     <div class="col-md-6">
-      <span class="opne-nav" onclick="openNav()">&#9776; <img src="./images/vilpowerLogo.png" class="logo-img" />
+        <span class="opne-nav" onclick="openNav()">&#9776; <img src="./images/vilpowerLogo.png" class="logo-img" />
       </span>
     </div>
     <div class="col-md-6 text-right">
-          <img src="./images/profile-image-circle.png" class="circle-img profile-img" />
-          <!-- <div class="dropdown"> -->
-            <button class="btn btn-default dropdown-toggle profile-name" type="button" data-toggle="dropdown">Profile Name
+        <img src="./images/profile-image-circle.png" class="circle-img profile-img" />
+        <!-- <div class="dropdown"> -->
+        <button class="btn btn-default dropdown-toggle profile-name" type="button" data-toggle="dropdown">Profile Name
             <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <div class="row">
+        <ul class="dropdown-menu">
+            <div class="row">
                 <div class="col-md-12 profile-col">
-                  <img src="./images/profile-image-circle.png" class="circle-img profile-img1" />
-                  <p class="user-txt">user@email.com</p>
-                  <p class="user-txt mt-0">user name</p>
-                  <button type="button" class="btn btn-primary logout-btn">Logout</button>
+                    <img src="./images/profile-image-circle.png" class="circle-img profile-img1" />
+                    <p class="user-txt">user@email.com</p>
+                    <p class="user-txt mt-0">user name</p>
+                    <button type="button" class="btn btn-primary logout-btn">Logout</button>
                 </div>
-              </div>
-            </ul>
-          <!-- </div> -->
-        </div>
-      
-    
-  </div>
-<script src="/js/header.js"></script>
-  
-  
+            </div>
+        </ul>
+        <!-- </div> -->
+    </div>
 
+
+</div>
+<script src="/js/header.js"></script>
