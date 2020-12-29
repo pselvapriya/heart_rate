@@ -6,9 +6,9 @@ var sid;
 $(document).ready(function(){
     loadAssetList();
 });
-// create patients API
+// patient Registration API
 
-function patientRegistration(){
+function addPatient(){
     if(flag==false){
     var patient_name = $("#patientName").val();
     selectDate = $("#datepicker[name=datepicker]").val();
@@ -28,8 +28,7 @@ function patientRegistration(){
     //Validate
     if(patient_name === ""){
 
-        $('.name-field').css('display','block');
-        $('.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        showToast("title","msg");
         $('#patientModal').show();
 
     }else if(city === ""){
