@@ -2,76 +2,55 @@
     font-size: 20px;
     margin-top: 5px;
 }
-
 .head2 {
     text-align: end;
-    margin-top: 15px;
-}
-
-.profile {
-    font-size: 10px;
-}
-
-.head13 {
-    font-size: 10px;
     margin-top: 10px;
-}
-
-.ico1 {
-    margin-left: 50px;
-}
-
-.ico2 {
+    }
+.profile{
+        font-size: 10px;
+    }
+.head13{
+        font-size: 10px;
+        margin-top: 10px;
+ }
+.ico1{
+         margin-left:50px;
+    }
+.ico2{
     background-color: black;
     color: white;
     width: 20px;
     height: 20px;
     margin-top: 10px;
     border-radius: 20px;
-}
-
-#cars1 {
-    width: 320px;
-}
-
-#cars2 {
-    width: 220px;
-}
-
-.comparison {
-    /* background-color: #c1c1c1; */
-    height: 30px;
+    }
+.expen{
+        text-align:right;
+        }
+  .row-head{
+      padding: 0 10px 0 10px;
+  }  
+.comparison{
+       height: 30px;
     border-bottom: 1px solid black;
     width: 100%;
 }
-
 .img {
-    padding-left: 28%;
-    width: 100px;
-    border-radius: 150px;
-}
-
-.details {
-    border: 1px solid #C5C3C3;
-    border-radius: 3px;
-    /* margin-left: 20px; */
-}
-
-.third {
-    border: 1px solid rgb(197, 195, 195);
-    border-radius: 3px;
-    border-top: 2px solid brown;
-    margin-top: 10px;
-    height: 450px;
-}
-
-#cars {
-    width: 170px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-#date {
+    width: 180px;
+    border-radius: 100px;
+    }
+.details{
+        border:1px solid #C5C3C3;
+        border-radius: 3px;
+        /* margin-left: 20px; */
+    }
+.third{
+        border:1px solid rgb(197, 195, 195);
+        
+        margin-top:10px;
+        height: 650px;
+    }
+ #date {
     width: 40%;
 }
 
@@ -79,8 +58,9 @@
     max-width: 20%;
 }
 
-.drop {
+#drop {
     margin-top: 10px;
+    
 }
 
 .Bio-data {
@@ -94,40 +74,30 @@
 }
 
 .pro {
-    background-color: #C5C3C3;
+  
+        background-color: #C5C3C3;
     height: 30px;
     border-bottom: 1px solid black;
-    max-width: 82%;
-}
-
-
-/* .data{
-        height: 550;
-    } */
-
+  }
 .again {
     color: white;
-}
-
-.full {
-    border: none;
-    border-radius: 100%;
-    background-color: #b6b3b3;
-    font-size: 10px;
-}
-
-.once {
-    border: none;
-    background-color: black;
-    border-radius: 100%;
-    font-size: 10px;
-}
-
-.fill {
-    border: none
-}
-
-.head3 {
+    }
+ .full{
+        border:none;
+        border-radius: 100%;
+        background-color: #b6b3b3;
+        font-size: 10px;
+        }
+.once{
+        border:none;
+        background-color: black;
+        border-radius: 100%;
+        font-size: 10px;
+    }
+.fill{
+    border:none
+    }
+.head3{
     margin-top: 10px;
 }
 
@@ -147,41 +117,43 @@
 .time {
     font-size: 10px;
     }
-    .Bpm{
-color: red;
-font-size: 7px;
-    }
-    .time{
-        font-size: 10px;
-    }
     .reported{
-        font-size: 8px;
+    font-size: 8px;
     }
-    .time1{
+.time1{
 margin-right: 2px;
     }
-    .year{
-        font-size: 8px;
+.year{
+    font-size: 8px;
     }
-    .Running{
+.Running{
 margin-top: 20px;
 font-size: 8px;
     }
-
-
-.reported {
-    font-size: 8px;
-}
-
-.time1 {
-    margin-right: 2px;
-}
-
-.year {
-    font-size: 8px;
-}
-
-.Running {
-    margin-top: 20px;
-    font-size: 8px;
-}
+#chart{
+margin-top: 20px;
+    }
+ #snap{
+     font-size: 10px;
+    }
+ #patients{
+margin-left:15px;
+width: 14%;
+    }
+#activities{
+width: 15%;
+    }
+#status{
+ width: 15%;
+    }
+#datepic{
+ width: 325px;
+ margin-left: 8px;
+        }
+   
+.chart-1{
+  border: none;
+ margin-top:15px;
+            }
+                 
+     
