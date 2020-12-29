@@ -1,5 +1,3 @@
-const express = require("express");
-const app = express();
 const request = require("request");
 const schedule = require("node-schedule");
 
@@ -28,7 +26,7 @@ var active = [
     "walking",
 ];
 
-schedule.scheduleJob("*/3 * * * * *", function() {
+schedule.scheduleJob("*/10 * * * * *", function() {
     for (var j = 1; j <= 10; j++) {
         did = "DEV_" + j;
         obj.activity = active[j];
@@ -48,5 +46,3 @@ schedule.scheduleJob("*/3 * * * * *", function() {
         );
     }
 });
-
-app.listen(8080);
