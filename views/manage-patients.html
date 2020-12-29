@@ -6,13 +6,13 @@
             </div>
             <div class="col-md-6 text-right">
                 <span class="device-txt">Patients Management / </span>
-                <span class="device-txt">Manage Device</span>
+                <span class="device-txt">Manage Patient</span>
             </div>
         </div>
         <div class="container-fluid" style="background-color: white;">
             <div class="row second-row">
                 <div class="col-md-6">
-                    <p class="total-patches">Total Patients: <span>5</span></p>
+                    <p class="total-patches">Total Patient: <span>5</span></p>
                 </div>
                 <div class="col-md-6 text-right">
                     <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patients</button>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Gender</label>
-                        <select class="form-control"> 
+                        <select class="form-control" id="selectGender"> 
                             <option>Male</option> 
                             <option>Female</option> 
                         </select>
@@ -65,39 +65,51 @@
                         <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob"></p>
                     </div>
                     <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Email</label><br>
+                        <input type="text" class="form-control" id="email">
+                        <span class="email-field">Email is Required!</span>
+                    </div> 
+                </div>
+                <div class="row patient-row-modal">
+                    <div class="col-md-6">
                         <label for="usr" class="modal-txt">City</label>
                         <input type="text" class="form-control" id="city">
                         <span class="city-field">City is Required!</span>
                     </div>
-                </div>
-                <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">State</label>
                         <input type="text" class="form-control" id="state">
                         <span class="state-field">State is Required!</span>
                     </div>
-                    <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Zip Code</label>
-                        <input type="number" class="form-control" id="zipCode">
-                        <span class="zip-field">Zipcode is Required!</span>
-                    </div>
                 </div>
                 <div class="row patient-row-modal">
-                    <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Address</label>
-                        <textarea type="text" class="form-control" id="address"></textarea>
-                        <span class="addr-field">Address is Required!</span>
-                    </div>
-                    <div class="col-md-6">
+                   <div class="col-md-6">
                       <label for="usr" class="modal-txt">Country</label>
                       <input type="text" class="form-control" id="country">
                       <span class="country-field">Country is Required!</span>
                   </div>
+                  <div class="col-md-6">
+                    <label for="usr" class="modal-txt">Zip Code</label>
+                    <input type="number" class="form-control" id="zipCode">
+                    <span class="zip-field">Zipcode is Required!</span>
+                </div>
+            </div>
+            <div class="row patient-row-modal">
+                <div class="col-md-6">
+                    <label for="usr" class="modal-txt">Address</label>
+                    <textarea type="text" class="form-control" id="address"></textarea>
+                    <span class="addr-field">Address is Required!</span>
+                </div>
+                <div class="col-md-6">
+                    <label for="usr" class="modal-txt">Mobile</label>
+                    <textarea type="text" class="form-control" id="address"></textarea>
+                    <span class="addr-field">Mobile is Required!</span>
+                </div>
             </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success user-create" onclick="addPatient()">Create</button>
+                <button type="button" class="btn btn-success user-create"  onclick="addPatient()">Create</button>
             </div>
         </div>
 

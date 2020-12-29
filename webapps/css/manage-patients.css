@@ -49,6 +49,6 @@
 #zipCode{
     font-size: 14px;
 }
-.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field{
+.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field{
     color:red;font-size:12px;display:none;
 }

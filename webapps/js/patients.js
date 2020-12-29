@@ -11,55 +11,56 @@ $(document).ready(function(){
 function addPatient(){
     if(flag==false){
     var patient_name = $("#patientName").val();
-    selectDate = $("#datepicker[name=datepicker]").val();
-    console.log("selectDate",selectDate);
-    var DOB = new Date(selectDate);
+    dob = $("#datepicker[name=datepicker]").val();
+    console.log("selectDate",dob);
+    var DOB = new Date(dob);
     var today = new Date();
     var age = today.getTime() - DOB.getTime();
     age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
     console.log(age);
     // var dob = $(".dob").val();
     var address = $("#address").val();
+    var gender = $("#selectGender").val();
     var city = $("#city").val();
+    var email = $("#email").val();
     var state = $("#state").val();
     var country = $("#country").val();
     var zipcode = $("#zipCode").val();
-   
+   console.log(gender);
     //Validate
     if(patient_name === ""){
 
         $('.name-field').css('display','block');
-        $('.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
         $('#patientModal').show();
 
     }else if(city === ""){
-
         $('.city-field').css('display','block');
-        $('.name-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        $('.name-field,.state-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
         $('#patientModal').show();
 
     }else if(state === ""){
 
         $('.state-field').css('display','block');
-        $('.name-field,.city-field,.zip-field,.addr-field,.country-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(zipcode === ""){
-
-        $('.zip-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.addr-field,.country-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(address === ""){
-
-        $('.addr-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.zip-field,.country-field').css('display','none');
+        $('.name-field,.city-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
         $('#patientModal').show();
 
     }else if(country === ""){
 
         $('.country-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.zip-field,.addr-field').css('display','none');
+        $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(address === ""){
+
+        $('.addr-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.country-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(zipcode === ""){
+
+        $('.zip-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.addr-field,.country-field,.email-field').css('display','none');
         $('#patientModal').show();
 
     }
@@ -68,15 +69,18 @@ function addPatient(){
         //Build Input Objects
         var inputObj = {
             patient_name : patient_name,
-            dob : age,
+            dob : dob,
+            age : age,
             address : address,
             city : city,
             state : state,
+            gender : gender,
             country : country,
             zipcode : zipcode,
+            email : email,
             created_ts : new Date().getTime()
         };
-// console.log("add user",inputObj);
+console.log("add user",inputObj);
         //Call API
         $.ajax({
             url: BASE_PATH+"/patient/insert",
@@ -85,6 +89,7 @@ function addPatient(){
             type: 'POST',
             success: function (result) {
                 $('#patientModal').hide();
+                $(".modal-backdrop").remove();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
                 successMsg("Patient Added Successfully!");
                 loadAssetList();
@@ -107,10 +112,13 @@ else if(flag==true){
     var age = today.getTime() - DOB.getTime();
     dob = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
      city = $("#editCity").val();
+    //  dob = $("#datepicker1[name=datepicker]").val();
      state = $("#editState").val();
      zipcode = $("#editZipCode").val();
      address = $("#editAddress").val();
      country = $("#editCountry").val();
+     gender = $("#selectGender").val();
+     email = $("#email").val();
      
     created_ts = new Date().getTime()
     var updateData ={
@@ -121,6 +129,8 @@ else if(flag==true){
         zipcode : zipcode,
         address : address,
         country : country,
+        gender : gender,
+        email : email,
         created_ts : new Date().getTime()
     };
             console.log("update",updateData);
@@ -158,7 +168,6 @@ function loadAssetList(){
         {
             mData: 'patient_name',
             sTitle: 'Patient Name',
-            sWidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
@@ -167,22 +176,37 @@ function loadAssetList(){
         {
             mData: 'gender',
             sTitle: 'Gender',
-            sWidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
             }
         },
-
+        
         {
-            mData: 'dob',
+            mData: 'age',
             sTitle: 'Age',
-            sWidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
             }
         },
+        // {
+        //     mData: 'email',
+        //     sTitle: 'Email',
+        //     orderable: false,
+        //     mRender: function (data, type, row) {
+        //         return data;
+        //     }
+        // },
+        // {
+        //     mData: 'mobile_no',
+        //     sTitle: 'Mobile',
+        //     orderable: false,
+        //     mRender: function (data, type, row) {
+               
+        //         return data;
+        //     }
+        // },
         {
             mData: 'city',
             sTitle: 'City',
@@ -215,7 +239,22 @@ function loadAssetList(){
                 return data;
             }
         },
-        
+        {
+            mData: 'zipcode',
+            sTitle: 'Zip Code',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'status',
+            sTitle: 'Status',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return '<a href="" data-toggle="modal" data-target="#myModal">Link</a>';
+            }
+        },
         {
             sTitle: 'Actions',
             orderable: false,
@@ -238,7 +277,7 @@ function loadAssetList(){
 
     var tableOption = {
         fixedHeader: false,
-        responsive: false,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [[3, 'desc']],
@@ -330,16 +369,16 @@ function editPatient(row){
     for(var i=0;i<patient_list.length;i++){
        if(patient_list[i]._id==row){
            patient1= patient_list[i];
+           console.log("edit",patient1);
            $('#patient_name').val(patient1.patient_name);
            $("#datepicker1[name=datepicker]").val(patient1.dob);
-        //    $('.editAge').val(patient1.dob );
+           $("#selectGender").val(patient1.gender);
+           $("#email").val(patient1.email);
            $('#editCity').val(patient1.city);
            $('#editState').val(patient1.state);
-           $('#editZipCode').val(patient1.editZipCode);
+           $('#editZipCode').val(patient1.zipcode);
            $('#editAddress').val(patient1.address);
            $('#editCountry').val(patient1.country);
-
-           console.log(patient1.dob);
        }
     }
 }
