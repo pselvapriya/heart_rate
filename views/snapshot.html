@@ -1,5 +1,5 @@
 <div class="container-fluid top">
-            <div class="row head">
+            <div id="expand" class="row head">
                <div class="col-md-9 head1 ">
                 Easton alvarez
                </div>
@@ -16,27 +16,28 @@
                   <button class="full"><i class="fa fa-expand fa-1x" aria-hidden="true"></i></button>
                 <button class="once"><i class="fa fa-repeat fa-1x again"></i></button>  
                 </div> -->
-                <div class="  card third">
-                    <div class="row">
+                <div class="card third">
+                    <div class="row row-head">
                        <div class="col-md-6 head4">
                            patients profile
                        </div> 
                        <div class="col-md-6 expen">
                            <header>
-                           <button class="full"><i class="fa fa-expand fa-1x" aria-hidden="true"></i></button>
-                           <button class="once"><i class="fa fa-repeat fa-1x again"></i></button>  </header>
+                           <button class="full"><i class="fa fa-expand fa-1x"onclick="openFullscreen()"aria-hidden="true"></i></button>
+                           <button class="once"><i class="fa fa-repeat fa-1x again" onclick="sampleFunction()"(raja) {  
+()"></i></button>  </header>
                        </div>
                     </div>
                     <hr>
-                 <div class="drop">
+                 <div id="drop">
                      
                 <select name="patient" id="patients">
                   <option value="search by patient">search by patient</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                  <option value="name">Saab</option>
+                  <option value="name">Mercedes</option>
+                  <option value="name">Audi</option>
                 </select>
-                <select name="cars" id="cars1">
+                <select name="date" id="datepic">
                    
                     <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 50%"></div>
                     <i class="fa fa-calendar"></i>&nbsp;
@@ -44,20 +45,20 @@
                 </select>
                 <select name="activities" id="activities">
                   <option value="all Activities">all Activities</option>
-                  <option value="running">running</option>
-                  <option value="sleeping">sleeping</option>
-                  <option value="walking">walking</option>
+                  <option value="Activities">running</option>
+                  <option value="Activities">sleeping</option>
+                  <option value="Activities">walking</option>
                 </select>
                 <select name="status" id="status">
                   <option value="status">all status</option>
-                  <option value="high">high</option>
-                  <option value="low">low</option>
-                  <option value="normal">normal</option>
+                  <option value="status">high</option>
+                  <option value="status">low</option>
+                  <option value="status">normal</option>
                 </select>
             <button class="fill"><i class="fa fa-trash" aria-hidden="true"></i>filter</button>
         </div>
         <div class="row head3">
-            <div class="col-3 data">
+            <div class="col-2 data">
                 <div class="Bio-data">
                     <div class="  img"><img src="/images/Capture.PNG" alt=""></div>
                     <div class="personal"><b>Easton alvarez</b></div>
@@ -73,15 +74,15 @@
                     <div class="Running">Running</div>
                 </div>
             </div>
-              <div class="col-9 pro" >
-                  <div class="row">
+              <div class="col-10 pro" >
+                  <div class="row row1">
               <div class="mydata"><span class="myprofile">my profile</span></div> 
               </div>
               <div class="row chart-1">
                <div id="chart" style="width:90%;margin:0 auto;height:250px;"></div>
               </div>
                <div class="row">
-                  <div><table id="snap" class="display table table-bordered responsive" height="10px"></table>
+                  <div><table id="snap" class="display table table-bordered responsive" ></table>
                  </div>  
                  </div>
                 </div>
