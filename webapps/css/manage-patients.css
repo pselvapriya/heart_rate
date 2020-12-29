@@ -2,7 +2,21 @@
     border-radius: 100%;
     border: none;cursor: pointer;
 }
-
+.patient-txt{
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding-left: 0;
+    color: black;
+}
+.row-bottom {
+    border-bottom: 3px solid blueviolet;
+    margin: 0;
+    margin-top: 15px;
+}
+.total-patients{
+    font-size: 13px;color: black;
+    margin: 11px -22px;padding-left: 6px;
+}
 .patient-repeat-btn {
     background-color: black;
     border-radius: 100%;
@@ -25,10 +39,13 @@
     text-decoration: underline;
 }
 .modal-div{
-    top:220px;
+    /* top:220px; */
 }
 .add-patient-btn{
-    background-color: lightgray;
+    background-color: #f2f3f4;
+    height: 30px;
+    font-size: 12px;
+    margin: 5px;
 }
 .user-add-header{
     font-size: 20px!important;
@@ -54,4 +71,29 @@
 }
 .link-tag{
     color:blue;text-decoration: underline;
+}
+#managePatient_wrapper{
+    background-color: white !important;
+}
+.total-div{
+    background-color: white;border-bottom: 1px solid lightgrey;
+}
+.dataTables_length {
+    margin-top: 10px;
+    margin-left: 10px!important;
+}
+.dataTables_filter input, .dataTables_filter input:focus, .dataTables_length select, .dataTables_length select:focus {
+    background-image: none !important;
+}
+.dataTables_info {
+    padding-top: 0.85em;
+    margin-left: 10px !important;
+
+}
+.dataTables_filter {
+    text-align: right;
+    margin-right: 10px!important;
+}
+#managePatient{
+    margin-left:10px!important;margin-right:10px!important;
 }

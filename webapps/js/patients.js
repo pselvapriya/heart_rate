@@ -396,6 +396,7 @@ function deletePatient(row){
         type: 'POST',
         success: function (result) {
             //Success -> Show Alert & Refresh the page
+            warningMsg("Do you Want to Deleted the Patients");
             successMsg("Patient Deleted Successfully!");
             loadAssetList();
         },
