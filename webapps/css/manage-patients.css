@@ -87,8 +87,7 @@
 }
 .dataTables_info {
     padding-top: 0.85em;
-    margin-left: 10px !important;
-
+    margin: 0 0 15px 10px !important;
 }
 .dataTables_filter {
     text-align: right;
