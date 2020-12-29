@@ -1,3 +1,5 @@
+const session = require("express-session");
+
 var BASE_PATH = $("#BASE_PATH").val();
 $(document).ready(function () {
     $('.searchbar').css({'width':'40px','transition':'width 0.4s linear'})
@@ -23,9 +25,12 @@ $(document).ready(function () {
 });
 
 function logout() {
-    Cookies.remove('myweb_cookie')
-    document.location=BASE_PATH+'/login';
+    alert("not clear");
+    Cookies.remove('hrmonitor_cookie')
+    window.location.BASE_PATH+'/login';
 }
+    
+
 
 
 var s4 = function () {

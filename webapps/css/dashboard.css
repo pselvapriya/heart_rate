@@ -204,6 +204,13 @@ p{
     padding-left: 20px;
     padding-top: 20px;
 }
+.btn1,
+.button2 {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; */
+    /* If you want dots under the hoverable text */
+}
 .tooltip {
     visibility: hidden;
     width: 86px;
@@ -237,7 +244,7 @@ p{
     border-color: #555 transparent transparent transparent;
 }
 .btn1:hover .tooltip,
-.btn2:hover .tooltip {
+.button2:hover .tooltip {
     visibility: visible;
     opacity: 1;
 }
