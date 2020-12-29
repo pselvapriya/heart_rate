@@ -61,7 +61,7 @@
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Age</label><br>
+                        <label for="usr" class="modal-txt">Date of Birth</label><br>
                         <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob"></p>
                     </div>
                     <div class="col-md-6">
@@ -97,7 +97,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success user-create" onclick="patientRegistration()">Create</button>
+                <button type="button" class="btn btn-success user-create" onclick="addPatient()">Create</button>
             </div>
         </div>
 
@@ -166,8 +166,8 @@
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Age</label><br>
-                        <input type="text" class="form-control" id="datepicker1" class="editAge">
+                        <label for="usr" class="modal-txt">Date of Birth</label><br>
+                        <input type="text" class="form-control" id="datepicker1" name="datepicker" class="editAge">
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">City</label>
@@ -197,7 +197,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success link-btn" data-dismiss="modal">Update</button>
+                <button type="button" class="btn btn-success link-btn" onclick="addPatient()">Update</button>
             </div>
         </div>
 
