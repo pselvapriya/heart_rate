@@ -23,4 +23,3 @@ Patient.prototype.performAction = function(req, res) {
         res.status(401).json({ status: false, message: "Invalid Access" });
     }
 };
-console.log("hello");
