@@ -66,7 +66,7 @@
     height: 400px;
     width: 400px;
 }
-.button1{
+.btn1{
     border: none;
     background-color: rgb(204, 202, 202);
     border-radius: 100%;
@@ -83,8 +83,6 @@
     
 
 }
-
-
 .analysis{
     padding-right: 20px;
 }
@@ -92,7 +90,7 @@
     border: solid 1px rgb(168, 167, 167);
     border-top: solid 2px red;
     margin-right: 25px;
-    width: 700px;
+    width: 100%;
     height: 450px;
     margin-left: 10px;
 
@@ -152,7 +150,8 @@ p{
     margin:0 auto;
     height:380px;
     margin-top: 30px;
-    padding-left: 10px;
+    padding-left: 20px;
+    /* text-align: center; */
    
 }
 .stateanalysis{
@@ -175,12 +174,12 @@ p{
 }
 .statistics2{
     font-weight: 25px;
-    color: rgb(91, 178, 212);
+    color:rgb(62, 135, 163) ;
     padding-left: 50px;
 }
 .list{
     border: solid 1px rgb(168, 167, 167);
-    border-top: solid 2px rgb(62, 135, 163);
+    border-top: solid 2px  rgb(91, 178, 212);
     
 }
 .listing{
@@ -198,4 +197,47 @@ p{
 .patient{
     font-weight: bold;
     size: 8px;
+}
+.profile{
+    border:0px;
+    /* margin-top: 25px; */
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.tooltip {
+    visibility: hidden;
+    width: 86px;
+    background-color: rgb(114, 114, 114);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 90%;
+    margin-left: -60px;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+/* Tooltip arrow */
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+.btn1:hover .tooltip,
+.btn2:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }

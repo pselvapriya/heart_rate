@@ -357,13 +357,13 @@ var myChart = echarts.init(document.querySelector('#barchart1'));
 option = {
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed'  ]
+        data: ['Mon', 'Tue']
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        data: [120, 200, 150],
+        data: [120, 200],
         type: 'bar'
     }]
 };
@@ -388,4 +388,28 @@ myChart.setOption(option);
 
 
  });
+var elem = document.documentElement;
+    /* View in fullscreen */
+    function dashboardexpand() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
 
+    /* Close fullscreen */
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+
+ 
+ 
