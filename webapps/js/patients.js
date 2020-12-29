@@ -6,7 +6,7 @@ var sid;
 $(document).ready(function(){
     loadAssetList();
 });
-// patient Registration API
+// create patients API
 
 function patientRegistration(){
     if(flag==false){
