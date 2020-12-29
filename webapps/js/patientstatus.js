@@ -60,6 +60,15 @@ function loadPatientstatusList() {
             }
         },
         {
+            mData: 'country',
+            sWidth: '20%',
+            sTitle: 'country',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
             mData: 'created_ts',
             sTitle: 'Created Time',
             "className": 'sortingtable',
@@ -67,14 +76,7 @@ function loadPatientstatusList() {
                 return moment(data).format(DATE_TIME_FORMAT);
             }
         },
-        {
-            sTitle: 'Actions',
-            orderable: false,
-            mRender: function (data, type, row) {
-                var actionsHtml = '<button class="btn btn-default" onclick="deleteStudent()"><i class="fa fa-trash"></i></button>';
-                return actionsHtml;
-            }
-        }
+        
     ];
 
     var queryParams = {
@@ -132,19 +134,19 @@ function loadPatientstatusList() {
             var searchText = oSettings.oPreviousSearch.sSearch.trim();
 
             if (searchText) {
-                queryParams.query['bool']['should'].push({ "wildcard": { "sname": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "sname": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "sname": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "sname": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + capitalizeFLetter(searchText) + "*" } })
                 queryParams.query['bool']["minimum_should_match"] = 1;
                 queryParams.query['bool']['should'].push({
                     "match_phrase": {
-                        "sname.keyword": "*" + searchText + "*"
+                        "patient_name.keyword": "*" + searchText + "*"
                     }
                 })
                 queryParams.query['bool']['should'].push({
                     "match_phrase_prefix": {
-                        "sname.keyword": {
+                        "patient_name.keyword": {
                             "query": "*" + searchText + "*"
                         }
                     }
