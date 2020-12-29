@@ -1,187 +1,212 @@
-.head1 {
-    font-size: 20px;
-    margin-top: 5px;
+
+
+
+/* Dashboard */
+.body-content{
+    background-color: #fff;
+    border-top: 2px solid #953a93;
+  
+    border-radius: 5px;
+    margin: 10px 15px;
 }
 
-.head2 {
-    text-align: end;
-    margin-top: 15px;
+.body-content .section-title{
+  margin-top:10px
 }
-
-.profile {
+.patientname{
     font-size: 10px;
+    color: #7c7c7f;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.icofont1{
+font-size: 10px;
 }
 
-.head13 {
-    font-size: 10px;
-    margin-top: 10px;
-}
-
-.ico1 {
-    margin-left: 50px;
-}
-
-.ico2 {
-    background-color: black;
-    color: white;
-    width: 20px;
-    height: 20px;
-    margin-top: 10px;
-    border-radius: 20px;
-}
-
-#cars1 {
-    width: 320px;
-}
-
-#cars2 {
-    width: 220px;
-}
-
-.comparison {
-    /* background-color: #c1c1c1; */
-    height: 30px;
-    border-bottom: 1px solid black;
-    width: 100%;
-}
-
-.img {
-    padding-left: 28%;
-    width: 100px;
-    border-radius: 150px;
-}
-
-.details {
-    border: 1px solid #C5C3C3;
-    border-radius: 3px;
-    /* margin-left: 20px; */
-}
-
-.third {
-    border: 1px solid rgb(197, 195, 195);
-    border-radius: 3px;
-    border-top: 2px solid brown;
-    margin-top: 10px;
-    height: 450px;
-}
-
-#cars {
-    width: 170px;
-    margin-right: 10px;
+.body-content .section-title .user-action ul li{
+    display: inline-block;
+    list-style-type: none;
     margin-left: 10px;
 }
 
-#date {
-    width: 40%;
+.body-content .section-title .user-action ul li .live-btn{
+    background-color: #00adad;
+    color: #fff;
+    border: none;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
 }
-
-.data {
-    max-width: 20%;
-}
-
-.drop {
-    margin-top: 10px;
-}
-
-.Bio-data {
-    /* padding:0 0 10px 10px; */
-    border: 1px solid rgb(218, 215, 215);
-    /* margin: 20px; */
+.body-content .section-title .user-action ul li .round-btns{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
     text-align: center;
-    /* max-width: 91%; */
-    margin-left: 10px;
-    height: 300px;
-}
-
-.pro {
-    background-color: #C5C3C3;
-    height: 30px;
-    border-bottom: 1px solid black;
-    max-width: 82%;
-}
-
-
-/* .data{
-        height: 550;
-    } */
-
-.again {
-    color: white;
-}
-
-.full {
     border: none;
-    border-radius: 100%;
-    background-color: #b6b3b3;
-    font-size: 10px;
+}
+.body-content .section-title .user-action ul li .max-btn{
+    background-color: #f2f3f4;
+}
+.body-content .section-title .user-action ul li .refresh-btn{
+    background-color: #3e3a3c;
+    color: #fff;
+}
+.body-content .section-title .user-action ul li button:focus{
+    outline: none;
+    box-shadow: none;
 }
 
-.once {
-    border: none;
+.body-content  .dash-card-list .dash-card-item{
+    border: 2px solid #f5f5f5;
+    margin-bottom: 30px;
+    padding: 15px;
+    min-height: 300px;
+}
+.body-content  .dash-card-list .dash-card-item.item-1{
+    border-top: 2px solid #ff9903;
+}
+.body-content  .dash-card-list .dash-card-item.item-2{
+    border-top: 2px solid #c33734;
+}
+.body-content  .dash-card-list .dash-card-item.item-3{
+    border-top: 2px solid #1ba195;
+}
+.body-content  .dash-card-list .dash-card-item.item-4{
+    border-top: 2px solid #2e9bf3;
+}
+
+
+/* Patient's Profile */
+
+/* .sub-header{
+    /* padding: 10px 0 0px; */
+    /* margin-top:10px; */
+/* } */ 
+.sub-header .navbar-brand{
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 0;
+}
+.sub-header .breadcrumb {
+    background: none;
+    padding-top: 0px;
+    margin-bottom: 0;
+}
+.sub-header .breadcrumb .breadcrumb-item{
+    text-transform: capitalize;
+}
+.sub-header .breadcrumb .breadcrumb-item a{
+    color: #000;
+    text-decoration: none;
+}
+.myprofile{
     background-color: black;
-    border-radius: 100%;
-    font-size: 10px;
+    color: white;
+
 }
 
-.fill {
-    border: none
+#date-field{
+    cursor: pointer;
+}
+#date-field:focus{
+    outline: none;
+    box-shadow: none;
 }
 
-.head3 {
+.filter-section{
+    /* border:1px solid #efefef; */
+    /* margin-top: 15px; */
+    /* margin-bottom: 30px; */
+}
+.filter-section h3{
+    font-size: 16px;
+    color: #777b7f;
+    font-weight: 600;
+}
+.filter-section .form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+.filter-section .clear-btn{
+    padding: 7px 15px;
+    background-color: #f2f3f4;
+    border: none;
+    border-radius: 3px;    
+    font-size: 16px;
+}
+.filter-section .clear-btn:focus{
+    outline: none;
+}
+.user-action-part .show-list select{
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    color: #495057;
+    border-radius: .25rem;
+}
+.user-action-part .show-list span{
+    color: #b8a6a5;
+    margin-left: 10px;
+}
+.user-action-part .search-box{
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    color: #495057;
+    border-radius: .25rem;
+}
+.user-action-part .search-box:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.user-data-table .table{
+    border:1px solid #edeff2;
+}
+.user-data-table .table th{
+    font-weight: 600;
+    color: #6b8391;  
+    font-size: 14px;  
+}
+.user-data-table .table td{
+    font-size: 0px;
+}
+
+/* Profile-Section */
+.user-profile-section{
+    border:1px solid #efefef;
+    padding: 10px;
+}
+.user-profile-section .user-profile{
+    border:1px solid #efefef;
+    /* padding: 15px; */
+    text-align: center;
+}
+.user-profile-section .user-profile ul li{
+    list-style-type: none;
+}
+.name{
+    font-size: 18px;
     margin-top: 10px;
+  
+}
+.user-profile-section .user-profile ul li p{
+    margin-bottom: 10px;
+    color: #b8a6a5;
+    font-size: 14px;
+}
+.user-profile-section .user-profile ul li p span{
+    color: #000;
+}
+.user-profile{
+    margin-top: none;
 }
 
-.year {
-    margin-top: 2px;
+.user-profile-section .chart-section{
+    min-height: 250px;
+    border:1px solid #efefef;
+    padding: 15px;
+    margin-bottom: 30px;
 }
-
-.personal {
-    font-size: 10px;
-}
-
-.Bpm {
-    color: red;
-    font-size: 7px;
-}
-
-.time {
-    font-size: 10px;
-    }
-    .Bpm{
-color: red;
-font-size: 7px;
-    }
-    .time{
-        font-size: 10px;
-    }
-    .reported{
-        font-size: 8px;
-    }
-    .time1{
-margin-right: 2px;
-    }
-    .year{
-        font-size: 8px;
-    }
-    .Running{
-margin-top: 20px;
-font-size: 8px;
-    }
-
-
-.reported {
-    font-size: 8px;
-}
-
-.time1 {
-    margin-right: 2px;
-}
-
-.year {
-    font-size: 8px;
-}
-
-.Running {
-    margin-top: 20px;
-    font-size: 8px;
+.user{
+    margin-bottom:100px;
 }

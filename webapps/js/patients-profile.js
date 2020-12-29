@@ -41,29 +41,135 @@ function hideFunction() {
     }
 }
 
+/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+}
+
+function refresh() {
+    $('#patients_profile').html();
+}
 
 var dataSet = [
     ["Malli", "09/08/1999", "21", "Female", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
     ["Kowsi", "18/04/1999", "21", "Female", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
     ["Raja", "31/03/1999", "21", "male", "Kadayam", "123", "High", "running", "12003", "6.12am"],
-
-];
+]
 
 $(document).ready(function() {
     $('#patients_profile').DataTable({
         data: dataSet,
-        columns: [
-            { title: "Patient-Name" },
-            { title: "DOB" },
-            { title: "Age" },
-            { title: "Gender" },
-            { title: "Address" },
-            { title: "Heart Rate" },
-            { title: "Status" },
-            { title: "Activity" },
-            { title: "Skin Patch Id" },
-            { title: "Last Reported Time" }
+        searching: true,
+        columns: [{
+                title: 'Patient_Name',
+                sTitle: 'Patient Name',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
+                }
+            },
+            {
+                title: 'DOB',
+                sTitle: 'DOB',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'Age',
+                sTitle: 'Age',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'Gender',
+                sTitle: 'Gender',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'Address',
+                sTitle: 'Address',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'Heart Rate',
+                sTitle: 'Heart Rate',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data + '&nbsp;' + '&nbsp;' + '&nbsp;' + '<i class="fa fa-icon fa-heart-rate" aria-hidden="true"></i>';
+                }
+            },
+            {
+                title: 'Status',
+                sTitle: 'Status',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return '<button class="status">' + data + '</button>';
+                }
+            },
+            {
+                title: 'Activity',
+                sTitle: 'Activity',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                mData: 'country',
+                sTitle: 'Country',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'did',
+                sTitle: 'Skin Patch Id',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'updated_ts',
+                sTitle: 'Last Reported Time',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
 
         ]
+
     });
 });

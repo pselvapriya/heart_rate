@@ -3,6 +3,11 @@
     border-radius: 3px;
 }
 
+.head {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
 .head-title2 {
     text-align: right;
 }
@@ -270,4 +275,14 @@ input[type=range]::-ms-thumb {
     border-radius: 25px;
     background: #a1d0ff;
     cursor: flat;
+}
+
+.eye-icon {
+    cursor: pointer;
+    color: blue;
+}
+
+.status {
+    border: none;
+    border-radius: 5px;
 }
