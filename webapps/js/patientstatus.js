@@ -1,43 +1,60 @@
 var PatientstatusTable = null;
 var patientstatus_list = [];
 
-$(document).ready(function(){
-     loadPatientstatusList();
+$(document).ready(function() {
+    loadPatientstatusList();
 })
 
 function loadPatientstatusList() {
 
     if (PatientstatusTable) {
         PatientstatusTable.destroy();
-        $("#student_table").html("");
+        $("#patients_profile").html("");
     }
 
-    var fields = [
-        {
+    var fields = [{
             mData: 'patient_name',
             sTitle: 'patient Name',
             sWidth: '20%',
             orderable: false,
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
+                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
+            }
+        },
+        {
+            mData: 'dob',
+            sTitle: 'DOB',
+            sWidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
                 return data;
             }
         },
         {
             mData: 'age',
             sTitle: 'Age',
-            sWidth: '20%',
+            sWidth: '10%',
             orderable: false,
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'gender',
+            sTitle: 'Gender',
+            sWidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
                 return data;
             }
         },
 
         {
             mData: 'address',
-            sWidth: '20%',
+            sWidth: '30%',
             sTitle: 'Address',
             orderable: false,
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
                 return data;
             }
         },
@@ -46,7 +63,7 @@ function loadPatientstatusList() {
             sWidth: '20%',
             sTitle: 'Heartrate',
             orderable: false,
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
                 return data;
             }
         },
@@ -55,39 +72,58 @@ function loadPatientstatusList() {
             sWidth: '20%',
             sTitle: 'Activity',
             orderable: false,
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
                 return data;
+            }
+        },
+        {
+            mData: 'status',
+            sWidth: '10%',
+            sTitle: 'Status',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<button class="status">' + data + '</button>';
             }
         },
         {
             mData: 'country',
             sWidth: '20%',
-            sTitle: 'country',
+            sTitle: 'Country',
             orderable: false,
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
                 return data;
             }
         },
         {
-            mData: 'created_ts',
-            sTitle: 'Created Time',
+            mData: 'did',
+            sTitle: 'Skin Patch Id',
+            sWidth: '30%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'updated_ts',
+            sTitle: 'Last Reported Time',
+            sWidth: '30%',
             "className": 'sortingtable',
-            mRender: function (data, type, row) {
+            mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             }
         },
-        
+
     ];
 
     var queryParams = {
         query: {
             "bool": {
                 "must": []
-                /*,
-                "filter":{"range":{"created_ts":{
-                            "gte":new Date(startDate.toISOString()).getTime(),
-                            "lte":new Date(endDate.toISOString()).getTime()
-                        }}}*/
+                    /*,
+                    "filter":{"range":{"created_ts":{
+                                "gte":new Date(startDate.toISOString()).getTime(),
+                                "lte":new Date(endDate.toISOString()).getTime()
+                            }}}*/
             }
         },
         sort: [{ "created_ts": { "order": "asc" } }]
@@ -100,10 +136,15 @@ function loadPatientstatusList() {
         responsive: false,
         paging: true,
         searching: true,
-        aaSorting: [[3, 'desc']],
+        aaSorting: [
+            [3, 'desc']
+        ],
         "ordering": true,
         iDisplayLength: 10,
-        lengthMenu: [[10, 50, 100], [10, 50, 100]],
+        lengthMenu: [
+            [10, 50, 100],
+            [10, 50, 100]
+        ],
         aoColumns: fields,
         "bProcessing": true,
         "language": {
@@ -112,8 +153,8 @@ function loadPatientstatusList() {
 
         },
         "bServerSide": true,
-        "sAjaxSource": BASE_PATH+'/patientstatus/list',
-        "fnServerData": function (sSource, aoData, fnCallback, oSettings) {
+        "sAjaxSource": BASE_PATH + '/patientstatus/list',
+        "fnServerData": function(sSource, aoData, fnCallback, oSettings) {
 
 
             queryParams.query['bool']['must'] = [];
@@ -158,8 +199,8 @@ function loadPatientstatusList() {
                 "contentType": 'application/json',
                 "type": "POST",
                 "url": sSource,
-                "data": JSON.stringify({"query":queryParams}),
-                success: function (data) {
+                "data": JSON.stringify({ "query": queryParams }),
+                success: function(data) {
 
                     console.log(data);
 
@@ -174,9 +215,8 @@ function loadPatientstatusList() {
                 }
             });
         },
-        "initComplete": function (settings, json) {
-        }
+        "initComplete": function(settings, json) {}
     };
 
-    PatientstatusTable = $("#student_table").DataTable(tableOption);
+    PatientstatusTable = $("#patients_profile").DataTable(tableOption);
 }
