@@ -81,7 +81,7 @@ $(document).ready(function() {
         data: dataSet,
         searching: true,
         columns: [{
-                title: 'Patient Name',
+                title: 'Patient_Name',
                 sTitle: 'Patient Name',
                 orderable: false,
                 mRender: function(data, type, row) {
@@ -145,7 +145,15 @@ $(document).ready(function() {
                 }
             },
             {
-                title: 'Skin Patch Id',
+                mData: 'country',
+                sTitle: 'Country',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'did',
                 sTitle: 'Skin Patch Id',
                 orderable: false,
                 mRender: function(data, type, row) {
@@ -153,7 +161,7 @@ $(document).ready(function() {
                 }
             },
             {
-                title: 'Last Reported Time',
+                title: 'updated_ts',
                 sTitle: 'Last Reported Time',
                 orderable: false,
                 mRender: function(data, type, row) {
