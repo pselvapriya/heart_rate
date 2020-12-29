@@ -52,3 +52,6 @@
 .name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field{
     color:red;font-size:12px;display:none;
 }
+.link-tag{
+    color:blue;text-decoration: underline;
+}

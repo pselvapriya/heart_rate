@@ -6,155 +6,6 @@ var sid;
 $(document).ready(function(){
     loadAssetList();
 });
-// create patients API
-
-function addPatient(){
-    if(flag==false){
-    var patient_name = $("#patientName").val();
-    dob = $("#datepicker[name=datepicker]").val();
-    console.log("selectDate",dob);
-    var DOB = new Date(dob);
-    var today = new Date();
-    var age = today.getTime() - DOB.getTime();
-    age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
-    console.log(age);
-    // var dob = $(".dob").val();
-    var address = $("#address").val();
-    var gender = $("#selectGender").val();
-    var city = $("#city").val();
-    var email = $("#email").val();
-    var state = $("#state").val();
-    var country = $("#country").val();
-    var zipcode = $("#zipCode").val();
-   console.log(gender);
-    //Validate
-    if(patient_name === ""){
-
-        $('.name-field').css('display','block');
-        $('.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(city === ""){
-        $('.city-field').css('display','block');
-        $('.name-field,.state-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(state === ""){
-
-        $('.state-field').css('display','block');
-        $('.name-field,.city-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(country === ""){
-
-        $('.country-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.email-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(address === ""){
-
-        $('.addr-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.zip-field,.country-field,.email-field').css('display','none');
-        $('#patientModal').show();
-
-    }else if(zipcode === ""){
-
-        $('.zip-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.addr-field,.country-field,.email-field').css('display','none');
-        $('#patientModal').show();
-
-    }
-    else{
-
-        //Build Input Objects
-        var inputObj = {
-            patient_name : patient_name,
-            dob : dob,
-            age : age,
-            address : address,
-            city : city,
-            state : state,
-            gender : gender,
-            country : country,
-            zipcode : zipcode,
-            email : email,
-            created_ts : new Date().getTime()
-        };
-console.log("add user",inputObj);
-        //Call API
-        $.ajax({
-            url: BASE_PATH+"/patient/insert",
-            data: JSON.stringify(inputObj),
-            contentType: "application/json",
-            type: 'POST',
-            success: function (result) {
-                $('#patientModal').hide();
-                $(".modal-backdrop").remove();
-                $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
-                successMsg("Patient Added Successfully!");
-                loadAssetList();
-            },
-            error: function (e) {
-
-                //Error -> Show Error Alert & Reset the form
-                errorMsg("Patient Added Failed!");
-                window.location.reload();
-            }
-        });
-    }
-}
-else if(flag==true){
-    // alert("check......");
-     patient_name = $("#patient_name").val();
-     updateDate = $("#datepicker1[name=datepicker]").val();
-    var DOB = new Date(updateDate);
-    var today = new Date();
-    var age = today.getTime() - DOB.getTime();
-    dob = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
-     city = $("#editCity").val();
-    //  dob = $("#datepicker1[name=datepicker]").val();
-     state = $("#editState").val();
-     zipcode = $("#editZipCode").val();
-     address = $("#editAddress").val();
-     country = $("#editCountry").val();
-     gender = $("#selectGender").val();
-     email = $("#email").val();
-     
-    created_ts = new Date().getTime()
-    var updateData ={
-        patient_name : patient_name,
-        dob : dob,
-        city : city,
-        state : state,
-        zipcode : zipcode,
-        address : address,
-        country : country,
-        gender : gender,
-        email : email,
-        created_ts : new Date().getTime()
-    };
-            console.log("update",updateData);
-            $.ajax({
-                url: BASE_PATH+"/patient/update?_id="+_id,
-                data: JSON.stringify({_id: _id,updateData}),
-                contentType: "application/json",
-                type: 'POST',
-                success: function (result) {
-                    // $('#editModal').hide();
-                    //Success -> Show Alert & Refresh the page
-                    successMsg("Patient Updated Successfully!");
-                    loadAssetList();
-                },
-                error: function (e) {
-        
-                    //Error -> Show Error Alert & Reset the form
-                    errorMsg("Patient Updated Failed!");
-                    //window.location.reload();
-                }
-            });
-        }
-
-    }
 
 // Patient list API
 function loadAssetList(){
@@ -252,7 +103,7 @@ function loadAssetList(){
             sTitle: 'Status',
             orderable: false,
             mRender: function (data, type, row) {
-                return '<a href="" data-toggle="modal" data-target="#myModal">Link</a>';
+                return '<a href="" class="link-tag" data-toggle="modal" data-target="#myModal">Link</a>';
             }
         },
         {
@@ -359,6 +210,156 @@ function loadAssetList(){
    PatientTable = $("#managePatient").DataTable(tableOption);
 }
 
+// create patients API
+
+function addPatient(){
+    if(flag==false){
+    var patient_name = $("#patientName").val();
+    dob = $("#datepicker[name=datepicker]").val();
+    console.log("selectDate",dob);
+    var DOB = new Date(dob);
+    var today = new Date();
+    var age1 = today.getTime() - DOB.getTime();
+    age = Math.floor(age1 / (1000 * 60 * 60 * 24 * 365.25));
+    console.log(age);
+    // var dob = $(".dob").val();
+    var address = $("#address").val();
+    var gender = $("#selectGender").val();
+    var city = $("#city").val();
+    var email = $("#email").val();
+    var state = $("#state").val();
+    var country = $("#country").val();
+    var zipcode = $("#zipCode").val();
+   console.log(gender);
+    //Validate
+    if(patient_name === ""){
+
+        $('.name-field').css('display','block');
+        $('.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(city === ""){
+        $('.city-field').css('display','block');
+        $('.name-field,.state-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(state === ""){
+
+        $('.state-field').css('display','block');
+        $('.name-field,.city-field,.zip-field,.addr-field,.country-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(country === ""){
+
+        $('.country-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(address === ""){
+
+        $('.addr-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.zip-field,.country-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }else if(zipcode === ""){
+
+        $('.zip-field').css('display','block');
+        $('.name-field,.city-field,.state-field,.addr-field,.country-field,.email-field').css('display','none');
+        $('#patientModal').show();
+
+    }
+    else{
+
+        //Build Input Objects
+        var inputObj = {
+            patient_name : patient_name,
+            dob : dob,
+            age : age,
+            address : address,
+            city : city,
+            state : state,
+            gender : gender,
+            country : country,
+            zipcode : zipcode,
+            email : email,
+            created_ts : new Date().getTime()
+        };
+console.log("add user",inputObj);
+        //Call API
+        $.ajax({
+            url: BASE_PATH+"/patient/insert",
+            data: JSON.stringify(inputObj),
+            contentType: "application/json",
+            type: 'POST',
+            success: function (result) {
+                $('#patientModal').hide();
+                $(".modal-backdrop").remove();
+                $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+                successMsg("Patient Added Successfully!");
+                loadAssetList();
+            },
+            error: function (e) {
+
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Patient Added Failed!");
+                window.location.reload();
+            }
+        });
+    }
+}
+else if(flag==true){
+    // alert("check......");
+     patient_name = $("#patient_name").val();
+     dob = $("#datepicker1[name=datepicker]").val();
+    var DOB = new Date(dob);
+    var today = new Date();
+    var age1 = today.getTime() - DOB.getTime();
+    age = Math.floor(age1 / (1000 * 60 * 60 * 24 * 365.25));
+     city = $("#editCity").val();
+    //  dob = $("#datepicker1[name=datepicker]").val();
+     state = $("#editState").val();
+     zipcode = $("#editZipCode").val();
+     address = $("#editAddress").val();
+     country = $("#editCountry").val();
+     gender = $("#selectGender").val();
+     email = $("#email").val();
+     
+    created_ts = new Date().getTime()
+    var updateData ={
+        patient_name : patient_name,
+        dob : dob,
+        age : age,
+        city : city,
+        state : state,
+        zipcode : zipcode,
+        address : address,
+        country : country,
+        gender : gender,
+        email : email,
+        created_ts : new Date().getTime()
+    };
+            console.log("update",updateData);
+            $.ajax({
+                url: BASE_PATH+"/patient/update?_id="+_id,
+                data: JSON.stringify({_id: _id,updateData}),
+                contentType: "application/json",
+                type: 'POST',
+                success: function (result) {
+                    // $('#editModal').hide();
+                    //Success -> Show Alert & Refresh the page
+                    successMsg("Patient Updated Successfully!");
+                    loadAssetList();
+                },
+                error: function (e) {
+        
+                    //Error -> Show Error Alert & Reset the form
+                    errorMsg("Patient Updated Failed!");
+                    //window.location.reload();
+                }
+            });
+        }
+
+    }
 
 // edit patient
 var patient1=null;
