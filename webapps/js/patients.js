@@ -101,7 +101,11 @@ function addPatient(){
 else if(flag==true){
     // alert("check......");
      patient_name = $("#patient_name").val();
-     dob = $(".editAge").val();
+     updateDate = $("#datepicker1[name=datepicker]").val();
+    var DOB = new Date(updateDate);
+    var today = new Date();
+    var age = today.getTime() - DOB.getTime();
+    dob = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
      city = $("#editCity").val();
      state = $("#editState").val();
      zipcode = $("#editZipCode").val();
@@ -111,7 +115,7 @@ else if(flag==true){
     created_ts = new Date().getTime()
     var updateData ={
         patient_name : patient_name,
-        dob : age,
+        dob : dob,
         city : city,
         state : state,
         zipcode : zipcode,
@@ -126,7 +130,7 @@ else if(flag==true){
                 contentType: "application/json",
                 type: 'POST',
                 success: function (result) {
-                    $('#editModal').hide();
+                    // $('#editModal').hide();
                     //Success -> Show Alert & Refresh the page
                     successMsg("Patient Updated Successfully!");
                     loadAssetList();
@@ -327,7 +331,7 @@ function editPatient(row){
        if(patient_list[i]._id==row){
            patient1= patient_list[i];
            $('#patient_name').val(patient1.patient_name);
-           $("#datepicker1[name=datepicker1]").val(patient1.dob);
+           $("#datepicker1[name=datepicker]").val(patient1.dob);
         //    $('.editAge').val(patient1.dob );
            $('#editCity').val(patient1.city);
            $('#editState').val(patient1.state);
@@ -335,7 +339,7 @@ function editPatient(row){
            $('#editAddress').val(patient1.address);
            $('#editCountry').val(patient1.country);
 
-           console.log(patient1);
+           console.log(patient1.dob);
        }
     }
 }
