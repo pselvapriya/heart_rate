@@ -26,7 +26,7 @@
 
 .button4 {
     border: none;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .button5 {
@@ -69,6 +69,7 @@
     width: 240px;
     margin: 20px;
     height: 30px;
+    border-radius: 3px;
 }
 
 .select-box-2 {
@@ -76,6 +77,7 @@
     width: 240px;
     margin: 20px;
     height: 30px;
+    border-radius: 3px;
 }
 
 .select-box-3 {
@@ -83,6 +85,7 @@
     width: 240px;
     margin: 20px;
     height: 30px;
+    border-radius: 3px;
 }
 
 
@@ -145,136 +148,30 @@
     opacity: 1;
 }
 
-input {
-    box-shadow: 0;
-    outline: 0;
+.filters {
+    justify-content: space-evenly;
 }
 
-.age-slider {
-    width: 300px;
-    text-align: center;
-    position: relative;
-    height: 6em;
+.table {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.age-slider svg,
-.age-slider input[type=range] {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+.dataTables_length select,
+.dataTables_filter input,
+.dataTables_filter input:focus,
+.dataTables_length select,
+.dataTables_length select:focus {
+    border-radius: 3px;
+    border: 1px solid rgb(180, 178, 178);
+    height: 30px;
 }
 
-input[type=number] {
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 1.6em;
-    -moz-appearance: textfield;
-}
-
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-input[type=number]:invalid,
-input[type=number]:out-of-range {
-    border: 2px solid #e60023;
-}
-
-input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: rgb(228, 18, 18);
-}
-
-input[type=range]:focus::-ms-fill-lower {
-    background: rgb(228, 18, 18);
-}
-
-input[type=range]:focus::-ms-fill-upper {
-    background: rgb(228, 18, 18);
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 5px;
-    cursor: flat;
-    background: rgb(228, 18, 18);
-    border-radius: 1px;
-    box-shadow: none;
-    border: 0;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    z-index: 2;
-    position: relative;
-    box-shadow: 0px 0px 0px #000;
-    border: 1px solid rgb(228, 18, 18);
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: #a1d0ff;
-    cursor: flat;
-    -webkit-appearance: none;
-    margin-top: -7px;
-}
-
-input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 5px;
-    cursor: flat;
-    background: rgb(228, 18, 18);
-    border-radius: 1px;
-    box-shadow: none;
-    border: 0;
-}
-
-input[type=range]::-moz-range-thumb {
-    z-index: 2;
-    position: relative;
-    box-shadow: 0px 0px 0px #000;
-    border: 1px solid rgb(228, 18, 18);
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: rgb(228, 18, 18);
-    cursor: flat;
-}
-
-input[type=range]::-ms-track {
-    width: 100%;
-    height: 5px;
-    cursor: flat;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
-
-input[type=range]::-ms-fill-lower,
-input[type=range]::-ms-fill-upper {
-    background: rgb(228, 18, 18);
-    border-radius: 1px;
-    box-shadow: none;
-    border: 0;
-}
-
-input[type=range]::-ms-thumb {
-    z-index: 2;
-    position: relative;
-    box-shadow: 0px 0px 0px #000;
-    border: 1px solid rgb(228, 18, 18);
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: #a1d0ff;
-    cursor: flat;
+.dataTables_filter input,
+.dataTables_filter input:focus,
+.dataTables_length select,
+.dataTables_length select:focus {
+    background-image: none;
 }
 
 .eye-icon {
