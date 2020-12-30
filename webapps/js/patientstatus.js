@@ -15,43 +15,43 @@ function loadPatientstatusList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'patient Name',
-            sWidth: '20%',
+            sWidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
             }
         },
-        {
-            mData: 'dob',
-            sTitle: 'DOB',
-            sWidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'age',
-            sTitle: 'Age',
-            sWidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'gender',
-            sTitle: 'Gender',
-            sWidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
+        // {
+        //     mData: 'dob',
+        //     sTitle: 'DOB',
+        //     sWidth: '10%',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
+        // {
+        //     mData: 'age',
+        //     sTitle: 'Age',
+        //     sWidth: '10%',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
+        // {
+        //     mData: 'gender',
+        //     sTitle: 'Gender',
+        //     sWidth: '10%',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
 
         {
             mData: 'address',
-            sWidth: '30%',
+            sWidth: '15%',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -69,7 +69,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'activity',
-            sWidth: '20%',
+            sWidth: '10%',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -85,19 +85,19 @@ function loadPatientstatusList() {
                 return '<button class="status">' + data + '</button>';
             }
         },
-        {
-            mData: 'country',
-            sWidth: '20%',
-            sTitle: 'Country',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
+        // {
+        //     mData: 'country',
+        //     sWidth: '20%',
+        //     sTitle: 'Country',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '30%',
+            sWidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -106,7 +106,7 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '30%',
+            sWidth: '25%',
             "className": 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
