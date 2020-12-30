@@ -68,8 +68,11 @@ function login() {
     }
 
     loginCall(obj, function (status, data) {
+        console.log(data)
         if (status) {
             if (data.login) {
+                 var session = JSON.stringify(data.sessionObj);
+                localStorage.setItem('session',session);
                 document.location = $('#BASE_URL').val() + '/main';
             } else {
                 $("#loginButton").removeAttr('disabled');
@@ -91,6 +94,7 @@ function loginCall(obj, cbk) {
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (data) {
+            // (JSOalertN.stringify(data))
             cbk(true, data);
         },
         error: function (e) {

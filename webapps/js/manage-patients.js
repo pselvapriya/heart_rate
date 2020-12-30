@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 var elem = document.documentElement;
-    function skinpatchesExpand() {
+    function patientExpand() {
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
         } else if (elem.webkitRequestFullscreen) { 

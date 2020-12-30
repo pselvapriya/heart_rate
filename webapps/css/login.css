@@ -1,39 +1,55 @@
+
 .bgheart{
     background-image: url("../images/heart.jpg");
-    height: 600px;
-    width: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
     font-size: 12px;
     padding-top: 250px;
     color: snow;
 }
-
+.hr{
+    
+     
+}
 .login{
     margin-right: 10%;
 }
 .name{
-    border: 1px solid #f2f3f4;
+    border: 1px solid lightgray;;
     width: 252px;
     height: 33px;
+    border-radius: 5px;
+    text-align: center;
+}
+.lab{
+    margin: 0;
+}
+.logo{
+    
+    text-align: center;
 }
 .logo img{
     width: 110px;
     margin-top: 100px;
-    margin-left: 147px;
+    align-items: center;
 }
-.form{
+.form {
     margin-top: 10px;
-    margin-left: 90px;
+    /* text-align: center; */
     border: none;
-    
+    margin-left: 40px;
 }
 .click{
     margin-top: 20px;
-    margin-left: 90px;
+    text-align: center;
+
 }
 .team{
     font-size: 10px;
     margin-top: 40px;
-    margin-left: 90px;
+    text-align: center;
+
 }
 .bar{
  color:#B3A6C4 ;  
@@ -50,47 +66,39 @@
     font-size: small;
 }
 .boodskap img{
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 .boodskap{
     font-size: 10px;
     margin-top: 10px;
-    margin-left: 90px;
+    text-align: center;
 }
 .login-btn{
     background-color:purple;
     border:none;
     width: 250px;
+    color: white;
 }
+ 
 .health{
     background-color:purple;
-    width: 55.7rem;
-    height: 130px;
+   
     color:snow;
-    margin-top: 135px;
+    
     font-size: 10px;
 }
-.health h3{
+.health h3,p{
     margin-left: 40px;
-    margin-top: 30px;
+    margin-top: 25px;
 }
-.health p{
-    margin-left: 40px;
+.health {
+    width: 100%;
 }
 .heart p,h1{
-    margin-left: 40px;
+    margin: 20px;
 }
-
-.health{
-    position: absolute;
-    bottom:0;
-   width: 100%;
-}.heart{
-    
-    position: absolute;
-    top:35%;
-}
+ 
 @media screen and (max-width:768px) {
     .bgheart{
         display: none;
@@ -98,6 +106,6 @@
 }
 @media screen and (max-width:768px) {
     .form{
-     margin-left: 50px;
+     
     }
 }
