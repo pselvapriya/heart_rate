@@ -6,7 +6,7 @@
   width:20px;height:20px;
 }
 .profile-name{
-  font-size: 12px;padding-left: 2px;background-color: white;
+  font-size: 14px;padding-left: 2px;background-color: white;
 }
 .toggle-btn{
   font-size:25px;cursor:pointer;
@@ -99,11 +99,14 @@ body {
   /* right: 45px; */
   font-size: 35px;
 }
-
-
 .overlay .nav-link{
-    font-size: 14px;
+    font-size: 14px;width: 92%;height:42px;
 }
 .overlay-content{
   margin-left:20px;
+}
+.active{
+  color:black !important;
+  background-color: #eeeeee;
+  border-right:5px solid #861182;
 }

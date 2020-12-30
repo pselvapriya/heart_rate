@@ -8,11 +8,11 @@ module.exports = {
         "appApiUrl" : "http://localhost:7201/hrmonitor",
         "url": "http://localhost:7201/hrmonitor",
         "boodskap": {
-            "apiUrl": "https://dev.boodskap.io/api",
-            "domainKey": "XLOYLUDCHY",
-            "apiKey": "7wqaskN4z31b",
+            "apiUrl": "https://orientation.boodskap.io/api",
+            "domainKey": "JJBRZBNFHQ",
+            "apiKey": "tezsJPT8ZmaR",
             "mqtt": {
-                "hostName": 'dev.boodskap.io',
+                "hostName": 'orientation.boodskap.io',
                 "portNo": 443,
                 "ssl": true
             }

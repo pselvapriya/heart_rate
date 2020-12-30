@@ -1,6 +1,13 @@
 $('#myNav .overlay-content .nav-link').on('click', function(){
       document.getElementById("myNav").style.width = "0%";
-    });
+      if ($(".overlay-content .nav-link").hasClass("active")) {
+        $(".nav-link").removeClass("active");
+        $(this).addClass("active");
+     
+ } else {
+     $(this).addClass("active");
+    }
+  });
   function openNav() {
     document.getElementById("myNav").style.width = "15%";
   }
@@ -8,4 +15,4 @@ $('#myNav .overlay-content .nav-link').on('click', function(){
   function closeNav() {
     document.getElementById("myNav").style.width = "0%";
   }
-  
+ 
