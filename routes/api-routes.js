@@ -54,7 +54,7 @@ APIRoutes.prototype.init = function () {
             res.json({ status: true });
         });
     });
-    console.log("route");
+    
 
     self.router.post('/patient/:action', sessionCheck, function (req, res) {
     
