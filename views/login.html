@@ -20,49 +20,53 @@
 	<base href="<%=config.url%>/">
 </head>
 
-<body> 
+<body > 
     <input type="hidden" value="<%=basePath%>" id="BASE_PATH" />
     <input type="hidden" value="<%=config.url%>" id="BASE_URL" />
     <input type="hidden" id="API_URL" value="<%= config.appApiUrl %>" />
-	<div class="container-fluid">
-        <div class="row about">   
-             <div class="col-md-8 bgheart position-relative">
-                 <div class="heart">
-                     <h1>Heart Rate Monitor System</h1>
-                    <p>Advanced technology makes it possible for you can get information about your
-                        heart without interrupting your life.Continues heart monitoring is useful 
-                        for capturing irregular heartbeats that happen infrequently-in some cases,
-                        you may not even feel any symptom.Depending on your situation,your doctor
-                        may recommend heart monitoring.
-                    </p>
-                </div>
+	<div class="container-fluid login-main-div">
+        <div class="row ">   
+             <div class="col-lg-9 col-md-9">
+                 <div class="row hr bgheart">
+                     <div class="col-lg-12 col-md-12">
+                        <div class="heart">
+                               <h1>Heart Rate Monitor System</h1>
+                               <p>Advanced technology makes it possible for you can get information about your
+                               heart without interrupting your life.Continues heart monitoring is useful 
+                               for capturing irregular heartbeats that happen infrequently-in some cases,
+                               you may not even feel any symptom.Depending on your situation,your doctor
+                               may recommend heart monitoring.
+                           </p>
+                        </div>
+                     </div>
+                 </div>
                     <div class="row health">
-                        <div class=" col- md-8 ">
-                        <h3>A HEALTH CARE SYSTEM</h3>
-                         <p>Through our hardware and software application,we're working to build a complete virtual
+                        <div class="col-lg-12 col-md-12  ">
+                        <h3 class="footer-col">A HEALTH CARE SYSTEM</h3>
+                         <p class="footer-ptag">Through our hardware and software application,we're working to build a complete virtual
                              care system that makes healthcare providers smarter and more connected-digital clinics
                              that serve the need of patient better.
                          </p>
                     </div>
                  </div> 
              </div>
-                <div class="col-md-4">
+             <div class="col-lg-3 col-md-3">
                     <div class="logo">
                      <img src="/images/vilpowerLogo.png">
                      </div>
                     <div class="form"> 
                         <form autocomplete="off" action=javascript:void(0) onsubmit="login()">   
-                     <label for="emailId">EmailId:</label><br>
-                     <input type="text" id="emailId" name="emailId" class="name" required><br>
-                     <label for="password">Password:</label><br>
-                     <input type="password" id="password" name="password" class="name" required><br><br>
+                     <label for="emailId" class="lab">EmailId</label>
+                     <input type="text" id="emailId" name="emailId" class="name mt-2"  required>
+                     <label for="password" class="lab" id="pwdLabel">Password</label><br>
+                     <input type="password" id="password" name="password" class="name mt-2" required><br>
                      <input type="checkbox" id="remember" name="remember" value="Me">
-                     <label for="remember">Remember me</label><br>
-                     <button type="submit" class="btn btn-primary login-btn">Sign me in</button>
+                     <label for="remember" id="remberId">Remember Me</label><br>
+                     <button type="submit" id="loginButton" class="btn login-btn">Sign me in</button>
                     </div>
-                </form>
+                      </form>
 					<div class="click">
-						<a>Not a remember yet?<a href="#">click here</a>.<br> 
+						<span class="login-txt">Not a remember yet? Click <a href="#" class="atag"> <b>here</b></a> to register.</span><br> 
 					</div>  
                     <div class="team">
                         <a href="#" class="text-warning textColor">Terms &amp; Conditions</a>
@@ -71,7 +75,7 @@
                     </div>
                     <div class="boodskap"> 
                         <p class="power">
-                        @ 2020 all rights reserved powered by <img src="/images/boodskap.jpg">
+                        @ 2020 all rights reserved powered by <img src="/images/boodskap.jpg"><span>boodskap</span>
                     </p>
                     </div>
                 </div>     
@@ -93,6 +97,5 @@
     <script src="js/common.js"></script>
     <script src="js/auth.js"></script>
 </body>
-
 </html>
 

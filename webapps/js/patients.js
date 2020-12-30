@@ -6,7 +6,7 @@ var sid;
 $(document).ready(function(){
     loadAssetList();
 });
-// create patients API
+// patient Registration API
 
 function addPatient(){
     if(flag==false){
@@ -28,8 +28,7 @@ function addPatient(){
     //Validate
     if(patient_name === ""){
 
-        $('.name-field').css('display','block');
-        $('.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+        showToast("title","msg");
         $('#patientModal').show();
 
     }else if(city === ""){
@@ -76,7 +75,7 @@ function addPatient(){
             zipcode : zipcode,
             created_ts : new Date().getTime()
         };
-// console.log("add user",inputObj);
+console.log("add user",inputObj);
         //Call API
         $.ajax({
             url: BASE_PATH+"/patient/insert",
@@ -86,20 +85,19 @@ function addPatient(){
             success: function (result) {
                 $('#patientModal').hide();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
-                successMsg("Patient Added Successfully!");
+                successMsg("Patients Added Successfully!");
                 loadAssetList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Patient Added Failed!");
+                errorMsg("Patients Added Failed!");
                 window.location.reload();
             }
         });
     }
 }
 else if(flag==true){
-    // alert("check......");
      patient_name = $("#patient_name").val();
      dob = $(".editAge").val();
      city = $("#editCity").val();
@@ -111,7 +109,7 @@ else if(flag==true){
     created_ts = new Date().getTime()
     var updateData ={
         patient_name : patient_name,
-        dob : age,
+        dob : dob,
         city : city,
         state : state,
         zipcode : zipcode,
@@ -119,14 +117,13 @@ else if(flag==true){
         country : country,
         created_ts : new Date().getTime()
     };
-            console.log("update",updateData);
+            console.log(updateData);
             $.ajax({
-                url: BASE_PATH+"/patient/update?_id="+_id,
-                data: JSON.stringify({_id: _id,updateData}),
+                url: BASE_PATH+"/patient/update",
+                data: JSON.stringify({_id: sid,updateData}),
                 contentType: "application/json",
                 type: 'POST',
                 success: function (result) {
-                    $('#editModal').hide();
                     //Success -> Show Alert & Refresh the page
                     successMsg("Patient Updated Successfully!");
                     loadAssetList();
@@ -143,7 +140,7 @@ else if(flag==true){
     }
 
 // Patient list API
-function loadAssetList(){
+function loadAssetList() {
 
     if (PatientTable) {
         PatientTable.destroy();
@@ -154,7 +151,6 @@ function loadAssetList(){
         {
             mData: 'patient_name',
             sTitle: 'Patient Name',
-            sWidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
@@ -163,22 +159,27 @@ function loadAssetList(){
         {
             mData: 'gender',
             sTitle: 'Gender',
-            sWidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
             }
         },
-
         {
-            mData: 'dob',
+            mData: 'age',
             sTitle: 'Age',
-            sWidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
             }
         },
+        {
+            title: 'Status',
+            sTitle: 'Status',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<a href="" class="patient-atag" data-toggle="modal" data-target="#myModal">Link</a>';
+            }
+         },
         {
             mData: 'city',
             sTitle: 'City',
@@ -211,7 +212,7 @@ function loadAssetList(){
                 return data;
             }
         },
-        
+    
         {
             sTitle: 'Actions',
             orderable: false,
@@ -299,7 +300,7 @@ function loadAssetList(){
                 success: function (data) {
 
                     var resultData = data.result.data;
-                            console.log("result",resultData);
+ 
                     patient_list = resultData.data;
 
                     $(".totalCount").html(data.result.total)
@@ -313,22 +314,20 @@ function loadAssetList(){
         }
     };
 
-   PatientTable = $("#managePatient").DataTable(tableOption);
+    PatientTable = $("#managePatient").DataTable(tableOption);
 }
 
 
-// edit patient
 var patient1=null;
 function editPatient(row){
     // console.log("row",row);
-    _id=row;
+    sid=row;
     flag=true;
     for(var i=0;i<patient_list.length;i++){
        if(patient_list[i]._id==row){
            patient1= patient_list[i];
            $('#patient_name').val(patient1.patient_name);
-           $("#datepicker1[name=datepicker1]").val(patient1.dob);
-        //    $('.editAge').val(patient1.dob );
+           $('.editAge').val(patient1.dob );
            $('#editCity').val(patient1.city);
            $('#editState').val(patient1.state);
            $('#editZipCode').val(patient1.editZipCode);

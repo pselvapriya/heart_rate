@@ -1,3 +1,5 @@
+<link href="css/patients-profile.css" rel="stylesheet">
+
 <div class="container-fluid">
     <div class="row head" id="full_view">
         <div class="col-md-6 head-title1">
@@ -11,9 +13,9 @@
         <div class="row head-1">
             <div class="col-md-6 head-title3">
                 <header><label>Total Patients:</label></header>
-                <div id="reportrange" class="calendar" style="cursor: pointer; padding: 5px 10px;  width: 60%">
+                <div id="reportrange" class="calender" style="cursor: pointer; padding: 5px 10px;  width: 60%">
 
-                    <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                    <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 90%">
 
                         <i class="fa fa-calendar"></i>&nbsp;
                         <span></span> <i class="fa fa-caret-down"></i>
@@ -24,7 +26,7 @@
                 <header>
                     <button class="button5" onclick="myFunction()"><i class="fa fa-filter"></i><span class="tooltip">Filter</span></button>
                     <button class="button7 " onclick="openFullscreen()"><i class="fa fa-expand"></i><span class="tooltip">Expand</span></button>
-                    <button class="button8" onclick="confirmRefresh()"><i class="fa fa-repeat"></i><span class="tooltip">Reload</span></button>
+                    <button class="button8" id="refresh" onClick="window.location.reload()"><i class="fa fa-repeat"></i><span class="tooltip">Reload</span></button>
                 </header>
             </div>
 
@@ -39,78 +41,47 @@
                     </div>
                     <div class="col-md-6 close">
                         <button class="button6" id="btn-6" onclick="hideFunction()"><i class="fa fa-close icofont-5"></i><span class="tooltip">Close</span></button>
-
                     </div>
                 </div>
-
-                <select class="select-box-1">
+                <div class="row filters">
+                    <div class="col-lg-2">
+                        <select class="select-box-1" id="filter_gender">
                 <option>All Gender</option>
-                <option>Male</option>
-                <option>Female</option>
+                <option id="male">Male</option>
+                <option id="female">Female</option>
             </select>
-                <!-- <div class="age-slider">
-                    <input value="150" min="0" max="150" step="25" type="range" />
-                    <input value="150" min="0" max="150" step="25" type="range" />
-
-                    <svg width="100%" height="24">
-                <line x1="4" y1="0" x2="300" y2="0" stroke="#212121" stroke-width="12" stroke-dasharray="1 28"></line>
-              </svg>
-                    <span>from
-                <input type="number" value="1" min="0" max="150"/>	to
-                <input type="number" value="150" min="0" max="1500"/></span>
-                </div> -->
-
-                <select class="select-box-2">
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="select-box-2" id="filter_status">
                 <option>All Status</option>
-                <option>Low</option>
-                <option>Normal</option>
-                <option>High</option>
+                <option id="low">Low</option>
+                <option id="normal">Normal</option>
+                <option id="high">High</option>
             </select>
-                <select class="select-box-3">
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="select-box-3" id="filter_activity">
                 <option>All Activities</option>
                 <option>walking</option>
                 <option>running</option>
                  <option>sleeping</option>
                 </select>
-                <button class="button4" type="reset"> <i class="fa fa-close icofont-6">Clear</i></button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="button4" type="reset"> <i class="fa fa-close icofont-6">Clear</i></button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <table id="patients_profile" class="display table table-bordered responsive" width="100%"></table>
+            <div class="col-lg-12 col-md-6">
+                <table id="patients_profile" class="display table table-bordered table-responsive" style="height: 100%;width: 100%;"></table>
             </div>
         </div>
     </div>
 </div>
 </div>
-
-<script src="../heart_beat/node_modules/jquery/dist/jquery.min.js">
-</script>
+<script src="js/patientstatus.js"></script>
+<script src="../heart_beat/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/js/patients-profile.js"></script>
 <script type="text/javascript"></script>
-<script>
-    /* Get the documentElement (<html>) to display the page in fullscreen */
-    var elem = document.documentElement;
-
-    /* View in fullscreen */
-    function openFullscreen() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-        }
-    }
-
-    /* Close fullscreen */
-    function closeFullscreen() {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE11 */
-            document.msExitFullscreen();
-        }
-    }
-</script>

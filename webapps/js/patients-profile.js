@@ -41,23 +41,45 @@ function hideFunction() {
     }
 }
 
+/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
 
-var dataSet = [
-    ["Malli", "09/08/1999", "21", "Female", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
-    ["Kowsi", "18/04/1999", "21", "Female", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
-    ["Raja", "31/03/1999", "21", "male", "Kadayam", "123", "High", "running", "12003", "6.12am"],
-]
+/* View in fullscreen */
+function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+}
+
+
+
+
 
 $(document).ready(function() {
     $('#patients_profile').DataTable({
         data: dataSet,
         searching: true,
         columns: [{
-                title: 'Patient Name',
+                title: 'Patient_Name',
                 sTitle: 'Patient Name',
                 orderable: false,
                 mRender: function(data, type, row) {
-                    return data +'&nbsp;'+'<i class="fa fa-eye eye-icon" aria-hidden="true"></i>';
+                    return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
                 }
             },
             {
@@ -97,7 +119,7 @@ $(document).ready(function() {
                 sTitle: 'Heart Rate',
                 orderable: false,
                 mRender: function(data, type, row) {
-                    return data;
+                    return data + '&nbsp;' + '&nbsp;' + '&nbsp;' + '<i class="fa fa-icon fa-heart-rate" aria-hidden="true"></i>';
                 }
             },
             {
@@ -105,7 +127,7 @@ $(document).ready(function() {
                 sTitle: 'Status',
                 orderable: false,
                 mRender: function(data, type, row) {
-                    return data;
+                    return '<button class="status">' + data + '</button>';
                 }
             },
             {
@@ -117,7 +139,15 @@ $(document).ready(function() {
                 }
             },
             {
-                title: 'Skin Patch Id',
+                mData: 'country',
+                sTitle: 'Country',
+                orderable: false,
+                mRender: function(data, type, row) {
+                    return data;
+                }
+            },
+            {
+                title: 'did',
                 sTitle: 'Skin Patch Id',
                 orderable: false,
                 mRender: function(data, type, row) {
@@ -125,7 +155,7 @@ $(document).ready(function() {
                 }
             },
             {
-                title: 'Last Reported Time',
+                title: 'updated_ts',
                 sTitle: 'Last Reported Time',
                 orderable: false,
                 mRender: function(data, type, row) {
@@ -137,3 +167,10 @@ $(document).ready(function() {
 
     });
 });
+const reloadtButton = document.querySelector("#patients_profile");
+// Reload everything:
+function reload() {
+    reload = location.reload();
+}
+// Event listeners for reload
+reloadButton.addEventListener("click", reload, false);
