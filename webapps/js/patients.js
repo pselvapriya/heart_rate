@@ -212,14 +212,7 @@ function loadAssetList() {
                 return data;
             }
         },
-        {
-            mData: 'created_ts',
-            sTitle: 'Created Time',
-            "className": 'sortingtable',
-            mRender: function (data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
-            }
-        },
+    
         {
             sTitle: 'Actions',
             orderable: false,

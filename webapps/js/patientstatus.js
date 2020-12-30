@@ -64,7 +64,7 @@ function loadPatientstatusList() {
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return '<h5>' + 'data' + '</h5>';
             }
         },
         {

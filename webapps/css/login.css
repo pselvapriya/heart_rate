@@ -1,55 +1,81 @@
-
 .bgheart{
     background-image: url("../images/heart.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: 87.6vh;
     font-size: 12px;
-    padding-top: 250px;
     color: snow;
-}
-.hr{
-    
-     
 }
 .login{
     margin-right: 10%;
 }
+#pwdLabel{
+    margin-top: 10px;
+}
 .name{
-    border: 1px solid lightgray;;
-    width: 252px;
-    height: 33px;
-    border-radius: 5px;
-    text-align: center;
+    border: 2px solid lightgray;
+    width: 90%;font-size: 16px!important;padding-left: 15px;
+    height: 40px;
+    /* margin-top: 8px; */
+    border-radius: 5px;background-color: white;
+}
+#remember{
+    cursor: pointer;color: lightgray;
+    /* margin-top: 17px;margin-left: 6px; */
+    margin:17px 0 0 0;
+}
+.heart{
+    position: absolute;
+    top: 40%;
+}
+#remberId{
+   cursor: pointer !important;
+   margin:10px 0 0 4px;
+    font-size: 13px;
+    font-weight: 600;
 }
 .lab{
     margin: 0;
 }
 .logo{
-    
     text-align: center;
 }
+.login-main-div{
+    background-color: white;height: 100vh;
+}
 .logo img{
-    width: 110px;
-    margin-top: 100px;
+    width: 35%;
+    margin-top: 140px;
     align-items: center;
 }
 .form {
-    margin-top: 10px;
+    margin-top: 35px;
     /* text-align: center; */
     border: none;
     margin-left: 40px;
 }
 .click{
-    margin-top: 20px;
-    text-align: center;
-
+    margin: 15px 0 0 46px;
+    
+}
+.login-txt{
+    font-size: 13px;
+    color: black!important;
+    font-weight: 500;
+}
+.atag{
+    color:#861182;
+}
+.atag:hover,.textColor:hover{
+    color:#861182;
 }
 .team{
     font-size: 10px;
-    margin-top: 40px;
+    padding-bottom: 17px;
     text-align: center;
-
+    border-bottom: 1px solid #f1f3f5;
+    margin:40px 39px 0 39px;
 }
 .bar{
  color:#B3A6C4 ;  
@@ -75,31 +101,43 @@
     text-align: center;
 }
 .login-btn{
-    background-color:purple;
-    border:none;
-    width: 250px;
+    background-color: #861182;
+    border: none;font-size: 14px;
+    font-weight: 500;
+    width: 90%;margin-top: 19px;
+    height: 38px;
     color: white;
 }
- 
+ .textColor{
+     color:#861182!important;font-size: 12px;
+     font-weight: 600;
+ }
 .health{
-    background-color:purple;
-   
+    background-color:#861182;
     color:snow;
-    
-    font-size: 10px;
+    font-size: 10px;height:12.6%;
+}
+.footer-col{
+    padding:31px 0;
+}
+.footer-col h3{
+    font-weight: 600;font-size: 13px;
+}
+.footer-ptag{
+    margin-top: -40px;font-size: 11px;
 }
 .health h3,p{
-    margin-left: 40px;
-    margin-top: 25px;
+    margin-left: 20px;
+    /* padding-top: 25px; */
 }
 .health {
     width: 100%;
 }
 .heart p,h1{
     margin: 20px;
+    
 }
- 
-@media screen and (max-width:768px) {
+ @media screen and (max-width:768px) {
     .bgheart{
         display: none;
     }       

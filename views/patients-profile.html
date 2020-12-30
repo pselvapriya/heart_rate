@@ -26,7 +26,7 @@
                 <header>
                     <button class="button5" onclick="myFunction()"><i class="fa fa-filter"></i><span class="tooltip">Filter</span></button>
                     <button class="button7 " onclick="openFullscreen()"><i class="fa fa-expand"></i><span class="tooltip">Expand</span></button>
-                    <button class="button8" onclick="refresh()"><i class="fa fa-repeat"></i><span class="tooltip">Reload</span></button>
+                    <button class="button8" id="refresh" onClick="window.location.reload()"><i class="fa fa-repeat"></i><span class="tooltip">Reload</span></button>
                 </header>
             </div>
 
@@ -43,30 +43,39 @@
                         <button class="button6" id="btn-6" onclick="hideFunction()"><i class="fa fa-close icofont-5"></i><span class="tooltip">Close</span></button>
                     </div>
                 </div>
-
-                <select class="select-box-1" id="filter_gender">
+                <div class="row filters">
+                    <div class="col-lg-2">
+                        <select class="select-box-1" id="filter_gender">
                 <option>All Gender</option>
                 <option id="male">Male</option>
                 <option id="female">Female</option>
             </select>
-                <select class="select-box-2" id="filter_status">
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="select-box-2" id="filter_status">
                 <option>All Status</option>
                 <option id="low">Low</option>
                 <option id="normal">Normal</option>
                 <option id="high">High</option>
             </select>
-                <select class="select-box-3" id="filter_activity">
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="select-box-3" id="filter_activity">
                 <option>All Activities</option>
                 <option>walking</option>
                 <option>running</option>
                  <option>sleeping</option>
                 </select>
-                <button class="button4" type="reset"> <i class="fa fa-close icofont-6">Clear</i></button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="button4" type="reset"> <i class="fa fa-close icofont-6">Clear</i></button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <table id="patients_profile" class="display table table-bordered responsive" width="100%"></table>
+            <div class="col-lg-12 col-md-6">
+                <table id="patients_profile" class="display table table-bordered table-responsive" style="height: 100%;width: 100%;"></table>
             </div>
         </div>
     </div>

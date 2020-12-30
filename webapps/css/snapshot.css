@@ -57,24 +57,7 @@ font-size: 10px;
     box-shadow: none;
 }
 
-.body-content  .dash-card-list .dash-card-item{
-    border: 2px solid #f5f5f5;
-    margin-bottom: 30px;
-    padding: 15px;
-    min-height: 300px;
-}
-.body-content  .dash-card-list .dash-card-item.item-1{
-    border-top: 2px solid #ff9903;
-}
-.body-content  .dash-card-list .dash-card-item.item-2{
-    border-top: 2px solid #c33734;
-}
-.body-content  .dash-card-list .dash-card-item.item-3{
-    border-top: 2px solid #1ba195;
-}
-.body-content  .dash-card-list .dash-card-item.item-4{
-    border-top: 2px solid #2e9bf3;
-}
+
 
 
 /* Patient's Profile */
@@ -101,8 +84,12 @@ font-size: 10px;
     text-decoration: none;
 }
 .myprofile{
-    background-color: black;
-    color: white;
+    color: black;
+   background-color:  #cfcfd6;
+    border-bottom: 1px solid black;
+    height:35px;
+    padding: 10px 8px;
+    
 
 }
 
@@ -113,6 +100,10 @@ font-size: 10px;
     outline: none;
     box-shadow: none;
 }
+.dateformat{
+    border: solid 1px rgb(168, 167, 167);
+    margin-top: 10px;
+ }
 
 .filter-section{
     /* border:1px solid #efefef; */
@@ -170,7 +161,9 @@ font-size: 10px;
 .user-data-table .table td{
     font-size: 0px;
 }
-
+.p{
+    
+}
 /* Profile-Section */
 .user-profile-section{
     border:1px solid #efefef;
@@ -189,6 +182,9 @@ font-size: 10px;
     margin-top: 10px;
   
 }
+.user-info{
+    text-align: center  ;
+}
 .user-profile-section .user-profile ul li p{
     margin-bottom: 10px;
     color: #b8a6a5;
@@ -198,7 +194,7 @@ font-size: 10px;
     color: #000;
 }
 .user-profile{
-    margin-top: none;
+    margin-top: 0px;
 }
 
 .user-profile-section .chart-section{
