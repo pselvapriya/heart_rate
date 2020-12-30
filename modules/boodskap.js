@@ -257,22 +257,21 @@ Boodskap.prototype.elasticInsert = function(rid, data, cbk) {
     );
 };
 // devicelist=============================================
-Boodskap.prototype.devicelist = function(cbk) {
+
+Boodskap.prototype.deviceSearch = function(cbk) {
     const self = this;
-    var limit = 15;
-    var url = `${self.API_URL}/device/list/${self.API_TOKEN}/${limit}`;
+    var list = 20;
+    var url = `${self.API_URL}/device/list/${self.API_TOKEN}/${list}`;
     request.get({
             uri: url,
-            headers: { "content-type": "application/json" },
         },
         function(err, res, body) {
             if (!err) {
                 if (res.statusCode === 200) {
-                    var data = JSON.parse(body);
-                    cbk(!!data.length, data);
-                    console.log("boodskap", cbk);
+                    var resultObj = self.utils.elasticDeviceFormatter(JSON.parse(body));
+                    cbk(true, resultObj);
                 } else {
-                    self.logger.error("record search error in platform =>", res.body);
+                    self.logger.error("record search error in platform =>", body);
                     cbk(false, JSON.parse(body));
                 }
             } else {

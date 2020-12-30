@@ -116,18 +116,22 @@ Common.prototype.commonDelete = function(tablename, req, res) {
     });
 };
 // devicelist===================================================
-
-Common.prototype.commondlist = function(req, res) {
+Common.prototype.commonDevice = function(req, res) {
     const self = this;
 
     const boodskap = new Boodskap(self.app, req.token);
 
-    boodskap.devicelist(function(status, result) {
-        console.log("common", result, status);
+    boodskap.deviceSearch(function(status, result) {
         if (status) {
-            res.json({ status: true, result: result });
+            res.json({
+                status: true,
+                result: result,
+            });
         } else {
-            res.json({ status: false, message: result });
+            res.json({
+                status: false,
+                message: result,
+            });
         }
     });
 };
