@@ -15,7 +15,7 @@
                     <p class="total-patients">Total Patient : <span class="totalCount"></span></p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patients</button>
+                    <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patient</button>
                     <button class="patient-expand-btn" onclick="patientExpand()"><i class="fa fa-expand"></i></button>
                     <button class="patient-repeat-btn"><i class="fa fa-repeat"></i></button>
                 </div>
@@ -41,7 +41,7 @@
         <!-- Modal content-->
         <div class="modal-content modal-div">
             <div class="modal-header">
-                <h4 class="modal-title user-add-header text-left">Add Patients</h4>
+                <h4 class="modal-title user-add-header text-left">Add Patient</h4>
                 <button type="button" class="close" style="float: right;" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -166,7 +166,7 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Name</label>
-                        <input type="text" class="form-control" id="patient_name">
+                        <input type="text" class="form-control" id="patient_name" required>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Select</label>
@@ -183,7 +183,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">City</label>
-                        <input type="text" class="form-control" id="editCity">
+                        <input type="text" class="form-control" id="editCity" required>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
