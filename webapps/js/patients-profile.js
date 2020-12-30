@@ -66,15 +66,9 @@ function closeFullscreen() {
     }
 }
 
-function refresh() {
-    $('#patients_profile').html();
-}
 
-var dataSet = [
-    ["Malli", "09/08/1999", "21", "Female", "Tenkasi", "76", "Normal", "Sleeping", "12001", "9.00pm"],
-    ["Kowsi", "18/04/1999", "21", "Female", "Ambai", "61", "Low", "Sleeping", "12002", "11.00pm"],
-    ["Raja", "31/03/1999", "21", "male", "Kadayam", "123", "High", "running", "12003", "6.12am"],
-]
+
+
 
 $(document).ready(function() {
     $('#patients_profile').DataTable({
@@ -173,3 +167,10 @@ $(document).ready(function() {
 
     });
 });
+const reloadtButton = document.querySelector("#patients_profile");
+// Reload everything:
+function reload() {
+    reload = location.reload();
+}
+// Event listeners for reload
+reloadButton.addEventListener("click", reload, false);

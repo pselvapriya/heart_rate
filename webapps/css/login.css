@@ -1,16 +1,12 @@
-
 .bgheart{
     background-image: url("../images/heart.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: 79vh;
     font-size: 12px;
     padding-top: 250px;
     color: snow;
-}
-.hr{
-    
-     
 }
 .login{
     margin-right: 10%;
@@ -83,13 +79,11 @@
  
 .health{
     background-color:purple;
-   
     color:snow;
-    
     font-size: 10px;
 }
 .health h3,p{
-    margin-left: 40px;
+    margin-left: 20px;
     margin-top: 25px;
 }
 .health {
@@ -97,9 +91,9 @@
 }
 .heart p,h1{
     margin: 20px;
+    
 }
- 
-@media screen and (max-width:768px) {
+ @media screen and (max-width:768px) {
     .bgheart{
         display: none;
     }       
