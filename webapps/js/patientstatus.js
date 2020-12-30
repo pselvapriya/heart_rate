@@ -128,6 +128,17 @@ function loadPatientstatusList() {
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
+    var filterquery = {
+        query: {
+            "bool": {
+                "filter":[
+                    { "term": { "gender": "Male"   }},
+        { "term": { "activity": "sleeping" }}
+
+                ]
+            }
+        }
+    } 
 
     patientstatus_list = [];
 
