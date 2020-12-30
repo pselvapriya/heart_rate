@@ -3,11 +3,11 @@
         font-family: 'Lato', sans-serif;
     }
     #myNav{
-        top: 32px;
-    border-top: 2px solid lightgrey;
+        /* top: 32px; */
+    /* border-top: 2px solid lightgrey; */
     }
     .overlay {
-        height: 100%;
+        height: 92.5%;
         width: 0;
         position: fixed;
         z-index: 1;
@@ -17,13 +17,15 @@
         color: black;
         overflow-x: hidden;
         transition: 0.5s;
+        border-bottom: 1px solid lightgrey;
     }
     
     .overlay-content {
         position: relative;
         /* top: 25%; */
         width: 100%;
-        margin-top: 12px;
+        margin-top: -95px;
+    border-top: 1px solid lightgrey;
     }
     
     .overlay a {
@@ -43,12 +45,18 @@
     
     .overlay .closebtn {
         position: absolute;
-        left: 18px;
-        top: -15px!important;
-        z-index: 1000;
-        font-size: 28px;
+    left: 18px;
+    top: -6px!important;
+    /* z-index: 1000; */
+    font-size: 26px;
+    font-weight: 600;
     }
-    
+    .logo-img1 {
+        height: 35px;
+    width: 130px;
+    margin-left: 58px;
+    margin-top: 5px;
+    }
     @media screen and (max-height: 450px) {
         .overlay a {
             font-size: 20px
@@ -61,9 +69,9 @@
     }
 </style>
 <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><img src="./images/vilpowerLogo.png" class="logo-img1" />
     <div class="overlay-content">
-        <a class="head-tag"><b>Home</b></a>
+        <a class="head-tag home-tag"><b>Home</b></a>
         <a class="nav-link" onclick="loadMainPage('/dashboard')" href="#/dashboard"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Dashboard</a>
         <a class="nav-link" onclick="loadMainPage('/patients-profile')" href="#/patients-profile"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients Profile</a>
         <!-- <a class="nav-link" onclick="loadMainPage('/snapshot')" href="#/snapshot"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patient Profile</a> -->
@@ -73,7 +81,7 @@
     </div>
 </div>
 
-<div class="row" style="background-color: white;">
+<div class="row header-row">
     <div class="col-md-6">
         <span class="opne-nav" onclick="openNav()">&#9776; <img src="./images/vilpowerLogo.png" class="logo-img" />
       </span>

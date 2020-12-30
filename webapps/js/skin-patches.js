@@ -37,7 +37,6 @@ function loadDeviceList() {
     var fields = [{
             mData: "id",
             sTitle: "Device Id",
-            sWidth: "20%",
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -46,20 +45,25 @@ function loadDeviceList() {
         {
             mData: "modelId",
             sTitle: "Model Id",
-            sWidth: "20%",
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
             },
         },
-
         {
             mData: "version",
             sTitle: "Version",
-            sWidth: "20%",
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
+            },
+        },
+        {
+            mData: "Status",
+            sTitle: "Status",
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<span class="label label-danger">Not Reported</span>';
             },
         },
         {
@@ -85,7 +89,7 @@ function loadDeviceList() {
 
     var tableOption = {
         fixedHeader: false,
-        responsive: false,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
