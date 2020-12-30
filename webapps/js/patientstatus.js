@@ -14,8 +14,8 @@ function loadPatientstatusList() {
 
     var fields = [{
             mData: 'patient_name',
-            sTitle: 'patient Name',
-            sWidth: '15%',
+            sTitle: 'Name',
+            sWidth: '170px',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
@@ -51,7 +51,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'address',
-            sWidth: '15%',
+            sWidth: '170px',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -60,7 +60,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'heart_rate',
-            sWidth: '20%',
+            sWidth: '220px',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
@@ -69,7 +69,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'activity',
-            sWidth: '10%',
+            sWidth: '80px',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -78,7 +78,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'status',
-            sWidth: '10%',
+            sWidth: '80px',
             sTitle: 'Status',
             orderable: false,
             mRender: function(data, type, row) {
@@ -97,7 +97,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '15%',
+            sWidth: '160px',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -106,7 +106,7 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '25%',
+            sWidth: '170px',
             "className": 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
