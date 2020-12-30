@@ -20,11 +20,11 @@
 	<base href="<%=config.url%>/">
 </head>
 
-<body class="about"> 
+<body > 
     <input type="hidden" value="<%=basePath%>" id="BASE_PATH" />
     <input type="hidden" value="<%=config.url%>" id="BASE_URL" />
     <input type="hidden" id="API_URL" value="<%= config.appApiUrl %>" />
-	<div class="container-fluid">
+	<div class="container-fluid" style="background-color: white;height: 100vh;">
         <div class="row ">   
              <div class="col-lg-9 col-md-9 xl-9">
                  <div class="row hr bgheart">
@@ -56,17 +56,17 @@
                      </div>
                     <div class="form text-left"> 
                         <form autocomplete="off" action=javascript:void(0) onsubmit="login()">   
-                     <label for="emailId" class="lab">EmailId:</label><br>
-                     <input type="text" id="emailId" name="emailId" class="name" mt-3 required><br>
-                     <label for="password" class="lab">Password:</label><br>
-                     <input type="password" id="password" name="password" class="name" mt-3 required><br><br>
+                     <label for="emailId" class="lab">EmailId</label>
+                     <input type="text" id="emailId" name="emailId" class="name mt-2"  required>
+                     <label for="password" class="lab" id="pwdLabel">Password</label><br>
+                     <input type="password" id="password" name="password" class="name mt-2" required><br>
                      <input type="checkbox" id="remember" name="remember" value="Me">
-                     <label for="remember">Remember me</label><br>
+                     <label for="remember" id="remberId">Remember me</label><br>
                      <button type="submit" id="loginButton" class="btn login-btn">Sign me in</button>
                     </div>
                       </form>
 					<div class="click">
-						<a>Not a remember yet?<a href="#">click here</a>.<br> 
+						<span class="login-txt">Not a remember yet? Click <a href="#" class="atag"> <b>here</b></a> to register.</span><br> 
 					</div>  
                     <div class="team">
                         <a href="#" class="text-warning textColor">Terms &amp; Conditions</a>
