@@ -7,7 +7,7 @@
     border-top: 2px solid #953a93;
   
     border-radius: 5px;
-    margin: 10px 15px;
+    margin: 20px 15px;
 }
 
 .body-content .section-title{
@@ -29,54 +29,30 @@ font-size: 10px;
     margin-left: 10px;
 }
 
-.body-content .section-title .user-action ul li .live-btn{
-    background-color: #00adad;
-    color: #fff;
-    border: none;
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 3px;
-}
-.body-content .section-title .user-action ul li .round-btns{
-    width: 30px;
-    height: 30px;
+
+ .round-btns{
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    line-height: 30px;
-    text-align: center;
+    line-height: 20px;
+    /* text-align: center; */
     border: none;
 }
-.body-content .section-title .user-action ul li .max-btn{
-    background-color: #f2f3f4;
-}
-.body-content .section-title .user-action ul li .refresh-btn{
+ .refresh-btn{
     background-color: #3e3a3c;
     color: #fff;
 }
-.body-content .section-title .user-action ul li button:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-
-
-
-/* Patient's Profile */
-
-/* .sub-header{
-    /* padding: 10px 0 0px; */
-    /* margin-top:10px; */
-/* } */ 
-.sub-header .navbar-brand{
+.navbar-brand{
     text-transform: capitalize;
     font-weight: 500;
     padding: 0;
 }
-.sub-header .breadcrumb {
+ .breadcrumb {
     background: none;
     padding-top: 0px;
     margin-bottom: 0;
 }
-.sub-header .breadcrumb .breadcrumb-item{
+.breadcrumb-item{
     text-transform: capitalize;
 }
 .sub-header .breadcrumb .breadcrumb-item a{
@@ -161,9 +137,8 @@ font-size: 10px;
 .user-data-table .table td{
     font-size: 0px;
 }
-.p{
+
     
-}
 /* Profile-Section */
 .user-profile-section{
     border:1px solid #efefef;
@@ -173,6 +148,7 @@ font-size: 10px;
     border:1px solid #efefef;
     /* padding: 15px; */
     text-align: center;
+    height:70%
 }
 .user-profile-section .user-profile ul li{
     list-style-type: none;
@@ -182,13 +158,13 @@ font-size: 10px;
     margin-top: 10px;
   
 }
-.user-info{
-    text-align: center  ;
-}
+
 .user-profile-section .user-profile ul li p{
     margin-bottom: 10px;
     color: #b8a6a5;
     font-size: 14px;
+    margin-left: 10px;
+    
 }
 .user-profile-section .user-profile ul li p span{
     color: #000;
@@ -197,7 +173,7 @@ font-size: 10px;
     margin-top: 0px;
 }
 
-.user-profile-section .chart-section{
+.chart-section{
     min-height: 250px;
     border:1px solid #efefef;
     padding: 15px;
@@ -205,4 +181,8 @@ font-size: 10px;
 }
 .user{
     margin-bottom:100px;
+}
+.year{
+   color: #999999;
+  
 }

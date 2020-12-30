@@ -77,12 +77,19 @@ visualMap: {
         color: '#999'
     }
 },
+
 series: {
+   
     name: 'Beijing AQI',
     type: 'line',
-    data: echartdata.map(function(item) {
-        return item[1];
-    }),
+    data: [110, 720, 150, 130, 120, 130, 100],
+    markPoint: {
+        data: [
+            {type: 'max', name: 'booma'},
+            {type: 'min', name: 'booma'}
+        ]
+    
+    },
     markLine: {
         silent: true,
         data: [{
