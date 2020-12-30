@@ -18,7 +18,7 @@ function loadPatientstatusList() {
             sWidth: '170px',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
+                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
             }
         },
         // {
@@ -97,7 +97,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '160px',
+            sWidth: '10px',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
