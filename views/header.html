@@ -4,7 +4,7 @@
     }
     
     #myNav {
-        /* top: 32px; */
+        width: 15%;
         /* border-top: 2px solid lightgrey; */
     }
     
@@ -61,14 +61,39 @@
         margin-top: 5px;
     }
     
-    @media screen and (max-height: 450px) {
+    @media (min-width: 375PX) and (max-width: 850px) {
+        #myNav {
+            width: 43%;
+        }
+        .overlay {
+            height: 85.5%;
+        }
         .overlay a {
             font-size: 20px
+        }
+        .overlay-content {
+            position: relative;
+            width: 100%;
+            margin-top: -70px!important;
+            border-top: 1px solid lightgrey;
         }
         .overlay .closebtn {
             font-size: 28px;
             top: 15px;
             /* right: 35px; */
+        }
+    }
+    
+    @media (min-width: 850px) and (max-width: 950px) {
+        #myNav {
+            width: 25%;
+        }
+        .overlay-content {
+            position: relative;
+            /* top: 25%; */
+            width: 100%;
+            margin-top: -70px;
+            border-top: 1px solid lightgrey;
         }
     }
 </style>
