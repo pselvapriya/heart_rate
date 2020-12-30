@@ -114,19 +114,22 @@
     <div class="col-md-6 text-right" >
         <img src="./images/profile-image-circle.png" class="circle-img profile-img" />
         <!-- <div class="dropdown"> -->
-        <button class="btn btn-default dropdown-toggle profile-name" type="button" data-toggle="dropdown"><%= sessionObj.userName %>
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <div class="row">
-                <div class="col-md-12 profile-col">
-                    <img src="./images/profile-image-circle.png" class="circle-img profile-img1" />
-                    <p class="user-txt"><%= sessionObj.userId %></p>
-                    <p class="user-txt mt-0"><%= sessionObj.userName %></p>
-                    <button type="button" class="btn btn-primary logout-btn" onclick="logout()">Logout</button>
+            <button type="button" class="btn dropdown-toggle show-drop" data-toggle="dropdown"onclick="openCard()">
+                <%= sessionObj.userName %>
+            </button>   
+            <div class="card card-div" style="width:400px;display: none;">
+                <div class="card-body">
+                    <div class="row ">
+                        <div class="col-md-12 text-center">
+                            <img src="./images/profile-image-circle.png" class="circle-img profile-img1" />
+                  <h4 class="card-title"><%= sessionObj.userId %></h4>
+                  <p class="card-text"><%= sessionObj.userName %></p>
+                  <button type="button" class="btn btn-primary logout-btn" onclick="logout()">Logout</button>
+                  </div>
+                  </div>
                 </div>
-            </div>
-        </ul>
-        <!-- </div> -->
+              </div>
+          <!-- </div> -->
     </div>
 
 

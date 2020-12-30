@@ -12,13 +12,12 @@
   font-size:25px;cursor:pointer;
 }
 .profile-img{
-    width:20px;height:20px;
+  width: 30px;
+  height: 30px;
 }
 .profile-img1{
-  position: relative;
-    width: 30px;top: 8px;
-    height: 30px;
-    left: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 20px;
 }
 .head-tag{
@@ -44,9 +43,10 @@
 }
 .logout-btn{
   height: 30px;
-    padding-top: 2px;border:none;
-    left: 42px;background-color: blue;
-    position: relative;top:10px;
+    width: 60%;
+    padding-top: 2px;
+    border: none;
+    background-color: blue;
 }
 .logout-btn:hover{
   border: none;background-color: blue;
@@ -109,4 +109,19 @@ body {
   color:black !important;
   background-color: #eeeeee;
   border-right:5px solid #861182;
+}
+.show-drop{
+  background-color: white;
+}
+.card-div{
+  background:white;
+  border: 2px solid lightgrey;
+    display: block;
+    left: 52%;height: 100%;
+    text-align: left;
+    z-index: 1000;
+}
+.card-title,.card-text{
+  font-size: 16px;
+    color: black;
 }
