@@ -75,7 +75,7 @@ function addPatient(){
             zipcode : zipcode,
             created_ts : new Date().getTime()
         };
-console.log("add user",inputObj);
+// console.log("add user",inputObj);
         //Call API
         $.ajax({
             url: BASE_PATH+"/patient/insert",
