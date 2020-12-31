@@ -79,33 +79,34 @@ $(document).ready(function() {
                 sTitle: 'Patient Name',
                 orderable: false,
                 mRender: function(data, type, row) {
-                    return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
+                    return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + row.dob + 'years old</h6>';
+
                 }
             },
-            {
-                title: 'DOB',
-                sTitle: 'DOB',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            {
-                title: 'Age',
-                sTitle: 'Age',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            {
-                title: 'Gender',
-                sTitle: 'Gender',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
+            // {
+            //     title: 'DOB',
+            //     sTitle: 'DOB',
+            //     orderable: false,
+            //     mRender: function(data, type, row) {
+            //         return data;
+            //     }
+            // },
+            // {
+            //     title: 'Age',
+            //     sTitle: 'Age',
+            //     orderable: false,
+            //     mRender: function(data, type, row) {
+            //         return data;
+            //     }
+            // },
+            // {
+            //     title: 'Gender',
+            //     sTitle: 'Gender',
+            //     orderable: false,
+            //     mRender: function(data, type, row) {
+            //         return data;
+            //     }
+            // },
             {
                 title: 'Address',
                 sTitle: 'Address',
@@ -138,14 +139,14 @@ $(document).ready(function() {
                     return data;
                 }
             },
-            {
-                mData: 'country',
-                sTitle: 'Country',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
+            // {
+            //     mData: 'country',
+            //     sTitle: 'Country',
+            //     orderable: false,
+            //     mRender: function(data, type, row) {
+            //         return data;
+            //     }
+            // },
             {
                 title: 'did',
                 sTitle: 'Skin Patch Id',

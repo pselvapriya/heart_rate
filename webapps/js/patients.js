@@ -75,7 +75,7 @@ function addPatient(){
             zipcode : zipcode,
             created_ts : new Date().getTime()
         };
-console.log("add user",inputObj);
+// console.log("add user",inputObj);
         //Call API
         $.ajax({
             url: BASE_PATH+"/patient/insert",
@@ -84,14 +84,15 @@ console.log("add user",inputObj);
             type: 'POST',
             success: function (result) {
                 $('#patientModal').hide();
+                $(".modal-backdrop").remove();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
-                successMsg("Patients Added Successfully!");
+                successMsg("Patient Added Successfully!");
                 loadAssetList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Patients Added Failed!");
+                errorMsg("Patient Added Failed!");
                 window.location.reload();
             }
         });
@@ -173,6 +174,14 @@ function loadAssetList() {
             }
         },
         {
+            mData: 'mobile_no',
+            sTitle: 'mobile_no',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
             title: 'Status',
             sTitle: 'Status',
             orderable: false,
@@ -183,6 +192,22 @@ function loadAssetList() {
         {
             mData: 'city',
             sTitle: 'City',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'email ',
+            sTitle: 'email ',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'created_ts',
+            sTitle: 'created_ts',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
@@ -212,7 +237,14 @@ function loadAssetList() {
                 return data;
             }
         },
-    
+        {
+            mData: 'zipcode',
+            sTitle: 'zipcode',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
         {
             sTitle: 'Actions',
             orderable: false,

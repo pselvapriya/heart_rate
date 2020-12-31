@@ -55,7 +55,6 @@ APIRoutes.prototype.init = function () {
         });
     });
     
-    
 
     self.router.post('/patient/:action', sessionCheck, function (req, res) {
     

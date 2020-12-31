@@ -1,134 +1,187 @@
-.bgheart{
+.bgheart {
     background-image: url("../images/heart.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 87.6vh;
+    height: 85.3vh;
     font-size: 12px;
-    padding-top: 250px;
     color: snow;
 }
-.login{
+.health {
+    background-color: #861182;
+    color: snow;
+    height: 14.7%;
+}
+.col-div{
+    margin:30px 0;
+}
+
+.login {
     margin-right: 10%;
 }
-#pwdLabel{
+
+#pwdLabel {
     margin-top: 10px;
 }
-.name{
+
+.name {
     border: 2px solid lightgray;
-    width: 90%;font-size: 16px!important;padding-left: 15px;
+    width: 90%;
+    font-size: 16px!important;
+    padding-left: 15px;
     height: 40px;
     /* margin-top: 8px; */
-    border-radius: 5px;background-color: white;
+    border-radius: 5px;
+    background-color: white;
 }
-#remember{
-    cursor: pointer;color: lightgray;
-    margin-top: 17px;
+.sub-txt{
+    font-size: 13px;
 }
-#remberId{
-   cursor: pointer !important;
-   margin-top:10px;
-   margin-left: 6px;
+#remember {
+    cursor: pointer;
+    color: lightgray;
+    /* margin-top: 17px;margin-left: 6px; */
+    margin: 17px 0 0 0;
+}
+
+.heart {
+    position: absolute;
+    top: 40%;
+    margin-left: 17px;
+}
+
+#remberId {
+    cursor: pointer !important;
+    margin: 10px 0 0 4px;
     font-size: 13px;
     font-weight: 600;
 }
-.lab{
+
+.lab {
     margin: 0;
+    margin-right: 17px;
 }
-.logo{
-    
+
+.logo {
     text-align: center;
 }
-.logo img{
-    width: 110px;
+
+.login-main-div {
+    background-color: white;
+    height: 100vh;
+    padding: 0 0;
+}
+
+.logo img {
+    width: 35%;
     margin-top: 140px;
     align-items: center;
 }
+
 .form {
     margin-top: 35px;
     /* text-align: center; */
     border: none;
     margin-left: 40px;
 }
-.click{
+
+.click {
     margin: 15px 0 0 46px;
-    
 }
-.login-txt{
+
+.login-txt {
     font-size: 13px;
     color: black!important;
     font-weight: 500;
 }
-.atag{
-    color:#861182;
-}
-.atag:hover,.textColor:hover{
-    color:#861182;
-}
-.team{
-    font-size: 10px;
-    margin-top: 40px;
-    text-align: center;
 
+.atag {
+    color: #861182;
 }
-.bar{
- color:#B3A6C4 ;  
- font-size: 10px; 
+
+.atag:hover,
+.textColor:hover {
+    color: #861182;
 }
-#eid{
+
+.team {
+    font-size: 10px;
+    padding-bottom: 17px;
+    text-align: center;
+    border-bottom: 1px solid #f1f3f5;
+    margin: 40px 39px 0 39px;
+}
+
+.bar {
+    color: #B3A6C4;
+    font-size: 10px;
+}
+
+#eid {
     width: 250px;
     height: 35px;
     font-size: small;
 }
-#pword{
+
+#pword {
     width: 250px;
     height: 35px;
     font-size: small;
 }
-.boodskap img{
+
+.boodskap img {
     height: 30px;
     width: 30px;
 }
-.boodskap{
+
+.boodskap {
     font-size: 10px;
     margin-top: 10px;
     text-align: center;
 }
-.login-btn{
+
+.login-btn {
     background-color: #861182;
-    border: none;font-size: 14px;
+    border: none;
+    font-size: 14px;
     font-weight: 500;
     width: 90%;
+    margin-top: 19px;
     height: 38px;
     color: white;
 }
- .textColor{
-     color:#861182!important;font-size: 12px;
-     font-weight: 600;
- }
-.health{
-    background-color:#861182;
-    color:snow;
-    font-size: 10px;
+
+.textColor {
+    color: #861182!important;
+    font-size: 12px;
+    font-weight: 600;
 }
-.health h3,p{
-    margin-left: 20px;
-    margin-top: 25px;
+.footer-ptag{
+    font-size: 12px;
 }
+
+
+.footer-col h3 {
+    font-weight: 600;
+}
+
+.health h3,
+p {
+    margin-left: 30px;
+    /* padding-top: 25px; */
+}
+
 .health {
     width: 100%;
 }
-.heart p,h1{
+
+.heart p,
+h1 {
     margin: 20px;
-    
 }
- @media screen and (max-width:768px) {
-    .bgheart{
+
+@media screen and (max-width:768px) {
+    .health,.bgheart {
         display: none;
-    }       
-}
-/* @media screen and (max-width:768px) {
-    .form{
-     
     }
-} */
+}
