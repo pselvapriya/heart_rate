@@ -12,13 +12,14 @@ function loadPatientstatusList() {
         $("#patients_profile").html("");
     }
 
+
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Name',
             sWidth: '170px',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
+                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + row.dob + 'years old</h6>';
             }
         },
         // {
@@ -64,7 +65,7 @@ function loadPatientstatusList() {
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<h5>' + 'data' + '</h5>';
+                return '<h5>' + data + '</h5>';
             }
         },
         {
@@ -97,7 +98,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '10px',
+            sWidth: '170px',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
