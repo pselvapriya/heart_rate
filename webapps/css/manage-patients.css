@@ -53,16 +53,19 @@
     color: black !important;font-weight: 600;
 }
 .patient-row-modal{
-    margin-bottom: 25px;
+    margin-bottom: 15px !important;
+}
+.required-txt{
+    color:red;font-size: 12px;
 }
 .modal-txt{
     font-size: 15px;
 }
 .link-btn,.user-create{
-    background-color: #861182;border:none;
+    background-color: #861182;border:none;color:white;
 }
 .link-btn:hover,.user-create:hover{
-    background-color: #861182;border:none;
+    background-color: #861182;border:none;color:white;
 }
 #zipCode{
     font-size: 14px;

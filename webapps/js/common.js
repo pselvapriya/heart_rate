@@ -88,13 +88,13 @@ function renderMode(type) {
 
 }
 
-function showToast(title,msg) {
+function showToast(title,msg,type) {
     $.toast({
         heading: title,
         text: msg,
         position: 'top-right',
         loaderBg:'#ffeb3b',
-        // icon: type,
+        icon: type,
         hideAfter: 3000,
         stack: 6
 
