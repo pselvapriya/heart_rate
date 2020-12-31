@@ -2,13 +2,15 @@
     color:black;font-size:12px;
 }
 .patches-txt{
-    font-size: 13px;
-    margin-bottom: 7px;padding-left: 0;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding-left: 0;
+    color: black;
 }
 .row-bottom{
-    border-bottom:4px solid blueviolet;
+    border-bottom:3px solid blueviolet;
     margin: 0;
-    margin: 10px auto;
+    margin-top: 15px;
 }
 .arrow-icon{
     transform: rotate(125deg);
@@ -20,20 +22,23 @@
     padding: 0 0;
 }
 .total-patches{
-    font-size: 12px;
+    font-size: 13px;
+    color: black;
+    margin: 11px -22px;
+    padding-left: 0;
+}
+.patches-total-div{
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
 }
 .second-row{
-    margin:7px 0 0 0;
+    /* margin:7px 0 0 0; */
 }
 .add-patch-btn,.refresh-btn{
     background-color: lightgray;
 }
 .srch-txt{
     font-size: 12px;
-}
-.total-patches{
-    font-size: 12px;    margin: 5px 2px;
-
 }
 .second-row{
     /* margin:7px 0 0 0; */
@@ -73,7 +78,7 @@ background-color: white !important;border:1px solid lightgrey!important;
     font-size: 16px;cursor:pointer;
 }
 .expand-btn {
-    border-radius: 100%;
+    border-radius: 100%;margin-top: 10px;
     border: none;cursor: pointer;
 }
 
@@ -82,4 +87,22 @@ background-color: white !important;border:1px solid lightgrey!important;
     border-radius: 100%;
     border: none;
     color: white;
+}
+.dataTables_length {
+    margin-top: 10px;
+    margin-left: 10px!important;
+}
+.dataTables_filter input, .dataTables_filter input:focus, .dataTables_length select, .dataTables_length select:focus {
+    background-image: none !important;
+}
+.dataTables_wrapper{
+    background-color: white;
+}
+#skin_patches_length select {
+    border: 1px solid lightgrey!important;
+    background-color: white !important;
+}
+#skin_patches_filter input {
+    background-color: white !important;
+    border: 1px solid lightgrey!important;
 }

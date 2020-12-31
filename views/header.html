@@ -4,7 +4,7 @@
     }
     #myNav{
         top: 32px;
-    border-top: 2px solid #f7f7f7;
+    border-top: 2px solid lightgrey;
     }
     .overlay {
         height: 100%;
@@ -43,8 +43,9 @@
     
     .overlay .closebtn {
         position: absolute;
-        top: 15px;
-        /* right: 45px; */
+        left: 18px;
+        top: -15px!important;
+        z-index: 1000;
         font-size: 28px;
     }
     
@@ -62,11 +63,11 @@
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-        <a class="head-tag">Home</a>
+        <a class="head-tag"><b>Home</b></a>
         <a class="nav-link" onclick="loadMainPage('/dashboard')" href="#/dashboard"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Dashboard</a>
         <a class="nav-link" onclick="loadMainPage('/patients-profile')" href="#/patients-profile"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients Profile</a>
         <!-- <a class="nav-link" onclick="loadMainPage('/snapshot')" href="#/snapshot"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patient Profile</a> -->
-        <a class="head-tag">Adminstration</a>
+        <a class="head-tag"><b>Adminstration</b></a>
         <a class="nav-link" onclick="loadMainPage('/manage-patients')" href="#/manage-patients"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients</a>
         <a class="nav-link" onclick="loadMainPage('/skin-patches')" href="#/skin-patches"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Skin Patches</a>
     </div>
@@ -77,7 +78,7 @@
         <span class="opne-nav" onclick="openNav()">&#9776; <img src="./images/vilpowerLogo.png" class="logo-img" />
       </span>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 text-right" >
         <img src="./images/profile-image-circle.png" class="circle-img profile-img" />
         <!-- <div class="dropdown"> -->
         <button class="btn btn-default dropdown-toggle profile-name" type="button" data-toggle="dropdown">Profile Name
@@ -98,3 +99,4 @@
 
 </div>
 <script src="/js/header.js"></script>
+<script src="/js/common.js"></script>

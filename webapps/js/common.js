@@ -23,11 +23,44 @@ $(document).ready(function () {
     })
 
 });
+// function logout() {
+    // console.log(BASE_PATH);
+  
+    // Cookies.remove('hrmonitor_cookie')
+    // obj = JSON.parse(localStorage.getItem('session'));
+   
+//     $.ajax({
+//         url: BASE_PATH + "/logout",
+//         type: 'POST',
+//         contentType: "application/json",
+//         data: JSON.stringify(obj),
+//         success: function () {
+//             //called when successful
+//             Cookies.remove('hrmonitor_cookie')
+           
+            
+//                    document.location=BASE_PATH+'/login';
+//         },
+//         error: function (e) {
+//             //called when there is an error
+//             console.log(e.message);
+//             // cbk(false, null);    
+//         }
+//     });
+   
+//     console.log('changest')
+// }
 
+
+
+// 
+
+   
+    // console.log('changest')
+// }
 function logout() {
-    alert("not clear");
     Cookies.remove('hrmonitor_cookie')
-    window.location.BASE_PATH+'/login';
+    document.location.BASE_PATH+'/login';
 }
     
 
@@ -67,13 +100,13 @@ function renderMode(type) {
 
 }
 
-function showToast(type,title,msg) {
+function showToast(title,msg) {
     $.toast({
         heading: title,
         text: msg,
         position: 'top-right',
         loaderBg:'#ffeb3b',
-        icon: type,
+        // icon: type,
         hideAfter: 3000,
         stack: 6
 
