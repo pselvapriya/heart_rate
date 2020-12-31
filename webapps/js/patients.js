@@ -75,7 +75,7 @@ function addPatient(){
             zipcode : zipcode,
             created_ts : new Date().getTime()
         };
-console.log("add user",inputObj);
+// console.log("add user",inputObj);
         //Call API
         $.ajax({
             url: BASE_PATH+"/patient/insert",
@@ -85,13 +85,13 @@ console.log("add user",inputObj);
             success: function (result) {
                 $('#patientModal').hide();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
-                successMsg("Patients Added Successfully!");
+                successMsg("Patient Added Successfully!");
                 loadAssetList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Patients Added Failed!");
+                errorMsg("Patient Added Failed!");
                 window.location.reload();
             }
         });
