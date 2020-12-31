@@ -2,7 +2,7 @@ var Utils = require("../modules/utils");
 var Common = require("../modules/common");
 var Tables = require("../modules/tables");
 
-var UIRoutes = function (app, router) {
+var UIRoutes = function(app, router) {
 
     this.app = app;
     this.router = router;
@@ -18,26 +18,26 @@ var UIRoutes = function (app, router) {
 module.exports = UIRoutes;
 
 
-UIRoutes.prototype.init = function () {
+UIRoutes.prototype.init = function() {
 
     const self = this;
 
-    var sessionCheck = function (req, res, next) {
+    var sessionCheck = function(req, res, next) {
 
-        if(req.session['sessionObj']){
+        if (req.session['sessionObj']) {
             next();
-        }else{
+        } else {
             res.redirect(self.app.conf.web.basepath + "/login");
         }
     };
 
-    self.router.get('/', function (req, res) {
+    self.router.get('/', function(req, res) {
         res.redirect(self.app.conf.web.basepath + '/login');
     });
 
-    self.router.get('/login', function (req, res) {
+    self.router.get('/login', function(req, res) {
 
-        var sessionObj = req.session ? req.session['sessionObj']:"";
+        var sessionObj = req.session ? req.session['sessionObj'] : "";
 
         if (sessionObj) {
             res.redirect(self.app.conf.web.basepath + '/main');
@@ -50,7 +50,7 @@ UIRoutes.prototype.init = function () {
         }
     });
 
-    self.router.get('/main', function (req, res) {
+    self.router.get('/main', function(req, res) {
 
         res.render('dashboard.html', {
             layout: '',
@@ -60,18 +60,18 @@ UIRoutes.prototype.init = function () {
         });
     });
 
-     self.router.get('/skin-patches', function (req, res) {
+    self.router.get('/skin-patches', function(req, res) {
 
         res.render('skin-patches.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
-            dataObj : "",
+            dataObj: "",
             basePath: self.app.conf.web.basepath
         });
     });
 
-    self.router.get('/dashboard', function (req, res) {
+    self.router.get('/dashboard', function(req, res) {
 
         res.render('dashboard.html', {
             layout: false,
@@ -92,28 +92,28 @@ UIRoutes.prototype.init = function () {
             layout: false,
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
-            dataObj : "",
+            dataObj: "",
             basePath: self.app.conf.web.basepath
         });
     });
-    self.router.get('/snapshot', function (req, res) {
+    self.router.get('/snapshot', function(req, res) {
 
         res.render('snapshot.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
-            dataObj : "",
+            dataObj: "",
             basePath: self.app.conf.web.basepath
         });
     });
 
-    self.router.get('/manage-patients', function (req, res) {
+    self.router.get('/manage-patients', function(req, res) {
 
         res.render('manage-patients.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
-            dataObj : "",
+            dataObj: "",
             basePath: self.app.conf.web.basepath
         });
     });
