@@ -31,12 +31,13 @@
   background-color: white !important;
 }
 .patient-atag{
-    color: blue;
-    text-decoration: underline;
+    height: 30px;
+    width: 80%;padding-top: 4px;
+    background-color:  #861182;
+    color: white;
 }
 .patient-atag:hover{
-    color: blue;
-    text-decoration: underline;
+    background-color:  #861182;
 }
 .modal-div{
     /* top:220px; */
@@ -58,13 +59,16 @@
     font-size: 15px;
 }
 .link-btn,.user-create{
-    background-color: blue;border:none;
+    background-color: #861182;border:none;
 }
 .link-btn:hover,.user-create:hover{
-    background-color: blue;border:none;
+    background-color: #861182;border:none;
 }
 #zipCode{
     font-size: 14px;
+}
+.link-modal-row{
+    margin-top:20px;margin-bottom: 20px;
 }
 .name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field{
     color:red;font-size:12px;display:none;

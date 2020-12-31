@@ -154,15 +154,7 @@ function loadAssetList() {
             sTitle: 'Patient Name',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'gender',
-            sTitle: 'Gender',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {
@@ -170,12 +162,52 @@ function loadAssetList() {
             sTitle: 'Age',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
+            }
+        },
+        {
+            mData: 'gender',
+            sTitle: 'Gender',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data ? data : '-';
             }
         },
         {
             mData: 'mobile_no',
-            sTitle: 'mobile_no',
+            sTitle: 'Mobile Number',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data ? data : '-';
+            }
+        },
+        {
+            mData: 'email ',
+            sTitle: 'Email ',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data ? data : '-';
+            }
+        },
+        {
+            mData: 'address',
+            sTitle: 'Address',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return row.address +'&nbsp;'+','+ row.city +'&nbsp;'+','+ row.state +'&nbsp;'+','+ row.zipcode +'.';
+            }
+        },
+        {
+            mData: 'country',
+            sTitle: 'Country',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data ? data : '-';
+            }
+        },      
+        {
+            mData: 'created_ts',
+            sTitle: 'Created Time',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
@@ -186,65 +218,9 @@ function loadAssetList() {
             sTitle: 'Status',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<a href="" class="patient-atag" data-toggle="modal" data-target="#myModal">Link</a>';
+                return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>'
             }
          },
-        {
-            mData: 'city',
-            sTitle: 'City',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'email ',
-            sTitle: 'email ',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'created_ts',
-            sTitle: 'created_ts',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'state',
-            sTitle: 'State',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'country',
-            sTitle: 'Country',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'address',
-            sTitle: 'Address',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'zipcode',
-            sTitle: 'zipcode',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
-            }
-        },
         {
             sTitle: 'Actions',
             orderable: false,
