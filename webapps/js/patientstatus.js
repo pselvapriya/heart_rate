@@ -12,46 +12,47 @@ function loadPatientstatusList() {
         $("#patients_profile").html("");
     }
 
+
     var fields = [{
             mData: 'patient_name',
-            sTitle: 'patient Name',
-            sWidth: '20%',
+            sTitle: 'Name',
+            sWidth: '170px',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + data + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>56 years old</h6>';
+                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + row.dob + 'years old</h6>';
             }
         },
-        {
-            mData: 'dob',
-            sTitle: 'DOB',
-            sWidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'age',
-            sTitle: 'Age',
-            sWidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'gender',
-            sTitle: 'Gender',
-            sWidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
+        // {
+        //     mData: 'dob',
+        //     sTitle: 'DOB',
+        //     sWidth: '10%',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
+        // {
+        //     mData: 'age',
+        //     sTitle: 'Age',
+        //     sWidth: '10%',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
+        // {
+        //     mData: 'gender',
+        //     sTitle: 'Gender',
+        //     sWidth: '10%',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
 
         {
             mData: 'address',
-            sWidth: '30%',
+            sWidth: '170px',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -60,16 +61,16 @@ function loadPatientstatusList() {
         },
         {
             mData: 'heart_rate',
-            sWidth: '20%',
+            sWidth: '220px',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return '<h5>' + data + '</h5>';
             }
         },
         {
             mData: 'activity',
-            sWidth: '20%',
+            sWidth: '80px',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -78,26 +79,26 @@ function loadPatientstatusList() {
         },
         {
             mData: 'status',
-            sWidth: '10%',
+            sWidth: '80px',
             sTitle: 'Status',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<button class="status">' + data + '</button>';
             }
         },
-        {
-            mData: 'country',
-            sWidth: '20%',
-            sTitle: 'Country',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
+        // {
+        //     mData: 'country',
+        //     sWidth: '20%',
+        //     sTitle: 'Country',
+        //     orderable: false,
+        //     mRender: function(data, type, row) {
+        //         return data;
+        //     }
+        // },
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '30%',
+            sWidth: '170px',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -106,7 +107,7 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '30%',
+            sWidth: '170px',
             "className": 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -128,6 +129,17 @@ function loadPatientstatusList() {
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
+    var filterquery = {
+        query: {
+            "bool": {
+                "filter":[
+                    { "term": { "gender": "Male"   }},
+        { "term": { "activity": "sleeping" }}
+
+                ]
+            }
+        }
+    } 
 
     patientstatus_list = [];
 

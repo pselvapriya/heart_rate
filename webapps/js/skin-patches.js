@@ -1,108 +1,182 @@
 var deviceTable = null;
 var device_list = [];
- 
 // var startDate = moment().subtract(6, 'days').startOf('day');
 // var endDate = moment().endOf('day');
- 
+$(document).ready(function() {
+    loadDeviceList();
+});
 
 var elem = document.documentElement;
-    function skinpatchesExpand() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { 
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { 
-            elem.msRequestFullscreen();
-        }
+
+function skinpatchesExpand() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
     }
-    function closeFullscreen() {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { 
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { 
-            document.msExitFullscreen();
-        }
+}
+
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+}
+
+function loadDeviceList() {
+    if (deviceTable) {
+        deviceTable.destroy();
+        $("#skin_patches").html("");
     }
 
-    var dataSet = [
-        ["hrmonitor1","SIM","1.0.0","HTTP","statys","04/21/2020 pm","04/21/2020 pm","edit"],
-        ["hrmonitor2","SIM","1.0.0","HTTP","statys","04/21/2020 pm","04/21/2020 pm","edit"],
-        ["hrmonitor3","SIM","1.0.0","HTTP","statys","04/21/2020 pm","04/21/2020 pm","edit"],
-        ["hrmonitor4","SIM","1.0.0","HTTP","statys","04/21/2020 pm","04/21/2020 pm","eid"],
-        ["hrmonitor5","SIM","1.0.0","HTTP","statys","04/21/2020 pm","04/21/2020 pm","edit"]
+    var fields = [{
+            mData: "id",
+            sTitle: "Device Id",
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            },
+        },
+        {
+            mData: "modelId",
+            sTitle: "Model Id",
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            },
+        },
+        {
+            mData: "version",
+            sTitle: "Version",
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            },
+        },
+        {
+            mData: "Status",
+            sTitle: "Status",
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<span class="label label-danger">Not Reported</span>';
+            },
+        },
+        {
+            mData: "registeredStamp",
+            sTitle: "Created Time",
+            className: "sortingtable",
+            mRender: function(data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT);
+            },
+        },
     ];
-    
-    $(document).ready(function() {
-        $('#skin_patches').DataTable( {
-            data: dataSet,
-            searching: true,
-            columns: [
-                {
-                    title: 'Device Id',
-                    sTitle: 'Device Id',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return data;
-                    }
+
+    var queryParams = {
+        query: {
+            bool: {
+                must: [],
+            },
+        },
+        sort: [{ created_ts: { order: "asc" } }],
+    };
+
+    device_list = [];
+
+    var tableOption = {
+        fixedHeader: false,
+        responsive: true,
+        paging: true,
+        searching: true,
+        aaSorting: [
+            [3, "desc"]
+        ],
+        ordering: true,
+        iDisplayLength: 10,
+        lengthMenu: [
+            [10, 50, 100],
+            [10, 50, 100],
+        ],
+        aoColumns: fields,
+        bProcessing: true,
+        language: {
+            emptyTable: "No data found!",
+            processing: '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing',
+        },
+        bServerSide: true,
+        sAjaxSource: BASE_PATH + "/devicelist/list",
+        fnServerData: function(sSource, aoData, fnCallback, oSettings) {
+            queryParams.query["bool"]["must"] = [];
+            queryParams.query["bool"]["should"] = [];
+            delete queryParams.query["bool"]["minimum_should_match"];
+
+            var keyName = fields[oSettings.aaSorting[0][0]];
+
+            var sortingJson = {};
+            sortingJson[keyName["mData"]] = { order: oSettings.aaSorting[0][1] };
+            queryParams.sort = [sortingJson];
+
+            queryParams["size"] = oSettings._iDisplayLength;
+            queryParams["from"] = oSettings._iDisplayStart;
+
+            // queryParams.query['bool']['must'].push({ "match": { "acc_id":SESSION_OBJ.orgs[0]  } });
+
+            var searchText = oSettings.oPreviousSearch.sSearch.trim();
+
+            if (searchText) {
+                queryParams.query["bool"]["should"].push({
+                    wildcard: { id: "*" + searchText + "*" },
+                });
+                queryParams.query["bool"]["should"].push({
+                    wildcard: { id: "*" + searchText.toLowerCase() + "*" },
+                });
+                queryParams.query["bool"]["should"].push({
+                    wildcard: { id: "*" + searchText.toUpperCase() + "*" },
+                });
+                queryParams.query["bool"]["should"].push({
+                    wildcard: { id: "*" + capitalizeFLetter(searchText) + "*" },
+                });
+                queryParams.query["bool"]["minimum_should_match"] = 1;
+                queryParams.query["bool"]["should"].push({
+                    match_phrase: {
+                        "id.keyword": "*" + searchText + "*",
+                    },
+                });
+                queryParams.query["bool"]["should"].push({
+                    match_phrase_prefix: {
+                        "id.keyword": {
+                            query: "*" + searchText + "*",
+                        },
+                    },
+                });
+            }
+
+            oSettings.jqXHR = $.ajax({
+                dataType: "json",
+                contentType: "application/json",
+                type: "GET",
+                url: sSource,
+                data: JSON.stringify({ query: queryParams }),
+                success: function(data) {
+                    console.log(data);
+
+                    var resultData = data.result.data;
+                    console.log(resultData);
+                    device_list = resultData.data;
+
+                    $(".totalCount").html(data.result.total);
+
+                    resultData["draw"] = oSettings.iDraw;
+                    fnCallback(resultData);
                 },
-                {
-                    title: 'Device Model',
-                    sTitle: 'Device Model',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return data;
-                    }
-                },
-                {
-                    title: 'Version',
-                    sTitle: 'Version',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return data;
-                    }
-                },
-                {
-                    title: 'Channel',
-                    sTitle: 'Channel',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return data;
-                    }
-                },
-                {
-                    title: 'Status',
-                    sTitle: 'Status',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return '<span class="badge badge-danger">Not Reported</span>';
-                    }
-                },
-                {
-                    title: 'Last Reporting Time',
-                    sTitle: 'Last Reporting Time',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return data;
-                    }
-                },
-                {
-                    title: 'Created Time',
-                    sTitle: 'Created Time',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return data;
-                    }
-                },
-                {
-                    title: 'Actions',
-                    sTitle: 'Actions',
-                    orderable: false,
-                    mRender: function (data, type, row) {
-                        return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true"></i>'+'&nbsp;&nbsp;'+'<i class="fa fa-trash icon-table" aria-hidden="true"></i>';
-                    }
-                },
-    
-            ]
-        });
-        } );
+            });
+        },
+        initComplete: function(settings, json) {},
+    };
+
+    deviceTable = $("#skin_patches").DataTable(tableOption);
+}
