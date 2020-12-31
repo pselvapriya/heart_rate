@@ -173,6 +173,14 @@ function loadAssetList() {
             }
         },
         {
+            mData: 'mobile_no',
+            sTitle: 'mobile_no',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
             title: 'Status',
             sTitle: 'Status',
             orderable: false,
@@ -183,6 +191,22 @@ function loadAssetList() {
         {
             mData: 'city',
             sTitle: 'City',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'email ',
+            sTitle: 'email ',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'created_ts',
+            sTitle: 'created_ts',
             orderable: false,
             mRender: function (data, type, row) {
                 return data;
@@ -212,7 +236,14 @@ function loadAssetList() {
                 return data;
             }
         },
-    
+        {
+            mData: 'zipcode',
+            sTitle: 'zipcode',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data;
+            }
+        },
         {
             sTitle: 'Actions',
             orderable: false,

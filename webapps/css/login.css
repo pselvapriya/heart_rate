@@ -37,12 +37,13 @@
 }
 .lab{
     margin: 0;
+    margin-right: 17px;
 }
 .logo{
     text-align: center;
 }
 .login-main-div{
-    background-color: white;height: 100vh;
+    background-color: white;height: 100vh;padding:0 0;
 }
 .logo img{
     width: 35%;
@@ -147,3 +148,4 @@
         display: none;
     }
 }
+
