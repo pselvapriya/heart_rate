@@ -84,6 +84,7 @@ function addPatient(){
             type: 'POST',
             success: function (result) {
                 $('#patientModal').hide();
+                $(".modal-backdrop").remove();
                 $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
                 successMsg("Patient Added Successfully!");
                 loadAssetList();
