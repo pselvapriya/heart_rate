@@ -17,8 +17,6 @@ Common.prototype.commonSearch = function(tablename, req, res) {
 
     boodskap.elasticSearch(tablename, req.body.query, function(status, result) {
         if (status) {
-            console.log("commonsearch", req.body);
-
             res.json({ status: true, result: result });
         } else {
             res.json({ status: false, message: result });
@@ -124,6 +122,7 @@ Common.prototype.commonDeviceSearch = function(req, res) {
     const boodskap = new Boodskap(self.app, req["session"]["sessionObj"].token);
 
     boodskap.elasticDeviceSearch(req.body.query, function(status, result) {
+        console.log("commondevice", status);
         if (status) {
             res.json({ status: true, result: result });
         } else {
