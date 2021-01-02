@@ -256,7 +256,7 @@ Boodskap.prototype.elasticInsert = function(rid, data, cbk) {
         }
     );
 };
-// devicelist=============================================
+// // devicelist=============================================
 
 Boodskap.prototype.elasticDeviceSearch = function(query, cbk) {
     const self = this;
