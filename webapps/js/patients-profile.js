@@ -4,7 +4,7 @@ $(function() {
     var end = moment();
 
     function cb(start, end) {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#reportrange span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
     }
     $('#reportrange').daterangepicker({
         startDate: start,
@@ -128,7 +128,7 @@ $(document).ready(function() {
                 sTitle: 'Status',
                 orderable: false,
                 mRender: function(data, type, row) {
-                    return '<button class="status">' + data + '</button>';
+                    return '<label class="status">' + data + '</label>';
                 }
             },
             {

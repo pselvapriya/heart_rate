@@ -175,7 +175,7 @@
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    max-width: 50%;
+    max-width: 35%;
 }
 
 .table {
@@ -207,22 +207,25 @@
 }
 
 .status_low {
+    color: white;
     /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
-    background-color: red;
+    background-color: rgb(255, 193, 77);
 }
 
 .status_high {
+    color: white;
     /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
-    background-color: orange;
+    background-color: rgb(245, 52, 52);
 }
 
 .status_normal {
+    color: white;
     /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
-    background-color: green;
+    background-color: rgb(64, 214, 152);
 }
