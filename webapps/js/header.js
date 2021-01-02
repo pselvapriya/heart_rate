@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $('.card-div').css('display','none');
+  // $('.card-div').css('display','none');
+ 
   // $('.overlay-content .nav-link .dashboard').addClass("active");
 });
 $('#myNav .overlay-content .nav-link').on('click', function(){
@@ -20,6 +21,7 @@ $('#myNav .overlay-content .nav-link').on('click', function(){
     document.getElementById("myNav").style.width = "0%";
   }
   function openCard(){
-    $('.card-div').css('display','block');
+    alert("check...")
+    $('.card-div').css('display','block!important');
   }
  

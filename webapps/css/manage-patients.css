@@ -87,14 +87,17 @@
 }
 .dataTables_length {
     margin-top: 10px;
-    margin-left: 10px!important;
+    margin-left: 14px!important;
 }
 .dataTables_filter input, .dataTables_filter input:focus, .dataTables_length select, .dataTables_length select:focus {
     background-image: none !important;
 }
 .dataTables_info {
     padding-top: 0.85em;
-    margin: 0 0 15px 10px !important;
+    margin: 0 0 15px 14px !important;
+}
+.dataTables_paginate {
+    margin-right: 10px !important;
 }
 .dataTables_filter {
     text-align: right;

@@ -108,13 +108,13 @@ body {
 .active{
   color:black !important;
   background-color: #eeeeee;
-  border-right:5px solid #861182;
+  border-right:5px solid #861182!important;
 }
 .show-drop{
   background-color: white;
 }
 .card-div{
-  background: white;
+  background: red;
     border: 2px solid lightgrey;
     display: block;
     left: 66%;
@@ -122,7 +122,7 @@ body {
     top: 3%;
     text-align: left;
     z-index: 1000;
-    width:300px;display: none;
+    width:300px;
 }
 .card-title,.card-text{
   font-size: 16px;
