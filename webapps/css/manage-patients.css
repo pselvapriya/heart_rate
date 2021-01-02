@@ -31,12 +31,13 @@
   background-color: white !important;
 }
 .patient-atag{
-    color: blue;
-    text-decoration: underline;
+    height: 30px;
+    width: 80%;padding-top: 4px;
+    background-color:  #861182;
+    color: white;
 }
 .patient-atag:hover{
-    color: blue;
-    text-decoration: underline;
+    background-color:  #861182;
 }
 .modal-div{
     /* top:220px; */
@@ -52,19 +53,25 @@
     color: black !important;font-weight: 600;
 }
 .patient-row-modal{
-    margin-bottom: 25px;
+    margin-bottom: 15px !important;
+}
+.required-txt{
+    color:red;font-size: 12px;
 }
 .modal-txt{
     font-size: 15px;
 }
 .link-btn,.user-create{
-    background-color: blue;border:none;
+    background-color: #861182;border:none;color:white;
 }
 .link-btn:hover,.user-create:hover{
-    background-color: blue;border:none;
+    background-color: #861182;border:none;color:white;
 }
 #zipCode{
     font-size: 14px;
+}
+.link-modal-row{
+    margin-top:20px;margin-bottom: 20px;
 }
 .name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field,.email-field{
     color:red;font-size:12px;display:none;
@@ -80,14 +87,17 @@
 }
 .dataTables_length {
     margin-top: 10px;
-    margin-left: 10px!important;
+    margin-left: 14px!important;
 }
 .dataTables_filter input, .dataTables_filter input:focus, .dataTables_length select, .dataTables_length select:focus {
     background-image: none !important;
 }
 .dataTables_info {
     padding-top: 0.85em;
-    margin: 0 0 15px 10px !important;
+    margin: 0 0 15px 14px !important;
+}
+.dataTables_paginate {
+    margin-right: 10px !important;
 }
 .dataTables_filter {
     text-align: right;

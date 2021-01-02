@@ -5,70 +5,100 @@
 .body-content{
     background-color: #fff;
     border-top: 2px solid #953a93;
-  
+
     border-radius: 5px;
-    margin: 20px 15px;
+    margin: 5px 15px;
 }
 
-.body-content .section-title{
-  margin-top:10px
+ .section-title{
+  /* margin-top:7px; */
+  margin-bottom: -10px;
 }
 .patientname{
     font-size: 10px;
     color: #7c7c7f;
     font-weight: 600;
     margin-bottom: 0;
+    margin-top: 7px;
 }
 .icofont1{
-font-size: 10px;
+font-size: 5px;
+}
+.active {
+  
+    border-right: none;
 }
 
-.body-content .section-title .user-action ul li{
+ .user-action ul li{
     display: inline-block;
     list-style-type: none;
     margin-left: 10px;
+   
 }
 
 
  .round-btns{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height:20px;
     border-radius: 50%;
-    line-height: 20px;
+    line-height: 15px;
     /* text-align: center; */
     border: none;
+}
+.heartimg{
+height: 30px;
+width: 40px;
+
+}
+.icofont{
+margin-top: 0px;
+}
+.max-btn{
+    font-size: 10px;
 }
  .refresh-btn{
     background-color: #3e3a3c;
     color: #fff;
+    font-size: 10px;
+    margin-top: 5px;
 }
 .navbar-brand{
-    text-transform: capitalize;
+   
     font-weight: 500;
     padding: 0;
 }
- .breadcrumb {
-    background: none;
-    padding-top: 0px;
-    margin-bottom: 0;
-}
-.breadcrumb-item{
-    text-transform: capitalize;
-}
-.sub-header .breadcrumb .breadcrumb-item a{
-    color: #000;
-    text-decoration: none;
+.headname{
+font-size: 10px;
+
 }
 .myprofile{
     color: black;
    background-color:  #cfcfd6;
     border-bottom: 1px solid black;
-    height:35px;
+    height:30px;
     padding: 10px 8px;
-    
+    }
+    .profile-name{
+font-size: 10px;
+    }
+    .profile-status{
+font-size: 7px;
+    }
+    .running{
+margin-top: 15px;
+font-size: 8px;
 
-}
-
+    }
+    .BPM{
+font-size: 7px;
+color: red;
+    }
+    .rebort-time{
+margin-left: 2px;
+    }
+    .profile-date{
+    font-size: 10px;
+    }
 #date-field{
     cursor: pointer;
 }
@@ -82,7 +112,7 @@ font-size: 10px;
  }
 
 .filter-section{
-    /* border:1px solid #efefef; */
+    margin-bottom: -16px;
     /* margin-top: 15px; */
     /* margin-bottom: 30px; */
 }
@@ -107,7 +137,7 @@ font-size: 10px;
 }
 .user-action-part .show-list select{
     border: 1px solid #ced4da;
-    padding: .375rem .75rem;
+    /* padding: .375rem .75rem; */
     color: #495057;
     border-radius: .25rem;
 }
@@ -117,7 +147,7 @@ font-size: 10px;
 }
 .user-action-part .search-box{
     border: 1px solid #ced4da;
-    padding: .375rem .75rem;
+    /* padding: .375rem .75rem; */
     color: #495057;
     border-radius: .25rem;
 }
@@ -148,7 +178,7 @@ font-size: 10px;
     border:1px solid #efefef;
     /* padding: 15px; */
     text-align: center;
-    height:70%
+    height: 70%;
 }
 .user-profile-section .user-profile ul li{
     list-style-type: none;
@@ -158,6 +188,11 @@ font-size: 10px;
     margin-top: 10px;
   
 }
+/* .form-control {
+    min-height: 10px;
+    
+} */
+
 
 .user-profile-section .user-profile ul li p{
     margin-bottom: 10px;
@@ -179,6 +214,9 @@ font-size: 10px;
     padding: 15px;
     margin-bottom: 30px;
 }
+.table-show{
+    margin-bottom: -22px;
+}
 .user{
     margin-bottom:100px;
 }
@@ -186,3 +224,77 @@ font-size: 10px;
    color: #999999;
   
 }
+.heart-rate {
+    max-width: 180px;
+    height: 50px;
+    position: relative;
+    margin:0px auto;
+   
+    overflow:hidden;
+        
+    }
+    .svg {
+       
+        width: 50px;
+        height: 53px;
+    }
+    .heartimg{
+        width: 50px;
+        height: 53px;
+        color:red;
+
+    }
+    
+    .fade-in {
+      position: absolute;
+      width: 100%;
+      height:100%;
+      background-color: white;
+      top: 0;
+      right: 0;
+      animation: heartRateIn 4.5s linear infinite;
+    
+     /* Gia na katalavw ti ginetai des auto
+        border:1px solid red;
+        */
+    
+    }
+    
+    .fade-out {
+      position: absolute;
+      /* width: 120%;
+      height: 100%; */
+      top: 0;
+      left: -120%;
+      animation: heartRateOut 4.5s linear infinite;
+      background: rgba(255, 255, 255, 1);
+      background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 11, 11, 0) 100%);
+      background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    }
+    
+    @keyframes heartRateIn {
+      0% {
+        width: 100%;
+      }
+      50% {
+        width: 0%;
+      }
+      100% {
+        width: 0;
+      }
+    }
+    
+    @keyframes heartRateOut {
+      0% {
+        left: -120%;
+      }
+      30% {
+        left: -120%;
+      }
+      100% {
+        left: 0;
+      }
+    }
