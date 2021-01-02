@@ -1,18 +1,26 @@
 
 .content{
-    border: solid 1px;
-    border-top: solid 3px purple;
+    border: solid 1px #f0f0f0;
+    border-top: solid 2px rgb(155, 57, 155);
     margin-top: 20px;
     background-color:#fff;
+    border-radius: 5px;
+    /* border-color: #f0f0f0; */
 
 
 }
+/* .dashcard{
+    margin-top: 30px;
+    margin-bottom: 40px;
+} */
 
 
     
 .overview{
     padding-left: 20px;
-    margin-top: 10px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    /* padding: 5px 15px; */
 
 } 
 
@@ -25,6 +33,7 @@
     border-left:solid 1px #f0f0f0 ;
     border-right:solid 1px  #f0f0f0 ;
     margin-left: 20px;
+    border-radius: 5px;
 
 }
 .data{
@@ -36,9 +45,10 @@
 #chart{
     width:392px;
     height:400px;
-    background-color: snow;
+    background-color: white;
     margin-left: -18px;
    padding-left:30px ;
+   /* color: ; */
 
 }
 .chart1{
@@ -53,18 +63,22 @@
     background-color: snow;
 
 } */
+
 .icons{
     text-align: right;
     padding-right: 30px;
     /* padding-bottom: 80px; */
    
 }
-.icon1{
+/* .icon1{
     padding-right: 40px;
     margin-top: 10px;
-}
+} */
 .first{
     margin-top: 10px;
+    padding-right: 20px;
+    padding: 5px 3px;
+    padding-right: 20px;
     
 }
 .dashboard-head{
@@ -93,23 +107,31 @@
 
 }
 .analysis{
-    padding-right: 20px;
+    padding-left: 20px;
 }
+
 .chart2{
     border: solid 1px #f0f0f0;
-    border-top: solid 3px red;
+    border-top: solid 3px #d63a34;
     margin-right: 25px;
     width: 100%;
-    height: 450px;
+    height: 100%;
     margin-left: 10px;
-
+    border-radius: 5px;
+    padding: 6px 13px;
 }
 .calendar{
-    margin-top: 7px;
+    margin-top: 2px;
     padding-left: 21px;
-    padding-right: 3px;
+    /* padding-right: 20px; */
+    
+    
+    /* padding-right: 3px; */
     /* border: solid 1px  rgb(141, 139, 139) ; */
-}
+ } 
+/* #reportrange{
+    height: 20px;
+} */
 #datapick{
     background: #fff;
      cursor: pointer;
@@ -118,8 +140,10 @@
         width: 50%
 }
 .dateformat{
-    border: solid 1px#f0f0f0;;
-    margin-left:0px 
+    border: solid 1px#f0f0f0;
+    /* max-width:35%; */
+    padding: 5px 10px;
+    
 }
 .stat{
     padding-left: 190px;
@@ -128,15 +152,12 @@
 }
 .icons2{
     padding-right: 15px;
-    
 }
 #totalpatients{
     width: 340px;
     height: 400px;
     padding-left: 30px;
-    margin-top: -392px;
-
-    
+    /* margin-top: -392px; */
 }
  .state{
     font-weight:bold;
@@ -145,8 +166,8 @@
 }
 p{
     padding-left: 20px;
-    font-weight:lighter;
-    color:#f0f0f0;
+    font-weight:100;
+    color:#aaa8a8;
 }
 .barchart{
     border: solid 1px #f0f0f0; ;
@@ -154,6 +175,7 @@ p{
     height: 400px;
     width: 400px;
     margin-left: 11px;
+    border-radius: 5px;
     
     
 }
@@ -164,9 +186,9 @@ p{
 #heartchart{
     width:165%;
     /* margin:0 auto; */
-    height:380px;
-    margin-top: 30px;
-    padding-left: 115px;
+    height:100%;
+    /* margin-top: 30px; */
+    padding-left: 20px;
     /* text-align: center; */
    
 }
@@ -174,28 +196,31 @@ p{
     margin-top: 15px;
     margin-left: 0px;
 }
-.state{
-width: 400px;
-height: 400px;
+
+.subtopic{
+    font-weight: bold;
+    color: rgb(125, 122, 122);
 }
 #barchart1{
-    width: 250px;
+    width: 116%;
     height: 400px;
 
 }
 #barchart2{
-    width: 250px;
+    width: 116%;
     height: 400px;
+    
 }
 .statistics1{
-    font-weight: 25px;
+    font-weight:500;
     color: rgb(158, 34, 34);
     padding-left: 45px;
+    border-radius: 5px;
 }
 .statistics2{
-    font-weight: 25px;
+    font-weight:500;
     color:rgb(62, 135, 163) ;
-    /* padding-left: 50px; */
+    padding-left: 55px;
     padding-right: 24px;
 }
 .list{
@@ -231,6 +256,7 @@ height: 400px;
 .button2 {
     position: relative;
     display: inline-block;
+    cursor: pointer;
     /* border-bottom: 1px dotted black; */
     /* If you want dots under the hoverable text */
 }
