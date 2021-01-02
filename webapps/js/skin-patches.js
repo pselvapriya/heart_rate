@@ -367,12 +367,19 @@ function loadDeviceList() {
         $("#skin_patches").html("");
     }
 
-    var fields = [
-
+    var fields = [{
+            mData: "id",
+            sTitle: "Device Id",
+            sWidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            },
+        },
         {
-            mData: 'id',
-            sTitle: 'Device Name',
-            sWidth: '20%',
+            mData: "modelId",
+            sTitle: "Model Id",
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -381,9 +388,28 @@ function loadDeviceList() {
 
         },
         {
-            mData: 'modelId',
-            sTitle: 'Device Model',
-            sWidth: '20%',
+            mData: "version",
+            sTitle: "Version",
+            sWidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            },
+        },
+        {
+            mData: "Status",
+            sTitle: "Status",
+            sWidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<span class="label label-danger">Not Reported</span>';
+            },
+        },
+
+        {
+            mData: "channel",
+            sTitle: "Channel",
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -391,19 +417,10 @@ function loadDeviceList() {
         },
 
         {
-            mData: 'version',
-            sWidth: '20%',
-            sTitle: 'Device Version',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
-
-        {
-            mData: 'registeredStamp',
-            sTitle: 'Reported Time',
-            "className": 'sortingtable',
+            mData: "registeredStamp",
+            sTitle: "Created Time",
+            sWidth: '10%',
+            className: "sortingtable",
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             }

@@ -6,6 +6,13 @@ var sid;
 
 $(document).ready(function() {
     loadAssetList();
+    $(document).on('keypress', function(e) {
+        if (e.which == 13) {
+            alert('You pressed enter!');
+            addPatient();
+            e.preventDefault();
+        }
+    });
 });
 // patient Registration API
 
@@ -151,48 +158,54 @@ function loadAssetList() {
     }
 
     var fields = [{
-            mData: "patient_name",
-            sTitle: "Patient Name",
+            mData: 'patient_name',
+            sTitle: 'Patient Name',
+            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
             },
         },
         {
-            mData: "age",
-            sTitle: "Age",
+            mData: 'age',
+            sTitle: 'Age',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
             },
         },
         {
-            mData: "gender",
-            sTitle: "Gender",
+            mData: 'gender',
+            sTitle: 'Gender',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
             },
         },
         {
-            mData: "mobile_no",
-            sTitle: "Mobile Number",
+            mData: 'mobile_no',
+            sTitle: 'Mobile Number',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
             },
         },
         {
-            mData: "email",
-            sTitle: "Email ",
+            mData: 'email',
+            sTitle: 'Email ',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
             },
         },
         {
-            mData: "address",
-            sTitle: "Address",
+            mData: 'address',
+            sTitle: 'Address',
+            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -211,24 +224,27 @@ function loadAssetList() {
             },
         },
         {
-            mData: "country",
-            sTitle: "Country",
+            mData: 'country',
+            sTitle: 'Country',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
             },
         },
         {
-            mData: "created_ts",
-            sTitle: "Created Time",
+            mData: 'created_ts',
+            sTitle: 'Created Time',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             },
         },
         {
-            title: "Status",
-            sTitle: "Status",
+            title: 'Status',
+            sTitle: 'Status',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>';
@@ -237,18 +253,11 @@ function loadAssetList() {
         {
             sTitle: "Actions",
             orderable: false,
+            swidth: '10%',
             mRender: function(data, type, row) {
-                return (
-                    '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' +
-                    row._id +
-                    "')\"></i>" +
-                    "&nbsp;&nbsp;" +
-                    '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' +
-                    row._id +
-                    "')\"></i>"
-                );
-            },
-        },
+                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
+            }
+        }
     ];
 
     var queryParams = {

@@ -27,6 +27,8 @@
 .button4 {
     border: none;
     border-radius: 2px;
+    margin-top: 23px;
+    margin-left: 27px;
 }
 
 .button5 {
@@ -66,7 +68,7 @@
 
 .select-box-1 {
     border: 1px solid rgb(207, 205, 205);
-    width: 240px;
+    width: 170px;
     margin: 20px;
     height: 30px;
     border-radius: 3px;
@@ -152,9 +154,33 @@
     justify-content: space-evenly;
 }
 
+.heart_icon {
+    text-align: right;
+}
+
+.beats {
+    padding-top: 18px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.bpm {
+    color: rgb(245, 51, 51);
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.calender {
+    background: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    max-width: 50%;
+}
+
 .table {
     border: 1px solid rgb(216, 214, 214);
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
 }
 
@@ -180,7 +206,23 @@
     color: blue;
 }
 
-.status {
+.status_low {
+    /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
+    background-color: red;
+}
+
+.status_high {
+    /* background-color: chartreuse; */
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+}
+
+.status_normal {
+    /* background-color: chartreuse; */
+    border: none;
+    border-radius: 5px;
+    background-color: green;
 }
