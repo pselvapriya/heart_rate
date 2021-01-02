@@ -206,7 +206,7 @@ function loadAssetList() {
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>';
+                return '<button type="button" class="btn patient-atag"  data-target="#linkModal" data-toggle="modal">Link</button>';
             },
         },
         {
