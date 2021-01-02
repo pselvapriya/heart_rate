@@ -4,16 +4,10 @@
         <div class="container-fluid">
             <nav class="navbar navbar-light mt-3 p-0">
                 <a class="navbar-brand">Easton alvarez</a>
-                <nav aria-label="breadcrumb">
-                    
-                      <span class="breadcrumb-item"><a href="#">Patient's Profile</a></span>
-                      <span class="breadcrumb-item active" aria-current="page">easton alvarez</span>
-                   
-                </nav>
-              </nav>
+                <span class="headname">Patient's Profile / <span>easton alvarez</span> </span>
+            </nav>
         </div>
-    </section>
-
+    </section>   
     <section class="body-content">
         <div class="container-fluid">
             <div class="section-title">
@@ -28,7 +22,7 @@
                             <ul class="icofont">
                               
                                <li>
-                                    <button class="round-btns max-btn"><i class="fa fa-expand expen" aria-hidden="true"></i></i></button>
+                                    <button class="round-btns max-btn"><i class="fa fa-expand  expen" aria-hidden="true"></i></i></button>
                                </li>
                                <li>
                                     <button class="round-btns refresh-btn"><i class="fa fa-repeat" aria-hidden="true"></i></button>
@@ -46,23 +40,18 @@
                 <div class="filter-section">
                     <div class="filter-form">
                         <form>
-                            <div class="row">
+                            <div class="row ">
                                 <div class="col-lg-2">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group"> -->
                                         <select class="form-control" id="exampleFormControlSelect1">
                                           <option>Seclect By Patient</option>
                                           <option>1</option>
                                           <option>2</option>
                                         </select>
-                                      </div>
+                                      <!-- </div> -->
                                 </div>
                                 <div class="col-lg-4">
-                                    <div class="form-group" style="border :1px solid rgb(219, 218, 218);height: 30px; width: 70%;">
-                                        <div id="reportrange">
-                                            <i class="fa fa-calendar"></i>&nbsp;
-                                            <span>November 28, 2020 - December 27, 2020</span> <i class="fa fa-caret-down"></i>
-                                        </div>
-                                    </div>
+                                  
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="form-group">
@@ -93,101 +82,125 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="user-profile">
-                            <div class="profile-img">
-                               
-                            </div>
+                            
                             <div class="">
                                 <img src="images/capture.png" alt="profile-img" class="img-fluid">
                                
-                                    <span><h3 class="name"><b>Easton Alvarez</b></h3></span>
-                                    <span class="year">08/05/1925 -94 Years old</span>
-                                    <span><p>57, Stillwell Avenue Scotts Mills Dregon US 97375</p></span>
-                                    <span><p><i class="icofont-phone"></i> 978-785-987</p></span>
-                                    <span><p><i class="icofont-email"></i> alvarez@mail.com</p></span>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="myprofile">My profile</div>
-                <!-- <div class="chart-section"> -->
-                            <div id="chart" style="width:90%;margin:0 auto;height:350px;"></div>
-                        <!-- </div> -->
-                        <div class="user-data-table">
-                            <div class="user-action-part">
-                                <div class="row">
-                                    <div  class="col-lg-6">
-                                        <div class="show-list">
-                                            <label>Show</label>
-                                            <select  id="exampleFormControlSelect1">
-                                              <option>5</option>
-                                              <option>1</option>
-                                              <option>2</option>
-                                              <option>3</option>
-                                              <option>4</option>
-                                              <option>5</option>
-                                            </select>
-                                            <label>entries</label>
-                                            <span>Showing 1 to 10 of 26 entries</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 text-right">
-                                        <form class="">
-                                            <div class="form-group">
-                                                <label>Search:</label>
-                                                <input class="search-box" type="search" placeholder="Search">    
-                                            </div>
-                                        </form>
+                                    <div class="profile-name"><h3 class="name"><b>Easton Alvarez</b></h3></div>
+                                    <div class="profile-name">08/05/1925 <span>-94 Years old</span></div>
+                                    <div class="profile-name">57, Stillwell Avenue Scotts Mills<br> oregon US 97375</div>
+                                    <div class="profile-name"><i class="fa fa-phone" aria-hidden="true"></i> 978-785-987</div>
+                                   
+                                    <div class="profile-name"><i class="fa fa-envelope" aria-hidden="true"></i> alvarez@mail.com</div>
+                                    <div>127<span class="BPM">BPM</span></div>
+                                   
+                                    <div class="heart-rate">
+                                        <svg class="heartimg"  version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">
+                                          <polyline fill="none" stroke="green" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"
+                                          />
+                                        </svg>
+                                        <div class="fade-in"></div>
+                                        <div class="fade-out"></div>
+                                      </div>
+                                      <div class="profile-status">Range 64-108</div>
+                                      <div class="profile-date">06/27/2019 07:07:10pm</div>
+                                      <div class="profile-status"><i class="fa fa-clock-o" aria-hidden="true"></i><span class="rebort-time">last rebort time</span></div>
+                                      <div class="running">RUNNING</div>
                                     </div>
                                 </div>
                             </div>
-                            <table class="table table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Heart Rate</th>
-                                    <th scope="col">Satus</th>
-                                    <th scope="col">Activity</th>
-                                    <th scope="col">Skin Patch Id</th>
-                                    <th scope="col">Skin Patch Model</th>
-                                    <th scope="col">Last Reported Time</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                    <td>Text something here...</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                            <div class="col-lg-10">
+                                <div class="myprofile">My profile</div>
+                        <!-- <div class="chart-section"> -->
+                            <div id="chart" style="width:90%;margin:0 auto;height:250px;"></div>
+                                <!-- </div> -->
+                                <div class="user-data-table">
+                                    <div class="user-action-part">
+                                        <div class="row table-show">
+                                            <div  class="col-lg-6">
+                                                <div class="show-list">
+                                                    <label>Show</label>
+                                                    <select  id="exampleFormControlSelect1">
+                                                      <option>5</option>
+                                                      <option>1</option>
+                                                      <option>2</option>
+                                                      <option>3</option>
+                                                      <option>4</option>
+                                                      <option>5</option>
+                                                    </select>
+                                                    <label>entries</label>
+                                                    <span>Showing 1 to 10 of 26 entries</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 text-right">
+                                                <form class="">
+                                                    <div class="form-group">
+                                                        <label>Search:</label>
+                                                        <input class="search-box" type="search" placeholder="Search">    
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Heart Rate</th>
+                                            <th scope="col">Satus</th>
+                                            <th scope="col">Activity</th>
+                                            <th scope="col">Skin Patch Id</th>
+                                            <th scope="col">Skin Patch Model</th>
+                                            <th scope="col">Last Reported Time</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                            <td>Text something here...</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+        
+                    
                 </div>
             </section>
+        
+            <script src="js/snap.js"></script>
+        
+               
+                    
+                   
+              
+    
 
-            
-        </div>
-    </section>
+    
+                                    
+                                 
 
-
-    <!-- Js -->
+                               
+                      
   
