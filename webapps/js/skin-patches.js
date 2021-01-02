@@ -67,6 +67,14 @@ function loadDeviceList() {
             },
         },
         {
+            mData: "channel",
+            sTitle: "Channel",
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            },
+        },
+        {
             mData: "registeredStamp",
             sTitle: "Created Time",
             className: "sortingtable",
@@ -77,6 +85,17 @@ function loadDeviceList() {
     ];
 
     var queryParams = {
+        // method: "GET",
+        // params: [],
+        // query: {
+        //     query: {
+        //         bool: { must: [{ match: { domainKey: "XLOYLUDCHY" } }], should: [] },
+        //     },
+        //     sort: [{ reportedStamp: { order: "desc" } }],
+        //     size: 10,
+        //     from: 0,
+        // },
+        // type: "DEVICE",
         query: {
             bool: {
                 must: [],
@@ -108,10 +127,10 @@ function loadDeviceList() {
             processing: '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing',
         },
         bServerSide: true,
-        sAjaxSource: BASE_PATH + "/devicelist/list",
+        sAjaxSource: BASE_PATH + "/devicelist/dlist",
         fnServerData: function(sSource, aoData, fnCallback, oSettings) {
             queryParams.query["bool"]["must"] = [];
-            queryParams.query["bool"]["should"] = [];
+            queryParams.query["bool"]["must"] = [];
             delete queryParams.query["bool"]["minimum_should_match"];
 
             var keyName = fields[oSettings.aaSorting[0][0]];
@@ -158,7 +177,7 @@ function loadDeviceList() {
             oSettings.jqXHR = $.ajax({
                 dataType: "json",
                 contentType: "application/json",
-                type: "GET",
+                type: "POST",
                 url: sSource,
                 data: JSON.stringify({ query: queryParams }),
                 success: function(data) {

@@ -19,7 +19,7 @@ function loadPatientstatusList() {
             sWidth: '220px',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;'+'&nbsp;'+'&nbsp;'+row.patient_name + '&nbsp;'+'&nbsp;'+ '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '&nbsp;'+'&nbsp;'+ row.age + 'years old</h6>';
+                return '<div class="row">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '&nbsp;' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
             }
         },
         // {
@@ -56,7 +56,7 @@ function loadPatientstatusList() {
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return '<div class="row">' + '<p class="col-12">' + data + '</p>' + '</div>';
             }
         },
         {
@@ -65,7 +65,7 @@ function loadPatientstatusList() {
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<h5>' + data + '</h5>';
+                return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-7"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-2 heart_icon"><i class="fa fa-2x fa-heartbeat"></i></span>' + '</div>';
             }
         },
         {
@@ -83,7 +83,14 @@ function loadPatientstatusList() {
             sTitle: 'Status',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<button class="status">' + data + '</button>';
+                if (row.heart_rate < 60) {
+                    return '<button class="status_low">' + row.status + '</button>';
+                } else if (row.heart_rate > 120) {
+                    return '<button class="status_high">' + row.status + '</button>';
+                } else {
+                    return '<button class="status_normal">' + row.status + '</button>';
+
+                }
             }
         },
         // {
@@ -98,7 +105,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '250px',
+            sWidth: '130px',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -132,14 +139,14 @@ function loadPatientstatusList() {
     var filterquery = {
         query: {
             "bool": {
-                "filter":[
-                    { "term": { "gender": "Male"   }},
-        { "term": { "activity": "sleeping" }}
+                "filter": [
+                    { "term": { "gender": "Male" } },
+                    { "term": { "activity": "sleeping" } }
 
                 ]
             }
         }
-    } 
+    }
 
     patientstatus_list = [];
 
@@ -214,9 +221,10 @@ function loadPatientstatusList() {
                 "data": JSON.stringify({ "query": queryParams }),
                 success: function(data) {
 
-                    console.log(data);
+                    // console.log(data);
 
                     var resultData = data.result.data;
+                    console.log(resultData);
 
                     patientstatus_list = resultData.data;
 
