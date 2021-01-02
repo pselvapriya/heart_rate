@@ -5,60 +5,62 @@ var sid;
 
 $(document).ready(function(){
     loadAssetList();
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            // alert('You pressed enter!');
+            addPatient();
+        }
+    });
 });
 // patient Registration API
 
 function addPatient(){
     if(flag==false){
     var patient_name = $("#patientName").val();
-    selectDate = $("#datepicker[name=datepicker]").val();
-    console.log("selectDate",selectDate);
+    var selectDate = $("#datepicker[name=datepicker]").val();
+    // console.log("selectDate",selectDate);
     var DOB = new Date(selectDate);
     var today = new Date();
     var age = today.getTime() - DOB.getTime();
     age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
     console.log(age);
-    // var dob = $(".dob").val();
+    var gender = $( "#selectGender" ).val();
+    var mobile_no = $("#mobile").val();
+    var email = $("#email").val();
     var address = $("#address").val();
     var city = $("#city").val();
     var state = $("#state").val();
     var country = $("#country").val();
     var zipcode = $("#zipCode").val();
-   
+    
+
     //Validate
     if(patient_name === ""){
-
-        showToast("title","msg");
+        showToast("Warning","Please a Enter Name",'warning');
         $('#patientModal').show();
-
-    }else if(city === ""){
-
-        $('.city-field').css('display','block');
-        $('.name-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
+    }else if(selectDate === ""){
+        showToast("Warning","Please a Enter Date",'warning');
         $('#patientModal').show();
-
-    }else if(state === ""){
-
-        $('.state-field').css('display','block');
-        $('.name-field,.city-field,.zip-field,.addr-field,.country-field').css('display','none');
+    }else if(mobile_no === ""){
+        showToast("Warning","Please a Enter Mobile",'warning');
         $('#patientModal').show();
-
-    }else if(zipcode === ""){
-
-        $('.zip-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.addr-field,.country-field').css('display','none');
+    }else if(email === ""){
+        showToast("Warning","Please a Enter Email",'warning');
         $('#patientModal').show();
-
     }else if(address === ""){
-
-        $('.addr-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.zip-field,.country-field').css('display','none');
+        showToast("Warning","Please a Enter Address",'warning');
         $('#patientModal').show();
-
+    }else if(city === ""){
+        showToast("Warning","Please a Enter City",'warning');
+        $('#patientModal').show();
+    }else if(state === ""){
+        showToast("Warning","Please a Enter State",'warning');
+        $('#patientModal').show();
     }else if(country === ""){
-
-        $('.country-field').css('display','block');
-        $('.name-field,.city-field,.state-field,.zip-field,.addr-field').css('display','none');
+        showToast("Warning","Please a Enter Country",'warning');
+        $('#patientModal').show();
+    }else if(zipcode === ""){
+        showToast("Warning","Please a Enter Zipcode",'warning');
         $('#patientModal').show();
 
     }
@@ -67,8 +69,12 @@ function addPatient(){
         //Build Input Objects
         var inputObj = {
             patient_name : patient_name,
-            dob : age,
+            dob : selectDate,
+            age : age,
+            gender : gender,
+            mobile_no : mobile_no,
             address : address,
+            email : email,
             city : city,
             state : state,
             country : country,
@@ -84,14 +90,14 @@ console.log("add user",inputObj);
             type: 'POST',
             success: function (result) {
                 $('#patientModal').hide();
-                $('.name-field,.city-field,.state-field,.zip-field,.addr-field,.country-field').css('display','none');
-                successMsg("Patients Added Successfully!");
+                $(".modal-backdrop").remove();
+                successMsg("Patient Added Successfully!");
                 loadAssetList();
             },
             error: function (e) {
 
                 //Error -> Show Error Alert & Reset the form
-                errorMsg("Patients Added Failed!");
+                errorMsg("Patient Added Failed!");
                 window.location.reload();
             }
         });
@@ -99,25 +105,36 @@ console.log("add user",inputObj);
 }
 else if(flag==true){
      patient_name = $("#patient_name").val();
-     dob = $(".editAge").val();
+     dob = $("#datepicker1[name=datepicker]").val();
+     gender = $('#editGender').val();
+     mobile_no = $('#editmobile').val();
+     email = $('#editEmail').val();
+     address = $("#editAddress").val();
      city = $("#editCity").val();
      state = $("#editState").val();
-     zipcode = $("#editZipCode").val();
-     address = $("#editAddress").val();
      country = $("#editCountry").val();
+     zipcode = $("#editZipCode").val();
      
+     var DOB = new Date(dob);
+    var today = new Date();
+    var age = today.getTime() - DOB.getTime();
+    age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
     created_ts = new Date().getTime()
     var updateData ={
         patient_name : patient_name,
         dob : dob,
+        age : age,
+        gender : gender,
+        mobile_no : mobile_no,
+        email : email,
+        address : address,
         city : city,
         state : state,
-        zipcode : zipcode,
-        address : address,
         country : country,
+        zipcode : zipcode,
         created_ts : new Date().getTime()
     };
-            console.log(updateData);
+            console.log("update",updateData);
             $.ajax({
                 url: BASE_PATH+"/patient/update",
                 data: JSON.stringify({_id: sid,updateData}),
@@ -153,15 +170,7 @@ function loadAssetList() {
             sTitle: 'Patient Name',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
-            }
-        },
-        {
-            mData: 'gender',
-            sTitle: 'Gender',
-            orderable: false,
-            mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {
@@ -169,39 +178,31 @@ function loadAssetList() {
             sTitle: 'Age',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {
-            title: 'Status',
-            sTitle: 'Status',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return '<a href="" class="patient-atag" data-toggle="modal" data-target="#myModal">Link</a>';
-            }
-         },
-        {
-            mData: 'city',
-            sTitle: 'City',
+            mData: 'gender',
+            sTitle: 'Gender',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {
-            mData: 'state',
-            sTitle: 'State',
+            mData: 'mobile_no',
+            sTitle: 'Mobile Number',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {
-            mData: 'country',
-            sTitle: 'Country',
+            mData: 'email',
+            sTitle: 'Email ',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {
@@ -209,10 +210,33 @@ function loadAssetList() {
             sTitle: 'Address',
             orderable: false,
             mRender: function (data, type, row) {
-                return data;
+                return row.address +'&nbsp;'+','+ row.city +','+'<br>'+ row.state +'&nbsp;'+','+ row.zipcode +'.';
             }
         },
-    
+        {
+            mData: 'country',
+            sTitle: 'Country',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return data ? data : '-';
+            }
+        },      
+        {
+            mData: 'created_ts',
+            sTitle: 'Created Time',
+            orderable: false,
+            mRender: function (data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT);
+            }
+        },
+        {
+            title: 'Status',
+            sTitle: 'Status',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>'
+            }
+         },
         {
             sTitle: 'Actions',
             orderable: false,
@@ -289,6 +313,40 @@ function loadAssetList() {
                         }
                     }
                 });
+                queryParams.query['bool']['should'].push({ "wildcard": { "country": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "country": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "country": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "country": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']["minimum_should_match"] = 1;
+                queryParams.query['bool']['should'].push({
+                    "match_phrase": {
+                        "country.keyword": "*" + searchText + "*"
+                    }
+                })
+                queryParams.query['bool']['should'].push({
+                    "match_phrase_prefix": {
+                        "country.keyword": {
+                            "query": "*" + searchText + "*"
+                        }
+                    }
+                });
+                queryParams.query['bool']['should'].push({ "wildcard": { "city": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "city": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "city": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "city": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']["minimum_should_match"] = 1;
+                queryParams.query['bool']['should'].push({
+                    "match_phrase": {
+                        "city.keyword": "*" + searchText + "*"
+                    }
+                })
+                queryParams.query['bool']['should'].push({
+                    "match_phrase_prefix": {
+                        "city.keyword": {
+                            "query": "*" + searchText + "*"
+                        }
+                    }
+                });
             }
 
             oSettings.jqXHR = $.ajax({
@@ -327,14 +385,16 @@ function editPatient(row){
        if(patient_list[i]._id==row){
            patient1= patient_list[i];
            $('#patient_name').val(patient1.patient_name);
-           $('.editAge').val(patient1.dob );
+           $("#datepicker1[name=datepicker]").val(patient1.dob);
+           $('#editGender').val(patient1.gender);
+           $('#editmobile').val(patient1.mobile_no);
+           $('#editEmail').val(patient1.email);
+           $('#editAddress').val(patient1.address);
            $('#editCity').val(patient1.city);
            $('#editState').val(patient1.state);
-           $('#editZipCode').val(patient1.editZipCode);
-           $('#editAddress').val(patient1.address);
            $('#editCountry').val(patient1.country);
-
-           console.log(patient1);
+           $('#editZipCode').val(patient1.zipcode);
+           console.log("update data",patient1);
        }
     }
 }

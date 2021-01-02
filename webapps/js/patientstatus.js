@@ -16,10 +16,10 @@ function loadPatientstatusList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Name',
-            sWidth: '170px',
+            sWidth: '220px',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + row.dob + 'years old</h6>';
+                return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;'+'&nbsp;'+'&nbsp;'+row.patient_name + '&nbsp;'+'&nbsp;'+ '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '&nbsp;'+'&nbsp;'+ row.age + 'years old</h6>';
             }
         },
         // {
@@ -52,7 +52,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'address',
-            sWidth: '170px',
+            sWidth: '220px',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -61,7 +61,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'heart_rate',
-            sWidth: '220px',
+            sWidth: '250px',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
@@ -70,7 +70,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'activity',
-            sWidth: '80px',
+            sWidth: '150px',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -79,7 +79,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'status',
-            sWidth: '80px',
+            sWidth: '150px',
             sTitle: 'Status',
             orderable: false,
             mRender: function(data, type, row) {
@@ -98,7 +98,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '170px',
+            sWidth: '250px',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -107,7 +107,7 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '170px',
+            sWidth: '250px',
             "className": 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -129,6 +129,17 @@ function loadPatientstatusList() {
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
+    var filterquery = {
+        query: {
+            "bool": {
+                "filter":[
+                    { "term": { "gender": "Male"   }},
+        { "term": { "activity": "sleeping" }}
+
+                ]
+            }
+        }
+    } 
 
     patientstatus_list = [];
 

@@ -277,34 +277,34 @@ dataZoom: [{
 }, {
     type: 'inside'
 }],
-visualMap: {
-    top: 10,
-    right: 10,
-    pieces: [{
-        gt: 0,
-        lte: 50,
-        color: '#096'
-    }, {
-        gt: 50,
-        lte: 100,
-        color: '#ffde33'
-    }, {
-        gt: 100,
-        lte: 150,
-        color: '#ff9933'
-    }, {
-        gt: 150,
-        lte: 200,
-        color: '#cc0033'
-    }, {
-        gt: 200,
-        color: '#660099'
+// visualMap: {
+//     top: 10,
+//     right: 10,
+//     pieces: [{
+//         gt: 0,
+//         lte: 50,
+//         color: '#096'
+//     }, {
+//         gt: 50,
+//         lte: 100,
+//         color: '#ffde33'
+//     }, {
+//         gt: 100,
+//         lte: 150,
+//         color: '#ff9933'
+//     }, {
+//         gt: 150,
+//         lte: 200,
+//         color: '#cc0033'
+//     }, {
+//         gt: 200,
+//         color: '#660099'
     
-    }],
-    outOfRange: {
-        color: '#999'
-    }
-},
+//     }],
+//     outOfRange: {
+//         color: '#999'
+//     }
+// },
 series: {
     name: 'Heartrate Analysis',
     type: 'line',
@@ -314,15 +314,22 @@ series: {
     markLine: {
         silent: true,
         data: [{
-            yAxis: 50
+            yAxis: 50,
+            color: '#ff0000'
         }, {
-            yAxis: 100
+            yAxis: 100,
+            color: '#ff0000'
         }, {
-            yAxis: 150
+            yAxis: 150,
+            color: '#ff0000'
         }, {
-            yAxis: 200
+            yAxis: 200,
+            color: '#ff0000'
         
-        }]
+        }],
+        outOfRange: {
+            color: '#ff0000'
+        }
     }
 }
 });
@@ -355,17 +362,19 @@ $(function() {
 //barchart1
 var myChart = echarts.init(document.querySelector('#barchart1'));
 option = {
+    
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed'  ]
+        data: ['Mon', 'Tue','wed']
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        data: [120, 200, 150],
+        data: [120, 200,150],
         type: 'bar'
     }]
+    
 };
 myChart.setOption(option);
 //barchart2
@@ -388,4 +397,28 @@ myChart.setOption(option);
 
 
  });
+var elem = document.documentElement;
+    /* View in fullscreen */
+    function dashboardexpand() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
 
+    /* Close fullscreen */
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+
+ 
+ 
