@@ -7,8 +7,9 @@ $(document).ready(function(){
     loadAssetList();
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
-            // alert('You pressed enter!');
+            alert('You pressed enter!');
             addPatient();
+            e.preventDefault();
         }
     });
 });
@@ -168,6 +169,7 @@ function loadAssetList() {
         {
             mData: 'patient_name',
             sTitle: 'Patient Name',
+            swidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data ? data : '-';
@@ -176,6 +178,7 @@ function loadAssetList() {
         {
             mData: 'age',
             sTitle: 'Age',
+            swidth: '10%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data ? data : '-';
@@ -184,6 +187,7 @@ function loadAssetList() {
         {
             mData: 'gender',
             sTitle: 'Gender',
+            swidth: '10%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data ? data : '-';
@@ -192,6 +196,7 @@ function loadAssetList() {
         {
             mData: 'mobile_no',
             sTitle: 'Mobile Number',
+            swidth: '10%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data ? data : '-';
@@ -200,6 +205,7 @@ function loadAssetList() {
         {
             mData: 'email',
             sTitle: 'Email ',
+            swidth: '10%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data ? data : '-';
@@ -208,6 +214,7 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
+            swidth: '20%',
             orderable: false,
             mRender: function (data, type, row) {
                 return row.address +'&nbsp;'+','+ row.city +','+'<br>'+ row.state +'&nbsp;'+','+ row.zipcode +'.';
@@ -216,6 +223,7 @@ function loadAssetList() {
         {
             mData: 'country',
             sTitle: 'Country',
+            swidth: '10%',
             orderable: false,
             mRender: function (data, type, row) {
                 return data ? data : '-';
@@ -224,6 +232,7 @@ function loadAssetList() {
         {
             mData: 'created_ts',
             sTitle: 'Created Time',
+            swidth: '10%',
             orderable: false,
             mRender: function (data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -232,6 +241,7 @@ function loadAssetList() {
         {
             title: 'Status',
             sTitle: 'Status',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>'
@@ -240,6 +250,7 @@ function loadAssetList() {
         {
             sTitle: 'Actions',
             orderable: false,
+            swidth: '10%',
             mRender: function (data, type, row) {
                 return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }

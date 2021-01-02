@@ -37,6 +37,7 @@ function loadDeviceList() {
     var fields = [{
             mData: "id",
             sTitle: "Device Id",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -45,6 +46,7 @@ function loadDeviceList() {
         {
             mData: "modelId",
             sTitle: "Model Id",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -53,6 +55,7 @@ function loadDeviceList() {
         {
             mData: "version",
             sTitle: "Version",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -61,6 +64,7 @@ function loadDeviceList() {
         {
             mData: "Status",
             sTitle: "Status",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<span class="label label-danger">Not Reported</span>';
@@ -69,6 +73,7 @@ function loadDeviceList() {
         {
             mData: "channel",
             sTitle: "Channel",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -77,6 +82,7 @@ function loadDeviceList() {
         {
             mData: "registeredStamp",
             sTitle: "Created Time",
+            sWidth : '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
