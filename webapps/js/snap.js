@@ -12,7 +12,6 @@ xAxis: {
     })
 },
 yAxis: {
-   
     splitLine: {
         color: ["#3398DB"],
         show: false
@@ -39,15 +38,15 @@ visualMap: {
     pieces: [{
         gt: 0,
         lte: 60,
-        color: 'orange'
+        color: '#ff8683'
     }, {
         gt: 60,
         lte: 100,
-        color: 'blue'
+        color: '#7cd4d4'
     }, {
         gt: 110,
         
-        color: 'red'
+        color: '#ff8683'
     },],
     outOfRange: {
         color: '#999'
@@ -83,81 +82,213 @@ series: {
 }
 });
 
+$(function() {
 
+    var start = moment().subtract(29, 'days');
+    var end = moment();
 
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
+
+});
+var PatientstatusTable = null;
+var patientstatus_list = [];
 
 $(document).ready(function() {
-    $('#patients_profile').DataTable({
-        data: dataSet,
-        searching: true,
-        columns: [{
-                title: 'Patient_Name',
-                sTitle: 'Patient Name',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + row.dob + 'years old</h6>';
+    loadPatientstatusList();
+})
+
+function loadPatientstatusList() {
+
+    if (PatientstatusTable) {
+        PatientstatusTable.destroy();
+        $("#patients").html("");
+    }
+
+
+    var fields = [ {
+            mData: 'heart_rate',
+            sWidth: '250px',
+            sTitle: 'Heartrate',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-7"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-2 heart_icon"><i class="fa fa-2x fa-heartbeat"></i></span>' + '</div>';
+            }
+        },
+        {
+            mData: 'activity',
+            sWidth: '150px',
+            sTitle: 'Activity',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'status',
+            sWidth: '150px',
+            sTitle: 'Status',
+            orderable: false,
+            mRender: function(data, type, row) {
+                if (row.heart_rate < 60) {
+                    return '<button class="status_low">' + row.status + '</button>';
+                } else if (row.heart_rate > 120) {
+                    return '<button class="status_high">' + row.status + '</button>';
+                } else {
+                    return '<button class="status_normal">' + row.status + '</button>';
 
                 }
-            },
-           
-            {
-                title: 'Address',
-                sTitle: 'Address',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            {
-                title: 'Heart Rate',
-                sTitle: 'Heart Rate',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data + '&nbsp;' + '&nbsp;' + '&nbsp;' + '<i class="fa fa-icon fa-heart-rate" aria-hidden="true"></i>';
-                }
-            },
-            {
-                title: 'Status',
-                sTitle: 'Status',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return '<button class="status">' + data + '</button>';
-                }
-            },
-            {
-                title: 'Activity',
-                sTitle: 'Activity',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            // {
-            //     mData: 'country',
-            //     sTitle: 'Country',
-            //     orderable: false,
-            //     mRender: function(data, type, row) {
-            //         return data;
-            //     }
-            // },
-            {
-                title: 'did',
-                sTitle: 'Skin Patch Id',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            {
-                title: 'updated_ts',
-                sTitle: 'Last Reported Time',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
+            }
+        },
+      
+        {
+            mData: 'did',
+            sTitle: 'Skin Patch Id',
+            sWidth: '130px',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            }
+        },
+        {
+            mData: 'reported_ts',
+            sTitle: 'Last Reported Time',
+            sWidth: '250px',
+            "className": 'sortingtable',
+            mRender: function(data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT);
+            }
+        },
 
-        ]
+    ];
 
-    });
-});
+    var queryParams = {
+        query: {
+            "bool": {
+                "must": []
+                    /*,
+                    "filter":{"range":{"created_ts":{
+                                "gte":new Date(startDate.toISOString()).getTime(),
+                                "lte":new Date(endDate.toISOString()).getTime()
+                            }}}*/
+            }
+        },
+        sort: [{ "created_ts": { "order": "asc" } }]
+    };
+    var queryParams = {
+        query: {
+            "bool": {
+                "must": []
+            }
+        },
+        sort: [{ "created_ts": { "order": "asc" } }]
+    };
+
+
+    patientstatus_list = [];
+
+    var tableOption = {
+        fixedHeader: false,
+        responsive: false,
+        paging: true,
+        searching: false,
+        aaSorting: [
+            [3, 'desc']
+        ],
+        "ordering": true,
+        iDisplayLength: 10,
+        lengthMenu: [
+            [10, 50, 100],
+            [10, 50, 100]
+        ],
+        aoColumns: fields,
+        "bProcessing": true,
+        "language": {
+            "emptyTable": "No data found!",
+            "processing": '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing'
+
+        },
+        "bServerSide": true,
+        "sAjaxSource": BASE_PATH + '/patienthistory/list',
+        "fnServerData": function(sSource, aoData, fnCallback, oSettings) {
+
+
+            queryParams.query['bool']['must'] = [];
+            queryParams.query['bool']['should'] = [];
+            delete queryParams.query['bool']["minimum_should_match"];
+
+            var keyName = fields[oSettings.aaSorting[0][0]]
+
+            var sortingJson = {};
+            sortingJson[keyName['mData']] = { "order": oSettings.aaSorting[0][1] };
+            queryParams.sort = [sortingJson];
+
+            queryParams['size'] = oSettings._iDisplayLength;
+            queryParams['from'] = oSettings._iDisplayStart;
+
+            // queryParams.query['bool']['must'].push({ "match": { "acc_id":SESSION_OBJ.orgs[0]  } });
+
+            var searchText = oSettings.oPreviousSearch.sSearch.trim();
+
+            if (searchText) {
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']["minimum_should_match"] = 1;
+                queryParams.query['bool']['should'].push({
+                    "match_phrase": {
+                        "patient_name.keyword": "*" + searchText + "*"
+                    }
+                })
+                queryParams.query['bool']['should'].push({
+                    "match_phrase_prefix": {
+                        "patient_name.keyword": {
+                            "query": "*" + searchText + "*"
+                        }
+                    }
+                });
+            }
+
+            oSettings.jqXHR = $.ajax({
+                "dataType": 'json',
+                "contentType": 'application/json',
+                "type": "POST",
+                "url": sSource,
+                "data": JSON.stringify({ "query": queryParams }),
+                success: function(data) {
+
+                    // console.log(data);
+
+                    var resultData = data.result.data;
+                    console.log(resultData);
+
+                    patientstatus_list = resultData.data;
+
+                    $(".totalCount").html(data.result.total)
+
+                    resultData['draw'] = oSettings.iDraw;
+                    fnCallback(resultData);
+                }
+            });
+        },
+        "initComplete": function(settings, json) {}
+    };
+
+    PatientstatusTable = $("#patients").DataTable(tableOption);
+}

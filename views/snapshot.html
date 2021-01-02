@@ -1,5 +1,6 @@
 
 
+
     <section class="sub-header">
         <div class="container-fluid">
             <nav class="navbar navbar-light mt-3 p-0">
@@ -42,37 +43,37 @@
                         <form>
                             <div class="row ">
                                 <div class="col-lg-2">
-                                    <!-- <div class="form-group"> -->
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>Seclect By Patient</option>
-                                          <option>1</option>
-                                          <option>2</option>
-                                        </select>
-                                      <!-- </div> -->
+                                    <select class="select">
+                                        <option>Select By Patient</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
                                 </div>
-                                <div class="col-lg-4">
-                                  
-                                </div>
-                                <div class="col-lg-2">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>All Activities</option>
-                                          <option>1</option>
-                                          <option>2</option>
+                               
+                                    <div class="col-md-4 head-title3">
+                                        <div id="reportrange" class="calender">
+                                            <i class="fa fa-calendar"></i>&nbsp;
+                                            <span></span> <i class="fa fa-caret-down"></i>
+                                        </div>
+                                    </div>
+                           
+                                
+                                    <div class="col-lg-2">
+                                        <select class="select">
+                                            <option>Select By Patient</option>
+                                            <option>1</option>
+                                            <option>2</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>All Status</option>
-                                          <option>1</option>
-                                          <option>2</option>
+                                    <div class="col-lg-2">
+                                        <select class="select">
+                                            <option>Select By Patient</option>
+                                            <option>1</option>
+                                            <option>2</option>
                                         </select>
                                     </div>
-                                </div>
                                 <div class="col-lg-2">
-                                    <button class="clear-btn"><i class="icofont-filter"></i> Filter</button>
+                                    <button class="clear-btn"><i class="fa fa-trash-o" aria-hidden="true"></i> Filter</button>
                                 </div>
                             </div>
                             
@@ -87,16 +88,16 @@
                                 <img src="images/capture.png" alt="profile-img" class="img-fluid">
                                
                                     <div class="profile-name"><h3 class="name"><b>Easton Alvarez</b></h3></div>
-                                    <div class="profile-name">08/05/1925 <span>-94 Years old</span></div>
-                                    <div class="profile-name">57, Stillwell Avenue Scotts Mills<br> oregon US 97375</div>
+                                    <div class="profile-name1">08/05/1925 <span class="date">-94 Years old</span></div>
+                                    <div class="profile-name"><span class="address"> 57, Stillwell Avenue Scotts Mills<br> oregon US 97375</span></div>
                                     <div class="profile-name"><i class="fa fa-phone" aria-hidden="true"></i> 978-785-987</div>
                                    
                                     <div class="profile-name"><i class="fa fa-envelope" aria-hidden="true"></i> alvarez@mail.com</div>
-                                    <div>127<span class="BPM">BPM</span></div>
-                                   
+                                    <div class="number">127<span class="BPM">BPM</span></div>
+                                   <div class="level">High</div>
                                     <div class="heart-rate">
                                         <svg class="heartimg"  version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">
-                                          <polyline fill="none" stroke="green" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"
+                                          <polyline fill="none" stroke="red" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"
                                           />
                                         </svg>
                                         <div class="fade-in"></div>
@@ -110,7 +111,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-10">
-                                <div class="myprofile">My profile</div>
+                                <div class="myprofile"><spann class="profilehead">My profile</spann></div>
                         <!-- <div class="chart-section"> -->
                             <div id="chart" style="width:90%;margin:0 auto;height:250px;"></div>
                                 <!-- </div> -->
@@ -143,7 +144,7 @@
                                         </div>
                                     </div>  
                                     <table class="table table-bordered">
-                                       <table id="patients_profile" class="table table-bordered table-responsive"></table>
+                                       <table id="patients" class="table table-bordered table-responsive"></table>
                                       </table>
                                 </div>
                             </div>
@@ -154,7 +155,7 @@
                 </div>
             </section>
         
-            <script src="js/snap.js"></script>
+         <script src="js/snap.js"></script>
         
                
                     
