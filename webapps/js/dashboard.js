@@ -1,126 +1,81 @@
+//piechart
+$(()=>{
+    var myChart = echarts.init(document.querySelector('#chart'));
+  option = {
+  backgroundColor: '#ffffff',
 
-  $(()=>{
-      var myChart = echarts.init(document.querySelector('#chart'));
-      option = {
-        title: {
-            text: '',
-            subtext: '',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['Running', 'Dancing', 'Walking', 'Sleeping', 'Bicycling']
-        },
-        series: [
-            {
-                name: '',
-                type: 'pie',
-                radius: '55%',
-                center: ['50%', '60%'],
-                data: [
-                    {value: 625, name: 'Running'},
-                    {value: 590, name: 'Dancing'},
-                    {value: 384, name: 'Walking'},
-                    {value: 425, name: 'Sleeping'},
-                    {value: 668, name: 'Bicycling'}
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-//   option = {
-//   backgroundColor: '#2c343c',
+  title: {
+      text: '',
+      left: 'center',
+      top: 20,
+      textStyle: {
+          color: '#ccc'
+      }
+  },
 
-//   title: {
-//       text: 'Customized Pie',
-//       left: 'center',
-//       top: 20,
-//       textStyle: {
-//           color: '#ccc'
-//       }
-//   },
+  tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b} : {c} ({d}%)'
+  },
 
-//   tooltip: {
-//       trigger: 'item',
-//       formatter: '{a} <br/>{b} : {c} ({d}%)'
-//   },
+  visualMap: {
+      show: false,
+      min: 80,
+      max: 600,
+      inRange: {
+          colorLightness: [0, 1]
+      }
+  },
+  series: [
+      {
+          name: 'Activity',
+          type: 'pie',
+          radius: '55%',
+          center: ['50%', '50%'],
+          data: [
+              {value: 335, name: 'Sleeping'},
+              {value: 310, name: 'Running'},
+              {value: 274, name: 'Reading'},
+              {value: 235, name: 'Working'},
+              {value: 400, name: 'Eating'}
+          ].sort(function (a, b) { return a.value - b.value; }),
+          roseType: 'radius',
+          label: {
+              color: 'rgb(54, 54, 54)'
+          },
+          labelLine: {
+              lineStyle: {
+                  color: 'rgb(54, 54, 54)'
+              },
+              smooth: 0.2,
+              length: 10,
+              length2: 20
+          },
+          itemStyle: {
+             color: '#c23531',
+              
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+          },
 
-//   visualMap: {
-//       show: false,
-//       min: 80,
-//       max: 600,
-//       inRange: {
-//           colorLightness: [0, 1]
-//       }
-//   },
-//   series: [
-//       {
-//           name: 'Activity',
-//           type: 'pie',
-//           radius: '55%',
-//           center: ['50%', '50%'],
-//           data: [
-//               {value: 335, name: 'Sleeping'},
-//               {value: 310, name: 'Running'},
-//               {value: 274, name: 'Reading'},
-//               {value: 235, name: 'Working'},
-//               {value: 400, name: 'Eating'}
-//           ].sort(function (a, b) { return a.value - b.value; }),
-//           roseType: 'radius',
-//           label: {
-//               color: 'rgba(255, 255, 255, 0.3)'
-//           },
-//           labelLine: {
-//               lineStyle: {
-//                   color: 'rgba(255, 255, 255, 0.3)'
-//               },
-//               smooth: 0.2,
-//               length: 10,
-//               length2: 20
-//           },
-//           itemStyle: {
-//               color: '#c23531',
-//               shadowBlur: 200,
-//               shadowColor: 'rgba(0, 0, 0, 0.5)'
-//           },
-
-//           animationType: 'scale',
-//           animationEasing: 'elasticOut',
-//           animationDelay: function (idx) {
-//               return Math.random() * 200;
-//           }
-//       }
-//   ]
-// };
+          animationType: 'scale',
+          animationEasing: 'elasticOut',
+          animationDelay: function (idx) {
+              return Math.random() * 200;
+          }
+      }
+  ]
+};
 myChart.setOption(option);
 
   var myChart = echarts.init(document.querySelector('#age'));
   option = {
+    //   backgroundColor: '#fff',
     title: {
         text: '',
         subtext: '',
         left: 'center'
     },
-    tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b} : {c} ({d}%)'
-    },
-    legend: {
-        orient: 'vertical',
-        left: 'left',
-        data: ['0-20', '20-40', '40-60', '60-80', '80-100']
-    },
+   
     series: [
         {
             name: '',
@@ -137,87 +92,14 @@ myChart.setOption(option);
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    shadowOffsetX: 0
+                    // shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
             }
         }
     ]
 };
 
-//  var data = genData(50);
-
-//  option = {
-//     title: {
-//         text: 'Patient',
-//         subtext: 'Age Group',
-//         left: 'center'
-//     },
-//     tooltip: {
-//         trigger: 'item',
-//         formatter: '{a} <br/>{b} : {c} ({d}%)'
-//     },
-//     legend: {
-//         type: 'scroll',
-//         orient: 'vertical',
-//         right: 10,
-//         top: 20,
-//         bottom: 20,
-//         data: data.legendData,
-
-//         selected: data.selected
-//     },
-//     series: [
-//         {
-//             name: 'Bye Age Group',
-//             type: 'pie',
-//             radius: '55%',
-//             center: ['40%', '50%'],
-//             data: data.seriesData,
-//             emphasis: {
-//                 itemStyle: {
-//                     shadowBlur: 10,
-//                     shadowOffsetX: 0,
-//                     shadowColor: 'rgba(0, 0, 0, 0.5)'
-//                 }
-//             }
-//         }
-//     ]
-// };
-// function genData(count) {
-//     var nameList = [
-//         'Radhi', 'Aarthi', 'Raji', 'Sundari', 'Sam', 'Ram', 'Sarathi', 'Raj', 'Devi', 'Radha', 'Ramu', 'Aji', 'Adthi', 'Sarath'
-//     ];
-//     var legendData = [];
-//     var seriesData = [];
-//     var selected = {};
-//     for (var i = 0; i < count; i++) {
-//         name = Math.random() > 0.65
-//             ? makeWord(4, 1) + '·' + makeWord(3, 0)
-//             : makeWord(2, 1);
-//         legendData.push(name);
-//         seriesData.push({
-//             name: name,
-//             value: Math.round(Math.random() * 100000)
-//         });
-//         selected[name] = i < 6;
-//     }
-
-//     return {
-//         legendData: legendData,
-//         seriesData: seriesData,
-//         selected: selected
-//     };
-
-//     function makeWord(max, min) {
-//         var nameLen = Math.ceil(Math.random() * max + min);
-//         var name = [];
-//         for (var i = 0; i < nameLen; i++) {
-//             name.push(nameList[Math.round(Math.random() * nameList.length - 1)]);
-//         }
-//         return name.join('');
-//     }
-// }
  myChart.setOption(option);
 
 //Barchart
@@ -258,9 +140,9 @@ xAxis: {
     })
 },
 yAxis: {
-    splitLine: {
+     splitLine: {
         show: false
-    }
+    },
 },
 toolbox: {
     left: 'center',
@@ -277,35 +159,43 @@ dataZoom: [{
 }, {
     type: 'inside'
 }],
-// visualMap: {
-//     top: 10,
-//     right: 10,
-//     pieces: [{
-//         gt: 0,
-//         lte: 50,
-//         color: '#096'
-//     }, {
-//         gt: 50,
-//         lte: 100,
-//         color: '#ffde33'
-//     }, {
-//         gt: 100,
-//         lte: 150,
-//         color: '#ff9933'
-//     }, {
-//         gt: 150,
-//         lte: 200,
-//         color: '#cc0033'
-//     }, {
-//         gt: 200,
-//         color: '#660099'
+visualMap: {
+        top: 10,
+        right: 10,
+        pieces: [{
+            gt: 0,
+            lte: 50,
+            color: '#d63a34'
+        }, {
+            gt: 50,
+            lte: 100,
+            color: '#d63a34'
+        }, {
+            gt: 100,
+            lte: 150,
+            color: '#d63a34'
+        }, {
+            gt: 150,
+            lte: 200,
+            color: '#d63a34'
+        }, {
+            gt: 200,
+            color: '#d63a34'
+        
+        }],
+        outOfRange: {
+            color: '#d63a34'
+        }
+    },
+
+series:{
+        markPoint: {
+            data: [
+                {type: 'max', name: ''},
+                {type: 'min', name: ''}
+            ]
+        },
     
-//     }],
-//     outOfRange: {
-//         color: '#999'
-//     }
-// },
-series: {
     name: 'Heartrate Analysis',
     type: 'line',
     data: echartdata.map(function (item) {
@@ -315,23 +205,23 @@ series: {
         silent: true,
         data: [{
             yAxis: 50,
-            color: '#ff0000'
+            color: '#d63a34'
         }, {
             yAxis: 100,
-            color: '#ff0000'
+            color: '#d63a34'
         }, {
             yAxis: 150,
-            color: '#ff0000'
+            color: '#d63a34'
         }, {
             yAxis: 200,
-            color: '#ff0000'
+            color: '#d63a34'
         
         }],
         outOfRange: {
-            color: '#ff0000'
+            color: '#d63a34'
         }
     }
-}
+},
 });
 
 //calendar
@@ -341,7 +231,7 @@ $(function() {
     var end = moment();
 
     function cb(start, end) {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#reportrange span').html(start.format('MMM D,YYYY') + ' - ' + end.format('MMM D,YYYY'));
     }
     $('#reportrange').daterangepicker({
         startDate: start,
@@ -365,14 +255,15 @@ option = {
     
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue','wed']
+        data: ['Male', 'female']
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        data: [120, 200,150],
-        type: 'bar'
+        data: [120, 200],
+        type: 'bar',
+        color:'rgb(56, 141, 175)'
     }]
     
 };
@@ -382,14 +273,15 @@ var myChart = echarts.init(document.querySelector('#barchart2'));
 option = {
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed']
+        data: ['active', 'inactive']
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        data: [120, 200, 150],
-        type: 'bar'
+        data: [120, 200],
+        type: 'bar',
+        color:'rgb(185, 56, 56)'
     }]
 };
 myChart.setOption(option);
