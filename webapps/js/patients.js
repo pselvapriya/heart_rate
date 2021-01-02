@@ -7,9 +7,11 @@ $(document).ready(function(){
     loadAssetList();
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
+            if($("#patientModal").is(":visible")){
             // alert('You pressed enter!');
             addPatient();
             e.preventDefault();
+            }
         }
     });
 });

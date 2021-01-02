@@ -122,7 +122,7 @@ body {
     top: 3%;
     text-align: left;
     z-index: 1000;
-    width:300px;display: none;
+    width:300px;
 }
 .card-title,.card-text{
   font-size: 16px;

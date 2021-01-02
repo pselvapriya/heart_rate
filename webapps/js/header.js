@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $('.card-div').css('display','none');
-  e.preventdefault();
+  // $('.card-div').css('display','none');
+ 
   // $('.overlay-content .nav-link .dashboard').addClass("active");
 });
 $('#myNav .overlay-content .nav-link').on('click', function(){
