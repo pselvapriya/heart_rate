@@ -108,13 +108,13 @@ body {
 .active{
   color:black !important;
   background-color: #eeeeee;
-  border-right:5px solid #861182;
+  border-right:5px solid #861182!important;
 }
 .show-drop{
   background-color: white;
 }
 .card-div{
-  background: white;
+  background: red;
     border: 2px solid lightgrey;
     display: block;
     left: 66%;

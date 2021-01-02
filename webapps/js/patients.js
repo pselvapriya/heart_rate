@@ -7,7 +7,7 @@ $(document).ready(function(){
     loadAssetList();
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
-            alert('You pressed enter!');
+            // alert('You pressed enter!');
             addPatient();
             e.preventDefault();
         }
@@ -16,6 +16,7 @@ $(document).ready(function(){
 // patient Registration API
 
 function addPatient(){
+
     if(flag==false){
     var patient_name = $("#patientName").val();
     var selectDate = $("#datepicker[name=datepicker]").val();
@@ -93,6 +94,8 @@ console.log("add user",inputObj);
                 $('#patientModal').hide();
                 $(".modal-backdrop").remove();
                 successMsg("Patient Added Successfully!");
+    $("#patientName,#mobile,#email,#address,#city,#state,#country,#zipCode,#datepicker[name=datepicker]").val('');
+
                 loadAssetList();
             },
             error: function (e) {
@@ -413,14 +416,13 @@ function editPatient(row){
 //delete Api
 
 function deletePatient(row){
-    console.log(row);
-
-    $.ajax({
+        $.ajax({
         url: BASE_PATH+"/patient/delete",
         data: JSON.stringify({_id:row}),
         contentType: "application/json",
         type: 'POST',
         success: function (result) {
+            swal("Are you sure?", {  dangerMode: true,  buttons: true,});
             //Success -> Show Alert & Refresh the page
             successMsg("Patient Deleted Successfully!");
             loadAssetList();
