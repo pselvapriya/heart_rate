@@ -6,98 +6,141 @@ var sid;
 
 $(document).ready(function() {
     loadAssetList();
-    $(document).on('keypress',function(e) {
-        if(e.which == 13) {
-            if($("#patientModal").is(":visible")){
+    $(document).on('keypress', function(e) {
+        if($("#patientModal").is(":visible")){
+        if (e.which == 13) {
             // alert('You pressed enter!');
             addPatient();
             e.preventDefault();
-            }
         }
+    }
     });
 });
 // patient Registration API
 
-function addPatient(){
+function addPatient() {
+    if (flag == false) {
+        var patient_name = $("#patientName").val();
+        var selectDate = $("#datepicker[name=datepicker]").val();
+        // console.log("selectDate",selectDate);
+        var DOB = new Date(selectDate);
+        var today = new Date();
+        var age = today.getTime() - DOB.getTime();
+        age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
+        console.log(age);
+        var gender = $("#selectGender").val();
+        var mobile_no = $("#mobile").val();
+        var email = $("#email").val();
+        var address = $("#address").val();
+        var city = $("#city").val();
+        var state = $("#state").val();
+        var country = $("#country").val();
+        var zipcode = $("#zipCode").val();
 
-    if(flag==false){
-    var patient_name = $("#patientName").val();
-    var selectDate = $("#datepicker[name=datepicker]").val();
-    // console.log("selectDate",selectDate);
-    var DOB = new Date(selectDate);
-    var today = new Date();
-    var age = today.getTime() - DOB.getTime();
-    age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
-    console.log(age);
-    var gender = $( "#selectGender" ).val();
-    var mobile_no = $("#mobile").val();
-    var email = $("#email").val();
-    var address = $("#address").val();
-    var city = $("#city").val();
-    var state = $("#state").val();
-    var country = $("#country").val();
-    var zipcode = $("#zipCode").val();
-    
+        //Validate
+        if (patient_name === "") {
+            showToast("Warning", "Please a Enter Name", "warning");
+            $("#patientModal").show();
+        } else if (selectDate === "") {
+            showToast("Warning", "Please a Enter Date", "warning");
+            $("#patientModal").show();
+        } else if (mobile_no === "") {
+            showToast("Warning", "Please a Enter Mobile", "warning");
+            $("#patientModal").show();
+        } else if (email === "") {
+            showToast("Warning", "Please a Enter Email", "warning");
+            $("#patientModal").show();
+        } else if (address === "") {
+            showToast("Warning", "Please a Enter Address", "warning");
+            $("#patientModal").show();
+        } else if (city === "") {
+            showToast("Warning", "Please a Enter City", "warning");
+            $("#patientModal").show();
+        } else if (state === "") {
+            showToast("Warning", "Please a Enter State", "warning");
+            $("#patientModal").show();
+        } else if (country === "") {
+            showToast("Warning", "Please a Enter Country", "warning");
+            $("#patientModal").show();
+        } else if (zipcode === "") {
+            showToast("Warning", "Please a Enter Zipcode", "warning");
+            $("#patientModal").show();
+        } else {
+            //Build Input Objects
+            var inputObj = {
+                patient_name: patient_name,
+                dob: selectDate,
+                age: age,
+                gender: gender,
+                mobile_no: mobile_no,
+                address: address,
+                email: email,
+                city: city,
+                state: state,
+                country: country,
+                zipcode: zipcode,
+                created_ts: new Date().getTime(),
+            };
+            console.log("add user", inputObj);
+            //Call API
+            $.ajax({
+                url: BASE_PATH + "/patient/insert",
+                data: JSON.stringify(inputObj),
+                contentType: "application/json",
+                type: "POST",
+                success: function(result) {
+                    $("#patientModal").hide();
+                    $(".modal-backdrop").remove();
+                    successMsg("Patient Added Successfully!");
+                    loadAssetList();
+                },
+                error: function(e) {
+                    //Error -> Show Error Alert & Reset the form
+                    errorMsg("Patient Added Failed!");
+                    window.location.reload();
+                },
+            });
+        }
+    } else if (flag == true) {
+        patient_name = $("#patient_name").val();
+        dob = $("#datepicker1[name=datepicker]").val();
+        gender = $("#editGender").val();
+        mobile_no = $("#editmobile").val();
+        email = $("#editEmail").val();
+        address = $("#editAddress").val();
+        city = $("#editCity").val();
+        state = $("#editState").val();
+        country = $("#editCountry").val();
+        zipcode = $("#editZipCode").val();
 
-    //Validate
-    if(patient_name === ""){
-        showToast("Warning","Please a Enter Name",'warning');
-        $('#patientModal').show();
-    }else if(selectDate === ""){
-        showToast("Warning","Please a Enter Date",'warning');
-        $('#patientModal').show();
-    }else if(mobile_no === ""){
-        showToast("Warning","Please a Enter Mobile",'warning');
-        $('#patientModal').show();
-    }else if(email === ""){
-        showToast("Warning","Please a Enter Email",'warning');
-        $('#patientModal').show();
-    }else if(address === ""){
-        showToast("Warning","Please a Enter Address",'warning');
-        $('#patientModal').show();
-    }else if(city === ""){
-        showToast("Warning","Please a Enter City",'warning');
-        $('#patientModal').show();
-    }else if(state === ""){
-        showToast("Warning","Please a Enter State",'warning');
-        $('#patientModal').show();
-    }else if(country === ""){
-        showToast("Warning","Please a Enter Country",'warning');
-        $('#patientModal').show();
-    }else if(zipcode === ""){
-        showToast("Warning","Please a Enter Zipcode",'warning');
-        $('#patientModal').show();
-
-    }
-    else{
-
-        //Build Input Objects
-        var inputObj = {
-            patient_name : patient_name,
-            dob : selectDate,
-            age : age,
-            gender : gender,
-            mobile_no : mobile_no,
-            address : address,
-            email : email,
-            city : city,
-            state : state,
-            country : country,
-            zipcode : zipcode,
-            created_ts : new Date().getTime()
+        var DOB = new Date(dob);
+        var today = new Date();
+        var age = today.getTime() - DOB.getTime();
+        age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
+        created_ts = new Date().getTime();
+        var updateData = {
+            patient_name: patient_name,
+            dob: dob,
+            age: age,
+            gender: gender,
+            mobile_no: mobile_no,
+            email: email,
+            address: address,
+            city: city,
+            state: state,
+            country: country,
+            zipcode: zipcode,
+            created_ts: new Date().getTime(),
         };
         console.log("update", updateData);
         $.ajax({
             url: BASE_PATH + "/patient/update",
             data: JSON.stringify({ _id: sid, updateData }),
             contentType: "application/json",
-            type: 'POST',
-            success: function (result) {
-                $('#patientModal').hide();
-                $(".modal-backdrop").remove();
-                successMsg("Patient Added Successfully!");
-    $("#patientName,#mobile,#email,#address,#city,#state,#country,#zipCode,#datepicker[name=datepicker]").val('');
-
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+                successMsg("Patient Updated Successfully!");
                 loadAssetList();
             },
             error: function(e) {
@@ -108,7 +151,7 @@ function addPatient(){
         });
     }
 }
-}
+
 // Patient list API
 function loadAssetList() {
     if (PatientTable) {
@@ -206,7 +249,7 @@ function loadAssetList() {
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<button type="button" class="btn patient-atag"  data-target="#linkModal" data-toggle="modal">Link</button>';
+                return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>';
             },
         },
         {
