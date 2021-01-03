@@ -238,17 +238,9 @@ function loadPatientstatusList() {
             "processing": '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing'
 
         },
-<<<<<<< HEAD
         bServerSide: true,
         sAjaxSource: BASE_PATH + '/patienthistory/list',
         fnServerData: function(sSource, aoData, fnCallback, oSettings) {
-=======
-        "bpagination":false,
-        "bfilter":false,
-        "bServerSide": true,
-        "sAjaxSource": BASE_PATH + '/patienthistory/list',
-        "fnServerData": function(sSource, aoData, fnCallback, oSettings) {
->>>>>>> 58477f60910a10b3b695c308f946ecfda3849cdc
 
 
             queryParams.query['bool']['must'] = [];
