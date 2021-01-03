@@ -9,11 +9,13 @@ var sid;
 $(document).ready(function() {
     loadAssetList();
     $(document).on('keypress', function(e) {
+        if($("#patientModal").is(":visible")){
         if (e.which == 13) {
-            alert('You pressed enter!');
+            // alert('You pressed enter!');
             addPatient();
             e.preventDefault();
         }
+    }
     });
 });
 // patient Registration API
