@@ -1,8 +1,10 @@
 var PatientTable = null;
-var patient_list;
-var device_list;
+var patient_list = [];
+var device_list = [];
+var patientdata;
 var flag = false;
 var sid;
+
 
 $(document).ready(function() {
     loadAssetList();
@@ -34,6 +36,7 @@ function addPatient() {
         var state = $("#state").val();
         var country = $("#country").val();
         var zipcode = $("#zipCode").val();
+
 
         //Validate
         if (patient_name === "") {
@@ -77,6 +80,7 @@ function addPatient() {
                 state: state,
                 country: country,
                 zipcode: zipcode,
+
                 created_ts: new Date().getTime(),
             };
             console.log("add user", inputObj);
@@ -130,10 +134,10 @@ function addPatient() {
             zipcode: zipcode,
             created_ts: new Date().getTime(),
         };
-        console.log("update", updateData);
+        console.log("update", sid);
         $.ajax({
             url: BASE_PATH + "/patient/update",
-            data: JSON.stringify({ _id: sid, updateData }),
+            data: JSON.stringify({ _id: sid, updateData: updateData }),
             contentType: "application/json",
             type: "POST",
             success: function(result) {
@@ -242,12 +246,23 @@ function loadAssetList() {
             },
         },
         {
-            title: 'Status',
+
             sTitle: 'Status',
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>';
+                console.log(row.did);
+
+                if (row.did) {
+
+                    return '<button type="button" id="link" class="btn patient-atag bg-danger" data-toggle="modal" data-target="#myModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</button>';
+
+                } else {
+
+                    return '<button type="button" id="link" class="btn patient-atag bg-success" data-toggle="modal" data-target="#myModal" onclick="linkdevice(\'' + row._id + '\')">Link</button>';
+
+                }
+
             },
         },
         {
@@ -470,13 +485,89 @@ $(() => {
         success: function(data) {
             var resultData = data.result.data.data;
             device_list = resultData;
-
+            console.log("hello", device_list, patient_list);
             $("#devicelist").html("");
 
             resultData.forEach((et) => {
-                let tr = `<option>` + et.id + `</option>`;
+                let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
                 $("#devicelist").append(tr);
             });
         },
     });
 });
+
+// Device link=============================
+var info = [];
+var flag1 = false;
+
+function linkdevice(patientid) {
+
+    patient_list.forEach(element => {
+        if (element._id == patientid) {
+            info = [element];
+        }
+    });
+    patientdata = patientid;
+
+    var dlistid = $("#devicelist").val();
+    patient_list.forEach((ele) => {
+        if (dlistid == ele.did) {
+
+
+        }
+    })
+}
+
+function clicklinkdevice() {
+    var dlistid = $("#devicelist").val();
+    for (i = 0; i <= patient_list.length - 1; i++) {
+        if (patient_list[i].did == dlistid && patient_list[i].did != "") {
+            showToast("Warning", "Device is Already Linked", "warning");
+            console.log("already linked");
+            flag1 = true;
+            break;
+        } else {
+            flag1 = false;
+        }
+
+    }
+    console.log(flag1);
+
+
+    if (flag1 == false) {
+        console.log("info", info);
+        var updateData = {
+            patient_name: info[0].patient_name,
+            dob: info[0].dob,
+            age: info[0].age,
+            gender: info[0].gender,
+            mobile_no: info[0].mobile_no,
+            email: info[0].email,
+            address: info[0].address,
+            city: info[0].city,
+            state: info[0].state,
+            country: info[0].country,
+            zipcode: info[0].zipcode,
+            did: dlistid,
+            updated_ts: new Date().getTime(),
+            created_ts: info[0].created_ts
+        };
+        $.ajax({
+            url: BASE_PATH + "/patient/update",
+            data: JSON.stringify({ _id: patientdata, updateData }),
+            contentType: "application/json",
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+                successMsg("Device linked Successfully!");
+                loadAssetList();
+            },
+            error: function(e) {
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Device linked Failed!");
+                //window.location.reload();
+            },
+        });
+
+    }
+}

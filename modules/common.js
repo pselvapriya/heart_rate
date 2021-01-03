@@ -31,9 +31,11 @@ Common.prototype.commonUpdate = function(tablename, req, res) {
 
     boodskap.elasticUpdate(
         tablename,
-        req.query._id,
+        req.body._id,
         req.body.updateData,
+
         function(status, result) {
+
             if (status) {
                 res.json({ status: true, result: result });
             } else {
