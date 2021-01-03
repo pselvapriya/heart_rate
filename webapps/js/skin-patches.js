@@ -67,7 +67,12 @@ function loadDeviceList() {
             sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
+                if(row.reportedStamp){
+                return '<span class="label label-success">Reported</span>';
+                }
+                else{
                 return '<span class="label label-danger">Not Reported</span>';
+                }
             },
         },
         {
@@ -80,6 +85,15 @@ function loadDeviceList() {
             },
         },
         {
+            mData: "reportedStamp",
+            sTitle: "Last Reported Time",
+            sWidth : '10%',
+            className: "sortingtable",
+            mRender: function(data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT);
+            },
+        },
+        {
             mData: "registeredStamp",
             sTitle: "Created Time",
             sWidth : '10%',
@@ -88,6 +102,7 @@ function loadDeviceList() {
                 return moment(data).format(DATE_TIME_FORMAT);
             },
         },
+        
     ];
 
     var queryParams = {

@@ -1,34 +1,33 @@
-
-    <div class="container-fluid" style="background: #f2f3f4;">
-        <div class="row row-bottom">
-            <div class="col-md-6 col-device">
-                <p class="patient-txt">Manage Patients</p>
+<div class="container-fluid" style="background: #f2f3f4;">
+    <div class="row row-bottom">
+        <div class="col-md-6 col-device">
+            <p class="patient-txt">Manage Patients</p>
+        </div>
+        <div class="col-md-6 text-right">
+            <span class="device-txt">Patients Management / </span>
+            <span class="device-txt">Manage Patient</span>
+        </div>
+    </div>
+    <div class="container-fluid total-div">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="total-patients">Total Patient : <span class="totalCount"></span></p>
             </div>
             <div class="col-md-6 text-right">
-                <span class="device-txt">Patients Management / </span>
-                <span class="device-txt">Manage Patient</span>
-            </div>
-        </div>
-        <div class="container-fluid total-div">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="total-patients">Total Patient : <span class="totalCount"></span></p>
-                </div>
-                <div class="col-md-6 text-right">
-                    <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patient</button>
-                    <button class="patient-expand-btn" onclick="patientExpand()"><i class="fa fa-expand"></i></button>
-                    <button class="patient-repeat-btn"><i class="fa fa-repeat"></i></button>
-                </div>
+                <button type="button" class="btn add-patient-btn" data-toggle="modal" data-target="#patientModal"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patient</button>
+                <button class="patient-expand-btn" onclick="patientExpand()"><i class="fa fa-expand"></i></button>
+                <button class="patient-repeat-btn"><i class="fa fa-repeat"></i></button>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <!-- <button type="button" class="btn add-patch-btn"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add Patients</button>
                 <button type="button" class="btn add-patch-btn"><i class="fa fa-refresh" aria-hidden="true"></i></button> -->
-                <table id="managePatient" class="display table table-bordered responsive" style="width:99%;"></table>
+                <table id="managePatient" class="display table table-bordered responsive" style="width:99%;margin-left: 10px;"></table>
             </div>
         </div>
     </div>
+</div>
 
 
 
@@ -47,11 +46,11 @@
             <div class="modal-body">
                 <div class="row ">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Name <span class="required-txt">&nbsp;* required</span></label>
+                        <label for="usr" class="modal-txt">Name <span class="required-txt">&nbsp;*</span></label>
                         <input type="text" class="form-control" id="patientName">
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Date of Birth <span class="required-txt">&nbsp;* required</span></label><br>
+                        <label for="usr" class="modal-txt">Date of Birth <span class="required-txt">&nbsp;*</span></label><br>
                         <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob"></p>
                     </div>
                 </div>
@@ -64,9 +63,9 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Mobile <span class="required-txt">&nbsp;* required</span></label><br>
+                        <label for="usr" class="modal-txt">Mobile <span class="required-txt">&nbsp;* </span></label><br>
                         <input type="number" class="form-control" id="mobile">
-                    </div> 
+                    </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-12">
@@ -76,35 +75,35 @@
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-12">
-                        <label for="usr" class="modal-txt">Address <span class="required-txt">&nbsp;* required</span></label>
+                        <label for="usr" class="modal-txt">Address <span class="required-txt">&nbsp;*</span></label>
                         <textarea type="text" class="form-control" id="address"></textarea>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">City <span class="required-txt">&nbsp;* required</span></label>
+                        <label for="usr" class="modal-txt">City <span class="required-txt">&nbsp;*</span></label>
                         <input type="text" class="form-control" id="city">
                     </div>
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">State <span class="required-txt">&nbsp;* required</span></label>
+                        <label for="usr" class="modal-txt">State <span class="required-txt">&nbsp;* </span></label>
                         <input type="text" class="form-control" id="state">
                     </div>
                 </div>
                 <div class="row patient-row-modal">
-                <div class="col-md-6">
-                    <label for="usr" class="modal-txt">Country <span class="required-txt">&nbsp;* required</span></label>
-                    <input type="text" class="form-control" id="country">
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Country <span class="required-txt">&nbsp;* </span></label>
+                        <input type="text" class="form-control" id="country">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="usr" class="modal-txt">Zip Code <span class="required-txt">&nbsp;* </span></label>
+                        <input type="number" class="form-control" id="zipCode">
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="usr" class="modal-txt">Zip Code <span class="required-txt">&nbsp;* required</span></label>
-                    <input type="number" class="form-control" id="zipCode">
-                </div>
-            </div>
-            
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn user-create"  onclick="addPatient()">Create</button>
+                <button type="button" class="btn user-create" onclick="addPatient()">Create</button>
             </div>
         </div>
 
@@ -124,11 +123,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="usr" class="modal-txt">Device List</label>
-                        <select class="form-control"> 
-                <option>Device1</option> 
+                        <select class="form-control" id="devicelist"> 
+                <!-- <option>Device1</option> 
                 <option>Device2</option> 
                 <option>Device3</option> 
-                <option>Device4</option> 
+                <option>Device4</option>  -->
                 </select>
                     </div>
                 </div>
@@ -141,7 +140,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success link-btn" data-dismiss="modal">Link</button>
+                <button type="button" class="btn btn-success link-btn" data-dismiss="modal" onclick=clicklinkdevice()>Link</button>
             </div>
         </div>
 
@@ -185,16 +184,16 @@
                     <div class="col-md-12">
                         <label for="usr" class="modal-txt">Email</label>
                         <input type="text" class="form-control" id="editEmail" required>
-                        </div>
+                    </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-12">
                         <label for="usr" class="modal-txt">Address</label>
                         <textarea type="text" class="form-control" id="editAddress"></textarea>
-                        </div>
+                    </div>
                 </div>
                 <div class="row patient-row-modal">
-                        <div class="col-md-6">
+                    <div class="col-md-6">
                         <label for="usr" class="modal-txt">City</label>
                         <input type="text" class="form-control" id="editCity" required>
                     </div>
@@ -206,13 +205,13 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Country</label>
-                      <input type="text" class="form-control" id="editCountry">
+                        <input type="text" class="form-control" id="editCountry">
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Zip Code</label>
                         <input type="text" class="form-control" id="editZipCode">
-                  </div>
-            </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

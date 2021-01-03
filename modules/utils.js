@@ -247,22 +247,3 @@ Utils.prototype.getErrorDesc = function(code) {
 
     return str;
 };
-
-// devicelist============================================
-Utils.prototype.elasticDeviceFormatter = function(data) {
-    var resultObj = {
-        total: 0,
-        data: {},
-    };
-    var totalRecords = data.length;
-    var raw = data;
-
-    resultObj = {
-        total: totalRecords,
-        data: {
-            data: raw,
-        },
-    };
-
-    return resultObj;
-};
