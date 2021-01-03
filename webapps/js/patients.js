@@ -9,13 +9,13 @@ var sid;
 $(document).ready(function() {
     loadAssetList();
     $(document).on('keypress', function(e) {
-        if($("#patientModal").is(":visible")){
-        if (e.which == 13) {
-            // alert('You pressed enter!');
-            addPatient();
-            e.preventDefault();
+        if ($("#patientModal").is(":visible")) {
+            if (e.which == 13) {
+                // alert('You pressed enter!');
+                addPatient();
+                e.preventDefault();
+            }
         }
-    }
     });
 });
 // patient Registration API
@@ -82,7 +82,6 @@ function addPatient() {
                 state: state,
                 country: country,
                 zipcode: zipcode,
-
                 created_ts: new Date().getTime(),
             };
             console.log("add user", inputObj);
@@ -511,13 +510,13 @@ function linkdevice(patientid) {
     });
     patientdata = patientid;
 
-    var dlistid = $("#devicelist").val();
-    patient_list.forEach((ele) => {
-        if (dlistid == ele.did) {
+    // var dlistid = $("#devicelist").val();
+    // patient_list.forEach((ele) => {
+    //     if (dlistid == ele.did) {
 
 
-        }
-    })
+    //     }
+    // })
 }
 
 function clicklinkdevice() {
