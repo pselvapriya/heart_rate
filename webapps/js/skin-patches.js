@@ -4,6 +4,7 @@ var device_list = [];
 // var endDate = moment().endOf('day');
 $(document).ready(function() {
     loadDeviceList();
+  
 });
 
 var elem = document.documentElement;
@@ -122,6 +123,7 @@ function loadDeviceList() {
                 must: [],
             },
         },
+        
         sort: [{ created_ts: { order: "asc" } }],
     };
 
@@ -220,3 +222,11 @@ function loadDeviceList() {
 
     deviceTable = $("#skin_patches").DataTable(tableOption);
 }
+
+
+
+
+
+
+
+
