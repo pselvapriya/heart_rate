@@ -165,7 +165,6 @@ function loadAssetList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Patient Name',
-            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -174,7 +173,6 @@ function loadAssetList() {
         {
             mData: 'age',
             sTitle: 'Age',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -183,7 +181,6 @@ function loadAssetList() {
         {
             mData: 'gender',
             sTitle: 'Gender',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -192,7 +189,6 @@ function loadAssetList() {
         {
             mData: 'mobile_no',
             sTitle: 'Mobile Number',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -201,7 +197,6 @@ function loadAssetList() {
         {
             mData: 'email',
             sTitle: 'Email ',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -210,7 +205,6 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
-            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -231,7 +225,6 @@ function loadAssetList() {
         {
             mData: 'country',
             sTitle: 'Country',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -240,7 +233,6 @@ function loadAssetList() {
         {
             mData: 'created_ts',
             sTitle: 'Created Time',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -249,14 +241,13 @@ function loadAssetList() {
         {
 
             sTitle: 'Status',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log(row.did);
 
                 if (row.did) {
-
-                    return '<button type="button" id="link" class="btn patient-atag bg-danger" data-toggle="modal" data-target="#myModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</button>';
+                    $("#unlinkdevice").val = row.did;
+                    return '<button type="button" id="link" class="btn patient-atag bg-danger" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</button>';
 
                 } else {
 
@@ -269,7 +260,6 @@ function loadAssetList() {
         {
             sTitle: "Actions",
             orderable: false,
-            swidth: '10%',
             mRender: function(data, type, row) {
                 return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
@@ -288,8 +278,8 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
@@ -457,23 +447,25 @@ function editPatient(row) {
 
 function deletePatient(row) {
     console.log(row);
-
-    $.ajax({
-        url: BASE_PATH + "/patient/delete",
-        data: JSON.stringify({ _id: row }),
-        contentType: "application/json",
-        type: "POST",
-        success: function(result) {
-            //Success -> Show Alert & Refresh the page
-            successMsg("Patient Deleted Successfully!");
-            loadAssetList();
-        },
-        error: function(e) {
-            //Error -> Show Error Alert & Reset the form
-            errorMsg("Patient Deleted Failed!");
-            // window.location.reload();
-        },
-    });
+    var confirmalert = confirm("Are you sure?");
+    if (confirmalert == true) {
+        $.ajax({
+            url: BASE_PATH + "/patient/delete",
+            data: JSON.stringify({ _id: row }),
+            contentType: "application/json",
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+                successMsg("Patient Deleted Successfully!");
+                loadAssetList();
+            },
+            error: function(e) {
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Patient Deleted Failed!");
+                // window.location.reload();
+            },
+        });
+    }
 }
 
 // devicelist model ============================
@@ -570,5 +562,47 @@ function clicklinkdevice() {
             },
         });
 
+    }
+}
+
+// unlink device--------------------------------
+
+
+function clickUnlinkDevice() {
+    var updateData = {
+        patient_name: info[0].patient_name,
+        dob: info[0].dob,
+        age: info[0].age,
+        gender: info[0].gender,
+        mobile_no: info[0].mobile_no,
+        email: info[0].email,
+        address: info[0].address,
+        city: info[0].city,
+        state: info[0].state,
+        country: info[0].country,
+        zipcode: info[0].zipcode,
+
+        updated_ts: new Date().getTime(),
+        created_ts: info[0].created_ts
+    };
+    var confirmalert = confirm("Are you sure to unlink the device?");
+    if (confirmalert == true) {
+        $.ajax({
+            url: BASE_PATH + "/patient/update",
+            data: JSON.stringify({ _id: patientdata, updateData }),
+            contentType: "application/json",
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+
+                successMsg("Device Unlinked Successfully!");
+                loadAssetList();
+            },
+            error: function(e) {
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Device Unlinked Failed!");
+                //window.location.reload();
+            },
+        });
     }
 }
