@@ -1,3 +1,5 @@
+const session = require("express-session");
+
 var BASE_PATH = $("#BASE_PATH").val();
 $(document).ready(function () {
     $('.searchbar').css({'width':'40px','transition':'width 0.4s linear'})
@@ -21,8 +23,6 @@ $(document).ready(function () {
     })
 
 });
-
-
 function logout() {
     console.log(BASE_PATH);
   
@@ -34,8 +34,10 @@ function logout() {
         type: 'POST',
         contentType: "application/json",
         data: JSON.stringify(obj),
-        success: function (data) {
+        success: function () {
             //called when successful
+            Cookies.remove('hrmonitor_cookie')
+           
             
                    document.location=BASE_PATH+'/login';
         },
@@ -48,6 +50,8 @@ function logout() {
    
     console.log('changest')
 }
+    
+
 
 
 var s4 = function () {
@@ -84,13 +88,13 @@ function renderMode(type) {
 
 }
 
-function showToast(title,msg) {
+function showToast(title,msg,type) {
     $.toast({
         heading: title,
         text: msg,
         position: 'top-right',
         loaderBg:'#ffeb3b',
-        // icon: type,
+        icon: type,
         hideAfter: 3000,
         stack: 6
 

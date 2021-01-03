@@ -116,22 +116,17 @@ Common.prototype.commonDelete = function(tablename, req, res) {
     });
 };
 // devicelist===================================================
-Common.prototype.commonDevice = function(req, res) {
+Common.prototype.commonDeviceSearch = function(req, res) {
     const self = this;
 
-    const boodskap = new Boodskap(self.app, req.token);
+    const boodskap = new Boodskap(self.app, req["session"]["sessionObj"].token);
 
-    boodskap.deviceSearch(function(status, result) {
+    boodskap.elasticDeviceSearch(req.body.query, function(status, result) {
+        console.log("commondevice", status);
         if (status) {
-            res.json({
-                status: true,
-                result: result,
-            });
+            res.json({ status: true, result: result });
         } else {
-            res.json({
-                status: false,
-                message: result,
-            });
+            res.json({ status: false, message: result });
         }
     });
 };

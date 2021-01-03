@@ -5,7 +5,7 @@ module.exports = {
         "basepath": "/hrmonitor"
     },
     "settings": {
-        "appApiUrl" : "http://localhost:7201/hrmonitor",
+        "appApiUrl": "http://localhost:7201/hrmonitor",
         "url": "http://localhost:7201/hrmonitor",
         "boodskap": {
             "apiUrl": "https://dev.boodskap.io/api",
@@ -19,4 +19,3 @@ module.exports = {
         }
     }
 }
-

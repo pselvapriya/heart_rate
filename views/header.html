@@ -2,12 +2,14 @@
     body {
         font-family: 'Lato', sans-serif;
     }
-    #myNav{
-        width:0;
-    /* border-top: 2px solid lightgrey; */
+    
+    #myNav {
+        width: 0;
+        /* border-top: 2px solid lightgrey; */
     }
+    
     .overlay {
-        height: 92.5%;
+        height: 89%;
         width: 0;
         position: fixed;
         z-index: 1;
@@ -24,8 +26,8 @@
         position: relative;
         /* top: 25%; */
         width: 100%;
-        margin-top: -95px;
-    border-top: 1px solid lightgrey;
+        margin-top: -60px;
+        border-top: 1px solid lightgrey;
     }
     
     .overlay a {
@@ -45,25 +47,26 @@
     
     .overlay .closebtn {
         position: absolute;
-    left: 18px;
-    top: -6px!important;
-    /* z-index: 1000; */
-    font-size: 26px;
-    font-weight: 600;
+        left: 18px;
+        top: -6px!important;
+        /* z-index: 1000; */
+        font-size: 26px;
+        font-weight: 600;
     }
+    
     .logo-img1 {
         height: 35px;
-    width: 130px;
-    margin-left: 58px;
-    margin-top: 5px;
+        width: 130px;
+        margin-left: 58px;
+        margin-top: 5px;
     }
     
     @media (min-width: 375PX) and (max-width: 850px) {
-        #myNav{
-            width:43%;
+        #myNav {
+            width: 43%;
         }
-        .overlay{
-            height:85.5%;
+        .overlay {
+            height: 85.5%;
         }
         .overlay a {
             font-size: 20px
@@ -80,26 +83,26 @@
             /* right: 35px; */
         }
     }
+    
     @media (min-width: 850px) and (max-width: 950px) {
         #myNav {
-    width: 25%;
-}
+            width: 25%;
+        }
         .overlay-content {
-    position: relative;
-    /* top: 25%; */
-    width: 100%;
-    margin-top: -70px;
-    border-top: 1px solid lightgrey;
-}
+            position: relative;
+            /* top: 25%; */
+            width: 100%;
+            margin-top: -70px;
+            border-top: 1px solid lightgrey;
+        }
     }
 </style>
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><img src="./images/vilpowerLogo.png" class="logo-img1" />
     <div class="overlay-content">
         <a class="head-tag home-tag"><b>Home</b></a>
-        <a class="nav-link" onclick="loadMainPage('/dashboard')" href="#/dashboard"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Dashboard</a>
+        <a class="nav-link dashboard active" onclick="loadMainPage('/dashboard')" href="#/dashboard"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Dashboard</a>
         <a class="nav-link" onclick="loadMainPage('/patients-profile')" href="#/patients-profile"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients Profile</a>
-        <!-- <a class="nav-link" onclick="loadMainPage('/snapshot')" href="#/snapshot"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patient Profile</a> -->
         <a class="head-tag"><b>Adminstration</b></a>
         <a class="nav-link" onclick="loadMainPage('/manage-patients')" href="#/manage-patients"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Patients</a>
         <a class="nav-link" onclick="loadMainPage('/skin-patches')" href="#/skin-patches"><img src="/images/logo_128.png" class="menu-icon" />&nbsp; Skin Patches</a>
@@ -111,23 +114,31 @@
         <span class="opne-nav" onclick="openNav()">&#9776; <img src="./images/vilpowerLogo.png" class="logo-img" />
       </span>
     </div>
-    <div class="col-md-6 text-right" >
+    <div class="col-md-6 text-right">
         <img src="./images/profile-image-circle.png" class="circle-img profile-img" />
         <!-- <div class="dropdown"> -->
-        <button class="btn btn-default dropdown-toggle profile-name" type="button" data-toggle="dropdown">Profile Name
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <div class="row">
-                <div class="col-md-12 profile-col">
-                    <img src="./images/profile-image-circle.png" class="circle-img profile-img1" />
-                    <p class="user-txt">user@email.com</p>
-                    <p class="user-txt mt-0">user name</p>
-                    <button type="button" class="btn btn-primary logout-btn" onclick="logout()">Logout</button>
+        <button type="button" class="btn dropdown-toggle show-drop" data-toggle="dropdown" onclick="openCard()">
+                <%= sessionObj.userName ? sessionObj.userName : '-' %>
+            </button>
+        <div class="card card-div">
+            <div class="card-body">
+                <div class="row ">
+                    <div class="col-md-12 text-center">
+                        <img src="./images/profile-image-circle.png" class="circle-img profile-img1" />
+                        <h4 class="card-title" style="margin-bottom: 0;">
+                            <%= sessionObj.userId ? sessionObj.userId : '-' %>
+                        </h4>
+                        <p class="card-text">
+                            <%= sessionObj.userName ? sessionObj.userName :'-' %>
+                        </p>
+                        <button type="button" class="btn btn-primary logout-btn" onclick="logout()">Logout</button>
+                    </div>
                 </div>
             </div>
-        </ul>
-        <!-- </div> -->
+        </div>
     </div>
+    <!-- </div> -->
+</div>
 
 
 </div>
