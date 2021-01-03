@@ -180,6 +180,7 @@ Boodskap.prototype.elasticSearch = function(rid, query, cbk) {
 Boodskap.prototype.elasticUpdate = function(rid, rkey, data, cbk) {
     const self = this;
 
+
     request.post({
             uri: self.API_URL +
                 "/record/insert/static/" +
@@ -260,7 +261,7 @@ Boodskap.prototype.elasticInsert = function(rid, data, cbk) {
 
 Boodskap.prototype.elasticDeviceSearch = function(query, cbk) {
     const self = this;
-    console.log("qery", query);
+
     var obj = {
         "type": "DEVICE",
         query: JSON.stringify({

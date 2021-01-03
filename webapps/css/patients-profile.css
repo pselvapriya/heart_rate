@@ -4,20 +4,24 @@
 }
 
 .head {
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 13px;
 }
 
 .head-title2 {
     text-align: right;
+    margin-top: 5px;
 }
 
 .head-title4 {
     text-align: right;
 }
 
+hr {
+    margin-bottom: 0px;
+}
+
 .head-1 {
-    margin: 15px 0 0 0;
+    margin: 8px 0 0 0;
 }
 
 .icofont-5 {
@@ -175,17 +179,18 @@
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    max-width: 50%;
+    max-width: 37%;
 }
-.patient{
+
+.patient {
     height: 10px !important;
 }
+
 .table {
     border: 1px solid rgb(216, 214, 214);
     width: 100%;
     height: 100%;
 }
-
 
 .dataTables_length select,
 .dataTables_filter input,
@@ -210,22 +215,25 @@
 }
 
 .status_low {
+    color: white;
     /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
-    background-color: red;
+    background-color: rgb(255, 193, 77);
 }
 
 .status_high {
+    color: white;
     /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
-    background-color: orange;
+    background-color: rgb(245, 52, 52);
 }
 
 .status_normal {
+    color: white;
     /* background-color: chartreuse; */
     border: none;
     border-radius: 5px;
-    background-color: green;
+    background-color: rgb(64, 214, 152);
 }
