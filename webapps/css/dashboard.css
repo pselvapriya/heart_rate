@@ -4,7 +4,7 @@
     border-top: solid 2px rgb(155, 57, 155);
     margin-top: 20px;
     background-color:#fff;
-    border-radius: 5px;
+    border-radius: 9px;
     /* border-color: #f0f0f0; */
 
 
@@ -33,7 +33,7 @@
     border-left:solid 1px #f0f0f0 ;
     border-right:solid 1px  #f0f0f0 ;
     margin-left: 20px;
-    border-radius: 5px;
+    border-radius: 9px;
 
 }
 .data{
@@ -117,7 +117,7 @@
     width: 100%;
     height: 100%;
     margin-left: 10px;
-    border-radius: 5px;
+    border-radius: 9px;
     padding: 6px 13px;
 }
 .calendar{
@@ -174,8 +174,8 @@ p{
     border-top:  solid 3px rgb(128, 207, 238);
     height: 400px;
     width: 400px;
-    margin-left: 11px;
-    border-radius: 5px;
+    /* margin-left: 11px; */
+    border-radius: 9px;
     
     
 }
@@ -192,10 +192,10 @@ p{
     /* text-align: center; */
    
 }
-.stateanalysis{
+/* .stateanalysis{
     margin-top: 15px;
     margin-left: 0px;
-}
+} */
 
 .subtopic{
     font-weight: bold;
@@ -226,7 +226,7 @@ p{
 .list{
     border: solid 1px #f0f0f0;;
     border-top: solid 3px  rgb(91, 178, 212);
-    margin-right: 10px;
+    /* margin-right: 10px; */
 
     
 }
