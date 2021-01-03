@@ -278,7 +278,7 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: false,
+        fixedHeader: true,
         responsive: true,
         paging: true,
         searching: true,
