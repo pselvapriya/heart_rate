@@ -12,11 +12,27 @@ xAxis: {
     })
 },
 yAxis: {
+   
     splitLine: {
-        color: ["#3398DB"],
-        show: false
+       
+        color: ["red"],
+        show: 'true'
+       
     }
 },
+yAxis : [
+    {
+        show: 'true',
+      type : 'value',
+      axisLabel : {
+        formatter: '{value} °C'
+      },
+      show:'true' ,
+      name: 'Y-Axis',
+      nameLocation: 'middle',
+      nameGap: 50
+    }
+  ],
 toolbox: {
     left: 'center',
     feature: {
@@ -52,6 +68,12 @@ visualMap: {
         color: '#999'
     }
 },
+yaxis:{
+    type:'value',
+    min:200,
+    max:250
+},
+
 series: {
     markPoint: {
         data: [
@@ -216,9 +238,17 @@ function loadPatientstatusList() {
             "processing": '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing'
 
         },
+<<<<<<< HEAD
         bServerSide: true,
         sAjaxSource: BASE_PATH + '/patienthistory/list',
         fnServerData: function(sSource, aoData, fnCallback, oSettings) {
+=======
+        "bpagination":false,
+        "bfilter":false,
+        "bServerSide": true,
+        "sAjaxSource": BASE_PATH + '/patienthistory/list',
+        "fnServerData": function(sSource, aoData, fnCallback, oSettings) {
+>>>>>>> 58477f60910a10b3b695c308f946ecfda3849cdc
 
 
             queryParams.query['bool']['must'] = [];

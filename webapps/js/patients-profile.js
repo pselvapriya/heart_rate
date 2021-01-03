@@ -175,3 +175,5 @@ function reload() {
 }
 // Event listeners for reload
 reloadButton.addEventListener("click", reload, false);
+
+//slider js
