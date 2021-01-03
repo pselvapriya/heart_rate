@@ -83,11 +83,16 @@ myChart.setOption(option);
             radius: '55%',
             center: ['50%', '60%'],
             data: [
-                {value: 335, name: '0-20'},
-                {value: 310, name: '20-40'},
-                {value: 234, name: '40-60'},
-                {value: 135, name: '60-80'},
-                {value: 1548, name: '80-100'}
+                {value: 335, name: '0-10'},
+                {value: 1548, name: '71-80'},
+                {value: 234, name: '21-30'},
+                {value: 1548, name: '41-50'},
+                {value: 310, name: '11-20'},
+                {value: 1548, name: '51-60'},
+                {value: 1548, name: '61-70'},
+                {value: 135, name: '31-40'},
+                {value: 1548, name: '81-90'},
+                {value: 1548, name: '91-100'}
             ],
             emphasis: {
                 itemStyle: {
@@ -115,7 +120,8 @@ option = {
     },
     series: [{
         data: [120, 200, 150, 80],
-        type: 'bar'
+        type: 'bar',
+        color:'rgb(113, 199, 233)'
     }]
 };
 myChart.setOption(option);
