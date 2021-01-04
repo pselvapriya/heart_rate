@@ -4,6 +4,7 @@ var device_list = [];
 // var endDate = moment().endOf('day');
 $(document).ready(function() {
     loadDeviceList();
+  
 });
 
 var elem = document.documentElement;
@@ -40,7 +41,7 @@ function loadDeviceList() {
             sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -49,7 +50,7 @@ function loadDeviceList() {
             sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -58,7 +59,7 @@ function loadDeviceList() {
             sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -81,7 +82,7 @@ function loadDeviceList() {
             sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -90,7 +91,7 @@ function loadDeviceList() {
             sWidth : '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
+                return moment(data).format(DATE_TIME_FORMAT) ? moment(data).format(DATE_TIME_FORMAT) : '-';
             },
         },
         {
@@ -99,7 +100,7 @@ function loadDeviceList() {
             sWidth : '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
+                return moment(data).format(DATE_TIME_FORMAT) ? moment(data).format(DATE_TIME_FORMAT) : '-';
             },
         },
         
@@ -122,13 +123,14 @@ function loadDeviceList() {
                 must: [],
             },
         },
+        
         sort: [{ created_ts: { order: "asc" } }],
     };
 
     device_list = [];
 
     var tableOption = {
-        fixedHeader: false,
+        fixedHeader: true,
         responsive: true,
         paging: true,
         searching: true,
@@ -220,3 +222,11 @@ function loadDeviceList() {
 
     deviceTable = $("#skin_patches").DataTable(tableOption);
 }
+
+
+
+
+
+
+
+

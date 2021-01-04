@@ -16,7 +16,7 @@ function loadPatientstatusList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Name',
-            sWidth: '100px',
+            sWidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return '<div class="row">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;' + row.patient_name + '&nbsp;' + '&nbsp;' +'<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot">'+ '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>'+'&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
@@ -52,7 +52,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'address',
-            // sWidth: '200px',
+            sWidth: '20%',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -61,7 +61,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'heart_rate',
-            sWidth: '340px',
+            sWidth: '20%',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
@@ -91,7 +91,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'activity',
-            // sWidth: '150px',
+            sWidth: '10%',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -100,7 +100,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'status',
-            // sWidth: '150px',
+            sWidth: '10%',
             sTitle: 'Status',
             orderable: false,
             mRender: function(data, type, row) {
@@ -126,7 +126,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            // sWidth: '130px',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -135,8 +135,8 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            // sWidth: '230px',
-            "className": 'sortingtable',
+            sWidth: '20%',
+            className : 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             }

@@ -224,7 +224,7 @@ hr {
 
 .status_low {
     color: white;
-    /* background-color: chartreuse; */
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
     background-color: rgb(255, 193, 77);
@@ -234,7 +234,7 @@ hr {
 
 .status_high {
     color: white;
-    /* background-color: chartreuse; */
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
     background-color: rgb(245, 52, 52);
@@ -248,7 +248,7 @@ hr {
 
 .status_normal {
     color: white;
-    /* background-color: chartreuse; */
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
     background-color: rgb(64, 214, 152);
