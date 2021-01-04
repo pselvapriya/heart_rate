@@ -10,6 +10,7 @@
     margin: 5px 15px;
 }
 
+
  .section-title{
   /* margin-top:7px; */
   margin-bottom: -10px;
@@ -71,13 +72,37 @@ margin-top: 0px;
 font-size: 10px;
 
 }
+/* .user-profile{
+background-color: #f6f6f6;
+} */
+.calender {
+    background: #fff;
+    cursor: pointer;
+    padding: 1.6px 10px;    
+    border: 1px solid #ccc;
+    max-width: 100%;
+    height: 30px;
+}
+.level{
+margin-bottom: 0px;
+font-size:10px;
+}
 .myprofile{
+   
     color: black;
-   background-color:  #cfcfd6;
-    border-bottom: 1px solid black;
-    height:30px;
-    padding: 10px 8px;
+   background-color: #f6f6f6;
+    border-bottom: 1px solid #cccccc;
+    height:35px;
+    padding: 5px 8px;
+   
     }
+    .profilehead{
+     font-size: 12px;
+    }
+    .address{
+color:#9999b3;
+    }
+   
     .profile-name{
 font-size: 10px;
     }
@@ -98,23 +123,14 @@ margin-left: 2px;
     }
     .profile-date{
     font-size: 10px;
+    color: #82a0ac;
     }
-#date-field{
-    cursor: pointer;
-}
-#date-field:focus{
-    outline: none;
-    box-shadow: none;
-}
-.dateformat{
-    border: solid 1px rgb(168, 167, 167);
-    margin-top: 10px;
- }
 
 .filter-section{
-    margin-bottom: -16px;
+    margin-bottom:0px;
     /* margin-top: 15px; */
-    /* margin-bottom: 30px; */
+    margin-bottom: 8px;
+}
 }
 .filter-section h3{
     font-size: 16px;
@@ -125,16 +141,17 @@ margin-left: 2px;
     outline: none;
     box-shadow: none;
 }
-.filter-section .clear-btn{
-    padding: 7px 15px;
+ .clear-btn{
+    padding: -2px;
     background-color: #f2f3f4;
     border: none;
     border-radius: 3px;    
-    font-size: 16px;
+    font-size: 11px;
+    height: 60%;
 }
-.filter-section .clear-btn:focus{
+/* .filter-section .clear-btn:focus{
     outline: none;
-}
+} */
 .user-action-part .show-list select{
     border: 1px solid #ced4da;
     /* padding: .375rem .75rem; */
@@ -178,16 +195,28 @@ margin-left: 2px;
     border:1px solid #efefef;
     /* padding: 15px; */
     text-align: center;
-    height: 70%;
+    height: 75%;
 }
 .user-profile-section .user-profile ul li{
     list-style-type: none;
 }
 .name{
-    font-size: 18px;
+    font-size: 10px;
     margin-top: 10px;
   
 }
+.number{
+margin-top:10px;
+margin-bottom: 3px;
+}
+.profile-name1{
+    font-size: 10px;   
+    margin-bottom: 3px;
+}
+.date{
+  font-size: 8px;
+}
+
 /* .form-control {
     min-height: 10px;
     
@@ -207,7 +236,22 @@ margin-left: 2px;
 .user-profile{
     margin-top: 0px;
 }
-
+.form-control {
+    width: 100%;
+    font-size: .700rem;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+.select{
+    height: 25px;
+    font-size: 11px;
+    color:gray;
+    width: 100%;
+    border-radius: 2px;
+    border:1px solid rgb(182, 181, 181);
+}
 .chart-section{
     min-height: 250px;
     border:1px solid #efefef;
@@ -223,6 +267,9 @@ margin-left: 2px;
 .year{
    color: #999999;
   
+}
+.dataTables_wrapper {
+    padding-top: 0px;
 }
 .heart-rate {
     max-width: 180px;

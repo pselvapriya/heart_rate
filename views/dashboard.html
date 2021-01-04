@@ -1,132 +1,266 @@
 <link rel="stylesheet" href="css/dashboard.css">
-<div class="container-fluid">
-   
-    <div class="content">
+
+<section class="content">
+    <div class="container-fluid">
+
         <div class="dash-card">
-   <div class="row overview">
-       
-       <div class="col-lg-4 ">
-           <h4>Dashboard</h4>
+            <div class="row overview">
 
-       </div>
-       <div class="col-lg-8 text-right icons">
-      <button class="btn1 " onclick="dashboardexpand()"><i class="fa fa-expand"></i><span class="tooltip">Expand</span></button>
-       &nbsp;<button class="button2"><i class="fa fa-repeat" aria-hidden="true"></i><span class="tooltip">Repeat</span></button>
+                <div class="col-lg-6 ">
+                    <div class="title">
+                        <h4>Dashboard</h4>
+                    </div>
 
-       </div>
-   </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div class=" text-right icons" >
+                        <button class="btn1 " onclick="dashboardexpand()"><i class="fa fa-expand"></i><span
+                                class="tooltip">Expand</span></button>
+                        &nbsp;<button class="button2"><i class="fa fa-repeat" aria-hidden="true"></i><span
+                                class="tooltip">Repeat</span></button>
+                    </div>
+                </div>
+            </div>
 
-       <div class="row ">
-       
-           
-               <div class="col-lg-5">
-                   
-                <div class=" card  pie ">
+            <div class="row ">
+
+
+                <div class="col-lg-4">
+
+                    <div class=" card  pie ">
+                        <div class="row patientstat ">
+                            <div class="col-lg-6">
+                                <h4 class="dashboard-head">Patient Statistics</h4>
+                            </div>
+
+                            <div class=" col-lg-6 text-right icon1">
+                                <button class="btn1"> <i class="fa fa-repeat" aria-hidden="true"></i></button2>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card card-body chart1">
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <h4 class="patient">By Activity</h4>
+                                    <div id="chart"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4 class="patient">By Age Group</h4>
+                                    <div id="age"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="statistics1">533</h5>
+                                    <p>Total Patients<br>
+                                        <span class="subtopic">Gender Statistics</span>
+                                    </p>
+                                    <div id="barchart1"></div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="statistics2">534</h5>
+                                    <p>Total skin-patches
+                                        <br><span class="subtopic">skin patch Statistics</span>
+                                    </p>
+                                    <div id="barchart2"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
                     <div class="row">
-                    <div class="col-lg-6 first">
-       
-          
-               <!-- <div class="col-md-6 "> -->
-                   <h4 class="dashboard-head">Patient Statistics</h4>
-               </div>
-               <div class=" col-lg-6 text-right icon1">
-                  <button class="button2"> <i class="fa fa-repeat" aria-hidden="true"></i></button2>
-               </div> 
-            </div>
-            <div class="card card-body chart1">
-                <div class="row">
-           
-                    <div class="col-lg-6">
-                        <h4 class="patient">By Activity</h4>
-                        <div id="chart"></div>
+                        <div class="col-lg-12">
+                            <div class="card chart2">
+                                <div class="row calendar">
+                                    <div class="col-lg-4 dateformat">
+                                        <div id="reportrange">
+                                            <i class="fa fa-calendar"></i>&nbsp;
+                                            <span></span> &nbsp; <i class="fa fa-caret-down"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 text-right">
+                                        <button class="btn1"> <i class="fa fa-repeat" aria-hidden="true"></i><span
+                                                class="tooltip">Repeat</span></button>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-lg-12">
+                                        <div class="linechart">
+                                            <div id="heartchart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="patient">By Age Group</h4>
-                        <div id="age" ></div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h5 class="statistics1">533</h5>
-                        <p>Total Patients<br>
-                          Gender Statistics</p>
-                        <div id="barchart1"></div>
+
+                    <div class="row Stateanalysis">
+                        <div class="col-lg-7 card barchart">
+                            <h4 class="state">State Wise Analysis </h4>
+
+                            <p>TotalPatients</p>
+                            <div id="totalpatients"></div>
+                        </div>
+
+                        <div class="col-lg-5 card list">
+                            <div class="row listing">
+                                <div class="col-lg-7">
+
+                                    <select> 
+                                        <option>Last 5</option>
+                                        <option>Last 10</option>
+                                    </select>
+                                    <span>Patientsdata</span>
+                                </div>
+                                <div class="col-lg-5 text-right">
+
+                                    <input type="checkbox">
+                                    <span>Abnormal</span> &nbsp;
+                                    <button class="btn1"> <i class="fa fa-repeat" aria-hidden="true"></i><span
+                                            class="tooltip">Repeat</span></button>
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <div class="card card abnormal">
+                                <div class="row patientstatus">
+                                    <div class="col-lg-6">
+                                        <h6>Patient Profile</h6>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h6>Status</h6>
+                                    </div>
+
+
+                                </div>
+                                <hr class="lists">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <ul class="statusdetail">
+                                            <li>
+                                                <h5 class="name">Easton Alvarez
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </h5>
+                                            </li>
+                                            <li>
+                                                Male,93 Years old
+                                            </li>
+                                            <li>
+                                                Oregon,ScotsMills-97975
+                                            </li>
+                                            <li>
+                                                <button class="action">RUNNING</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h5 class="rate">127 &nbsp;<span class="parameter">BPM</span> &nbsp;<span
+                                                class="empty">_</span></h5>
+                                        <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> jun
+                                            270707.10pm</span>
+
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <ul class="statusdetail">
+                                            <li>
+                                                <h5 class="name">Brody Riley
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </h5>
+                                            </li>
+                                            <li>
+                                                Male,33 Years old
+                                            </li>
+                                            <li>
+                                                Oregon,ScotsMills-57702
+                                            </li>
+                                            <li>
+                                                <button class="action">SLEEPING</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h5 class="rate">75 &nbsp;<span class="parameter">BPM</span> &nbsp;<span
+                                                class="empty">_</span></h5>
+                                        <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> jun
+                                            270707.00pm</span>
+
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <ul class="statusdetail">
+                                            <li>
+                                                <h5 class="name">Abigali Mccullough
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </h5>
+                                            </li>
+                                            <li>
+                                                Male,78 Years old
+                                            </li>
+                                            <li>
+                                                Oregon,ScotsMills-40371
+                                            </li>
+                                            <li>
+                                                <button class="action">WALKING</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h5 class="rate">130 &nbsp;<span class="parameter">BPM</span> &nbsp;<span
+                                                class="empty">_</span></h5>
+                                        <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> jun
+                                            270705.50pm</span>
+
+
+                                    </div>
+                                </div>
+                                <hr>
+
+
+
+
+
+                            </div>
+
+
+                            <!-- </div> -->
+
+                        </div>
+                        <!-- </div> -->
 
                     </div>
-                    <div class="col-lg-6">
-                        <h5 class="statistics2">533</h5>
-                        <p>Total skin-patches
-                        <br>skin patch Statistics</p>
-                        <div id="barchart2"></div>
-                    </div>
-                </div>
-                
-            </div>
-            </div>
-    </div>
-    <div class="col-lg-7">
-        <div class="row">
-        <div class="card chart2">
-            <div class="row calendar">
-                <div class="col-lg-7 dateformat">
-                    <div id="reportrange">
-                        <i class="fa fa-calendar"></i>&nbsp;
-                        <span>November 28, 2020 - December 27, 2020</span> <i class="fa fa-caret-down"></i>
-                    </div>
-                </div> 
-                <div class="col-lg-5 text-right analysis" id="analysis">
-                    <button class="button2" id="btn2"> <i class="fa fa-repeat" aria-hidden="true"></i><span class="tooltip">Repeat</span></button>
-                </div>
-            </div>
-            <div class="row">
 
-                
-                <div class="linechart">
-                    <div id="heartchart"></div>
+
                 </div>
+
             </div>
         </div>
     </div>
-    <div class="row Stateanalysis">
-        <div class="col-lg-6">
-            <div class="row">
-            <div class="card barchart">
-            <h4>StateAnalysis</h4>
-            <p>TotalPatients</p>
-        </div>
-        </div>
-        <div class="row">
-            <div id="totalpatients"></div>
-        </div>
-        </div>
-        <div class="col-lg-6"></div>
-    </div>
-            
-        
-    </div>
+</section>
 
-    </div>
-    </div>
-</div>
-</div>
 
-    <!-- Js -->
-   
 
-</body></html>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+</body>
+
+</html>
+
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 <script src="js/dashboard.js"></script>
-<!-- <script type="text/javascript" language="javascript">
-    $(document).ready(function() { /// Wait till page is loaded
-       $('#btn2').click(function(){
-          $('#heartchart').load('#heartchart', function() {
-               /// can add another function here
-          });
-       });
-    }); //// End of Wait till page is loaded
-    </script> -->

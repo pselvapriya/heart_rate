@@ -4,20 +4,24 @@
 }
 
 .head {
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 13px;
 }
 
 .head-title2 {
     text-align: right;
+    margin-top: 5px;
 }
 
 .head-title4 {
     text-align: right;
 }
 
+hr {
+    margin-bottom: 0px;
+}
+
 .head-1 {
-    margin: 15px 0 0 0;
+    margin: 8px 0 0 0;
 }
 
 .icofont-5 {
@@ -175,7 +179,11 @@
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    max-width: 50%;
+    max-width: 37%;
+}
+
+.patient {
+    height: 10px !important;
 }
 
 .table {
@@ -194,6 +202,14 @@
     height: 30px;
 }
 
+.dataTables_length {
+    margin-left: 0 !important;
+}
+
+.dataTables_filter {
+    margin-right: 0 !important;
+}
+
 .dataTables_filter input,
 .dataTables_filter input:focus,
 .dataTables_length select,
@@ -207,22 +223,35 @@
 }
 
 .status_low {
-    /* background-color: chartreuse; */
+    color: white;
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
-    background-color: red;
+    background-color: rgb(255, 193, 77);
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .status_high {
-    /* background-color: chartreuse; */
+    color: white;
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
-    background-color: orange;
+    background-color: rgb(245, 52, 52);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.count {
+    margin-bottom: 5px;
 }
 
 .status_normal {
-    /* background-color: chartreuse; */
+    color: white;
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
-    background-color: green;
+    background-color: rgb(64, 214, 152);
+    padding-left: 5px;
+    padding-right: 5px;
 }

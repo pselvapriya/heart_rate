@@ -4,6 +4,7 @@ var device_list = [];
 // var endDate = moment().endOf('day');
 $(document).ready(function() {
     loadDeviceList();
+  
 });
 
 var elem = document.documentElement;
@@ -37,51 +38,72 @@ function loadDeviceList() {
     var fields = [{
             mData: "id",
             sTitle: "Device Id",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
             mData: "modelId",
             sTitle: "Model Id",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
             mData: "version",
             sTitle: "Version",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
             mData: "Status",
             sTitle: "Status",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
+                if(row.reportedStamp){
+                return '<span class="label label-success">Reported</span>';
+                }
+                else{
                 return '<span class="label label-danger">Not Reported</span>';
+                }
             },
         },
         {
             mData: "channel",
             sTitle: "Channel",
+            sWidth : '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
+            },
+        },
+        {
+            mData: "reportedStamp",
+            sTitle: "Last Reported Time",
+            sWidth : '10%',
+            className: "sortingtable",
+            mRender: function(data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT) ? moment(data).format(DATE_TIME_FORMAT) : '-';
             },
         },
         {
             mData: "registeredStamp",
             sTitle: "Created Time",
+            sWidth : '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
+                return moment(data).format(DATE_TIME_FORMAT) ? moment(data).format(DATE_TIME_FORMAT) : '-';
             },
         },
+        
     ];
 
     var queryParams = {
@@ -101,13 +123,14 @@ function loadDeviceList() {
                 must: [],
             },
         },
+        
         sort: [{ created_ts: { order: "asc" } }],
     };
 
     device_list = [];
 
     var tableOption = {
-        fixedHeader: false,
+        fixedHeader: true,
         responsive: true,
         paging: true,
         searching: true,
@@ -199,3 +222,11 @@ function loadDeviceList() {
 
     deviceTable = $("#skin_patches").DataTable(tableOption);
 }
+
+
+
+
+
+
+
+
