@@ -591,8 +591,7 @@ function clicklinkdevice() {
 }
 
 // unlink device--------------------------------
-
-
+console.log()
 function clickUnlinkDevice() {
     var updateData = {
         patient_name: info[0].patient_name,
