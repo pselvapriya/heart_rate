@@ -132,3 +132,19 @@ Common.prototype.commonDeviceSearch = function(req, res) {
         }
     });
 };
+
+// heart rate analysis chart-------------------------------
+
+Common.prototype.commonHRChartSearch = function(tablename, req, res) {
+    const self = this;
+
+    const boodskap = new Boodskap(self.app, req["session"]["sessionObj"].token);
+
+    boodskap.elasticHRChartSearch(tablename, req.body.query, function(status, result) {
+        if (status) {
+            res.json({ status: true, result: result });
+        } else {
+            res.json({ status: false, message: result });
+        }
+    });
+};
