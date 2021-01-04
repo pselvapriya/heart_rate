@@ -52,25 +52,27 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Date of Birth <span class="required-txt">&nbsp;*</span></label><br>
-                        <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob"></p>
+                        <input type="text" class="form-control" id="datepicker" name="datepicker" class="dob" />
+                        <i class="fa fa-calendar calender-icon"></i>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
-                        <label for="usr" class="modal-txt">Gender</label>
-                        <select class="form-control" id="selectGender"> 
-                            <option value="Male">Male</option> 
-                            <option value="Female">Female</option> 
+                        <label for="usr" class="modal-txt">Gender </label>
+                        <select class="form-control" id="selectGender" value="select"> 
+                            <option class="form-control" value="Select">Select</option>
+                            <option class="form-control" value="Male">Male</option> 
+                            <option class="form-control" value="Female">Female</option> 
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Mobile <span class="required-txt">&nbsp;* </span></label><br>
-                        <input type="number" class="form-control" id="mobile">
+                        <input type="text" class="form-control" id="mobile" >
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-12">
-                        <label for="usr" class="modal-txt">Email</label><br>
+                        <label for="usr" class="modal-txt">Email <span class="required-txt">&nbsp;* </span></label><br>
                         <input type="text" class="form-control" id="email">
                     </div>
                 </div>
@@ -97,7 +99,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Zip Code <span class="required-txt">&nbsp;* </span></label>
-                        <input type="number" class="form-control" id="zipCode">
+                        <input type="text" class="form-control" id="zipCode">
                     </div>
                 </div>
 
@@ -197,20 +199,22 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Date of Birth</label><br>
-                        <input type="text" class="form-control" id="datepicker1" name="datepicker" class="editAge">
+                        <input type="text" class="form-control" id="datepicker1" name="datepicker" class="editAge" />
+                        <i class="fa fa-calendar edit-calender-icon"></i>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Select</label>
                         <select class="form-control" id="editGender"> 
-                            <option>Male</option> 
-                            <option>Female</option> 
+                            <option class="form-control" value="Select">Select</option>
+                            <option class="form-control" value="Male">Male</option> 
+                            <option class="form-control" value="Female">Female</option> 
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Mobile</label>
-                        <input type="number" class="form-control" id="editmobile" required>
+                        <input type="text" class="form-control" id="editmobile" required>
                     </div>
                 </div>
                 <div class="row patient-row-modal">
@@ -254,5 +258,6 @@
 
     </div>
 </div>
+
 <script src="js/manage-patients.js"></script>
 <script src="js/patients.js"></script>

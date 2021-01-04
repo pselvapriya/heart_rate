@@ -69,10 +69,10 @@ function loadDeviceList() {
             orderable: false,
             mRender: function(data, type, row) {
                 if(row.reportedStamp){
-                return '<span class="label label-success">Reported</span>';
+                return '<span class="label label-success">Reporting</span>';
                 }
                 else{
-                return '<span class="label label-danger">Not Reported</span>';
+                return '<span class="label label-danger">Not Reporting</span>';
                 }
             },
         },

@@ -31,6 +31,7 @@ function addPatient() {
         age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
         console.log(age);
         var gender = $("#selectGender").val();
+        var mobilePattern = '/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/';
         var mobile_no = $("#mobile").val();
         var email = $("#email").val();
         var address = $("#address").val();
@@ -38,7 +39,7 @@ function addPatient() {
         var state = $("#state").val();
         var country = $("#country").val();
         var zipcode = $("#zipCode").val();
-
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
         //Validate
         if (patient_name === "") {
@@ -50,10 +51,17 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        } else if (email === "") {
+        }else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
-        } else if (address === "") {
+        }else if (!emailReg.test(email)){
+            // alert("no");
+            showToast("Warning", "Enter a email format", "warning");
+            $("#patientModal").show();
+        }else if (gender == "Select"){
+            showToast("Warning", "Select  a one item", "warning");
+            $("#patientModal").show();
+        }else if (address === "") {
             showToast("Warning", "Please a Enter Address", "warning");
             $("#patientModal").show();
         } else if (city === "") {
@@ -95,7 +103,7 @@ function addPatient() {
                     $("#patientModal").hide();
                     $(".modal-backdrop").remove();
                     successMsg("Patient Added Successfully!");
-                    $('#patientName,#datepicker,#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode').val('');
+                    $('#patientName,#datepicker[name=datepicker],#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode').val('');
                     loadAssetList();
                 },
                 error: function(e) {
@@ -164,24 +172,36 @@ function loadAssetList() {
     }
 
     var fields = [{
-            mData: 'patient_name',
-            sTitle: 'Patient Name',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data ? data : "-";
-            },
+        mData: 'did',
+        sTitle: 'Device Id',
+        swidth: '10%',
+        orderable: false,
+        mRender: function(data, type, row) {
+            return data ? data : "-";
+        },
         },
         {
-            mData: 'age',
-            sTitle: 'Age',
+            mData: 'patient_name',
+            sTitle: 'Patient Name',
+            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data ? data : "-";
+                return (
+                    row.patient_name + "," +
+                    "<br>" +
+                    row.age + "," +
+                    "<br>" +
+                    row.gender +
+                    "&nbsp;" +
+                    "."
+                );
             },
         },
+        
         {
             mData: 'gender',
             sTitle: 'Gender',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -190,6 +210,7 @@ function loadAssetList() {
         {
             mData: 'mobile_no',
             sTitle: 'Mobile Number',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -198,6 +219,7 @@ function loadAssetList() {
         {
             mData: 'email',
             sTitle: 'Email ',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -206,6 +228,7 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
+            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -218,22 +241,18 @@ function loadAssetList() {
                     row.state +
                     "&nbsp;" +
                     "," +
+                    row.country +
+                    "&nbsp;" +
+                    "," +
                     row.zipcode +
                     "."
                 );
             },
         },
         {
-            mData: 'country',
-            sTitle: 'Country',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data ? data : "-";
-            },
-        },
-        {
             mData: 'created_ts',
             sTitle: 'Created Time',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -242,13 +261,14 @@ function loadAssetList() {
         {
 
             sTitle: 'Status',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log(row.did);
 
                 if (row.did) {
                     $("#unlinkdevice").val = row.did;
-                    return '<button type="button" id="link" class="btn patient-atag bg-danger" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</button>';
+                    return '<a href="" id="unLink" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</a>';
 
                 } else {
 
@@ -261,6 +281,7 @@ function loadAssetList() {
         {
             sTitle: "Actions",
             orderable: false,
+            swidth: '10%',
             mRender: function(data, type, row) {
                 return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
@@ -279,8 +300,8 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: true,
-        responsive: true,
+        fixedHeader: false,
+        responsive: false,
         paging: true,
         searching: true,
         aaSorting: [
@@ -567,7 +588,7 @@ function clicklinkdevice() {
 }
 
 // unlink device--------------------------------
-
+console.log()
 
 function clickUnlinkDevice() {
     var updateData = {
