@@ -56,7 +56,7 @@
     margin-bottom: 15px !important;
 }
 .required-txt{
-    color:red;font-size: 16px;
+    color:red;font-size: 16px;font-weight: 600;
 }
 .modal-txt{
     font-size: 15px;
@@ -105,5 +105,8 @@
 }
 #managePatient{
     widows: 99% !important;
-    /* margin-left:10px!important; */
+    margin-left:10px!important;
+}
+#patientName,#datepicker,#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode{
+    font-size: 14px;
 }
