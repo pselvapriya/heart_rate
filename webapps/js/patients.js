@@ -169,6 +169,15 @@ function loadAssetList() {
     }
 
     var fields = [{
+        mData: 'did',
+        sTitle: 'Device Id',
+        swidth: '10%',
+        orderable: false,
+        mRender: function(data, type, row) {
+            return data ? data : "-";
+        },
+        },
+        {
             mData: 'patient_name',
             sTitle: 'Patient Name',
             swidth: '20%',
@@ -262,7 +271,7 @@ function loadAssetList() {
 
                 if (row.did) {
                     $("#unlinkdevice").val = row.did;
-                    return '<button type="button" id="link" class="btn patient-atag bg-danger" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</button>';
+                    return '<a href="" id="unLink" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</a>';
 
                 } else {
 

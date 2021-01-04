@@ -44,6 +44,9 @@
     background-color: #861182;
     color: white;
 }
+#unLink,#unLink:hover{
+    color: #861182;text-decoration: underline;
+}
 .patient-atag:hover{
     background-color:  #861182;
 }
