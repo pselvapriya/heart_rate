@@ -4,7 +4,7 @@
 }
 .patient-txt{
     font-size: 13px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding-left: 0;
     color: black;
 }
@@ -22,6 +22,9 @@
     border-radius: 100%;
     border: none;
     color: white;
+}
+#managePatient_filter{
+    font-size: 11px;
 }
 #managePatient_filter input{
     background-color: white !important;border:1px solid lightgrey!important;
