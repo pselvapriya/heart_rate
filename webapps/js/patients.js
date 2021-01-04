@@ -1,19 +1,21 @@
 var PatientTable = null;
-var patient_list;
-var device_list;
+var patient_list = [];
+var device_list = [];
+var patientdata;
 var flag = false;
 var sid;
+
 
 $(document).ready(function() {
     loadAssetList();
     $(document).on('keypress', function(e) {
-        if($("#patientModal").is(":visible")){
-        if (e.which == 13) {
-            // alert('You pressed enter!');
-            // addPatient();
-            e.preventDefault();
+        if ($("#patientModal").is(":visible")) {
+            if (e.which == 13) {
+                // alert('You pressed enter!');
+                addPatient();
+                e.preventDefault();
+            }
         }
-    }
     });
 });
 // patient Registration API
@@ -36,6 +38,7 @@ function addPatient() {
         var state = $("#state").val();
         var country = $("#country").val();
         var zipcode = $("#zipCode").val();
+
 
         //Validate
         if (patient_name === "") {
@@ -132,10 +135,10 @@ function addPatient() {
             zipcode: zipcode,
             created_ts: new Date().getTime(),
         };
-        console.log("update", updateData);
+        console.log("update", sid);
         $.ajax({
             url: BASE_PATH + "/patient/update",
-            data: JSON.stringify({ _id: sid, updateData }),
+            data: JSON.stringify({ _id: sid, updateData: updateData }),
             contentType: "application/json",
             type: "POST",
             success: function(result) {
@@ -162,7 +165,6 @@ function loadAssetList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Patient Name',
-            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -171,7 +173,6 @@ function loadAssetList() {
         {
             mData: 'age',
             sTitle: 'Age',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -180,7 +181,6 @@ function loadAssetList() {
         {
             mData: 'gender',
             sTitle: 'Gender',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -189,7 +189,6 @@ function loadAssetList() {
         {
             mData: 'mobile_no',
             sTitle: 'Mobile Number',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -198,7 +197,6 @@ function loadAssetList() {
         {
             mData: 'email',
             sTitle: 'Email ',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -207,7 +205,6 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
-            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -228,7 +225,6 @@ function loadAssetList() {
         {
             mData: 'country',
             sTitle: 'Country',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -237,25 +233,33 @@ function loadAssetList() {
         {
             mData: 'created_ts',
             sTitle: 'Created Time',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             },
         },
         {
-            title: 'Status',
+
             sTitle: 'Status',
-            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<button type="button" class="btn patient-atag" data-toggle="modal" data-target="#myModal">Link</button>';
+                console.log(row.did);
+
+                if (row.did) {
+                    $("#unlinkdevice").val = row.did;
+                    return '<button type="button" id="link" class="btn patient-atag bg-danger" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</button>';
+
+                } else {
+
+                    return '<button type="button" id="link" class="btn patient-atag bg-success" data-toggle="modal" data-target="#myModal" onclick="linkdevice(\'' + row._id + '\')">Link</button>';
+
+                }
+
             },
         },
         {
             sTitle: "Actions",
             orderable: false,
-            swidth: '10%',
             mRender: function(data, type, row) {
                 return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
@@ -274,8 +278,8 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
@@ -315,7 +319,7 @@ function loadAssetList() {
 
             if (searchText) {
                 queryParams.query["bool"]["should"].push({
-                   wildcard: { patient_name: "*" + searchText + "*" },
+                    wildcard: { patient_name: "*" + searchText + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
                     wildcard: { patient_name: "*" + searchText.toLowerCase() + "*" },
@@ -335,111 +339,85 @@ function loadAssetList() {
                 queryParams.query["bool"]["should"].push({
                     match_phrase_prefix: {
                         "patient_name.keyword": {
-                           " query": "*" + searchText + "*",
+                            query: "*" + searchText + "*",
                         },
                     },
                 });
                 queryParams.query["bool"]["should"].push({
-                    "wildcard": { "country": "*" + searchText + "*" },
+                    wildcard: { country: "*" + searchText + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                    "wildcard": { "country": "*" + searchText.toLowerCase() + "*" },
+                    wildcard: { country: "*" + searchText.toLowerCase() + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                    "wildcard": { "country": "*" + searchText.toUpperCase() + "*" },
+                    wildcard: { country: "*" + searchText.toUpperCase() + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                    "wildcard": { "country": "*" + capitalizeFLetter(searchText) + "*" },
+                    wildcard: { country: "*" + capitalizeFLetter(searchText) + "*" },
                 });
                 queryParams.query["bool"]["minimum_should_match"] = 1;
                 queryParams.query["bool"]["should"].push({
-                    "match_phrase": {
+                    match_phrase: {
                         "country.keyword": "*" + searchText + "*",
                     },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " match_phrase_prefix": {
+                    match_phrase_prefix: {
                         "country.keyword": {
-                            "query": "*" + searchText + "*",
+                            query: "*" + searchText + "*",
                         },
                     },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "city": "*" + searchText + "*" },
+                    wildcard: { city: "*" + searchText + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "city": "*" + searchText.toLowerCase() + "*" },
+                    wildcard: { city: "*" + searchText.toLowerCase() + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "city": "*" + searchText.toUpperCase() + "*" },
+                    wildcard: { city: "*" + searchText.toUpperCase() + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "city": "*" + capitalizeFLetter(searchText) + "*" },
+                    wildcard: { city: "*" + capitalizeFLetter(searchText) + "*" },
                 });
                 queryParams.query["bool"]["minimum_should_match"] = 1;
                 queryParams.query["bool"]["should"].push({
-                   " match_phrase": {
+                    match_phrase: {
                         "city.keyword": "*" + searchText + "*",
                     },
                 });
                 queryParams.query["bool"]["should"].push({
-                    "match_phrase_prefix": {
+                    match_phrase_prefix: {
                         "city.keyword": {
-                            "query": "*" + searchText + "*",
+                            query: "*" + searchText + "*",
                         },
                     },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "gender": "*" + searchText + "*" },
+                    wildcard: { gender: "*" + searchText + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "gender": "*" + searchText.toLowerCase() + "*" },
+                    wildcard: { gender: "*" + searchText.toLowerCase() + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "gender": "*" + searchText.toUpperCase() + "*" },
+                    wildcard: { gender: "*" + searchText.toUpperCase() + "*" },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " wildcard": { "gender": "*" + capitalizeFLetter(searchText) + "*" },
+                    wildcard: { gender: "*" + capitalizeFLetter(searchText) + "*" },
                 });
                 queryParams.query["bool"]["minimum_should_match"] = 1;
                 queryParams.query["bool"]["should"].push({
-                    "match_phrase": {
+                    match_phrase: {
                         "gender.keyword": "*" + searchText + "*",
                     },
                 });
                 queryParams.query["bool"]["should"].push({
-                   " match_phrase_prefix": {
+                    match_phrase_prefix: {
                         "gender.keyword": {
-                            "query": "*" + searchText + "*",
+                            query: "*" + searchText + "*",
                         },
                     },
                 });
-                queryParams.query["bool"]["should"].push({
-                    "wildcard": { "gender": "*" + searchText + "*" },
-                });
-                queryParams.query["bool"]["should"].push({
-                    "wildcard": { "gender": "*" + searchText.toLowerCase() + "*" },
-                });
-                queryParams.query["bool"]["should"].push({
-                    "wildcard": { "gender": "*" + searchText.toUpperCase() + "*" },
-                });
-                queryParams.query["bool"]["should"].push({
-                    "wildcard": { "gender": "*" + capitalizeFLetter(searchText) + "*" },
-                });
-                queryParams.query["bool"]["minimum_should_match"] = 1;
-                queryParams.query["bool"]["should"].push({
-                    "match_phrase": {
-                        "gender.keyword": "*" + searchText + "*",
-                    },
-                });
-                queryParams.query["bool"]["should"].push({
-                    "match_phrase_prefix": {
-                        "gender.keyword": {
-                            "query": "*" + searchText + "*",
-                        },
-                    },
-                });
-                
             }
 
             oSettings.jqXHR = $.ajax({
@@ -494,23 +472,25 @@ function editPatient(row) {
 
 function deletePatient(row) {
     console.log(row);
-
-    $.ajax({
-        url: BASE_PATH + "/patient/delete",
-        data: JSON.stringify({ _id: row }),
-        contentType: "application/json",
-        type: "POST",
-        success: function(result) {
-            //Success -> Show Alert & Refresh the page
-            successMsg("Patient Deleted Successfully!");
-            loadAssetList();
-        },
-        error: function(e) {
-            //Error -> Show Error Alert & Reset the form
-            errorMsg("Patient Deleted Failed!");
-            // window.location.reload();
-        },
-    });
+    var confirmalert = confirm("Are you sure?");
+    if (confirmalert == true) {
+        $.ajax({
+            url: BASE_PATH + "/patient/delete",
+            data: JSON.stringify({ _id: row }),
+            contentType: "application/json",
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+                successMsg("Patient Deleted Successfully!");
+                loadAssetList();
+            },
+            error: function(e) {
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Patient Deleted Failed!");
+                // window.location.reload();
+            },
+        });
+    }
 }
 
 // devicelist model ============================
@@ -523,13 +503,131 @@ $(() => {
         success: function(data) {
             var resultData = data.result.data.data;
             device_list = resultData;
-
+            console.log("hello", device_list, patient_list);
             $("#devicelist").html("");
 
             resultData.forEach((et) => {
-                let tr = `<option>` + et.id + `</option>`;
+                let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
                 $("#devicelist").append(tr);
             });
         },
     });
 });
+
+// Device link=============================
+var info = [];
+var flag1 = false;
+
+function linkdevice(patientid) {
+
+    patient_list.forEach(element => {
+        if (element._id == patientid) {
+            info = [element];
+        }
+    });
+    patientdata = patientid;
+
+    // var dlistid = $("#devicelist").val();
+    // patient_list.forEach((ele) => {
+    //     if (dlistid == ele.did) {
+
+
+    //     }
+    // })
+}
+
+function clicklinkdevice() {
+    var dlistid = $("#devicelist").val();
+    for (i = 0; i <= patient_list.length - 1; i++) {
+        if (patient_list[i].did == dlistid && patient_list[i].did != "") {
+            showToast("Warning", "Device is Already Linked", "warning");
+            console.log("already linked");
+            flag1 = true;
+            break;
+        } else {
+            flag1 = false;
+        }
+
+    }
+    console.log(flag1);
+
+
+    if (flag1 == false) {
+        console.log("info", info);
+        var updateData = {
+            patient_name: info[0].patient_name,
+            dob: info[0].dob,
+            age: info[0].age,
+            gender: info[0].gender,
+            mobile_no: info[0].mobile_no,
+            email: info[0].email,
+            address: info[0].address,
+            city: info[0].city,
+            state: info[0].state,
+            country: info[0].country,
+            zipcode: info[0].zipcode,
+            did: dlistid,
+            updated_ts: new Date().getTime(),
+            created_ts: info[0].created_ts
+        };
+        $.ajax({
+            url: BASE_PATH + "/patient/update",
+            data: JSON.stringify({ _id: patientdata, updateData }),
+            contentType: "application/json",
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+                successMsg("Device linked Successfully!");
+                loadAssetList();
+            },
+            error: function(e) {
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Device linked Failed!");
+                //window.location.reload();
+            },
+        });
+
+    }
+}
+
+// unlink device--------------------------------
+
+
+function clickUnlinkDevice() {
+    var updateData = {
+        patient_name: info[0].patient_name,
+        dob: info[0].dob,
+        age: info[0].age,
+        gender: info[0].gender,
+        mobile_no: info[0].mobile_no,
+        email: info[0].email,
+        address: info[0].address,
+        city: info[0].city,
+        state: info[0].state,
+        country: info[0].country,
+        zipcode: info[0].zipcode,
+
+        updated_ts: new Date().getTime(),
+        created_ts: info[0].created_ts
+    };
+    var confirmalert = confirm("Are you sure to unlink the device?");
+    if (confirmalert == true) {
+        $.ajax({
+            url: BASE_PATH + "/patient/update",
+            data: JSON.stringify({ _id: patientdata, updateData }),
+            contentType: "application/json",
+            type: "POST",
+            success: function(result) {
+                //Success -> Show Alert & Refresh the page
+
+                successMsg("Device Unlinked Successfully!");
+                loadAssetList();
+            },
+            error: function(e) {
+                //Error -> Show Error Alert & Reset the form
+                errorMsg("Device Unlinked Failed!");
+                //window.location.reload();
+            },
+        });
+    }
+}

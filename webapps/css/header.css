@@ -1,130 +1,164 @@
-.logo-img{
-  height: 35px;
+.logo-img {
+    height: 35px;
     width: 130px;
 }
-.profile-img{
-  width:20px;height:20px;
+
+.profile-img {
+    width: 20px;
+    height: 20px;
 }
-.profile-name{
-  font-size: 14px;padding-left: 2px;background-color: white;
+
+.profile-name {
+    font-size: 14px;
+    padding-left: 2px;
+    background-color: white;
 }
-.toggle-btn{
-  font-size:25px;cursor:pointer;
+
+.toggle-btn {
+    font-size: 25px;
+    cursor: pointer;
 }
-.profile-img{
-  width: 30px;
-  height: 30px;
+
+.profile-img {
+    width: 30px;
+    height: 30px;
 }
-.profile-img1{
+
+.profile-img1 {
     width: 50px;
     height: 50px;
     border-radius: 20px;
 }
-.head-tag{
-  font-size: 14px !important;
-  color: black !important;
-  font-weight: 600 !important;
+
+.head-tag {
+    font-size: 14px !important;
+    color: black !important;
+    font-weight: 600 !important;
 }
-.home-tag{
-  margin-top: 10px;
+
+.home-tag {
+    margin-top: 10px;
 }
-.header-row{
-  background-color: white;height: 50px;padding-top: 9px!important;
+
+.header-row {
+    background-color: white;
+    height: 50px;
+    padding-top: 9px!important;
 }
-.menu-icon{
-  height:20px;width:20px;
+
+.menu-icon {
+    height: 20px;
+    width: 20px;
 }
-.profile-col{
-  /* max-width: 86%; */
+
+.profile-col {
+    /* max-width: 86%; */
     height: 132px;
 }
-.user-txt{
-  text-align: center;margin:7px 0 0 0;
+
+.user-txt {
+    text-align: center;
+    margin: 7px 0 0 0;
 }
-.logout-btn{
-  height: 30px;
+
+.logout-btn {
+    height: 30px;
     width: 60%;
     padding-top: 2px;
     border: none;
-    background-color:  #861182;
+    background-color: #861182;
 }
-.logout-btn:hover{
-  border: none;background-color:  #861182;
+
+.logout-btn:hover {
+    border: none;
+    background-color: #861182;
 }
-.opne-nav{
-  font-size: 20px;
-  cursor: pointer;
-  /* left: 27px; */
-  margin-left: 25px;
+
+.opne-nav {
+    font-size: 20px;
+    cursor: pointer;
+    /* left: 27px; */
+    margin-left: 25px;
 }
+
 body {
-  font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .overlay {
-  height: 100%;
-  width: 15%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: white;
-  color: black;
-  overflow-x: hidden;
-  transition: 0.5s;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .overlay-content {
-  position: relative;
-  top: 13%;
-  /* margin-top: 30px; */
+    position: relative;
+    top: 13%;
+    /* margin-top: 30px; */
 }
 
 .overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: black;
-  display: block;
-  transition: 0.3s;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: black;
+    display: block;
+    transition: 0.3s;
 }
 
-.overlay .nav-link:hover, .overlay .nav-link:focus {
-  color: black;
+.overlay .nav-link:hover,
+.overlay .nav-link:focus {
+    color: black;
 }
 
 .overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  /* right: 45px; */
-  font-size: 35px;
+    position: absolute;
+    top: 20px;
+    /* right: 45px; */
+    font-size: 35px;
 }
-.overlay .nav-link{
-    font-size: 14px;width: 92%;height:42px;
+
+.overlay .nav-link {
+    font-size: 14px;
+    width: 92%;
+    height: 42px;
 }
-.overlay-content{
-  margin-left:20px;
+
+.overlay-content {
+    margin-left: 20px;
 }
-.active{
-  color:black !important;
-  background-color: #eeeeee;
-  border-right:5px solid #861182;
+
+.menu-active {
+    color: black !important;
+    background-color: #eeeeee;
+    border-right: 5px solid #861182!important;
 }
-.show-drop{
-  background-color: white;
+
+.show-drop {
+    background-color: white;
 }
-.card-div{
-  background: white;
+
+.card-div {
+    background: red;
     border: 2px solid lightgrey;
-    display: block;
+    /* display: block; */
     left: 66%;
     height: 90%;
     top: 3%;
     text-align: left;
     z-index: 1000;
-    width:300px;display: none;
+    width: 300px;
 }
-.card-title,.card-text{
-  font-size: 16px;
+
+.card-title,
+.card-text {
+    font-size: 16px;
     color: black;
 }

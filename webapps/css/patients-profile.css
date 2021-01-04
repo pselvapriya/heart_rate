@@ -4,20 +4,24 @@
 }
 
 .head {
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 13px;
 }
 
 .head-title2 {
     text-align: right;
+    margin-top: 5px;
 }
 
 .head-title4 {
     text-align: right;
 }
 
+hr {
+    margin-bottom: 0px;
+}
+
 .head-1 {
-    margin: 15px 0 0 0;
+    margin: 8px 0 0 0;
 }
 
 .icofont-5 {
@@ -27,6 +31,8 @@
 .button4 {
     border: none;
     border-radius: 2px;
+    margin-top: 23px;
+    margin-left: 27px;
 }
 
 .button5 {
@@ -66,7 +72,7 @@
 
 .select-box-1 {
     border: 1px solid rgb(207, 205, 205);
-    width: 240px;
+    width: 170px;
     margin: 20px;
     height: 30px;
     border-radius: 3px;
@@ -152,9 +158,37 @@
     justify-content: space-evenly;
 }
 
+.heart_icon {
+    text-align: right;
+}
+
+.beats {
+    padding-top: 18px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.bpm {
+    color: rgb(245, 51, 51);
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.calender {
+    background: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    max-width: 37%;
+}
+
+.patient {
+    height: 10px !important;
+}
+
 .table {
     border: 1px solid rgb(216, 214, 214);
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
 }
 
@@ -166,6 +200,14 @@
     border-radius: 3px;
     border: 1px solid rgb(180, 178, 178);
     height: 30px;
+}
+
+.dataTables_length {
+    margin-left: 0 !important;
+}
+
+.dataTables_filter {
+    margin-right: 0 !important;
 }
 
 .dataTables_filter input,
@@ -180,7 +222,36 @@
     color: blue;
 }
 
-.status {
+.status_low {
+    color: white;
+    padding: 0 5px 0 5px;
     border: none;
     border-radius: 5px;
+    background-color: rgb(255, 193, 77);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.status_high {
+    color: white;
+    padding: 0 5px 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(245, 52, 52);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.count {
+    margin-bottom: 5px;
+}
+
+.status_normal {
+    color: white;
+    padding: 0 5px 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(64, 214, 152);
+    padding-left: 5px;
+    padding-right: 5px;
 }

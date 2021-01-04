@@ -5,86 +5,133 @@
 .body-content{
     background-color: #fff;
     border-top: 2px solid #953a93;
-  
+
     border-radius: 5px;
-    margin: 20px 15px;
+    margin: 5px 15px;
 }
 
-.body-content .section-title{
-  margin-top:10px
+
+ .section-title{
+  /* margin-top:7px; */
+  margin-bottom: -10px;
 }
 .patientname{
     font-size: 10px;
     color: #7c7c7f;
     font-weight: 600;
     margin-bottom: 0;
+    margin-top: 7px;
 }
 .icofont1{
-font-size: 10px;
+font-size: 5px;
+}
+.active {
+  
+    border-right: none;
 }
 
-.body-content .section-title .user-action ul li{
+ .user-action ul li{
     display: inline-block;
     list-style-type: none;
     margin-left: 10px;
+   
 }
 
 
  .round-btns{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height:20px;
     border-radius: 50%;
-    line-height: 20px;
+    line-height: 15px;
     /* text-align: center; */
     border: none;
+}
+.heartimg{
+height: 30px;
+width: 40px;
+
+}
+.icofont{
+margin-top: 0px;
+}
+.max-btn{
+    font-size: 10px;
 }
  .refresh-btn{
     background-color: #3e3a3c;
     color: #fff;
+    font-size: 10px;
+    margin-top: 5px;
 }
 .navbar-brand{
-    text-transform: capitalize;
+   
     font-weight: 500;
     padding: 0;
 }
- .breadcrumb {
-    background: none;
-    padding-top: 0px;
-    margin-bottom: 0;
+.headname{
+font-size: 10px;
+
 }
-.breadcrumb-item{
-    text-transform: capitalize;
+/* .user-profile{
+background-color: #f6f6f6;
+} */
+.calender {
+    background: #fff;
+    cursor: pointer;
+    padding: 1.6px 10px;    
+    border: 1px solid #ccc;
+    max-width: 100%;
+    height: 30px;
 }
-.sub-header .breadcrumb .breadcrumb-item a{
-    color: #000;
-    text-decoration: none;
+.level{
+margin-bottom: 0px;
+font-size:10px;
 }
 .myprofile{
+   
     color: black;
-   background-color:  #cfcfd6;
-    border-bottom: 1px solid black;
+   background-color: #f6f6f6;
+    border-bottom: 1px solid #cccccc;
     height:35px;
-    padding: 10px 8px;
-    
+    padding: 5px 8px;
+   
+    }
+    .profilehead{
+     font-size: 10px;
+     font-weight: bold;
+    }
+    .address{
+color:#9999b3;
+    }
+   
+    .profile-name{
+font-size: 10px;
+    }
+    .profile-status{
+font-size: 7px;
+    }
+    .running{
+margin-top: 15px;
+font-size: 8px;
 
-}
-
-#date-field{
-    cursor: pointer;
-}
-#date-field:focus{
-    outline: none;
-    box-shadow: none;
-}
-.dateformat{
-    border: solid 1px rgb(168, 167, 167);
-    margin-top: 10px;
- }
+    }
+    .BPM{
+font-size: 7px;
+color: red;
+    }
+    .rebort-time{
+margin-left: 2px;
+    }
+    .profile-date{
+    font-size: 10px;
+    color: #82a0ac;
+    }
 
 .filter-section{
-    /* border:1px solid #efefef; */
+    margin-bottom:0px;
     /* margin-top: 15px; */
-    /* margin-bottom: 30px; */
+    margin-bottom: 8px;
+}
 }
 .filter-section h3{
     font-size: 16px;
@@ -95,19 +142,20 @@ font-size: 10px;
     outline: none;
     box-shadow: none;
 }
-.filter-section .clear-btn{
-    padding: 7px 15px;
+ .clear-btn{
+    padding: -2px;
     background-color: #f2f3f4;
     border: none;
     border-radius: 3px;    
-    font-size: 16px;
+    font-size: 11px;
+    height: 60%;
 }
-.filter-section .clear-btn:focus{
+/* .filter-section .clear-btn:focus{
     outline: none;
-}
+} */
 .user-action-part .show-list select{
     border: 1px solid #ced4da;
-    padding: .375rem .75rem;
+    /* padding: .375rem .75rem; */
     color: #495057;
     border-radius: .25rem;
 }
@@ -117,7 +165,7 @@ font-size: 10px;
 }
 .user-action-part .search-box{
     border: 1px solid #ced4da;
-    padding: .375rem .75rem;
+    /* padding: .375rem .75rem; */
     color: #495057;
     border-radius: .25rem;
 }
@@ -137,27 +185,66 @@ font-size: 10px;
 .user-data-table .table td{
     font-size: 0px;
 }
-
-    
+.dataTables_wrapper {
+    padding-top: 0 !important;
+}  
+.dataTables_length select {
+    border: 1px solid rgb(177, 176, 176);
+}
+.dataTables_filter input {
+    background-size: 0 2px,100% 1px;
+    transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 4px;
+    border: 1px solid rgb(177, 176, 176);
+    margin-left: 10px;
+}
 /* Profile-Section */
 .user-profile-section{
     border:1px solid #efefef;
     padding: 10px;
 }
-.user-profile-section .user-profile{
+.user-profile{
     border:1px solid #efefef;
     /* padding: 15px; */
     text-align: center;
-    height:70%
+    height: 50%;
+    color: #999999;
 }
 .user-profile-section .user-profile ul li{
     list-style-type: none;
 }
 .name{
-    font-size: 18px;
+    font-size: 10px;
     margin-top: 10px;
+    
   
 }
+/* .media{  
+color: #707478;
+} */
+.number{
+margin-top:12px;
+margin-bottom: 3px;
+color: #6c7a89;
+font-size: 18px;
+font-weight: bold;
+}
+.profile-name1{
+    font-size: 10px;   
+    margin-bottom: 3px;
+}
+.date{
+  font-size: 8px;
+  
+}
+
+/* .form-control {
+    min-height: 10px;
+    
+} */
+
 
 .user-profile-section .user-profile ul li p{
     margin-bottom: 10px;
@@ -172,12 +259,30 @@ font-size: 10px;
 .user-profile{
     margin-top: 0px;
 }
-
+.form-control {
+    width: 100%;
+    font-size: .700rem;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+.select{
+    height: 25px;
+    font-size: 11px;
+    color:gray;
+    width: 100%;
+    border-radius: 2px;
+    border:1px solid rgb(182, 181, 181);
+}
 .chart-section{
     min-height: 250px;
     border:1px solid #efefef;
     padding: 15px;
     margin-bottom: 30px;
+}
+.table-show{
+    margin-bottom: -22px;
 }
 .user{
     margin-bottom:100px;
@@ -186,3 +291,97 @@ font-size: 10px;
    color: #999999;
   
 }
+.table td, .table th {
+    padding:5px;
+    
+}
+.heart-rate {
+    max-width: 180px;
+    height: 50px;
+    position: relative;
+    margin:0px auto;
+   
+    overflow:hidden;
+        
+    }
+    dd, h1, h2, h3, h4, h5, h6, label {
+        margin-bottom: 0rem;
+        
+    }
+    div.dataTables_wrapper div.dataTables_filter {
+        font-size: 10px;
+        /* margin-top: 0px; */
+    }
+    .dataTables_length {
+        margin-top: -2px;
+       font-size: 10px;
+    }
+    #patients{
+     font-size: 10px;   
+    }
+
+    .svg {
+       
+        width: 50px;
+        height: 53px;
+    }
+    .heartimg{
+        width: 50px;
+        height: 53px;
+        color:red;
+
+    }
+    
+    .fade-in {
+      position: absolute;
+      width: 100%;
+      height:100%;
+      background-color: white;
+      top: 0;
+      right: 0;
+      animation: heartRateIn 4.5s linear infinite;
+    
+     /* Gia na katalavw ti ginetai des auto
+        border:1px solid red;
+        */
+    
+    }
+    
+    .fade-out {
+      position: absolute;
+      /* width: 120%;
+      height: 100%; */
+      top: 0;
+      left: -120%;
+      animation: heartRateOut 4.5s linear infinite;
+      background: rgba(255, 255, 255, 1);
+      background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 11, 11, 0) 100%);
+      background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    }
+    
+    @keyframes heartRateIn {
+      0% {
+        width: 100%;
+      }
+      50% {
+        width: 0%;
+      }
+      100% {
+        width: 0;
+      }
+    }
+    
+    @keyframes heartRateOut {
+      0% {
+        left: -120%;
+      }
+      30% {
+        left: -120%;
+      }
+      100% {
+        left: 0;
+      }
+    }
