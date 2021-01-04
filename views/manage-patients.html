@@ -58,14 +58,15 @@
                 <div class="row patient-row-modal">
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Gender</label>
-                        <select class="form-control" id="selectGender"> 
-                            <option value="Male">Male</option> 
-                            <option value="Female">Female</option> 
+                        <select class="form-control" id="selectGender" value="select"> 
+                            <option class="form-control" value="Select">Select</option>
+                            <option class="form-control" value="Male">Male</option> 
+                            <option class="form-control" value="Female">Female</option> 
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Mobile <span class="required-txt">&nbsp;* </span></label><br>
-                        <input type="number" class="form-control" id="mobile">
+                        <input type="text" class="form-control" id="mobile">
                     </div>
                 </div>
                 <div class="row patient-row-modal">
@@ -97,7 +98,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Zip Code <span class="required-txt">&nbsp;* </span></label>
-                        <input type="number" class="form-control" id="zipCode">
+                        <input type="text" class="form-control" id="zipCode">
                     </div>
                 </div>
 
@@ -204,13 +205,14 @@
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Select</label>
                         <select class="form-control" id="editGender"> 
-                            <option>Male</option> 
-                            <option>Female</option> 
+                            <option class="form-control" value="Select">Select</option>
+                            <option class="form-control" value="Male">Male</option> 
+                            <option class="form-control" value="Female">Female</option> 
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="usr" class="modal-txt">Mobile</label>
-                        <input type="number" class="form-control" id="editmobile" required>
+                        <input type="text" class="form-control" id="editmobile" required>
                     </div>
                 </div>
                 <div class="row patient-row-modal">

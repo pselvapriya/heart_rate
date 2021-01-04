@@ -57,7 +57,7 @@
     margin: 5px;
 }
 .user-add-header{
-    font-size: 20px!important;
+    font-size: 14px!important;
     color: black !important;font-weight: 600;
 }
 .patient-row-modal{
@@ -67,7 +67,7 @@
     color:red;font-size: 16px;font-weight: 600;
 }
 .modal-txt{
-    font-size: 15px;
+    font-size: 12px;
 }
 .link-btn,.user-create{
     background-color: #861182;border:none;color:white;
@@ -116,7 +116,7 @@
     margin-left:13px!important;
 }
 #patientName,#datepicker,#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode{
-    font-size: 14px;
+    font-size: 11px;
 }
 #managePatient thead tr th{
     font-size: 12px;
@@ -124,4 +124,7 @@
 }
 #managePatient tbody tr {
     font-size: 12px;
+}
+.patient-repeat-btn i,.patient-expand-btn i{
+    font-size: 11px;cursor:pointer;
 }
