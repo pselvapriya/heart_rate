@@ -135,3 +135,6 @@
     {
         position: absolute;right: 22px;top: 37px;cursor: pointer;
     }
+    #managePatient tr td:nth-child(2){
+        text-transform: capitalize;
+    }
