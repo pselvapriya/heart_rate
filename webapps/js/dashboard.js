@@ -1,3 +1,19 @@
+$(()=>{
+var queryParams={}
+    $.ajax({
+        dataType:'json',
+        url: BASE_PATH + "/patienthistory/list",
+        contentType: "application/json",
+        type: "POST",
+        data:JSON.stringify({'query': queryParams}),
+        success: function(data) {
+            var resultData = data.result.data.data;
+             
+            console.log("hello", resultData);
+ 
+        },
+    });
+})
 //piechart
 $(()=>{
     var myChart = echarts.init(document.querySelector('#chart'));
