@@ -203,8 +203,8 @@ function loadPatientstatusList() {
 
     var queryParams = {
         query: {
-            "bool": {
-                "must": []
+            bool: {
+                must: []
                     /*,
                     "filter":{"range":{"created_ts":{
                                 "gte":new Date(startDate.toISOString()).getTime(),
@@ -214,14 +214,7 @@ function loadPatientstatusList() {
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
-    var queryParams = {
-        query: {
-            "bool": {
-                "must": []
-            }
-        },
-        sort: [{ "created_ts": { "order": "asc" } }]
-    };
+   
 
 
     patientstatus_list = [];
@@ -234,24 +227,22 @@ function loadPatientstatusList() {
         aaSorting: [
             [3, 'desc']
         ],
-        "ordering": true,
+        ordering: true,
         iDisplayLength: 10,
         lengthMenu: [
             [10, 50, 100],
             [10, 50, 100]
         ],
         aoColumns: fields,
-        "bProcessing": true,
-        "language": {
+        bProcessing: true,
+        language: {
             "emptyTable": "No data found!",
             "processing": '<i class="fa fa-spinner fa-spin" style="color:#333"></i> Processing'
 
         },
-        "bpagination":false,
-        "bfilter":false,
-        "bServerSide": true,
-        "sAjaxSource": BASE_PATH + '/patienthistory/list',
-        "fnServerData": function(sSource, aoData, fnCallback, oSettings) {
+        bServerSide: true,
+        sAjaxSource: BASE_PATH + '/patienthistory/list',
+        fnServerData: function(sSource, aoData, fnCallback, oSettings) {
 
 
             queryParams.query['bool']['must'] = [];
@@ -278,25 +269,25 @@ function loadPatientstatusList() {
                 queryParams.query['bool']['should'].push({ "wildcard": { "patient_name": "*" + capitalizeFLetter(searchText) + "*" } })
                 queryParams.query['bool']["minimum_should_match"] = 1;
                 queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "Heartrate.keyword": "*" + searchText + "*"
+                    match_phrase: {
+                        "patient_name.keyword": "*" + searchText + "*"
                     }
                 })
                 queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "Heartrate.keyword": {
-                            "query": "*" + searchText + "*"
+                    match_phrase_prefix: {
+                        "patient_name.keyword": {
+                            query: "*" + searchText + "*",
                         }
                     }
                 });
             }
 
             oSettings.jqXHR = $.ajax({
-                "dataType": 'json',
-                "contentType": 'application/json',
-                "type": "POST",
-                "url": sSource,
-                "data": JSON.stringify({ "query": queryParams }),
+                dataType: 'json',
+                contentType: 'application/json',
+                type: "POST",
+                url: sSource,
+                data: JSON.stringify({ query: queryParams }),
                 success: function(data) {
 
                     // console.log(data);

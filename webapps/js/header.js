@@ -21,7 +21,7 @@ $('#myNav .overlay-content .nav-link').on('click', function(){
     document.getElementById("myNav").style.width = "0%";
   }
   function openCard(){
-    // alert("check...")
+    alert("check...")
     $('.card-div').css('display','block!important');
   }
  

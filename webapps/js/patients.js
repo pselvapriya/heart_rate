@@ -95,6 +95,7 @@ function addPatient() {
                     $("#patientModal").hide();
                     $(".modal-backdrop").remove();
                     successMsg("Patient Added Successfully!");
+                    $('#patientName,#datepicker,#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode').val('');
                     loadAssetList();
                 },
                 error: function(e) {

@@ -148,7 +148,7 @@ body {
 .card-div {
     background: red;
     border: 2px solid lightgrey;
-    display: block;
+    /* display: block; */
     left: 66%;
     height: 90%;
     top: 3%;
