@@ -39,7 +39,7 @@ function addPatient() {
         var state = $("#state").val();
         var country = $("#country").val();
         var zipcode = $("#zipCode").val();
-
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
         //Validate
         if (patient_name === "") {
@@ -51,15 +51,14 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        } else if (mobile_no.matches(mobilePattern)){
-            alert("no");
-            showToast("Warning", "Enter a number format", "warning");
-            $("#patientModal").show();
-        }
-        else if (email === "") {
+        }else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
-        } else if (address === "") {
+        }else if (!emailReg.test(email)){
+            // alert("no");
+            showToast("Warning", "Enter a email format", "warning");
+            $("#patientModal").show();
+        }else if (address === "") {
             showToast("Warning", "Please a Enter Address", "warning");
             $("#patientModal").show();
         } else if (city === "") {

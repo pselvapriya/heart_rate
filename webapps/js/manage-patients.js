@@ -3,6 +3,12 @@
 $(document).ready(function() {
     $( "#datepicker" ).datepicker();
     $( "#datepicker1" ).datepicker();
+    $('.calender-icon').click(function() {
+        $("#datepicker").focus();
+    });
+    $('.edit-calender-icon').click(function() {
+        $( "#datepicker1" ).focus();
+    });
 });
 
 var elem = document.documentElement;
