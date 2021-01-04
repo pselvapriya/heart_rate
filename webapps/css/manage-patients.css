@@ -104,7 +104,7 @@
     margin-right: 10px!important;
 }
 #managePatient{
-    widows: 99% !important;
+    width: 99% !important;
     margin-left:10px!important;
 }
 #patientName,#datepicker,#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode{
