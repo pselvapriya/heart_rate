@@ -1,6 +1,6 @@
 .logo-img {
-    height: 35px;
-    width: 130px;
+    height: 27px;
+    width: 130px;margin-top: -7px;
 }
 
 .profile-img {
@@ -20,8 +20,9 @@
 }
 
 .profile-img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 27px;
+    margin-top: -9px;
 }
 
 .profile-img1 {
@@ -31,7 +32,7 @@
 }
 
 .head-tag {
-    font-size: 14px !important;
+    font-size: 12px !important;
     color: black !important;
     font-weight: 600 !important;
 }
@@ -42,7 +43,7 @@
 
 .header-row {
     background-color: white;
-    height: 50px;
+    height: 40px;
     padding-top: 9px!important;
 }
 
@@ -126,9 +127,9 @@ body {
 }
 
 .overlay .nav-link {
-    font-size: 14px;
+    font-size: 12px;
     width: 92%;
-    height: 42px;
+    height: 38px;
 }
 
 .overlay-content {
@@ -143,6 +144,8 @@ body {
 
 .show-drop {
     background-color: white;
+    font-size: 12px;
+    padding-top: 2px;
 }
 
 .card-div {
@@ -161,4 +164,8 @@ body {
 .card-text {
     font-size: 16px;
     color: black;
+}
+.open-nav{
+    font-size: 20px;cursor: pointer;
+    padding-left: 10px;
 }

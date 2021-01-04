@@ -3,18 +3,18 @@
     border: none;cursor: pointer;
 }
 .patient-txt{
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 15px;
     padding-left: 0;
     color: black;
 }
 .row-bottom {
-    border-bottom: 3px solid blueviolet;
+    border-bottom: 2px solid blueviolet;
     margin: 0;
     margin-top: 15px;
 }
 .total-patients{
-    font-size: 13px;color: black;
+    font-size: 11px;color: black;
     margin: 11px -22px;padding-left: 6px;
 }
 .patient-repeat-btn {
@@ -30,10 +30,15 @@
   border:1px solid lightgrey!important;
   background-color: white !important;
 }
+#managePatient_info{
+    font-size: 12px!important;
+}
 .patient-atag{
-    height: 30px;
-    width: 80%;padding-top: 4px;
-    background-color:  #861182;
+    height: 25px;
+    font-size: 11px;
+    /* width: 80%; */
+    padding-top: 3px;
+    background-color: #861182;
     color: white;
 }
 .patient-atag:hover{
@@ -45,7 +50,7 @@
 .add-patient-btn{
     background-color: #f2f3f4;
     height: 30px;
-    font-size: 12px;
+    font-size: 11px;
     margin: 5px;
 }
 .user-add-header{
@@ -104,9 +109,16 @@
     margin-right: 10px!important;
 }
 #managePatient{
-    width: 99% !important;
-    margin-left:10px!important;
+    width: 98% !important;
+    margin-left:13px!important;
 }
 #patientName,#datepicker,#selectGender,#mobile,#email,#address,#city,#state,#country,#zipCode{
     font-size: 14px;
+}
+#managePatient thead tr th{
+    font-size: 12px;
+    font-weight: 600;
+}
+#managePatient tbody tr {
+    font-size: 12px;
 }

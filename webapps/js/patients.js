@@ -165,6 +165,7 @@ function loadAssetList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Patient Name',
+            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -173,6 +174,7 @@ function loadAssetList() {
         {
             mData: 'age',
             sTitle: 'Age',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -181,6 +183,7 @@ function loadAssetList() {
         {
             mData: 'gender',
             sTitle: 'Gender',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -189,6 +192,7 @@ function loadAssetList() {
         {
             mData: 'mobile_no',
             sTitle: 'Mobile Number',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -197,6 +201,7 @@ function loadAssetList() {
         {
             mData: 'email',
             sTitle: 'Email ',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -205,6 +210,7 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
+            swidth: '20%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -225,6 +231,7 @@ function loadAssetList() {
         {
             mData: 'country',
             sTitle: 'Country',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data ? data : "-";
@@ -233,6 +240,7 @@ function loadAssetList() {
         {
             mData: 'created_ts',
             sTitle: 'Created Time',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -241,6 +249,7 @@ function loadAssetList() {
         {
 
             sTitle: 'Status',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log(row.did);
@@ -260,6 +269,7 @@ function loadAssetList() {
         {
             sTitle: "Actions",
             orderable: false,
+            swidth: '10%',
             mRender: function(data, type, row) {
                 return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
@@ -278,8 +288,8 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: true,
-        responsive: true,
+        fixedHeader: false,
+        responsive: false,
         paging: true,
         searching: true,
         aaSorting: [
@@ -389,31 +399,6 @@ function loadAssetList() {
                 queryParams.query["bool"]["should"].push({
                     match_phrase_prefix: {
                         "city.keyword": {
-                            query: "*" + searchText + "*",
-                        },
-                    },
-                });
-                queryParams.query["bool"]["should"].push({
-                    wildcard: { gender: "*" + searchText + "*" },
-                });
-                queryParams.query["bool"]["should"].push({
-                    wildcard: { gender: "*" + searchText.toLowerCase() + "*" },
-                });
-                queryParams.query["bool"]["should"].push({
-                    wildcard: { gender: "*" + searchText.toUpperCase() + "*" },
-                });
-                queryParams.query["bool"]["should"].push({
-                    wildcard: { gender: "*" + capitalizeFLetter(searchText) + "*" },
-                });
-                queryParams.query["bool"]["minimum_should_match"] = 1;
-                queryParams.query["bool"]["should"].push({
-                    match_phrase: {
-                        "gender.keyword": "*" + searchText + "*",
-                    },
-                });
-                queryParams.query["bool"]["should"].push({
-                    match_phrase_prefix: {
-                        "gender.keyword": {
                             query: "*" + searchText + "*",
                         },
                     },
@@ -592,6 +577,7 @@ function clicklinkdevice() {
 
 // unlink device--------------------------------
 console.log()
+
 function clickUnlinkDevice() {
     var updateData = {
         patient_name: info[0].patient_name,
