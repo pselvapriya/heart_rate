@@ -146,16 +146,8 @@ function loadPatientstatusList() {
     var fields = [ {
             mData: 'heart_rate',
             sWidth: '250px',
+           
             sTitle: 'Heartrate',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-7"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-2 heart_icon"><i class="fa fa-2x fa-heartbeat"></i></span>' + '</div>';
-            }
-        },
-        {
-            mData: 'activity',
-            sWidth: '150px',
-            sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -177,6 +169,16 @@ function loadPatientstatusList() {
                 }
             }
         },
+        {
+            mData: 'activity',
+            sWidth: '150px',
+            sTitle: 'Activity',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            }
+        },
+ 
       
         {
             mData: 'did',
@@ -228,7 +230,7 @@ function loadPatientstatusList() {
         fixedHeader: false,
         responsive: false,
         paging: true,
-        searching: false,
+        searching: true,
         aaSorting: [
             [3, 'desc']
         ],
@@ -277,12 +279,12 @@ function loadPatientstatusList() {
                 queryParams.query['bool']["minimum_should_match"] = 1;
                 queryParams.query['bool']['should'].push({
                     "match_phrase": {
-                        "patient_name.keyword": "*" + searchText + "*"
+                        "Heartrate.keyword": "*" + searchText + "*"
                     }
                 })
                 queryParams.query['bool']['should'].push({
                     "match_phrase_prefix": {
-                        "patient_name.keyword": {
+                        "Heartrate.keyword": {
                             "query": "*" + searchText + "*"
                         }
                     }
