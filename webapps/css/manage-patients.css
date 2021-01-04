@@ -128,3 +128,9 @@
 .patient-repeat-btn i,.patient-expand-btn i{
     font-size: 11px;cursor:pointer;
 }
+.calender-icon
+    {
+        position: absolute;
+        right: 22px;
+    top: 37px;
+    }

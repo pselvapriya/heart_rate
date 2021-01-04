@@ -31,6 +31,7 @@ function addPatient() {
         age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
         console.log(age);
         var gender = $("#selectGender").val();
+        var mobilePattern = '/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/';
         var mobile_no = $("#mobile").val();
         var email = $("#email").val();
         var address = $("#address").val();
@@ -50,7 +51,12 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        } else if (email === "") {
+        } else if (mobile_no.matches(mobilePattern)){
+            alert("no");
+            showToast("Warning", "Enter a number format", "warning");
+            $("#patientModal").show();
+        }
+        else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
         } else if (address === "") {
