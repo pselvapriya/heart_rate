@@ -201,6 +201,7 @@ function loadAssetList() {
         {
             mData: 'gender',
             sTitle: 'Gender',
+            visible : false,
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
@@ -228,7 +229,7 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
-            swidth: '20%',
+            swidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -261,7 +262,7 @@ function loadAssetList() {
         {
 
             sTitle: 'Status',
-            swidth: '10%',
+            swidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log(row.did);
