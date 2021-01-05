@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // $('.card-div').css('display','none');
+  $('#profileDiv').css('display','none');
  
   // $('.overlay-content .nav-link .dashboard').addClass("menu-active");
 });
@@ -23,6 +23,7 @@ $('#myNav .overlay-content .nav-link').on('click', function(){
   }
   function openCard(){
     // alert("check...")
-    $('.card-div').css('display','block!important');
+    $('#profileDiv').css('display','block');
+    e.preventDefault();
   }
  

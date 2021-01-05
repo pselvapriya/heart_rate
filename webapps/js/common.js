@@ -135,9 +135,9 @@ function conform(msg){
       },
       function(isConfirm) {
         if (isConfirm) {
-          swal("Deleted!", "Your item deleted.", "success");
+            successMsg("Deleted!", "Your item deleted.", "success");
         } else {
-          swal("Cancelled", "You Cancelled", "error");
+            successMsg("Cancelled", "You Cancelled", "error");
         }
     });
 } 

@@ -148,13 +148,13 @@ body {
     padding-top: 2px;
 }
 
-.card-div {
-    background: red;
+#profileDiv {
+    background: white;
     border: 2px solid lightgrey;
-    /* display: block; */
-    left: 66%;
+    /* display: none!important; */
+    left: 55%;
     height: 90%;
-    top: 3%;
+    top: 1%;
     text-align: left;
     z-index: 1000;
     width: 300px;
@@ -162,7 +162,7 @@ body {
 
 .card-title,
 .card-text {
-    font-size: 16px;
+    font-size: 14px;
     color: black;
 }
 .open-nav{
