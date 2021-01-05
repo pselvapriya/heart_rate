@@ -175,11 +175,11 @@ function loadPatientstatusList() {
             orderable: false,
             mRender: function(data, type, row) {
                 if (row.heart_rate < 60) {
-                    return '<button class="status_low">' + row.status + '</button>';
+                    return '<label class="sts-low">' + row.status + '</label>';
                 } else if (row.heart_rate > 120) {
-                    return '<button class="status_high">' + row.status + '</button>';
+                    return '<label class="sts-high">' + row.status + '</label>';
                 } else {
-                    return '<button class="status_normal">' + row.status + '</button>';
+                    return '<label class="sts-normal">' + row.status + '</label>';
 
                 }
             }
@@ -324,3 +324,4 @@ function loadPatientstatusList() {
 
     PatientstatusTable = $("#patients").DataTable(tableOption);
 }
+ 
