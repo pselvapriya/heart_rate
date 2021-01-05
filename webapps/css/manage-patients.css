@@ -53,6 +53,9 @@
 .modal-div{
     /* top:220px; */
 }
+.icon-table{
+    margin-left: 10px;
+}
 .add-patient-btn{
     background-color: #f2f3f4;
     height: 30px;
@@ -138,3 +141,15 @@
     #managePatient tr td:nth-child(2){
         text-transform: capitalize;
     }
+table.dataTable {
+    border-collapse: collapse !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

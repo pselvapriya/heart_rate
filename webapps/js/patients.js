@@ -51,7 +51,8 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        }else if (email === "") {
+        }
+        else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
         }else if (!emailReg.test(email)){
@@ -201,6 +202,7 @@ function loadAssetList() {
         {
             mData: 'gender',
             sTitle: 'Gender',
+            visible : false,
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
@@ -228,7 +230,7 @@ function loadAssetList() {
         {
             mData: 'address',
             sTitle: 'Address',
-            swidth: '20%',
+            swidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
                 return (
@@ -259,16 +261,25 @@ function loadAssetList() {
             },
         },
         {
+            mData: 'updated_ts',
+            sTitle: 'Updated Time',
+            swidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT);
+            },
+        },
+        {
 
             sTitle: 'Status',
-            swidth: '10%',
+            swidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log(row.did);
 
                 if (row.did) {
                     $("#unlinkdevice").val = row.did;
-                    return '<a href="" id="unLink" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</a>';
+                    return '<a href="" id="unLink" data-toggle="modal"  onclick="linkdevice(\'' + row._id + '\');clickUnlinkDevice();">Unlink</a>';
 
                 } else {
 
@@ -283,7 +294,7 @@ function loadAssetList() {
             orderable: false,
             swidth: '10%',
             mRender: function(data, type, row) {
-                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
+                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
         }
     ];
@@ -469,7 +480,7 @@ function editPatient(row) {
 
 function deletePatient(row) {
     console.log(row);
-    var confirmalert = confirm("Are you sure?");
+    var confirmalert = conform();
     if (confirmalert == true) {
         $.ajax({
             url: BASE_PATH + "/patient/delete",

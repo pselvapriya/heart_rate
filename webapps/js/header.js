@@ -1,8 +1,18 @@
 $(document).ready(function() {
-  // $('.card-div').css('display','none');
- 
+  $('#profileDiv').css('display','none');
+  e.preventDefault();
   // $('.overlay-content .nav-link .dashboard').addClass("menu-active");
 });
+$(document).mouseup(function (e){
+
+	var container = $("#profileDiv");
+
+	if (!container.is(e.target) && container.has(e.target).length === 0){
+
+		container.hide();
+		
+	}
+}); 
 $('#myNav .overlay-content .nav-link').on('click', function(){
       document.getElementById("myNav").style.width = "0%";
       if ($(".overlay-content .nav-link").hasClass("menu-active")) {
@@ -23,6 +33,8 @@ $('#myNav .overlay-content .nav-link').on('click', function(){
   }
   function openCard(){
     // alert("check...")
-    $('.card-div').css('display','block!important');
+    
+    $('#profileDiv').css('display','block');
+    // e.preventDefault();
   }
  
