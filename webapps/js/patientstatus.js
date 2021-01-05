@@ -258,13 +258,10 @@ function loadPatientstatusList() {
                 "data": JSON.stringify({ "query": queryParams }),
                 success: function(data) {
 
-                    // console.log(data);
 
                     var resultData = data.result.data;
-                    console.log(resultData);
 
                     patientstatus_list = resultData.data;
-                    console.log("patient list", patientstatus_list)
 
 
                     $(".totalCount").html(data.result.total)

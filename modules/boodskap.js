@@ -267,7 +267,6 @@ Boodskap.prototype.elasticDeviceSearch = function(query, cbk) {
         query: JSON.stringify(query)
     };
 
-    console.log("dfdf", query);
     request.post({
             uri: self.API_URL + "/elastic/search/query/" + self.API_TOKEN,
             headers: { "content-type": "application/json" },
