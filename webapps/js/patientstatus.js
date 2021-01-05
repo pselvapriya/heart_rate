@@ -248,6 +248,62 @@ function loadPatientstatusList() {
                         }
                     }
                 });
+                
+                    queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']["minimum_should_match"] = 1;
+                queryParams.query['bool']['should'].push({
+                    "match_phrase": {
+                        "address.keyword": "*" + searchText + "*"
+                    }
+                })
+                queryParams.query['bool']['should'].push({
+                    "match_phrase_prefix": {
+                        "address.keyword": {
+                            "query": "*" + searchText + "*"
+                        }
+                    }
+                });
+                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']["minimum_should_match"] = 1;
+                queryParams.query['bool']['should'].push({
+                    "match_phrase": {
+                        "activity.keyword": "*" + searchText + "*"
+                    }
+                })
+                queryParams.query['bool']['should'].push({
+                    "match_phrase_prefix": {
+                        "activity.keyword": {
+                            "query": "*" + searchText + "*"
+                        }
+                    }
+                });
+                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText.toLowerCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText.toUpperCase() + "*" } });
+                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + capitalizeFLetter(searchText) + "*" } })
+                queryParams.query['bool']["minimum_should_match"] = 1;
+                queryParams.query['bool']['should'].push({
+                    "match_phrase": {
+                        "status.keyword": "*" + searchText + "*"
+                    }
+                })
+                queryParams.query['bool']['should'].push({
+                    "match_phrase_prefix": {
+                        "status.keyword": {
+                            "query": "*" + searchText + "*"
+                        }
+                    }
+                });
+                
+                
+                
+                
             }
 
             oSettings.jqXHR = $.ajax({

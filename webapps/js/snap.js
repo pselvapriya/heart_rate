@@ -1,11 +1,14 @@
 var myChart = echarts.init(document.getElementById('chart'));
-var echartdata = [["2001-05-29",101],["2001-05-30",57],["2001-05-31",88],["2001-06-01",99],["2001-06-02",84],["2001-06-03",139],["2001-06-04",132],["2001-06-05",141],["2001-06-07",159],["2001-06-08",131],["2001-06-09",180],["2001-06-10",164],["2001-06-11",134],["2001-06-12",163],["2001-06-13",105],["2001-06-14",74],["2001-06-15",50],["2001-06-16",60],["2001-06-17",82],["2001-06-18",111],["2001-06-19",89],["2001-06-20",81],["2001-06-21",76],["2001-06-22",70],["2001-06-23",74],["2001-06-24",99],["2001-06-25",91],["2001-06-26",113],["2001-06-27",93],["2001-06-28",69],["2001-06-29",74],["2001-06-30",75],["2001-07-01",108],["2001-07-02",115],["2001-07-03",86],["2001-07-04",67],["2001-07-05",68],["2001-07-06",74],["2001-07-07",69],["2001-07-08",95],["2001-07-09",99],["2001-07-10",92],["2001-07-11",84],["2004-05-30",66],["2004-05-31",56],["2004-06-01",100],["2004-06-02",109],["2004-06-03",118],["2004-06-04",107],["2004-06-05",74],["2004-06-06",58],["2004-06-07",88],["2004-06-08",100],["2007-03-13",13]];
+var echartdata = [["2004-05-30",66],["2004-05-31",56],["2004-06-01",100],["2004-06-02",109],["2004-06-03",118],["2004-06-04",107],["2004-06-05",74],["2004-06-06",58],["2004-06-07",88],["2004-06-08",100],["2007-03-13",13]];
 
 myChart.setOption({
 
 tooltip: {
     trigger: 'axis'
 },
+legend: {
+    left: "auto"
+  },
 xAxis: {
     data: echartdata.map(function(item) {
         return item[0];
@@ -20,20 +23,9 @@ yAxis: {
        
     }
 },
-yAxis : [
-    {
-        show: 'true',
-      type : 'value',
-      axisLabel : {
-        formatter: '{value} °C'
-      },
-      show:'true' ,
-      name: 'Y-Axis',
-      nameLocation: 'middle',
-      nameGap: 50
-    }
-  ],
+   
 toolbox: {
+    
     left: 'center',
     feature: {
         dataZoom: {
@@ -48,9 +40,11 @@ dataZoom: [{
 }, {
     type: 'inside'
 }],
+
 visualMap: {
-    top: 10,
-    right: 10,
+    
+    top: 0,
+    right: "9",
     pieces: [{
         gt: 0,
         lte: 60,
@@ -68,11 +62,19 @@ visualMap: {
         color: '#999'
     }
 },
-yaxis:{
-    type:'value',
-    min:200,
-    max:250
-},
+yAxis: [{
+    type: "value",
+    axisLine: {
+        show : "true"  
+    }
+  }],
+  
+// yaxis:{
+   
+//     type:'value',
+//     min:200,
+//     max:250
+// },
 
 series: {
     markPoint: {
@@ -80,6 +82,14 @@ series: {
             {type: 'max', name: 'booma'},
             {type: 'min', name: 'booma'}
         ]
+    },
+    color: {
+     
+               colorStops: [
+             {
+            offset: 1, color: '#c23531' // color at 100% position
+        }],
+        global: false // false by default
     },
     name: 'heart rate',
     type: 'line',
@@ -90,15 +100,20 @@ series: {
     markLine: {
         silent: true,
         data: [{
-            yAxis: 50
+            yAxis: 50,lineStyle: {
+                color: "#c23531" }
         }, {
-            yAxis: 100
+            yAxis: 100,lineStyle: {
+                color: "c23531" }
         }, {
-            yAxis: 150
+            yAxis: 150,lineStyle: {
+                color: "#c23531" }
         }, {
-            yAxis: 200
+            yAxis: 200,lineStyle: {
+                color: "#c23531" }
         }, {
-            yAxis: 300
+            yAxis: 300,lineStyle: {
+                color: "#c23531" }
         }]
     }
 }
@@ -146,16 +161,8 @@ function loadPatientstatusList() {
     var fields = [ {
             mData: 'heart_rate',
             sWidth: '250px',
+           
             sTitle: 'Heartrate',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-7"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-2 heart_icon"><i class="fa fa-2x fa-heartbeat"></i></span>' + '</div>';
-            }
-        },
-        {
-            mData: 'activity',
-            sWidth: '150px',
-            sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -168,15 +175,25 @@ function loadPatientstatusList() {
             orderable: false,
             mRender: function(data, type, row) {
                 if (row.heart_rate < 60) {
-                    return '<button class="status_low">' + row.status + '</button>';
+                    return '<label class="sts-low">' + row.status + '</label>';
                 } else if (row.heart_rate > 120) {
-                    return '<button class="status_high">' + row.status + '</button>';
+                    return '<label class="sts-high">' + row.status + '</label>';
                 } else {
-                    return '<button class="status_normal">' + row.status + '</button>';
+                    return '<label class="sts-normal">' + row.status + '</label>';
 
                 }
             }
         },
+        {
+            mData: 'activity',
+            sWidth: '150px',
+            sTitle: 'Activity',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data;
+            }
+        },
+ 
       
         {
             mData: 'did',
@@ -221,7 +238,7 @@ function loadPatientstatusList() {
         fixedHeader: false,
         responsive: false,
         paging: true,
-        searching: false,
+        searching: true,
         aaSorting: [
             [3, 'desc']
         ],
@@ -307,3 +324,4 @@ function loadPatientstatusList() {
 
     PatientstatusTable = $("#patients").DataTable(tableOption);
 }
+ 

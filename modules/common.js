@@ -4,7 +4,7 @@ var Table = require("./tables");
 
 var Common = function(app) {
     this.app = app;
-    this.logger = app.logger;
+
     this.utils = new Utils(app);
     this.table = new Table(app);
 };

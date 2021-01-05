@@ -20,6 +20,9 @@ var APIRoutes = function(app, router) {
     this.phistory = new Phistory(app);
     this.devicelist = new Device(app);
 
+
+
+
     this.init();
 };
 
@@ -71,4 +74,6 @@ APIRoutes.prototype.init = function() {
     self.router.post("/devicelist/:action", sessionCheck, function(req, res) {
         self.devicelist.performAction(req, res);
     });
+
+
 };
