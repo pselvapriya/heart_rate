@@ -69,42 +69,45 @@
     border: none;
     background-color: #861182;
 }
-
 .logout-btn:hover {
     border: none;
     background-color: #861182;
 }
-
+/* side nav css start */
 .opne-nav {
     font-size: 20px;
     cursor: pointer;
     /* left: 27px; */
     margin-left: 25px;
 }
-
 body {
     font-family: 'Lato', sans-serif;
 }
-
+#myNav {
+    width: 0;
+    /* border-top: 2px solid lightgrey; */
+}
 .overlay {
-    height: 100%;
-    width: 15%;
+    height: 90%;
+    width: 0;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: -1px;
     left: 0;
     background-color: white;
     color: black;
     overflow-x: hidden;
     transition: 0.5s;
+    border-left:none;
+    border: 1px solid lightgrey;
 }
-
 .overlay-content {
     position: relative;
-    top: 13%;
-    /* margin-top: 30px; */
+    /* top: 25%; */
+    /* width: 98%; */
+    /* margin-top: -77px; */
+    border-top: 1px solid lightgrey;
 }
-
 .overlay a {
     padding: 8px;
     text-decoration: none;
@@ -113,28 +116,31 @@ body {
     display: block;
     transition: 0.3s;
 }
-
 .overlay .nav-link:hover,
-.overlay .nav-link:focus {
-    color: black;
-}
-
+    .overlay .nav-link:focus {
+        color: black;
+        background-color: lightgrey;
+    }
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
-    /* right: 45px; */
-    font-size: 35px;
-}
-
+    left: 2px;
+    top: -6px!important;
+    /* z-index: 1000; */
+    font-size: 20px;
+    font-weight: 600;
+    }
+    .logo-img1 {
+        height: 35px;
+        width: 130px;
+        margin-left:40px;
+        /* margin-top: 5px; */
+    }
 .overlay .nav-link {
     font-size: 12px;
-    width: 92%;
+    padding-left: 15px;
     height: 38px;
 }
-
-.overlay-content {
-    margin-left: 20px;
-}
+/* side nav css end */
 
 .menu-active {
     color: black !important;
@@ -147,12 +153,14 @@ body {
     font-size: 12px;
     padding-top: 2px;
 }
-
+#header-div{
+    margin-top:0;
+}
 #profileDiv {
     background: white;
     border: 2px solid lightgrey;
     /* display: none!important; */
-    left: 55%;
+    left: 52%;
     height: 90%;
     top: 1%;
     text-align: left;
@@ -168,4 +176,85 @@ body {
 .open-nav{
     font-size: 20px;cursor: pointer;
     padding-left: 10px;
+}
+
+@media (min-width: 350px) and (max-width: 566px) {
+    #myNav {
+        width: 43%!important;
+    }
+    .overlay {
+        width:47%;
+        height: 85.5%;
+    }
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay-content {
+        position: relative;
+        width: 100%;
+        /* margin-top: -70px!important; */
+        border-top: 1px solid lightgrey;
+    }
+    .overlay .closebtn {
+        font-size: 28px;
+        /* top: 15px;cursor: pointer; */
+        /* right: 35px; */
+    }
+    #profileDiv {
+        background: white;
+        border: 2px solid lightgrey;
+        /* display: none!important; */
+        left: 46%;
+        height: 74%;
+        top: 1%;
+        text-align: left;
+        z-index: 1000;
+        width: 250px;
+}
+#header-div{
+    margin-top:-27px;
+}
+}
+@media (min-width: 567px) and (max-width: 767px) {
+    #myNav {
+        width: 42%!important;
+    }
+    .overlay {
+        width: 47% !important;
+        height: 85.5%;
+    }
+    .overlay-content {
+        position: relative;
+        width: 100%;
+    }
+}
+
+@media (min-width: 767px) and (max-width:965px){
+    #profileDiv {
+        left: 35%!important;
+        height: 74%;
+        top: 1%;
+        text-align: left;
+        z-index: 1000;
+        width: 250px;
+    }
+    #myNav{
+        width:24%;
+    }
+    .overlay {
+        width: 47% !important;
+        height: 85.5%;
+    }
+}
+@media (min-width: 850px) and (max-width: 950px) {
+    #myNav {
+        width: 25%;
+    }
+    .overlay-content {
+        position: relative;
+        top: 13%;
+        width: 100%;
+        margin-top: -80px;
+        border-top: 1px solid lightgrey;
+    }
 }

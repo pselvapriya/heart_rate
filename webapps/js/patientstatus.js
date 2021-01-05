@@ -16,10 +16,15 @@ function loadPatientstatusList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Name',
-            sWidth: '20%',
+            sWidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<div class="row">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;' + row.patient_name + '&nbsp;' + '&nbsp;' +'<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot">'+ '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>'+'&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                console.log("gender", row.gender)
+                if (row.gender === 'female' && row.gender === 'Female') {
+                    return '<div class="row row1">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6 class="age-tag">' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                } else {
+                    return '<div class="row row1">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6 class="age-tag">' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                }
             }
         },
         // {
@@ -52,28 +57,38 @@ function loadPatientstatusList() {
 
         {
             mData: 'address',
-            sWidth: '20%',
+            sWidth: '15%',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<div class="row">' + '<p class="col-12">' + data + '</p>' + '</div>';
+                return '<div class="row">' + '<p class="col-12 address">' + row.address +
+                    "&nbsp;" +
+                    "," +
+                    row.city +
+                    "," +
+                    "<br>" +
+                    row.state +
+                    "&nbsp;" +
+                    "," +
+                    row.zipcode +
+                    "." + '</p>' + '</div>';
             }
         },
         {
             mData: 'heart_rate',
-            sWidth: '20%',
+            sWidth: '25%',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
                 if (row.heart_rate < 60) {
-                    return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-4"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="orange" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
 
                 } else if (row.heart_rate > 120) {
 
-                    return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-4"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="red" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
@@ -81,7 +96,7 @@ function loadPatientstatusList() {
 
                 } else {
 
-                    return '<div class="row">' + '<h4 class="col-md-3 beats">' + row.heart_rate + '</h4>' + '<span class="col-md-4"><h4 class="bpm">BPM</h4>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="green" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
@@ -89,20 +104,12 @@ function loadPatientstatusList() {
                 }
             }
         },
-        {
-            mData: 'activity',
-            sWidth: '10%',
-            sTitle: 'Activity',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data;
-            }
-        },
+
         {
             mData: 'status',
             sWidth: '10%',
             sTitle: 'Status',
-            orderable: false,
+            orderable: true,
             mRender: function(data, type, row) {
                 if (row.heart_rate < 60) {
                     return '<label class="status_low">' + row.status + '</label>';
@@ -112,6 +119,15 @@ function loadPatientstatusList() {
                     return '<label class="status_normal">' + row.status + '</label>';
 
                 }
+            }
+        },
+        {
+            mData: 'activity',
+            sWidth: '8%',
+            sTitle: 'Activity',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return '<div class="activity">' + data + '</div>';
             }
         },
         // {
@@ -135,8 +151,8 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '20%',
-            className : 'sortingtable',
+            sWidth: '35%',
+            className: 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             }
@@ -148,32 +164,32 @@ function loadPatientstatusList() {
         query: {
             "bool": {
                 "must": []
-                    /*,
-                    "filter":{"range":{"created_ts":{
-                                "gte":new Date(startDate.toISOString()).getTime(),
-                                "lte":new Date(endDate.toISOString()).getTime()
-                            }}}*/
             }
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
-    var filterquery = {
-        query: {
-            "bool": {
-                "filter": [
-                    { "term": { "gender": "Male" } },
-                    { "term": { "activity": "sleeping" } }
+    // var queryParams = {
+    //     query: {
+    //         "bool": {
+    //             "must": [
+    //                 { "term": { "activity": "runing" } },
+    //                 { "term": { "gender": "Male" } },
+    //                 { "term": { "status": "Low" } },
+    //                 {
+    //                     "range": { "age": { "gte": 5, "lte": 20 } }
 
-                ]
-            }
-        }
-    }
+    //                 }
+    //             ]
+
+    //         }
+    //     },
+    // };
+
 
     patientstatus_list = [];
-
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
@@ -232,62 +248,6 @@ function loadPatientstatusList() {
                         }
                     }
                 });
-                
-                    queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "address.keyword": "*" + searchText + "*"
-                    }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "address.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
-                });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "activity.keyword": "*" + searchText + "*"
-                    }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "activity.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
-                });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "status.keyword": "*" + searchText + "*"
-                    }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "status.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
-                });
-                
-                
-                
-                
             }
 
             oSettings.jqXHR = $.ajax({
@@ -304,6 +264,8 @@ function loadPatientstatusList() {
                     console.log(resultData);
 
                     patientstatus_list = resultData.data;
+                    console.log("patient list", patientstatus_list)
+
 
                     $(".totalCount").html(data.result.total)
 
@@ -387,114 +349,47 @@ function closeFullscreen() {
     }
 }
 
-
-
-
-
-$(document).ready(function() {
-    $('#patients_profile').DataTable({
-        data: dataSet,
-        searching: true,
-        columns: [{
-                title: 'Patient_Name',
-                sTitle: 'Patient Name',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + row.patient_name + '&nbsp;' + '<a href="/hrmonitor/main#/snapshot">' + '<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + row.dob + 'years old</h6>';
-
-                }
-            },
-            // {
-            //     title: 'DOB',
-            //     sTitle: 'DOB',
-            //     orderable: false,
-            //     mRender: function(data, type, row) {
-            //         return data;
-            //     }
-            // },
-            // {
-            //     title: 'Age',
-            //     sTitle: 'Age',
-            //     orderable: false,
-            //     mRender: function(data, type, row) {
-            //         return data;
-            //     }
-            // },
-            // {
-            //     title: 'Gender',
-            //     sTitle: 'Gender',
-            //     orderable: false,
-            //     mRender: function(data, type, row) {
-            //         return data;
-            //     }
-            // },
-            {
-                title: 'Address',
-                sTitle: 'Address',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            {
-                title: 'Heart Rate',
-                sTitle: 'Heart Rate',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data + '&nbsp;' + '&nbsp;' + '&nbsp;' + '<i class="fa fa-icon fa-heart-rate" aria-hidden="true"></i>';
-                }
-            },
-            {
-                title: 'Status',
-                sTitle: 'Status',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return '<label class="status">' + data + '</label>';
-                }
-            },
-            {
-                title: 'Activity',
-                sTitle: 'Activity',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            // {
-            //     mData: 'country',
-            //     sTitle: 'Country',
-            //     orderable: false,
-            //     mRender: function(data, type, row) {
-            //         return data;
-            //     }
-            // },
-            {
-                title: 'did',
-                sTitle: 'Skin Patch Id',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-            {
-                title: 'updated_ts',
-                sTitle: 'Last Reported Time',
-                orderable: false,
-                mRender: function(data, type, row) {
-                    return data;
-                }
-            },
-
-        ]
-
-    });
-});
-const reloadtButton = document.querySelector("#patients_profile");
-// Reload everything:
 function reload() {
-    reload = location.reload();
+    loadPatientstatusList();
 }
-// Event listeners for reload
-reloadButton.addEventListener("click", reload, false);
 
-//slider js
+// const reloadtButton = document.querySelector("#patients_profile");
+// // Reload everything:
+// function reload() {
+//     reload = location.reload();
+// }
+// // Event listeners for reload
+// reloadButton.addEventListener("click", reload, false);
+
+//slider
+
+(function() {
+    let parent = document.querySelector(".sliderId");
+    if (!parent) return;
+    let rangeSlide = parent.querySelectorAll("input[type=range]");
+    let numberSlide = parent.querySelectorAll("input[type=number]");
+    rangeSlide.forEach(function(el) {
+        el.oninput = function() {
+            let slide1 = parseFloat(rangeSlide[0].value);
+            let slide2 = parseFloat(rangeSlide[1].value);
+            if (slide1 > slide2) {
+                [slide1, slide2] = [slide2, slide1];
+            }
+            numberSlide[0].value = slide1;
+            numberSlide[1].value = slide2;
+        }
+    });
+    numberSlide.forEach(function(el) {
+        el.oninput = function() {
+            let number1 = parseFloat(numberSlide[0].value);
+            let number2 = parseFloat(numberSlide[1].value);
+            if (number1 > number2) {
+                let tmp = number1;
+                numberSlide[0].value = number2;
+                numberSlide[1].value = tmp;
+            }
+            rangeSlide[0].value = number1;
+            rangeSlide[1].value = number2;
+        }
+    });
+})();

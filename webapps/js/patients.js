@@ -25,12 +25,10 @@ function addPatient() {
     if (flag == false) {
         var patient_name = $("#patientName").val();
         var selectDate = $("#datepicker[name=datepicker]").val();
-        // console.log("selectDate",selectDate);
         var DOB = new Date(selectDate);
         var today = new Date();
         var age = today.getTime() - DOB.getTime();
         age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
-        console.log(age);
         var gender = $("#selectGender").val();
         var mobilePattern = '/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/';
         var mobile_no = $("#mobile").val();
@@ -93,7 +91,6 @@ function addPatient() {
                 zipcode: zipcode,
                 created_ts: new Date().getTime(),
             };
-            console.log("add user", inputObj);
             //Call API
             $.ajax({
                 url: BASE_PATH + "/patient/insert",
@@ -146,7 +143,6 @@ function addPatient() {
             created_ts: new Date().getTime(),
             did: did
         };
-        console.log("update", sid);
         $.ajax({
             url: BASE_PATH + "/patient/update",
             data: JSON.stringify({ _id: sid, updateData: updateData }),
@@ -212,7 +208,7 @@ function loadAssetList() {
         },
         {
             mData: 'mobile_no',
-            sTitle: 'Mobile Number',
+            sTitle: 'Mobile',
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
@@ -276,7 +272,6 @@ function loadAssetList() {
             swidth: '15%',
             orderable: false,
             mRender: function(data, type, row) {
-                console.log(row.did);
 
                 if (row.did) {
                     $("#unlinkdevice").val = row.did;
@@ -312,8 +307,8 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
@@ -439,7 +434,6 @@ function loadAssetList() {
                     var resultData = data.result.data;
 
                     patient_list = resultData.data;
-                    console.log("patientlost", patient_list);
                     $(".totalCount").html(data.result.total);
 
                     resultData["draw"] = oSettings.iDraw;
@@ -456,7 +450,6 @@ function loadAssetList() {
 var patient1 = null;
 
 function editPatient(row) {
-    // console.log("row",row);
     sid = row;
     flag = true;
     for (var i = 0; i < patient_list.length; i++) {
@@ -473,7 +466,6 @@ function editPatient(row) {
             $("#editCountry").val(patient1.country);
             $("#editZipCode").val(patient1.zipcode);
             did = patient1.did;
-            console.log("update data", patient1);
         }
     }
 }
@@ -481,7 +473,6 @@ function editPatient(row) {
 //delete Api
 
 function deletePatient(row) {
-    console.log(row);
     var confirmalert = conform();
     if (confirmalert == true) {
         $.ajax({
@@ -548,11 +539,9 @@ function linkdevice(patientid) {
             success: function(data) {
                 var resultData = data.result.data.data;
                 device_list = resultData;
-                console.log("hello====", device_list, resultData);
                 // $("#devicelist").html("");
 
                 device_list.forEach((et) => {
-                    console.log("fin", et.id);
                     let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
                     $("#devicelist").append(tr);
                 });
@@ -566,7 +555,7 @@ function clicklinkdevice() {
     for (i = 0; i <= patient_list.length - 1; i++) {
         if (patient_list[i].did == dlistid && patient_list[i].did != "") {
             showToast("Warning", "Device is Already Linked", "warning");
-            console.log("already linked");
+
             flag1 = true;
             break;
         } else {
@@ -574,11 +563,9 @@ function clicklinkdevice() {
         }
 
     }
-    console.log(flag1);
 
 
     if (flag1 == false) {
-        console.log("info", info);
         var updateData = {
             patient_name: info[0].patient_name,
             dob: info[0].dob,
@@ -616,7 +603,6 @@ function clicklinkdevice() {
 }
 
 // unlink device--------------------------------
-console.log()
 
 function clickUnlinkDevice() {
     var updateData = {
