@@ -188,8 +188,8 @@ function loadPatientstatusList() {
 
     patientstatus_list = [];
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
