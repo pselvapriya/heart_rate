@@ -3,6 +3,16 @@
 $(document).ready(function() {
     $( "#datepicker" ).datepicker();
     $( "#datepicker1" ).datepicker();
+    $('.calender-icon').click(function() {
+        $("#datepicker").focus();
+    });
+    $('.edit-calender-icon').click(function() {
+        $( "#datepicker1" ).focus();
+    });
+    $('.patient-repeat-btn').click(function(){
+        $('.patient-repeat-btn').css('border','none');
+        loadAssetList();
+    });
 });
 
 var elem = document.documentElement;

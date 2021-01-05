@@ -50,7 +50,7 @@ UIRoutes.prototype.init = function() {
         }
     });
 
-    self.router.get('/main', function(req, res) {
+    self.router.get('/main', sessionCheck, function(req, res) {
 
         res.render('dashboard.html', {
             layout: '',
@@ -60,7 +60,7 @@ UIRoutes.prototype.init = function() {
         });
     });
 
-    self.router.get('/skin-patches', function(req, res) {
+    self.router.get('/skin-patches', sessionCheck, function(req, res) {
 
         res.render('skin-patches.html', {
             layout: false,
@@ -71,7 +71,7 @@ UIRoutes.prototype.init = function() {
         });
     });
 
-    self.router.get('/dashboard', function(req, res) {
+    self.router.get('/dashboard', sessionCheck, function(req, res) {
 
         res.render('dashboard.html', {
             layout: false,
@@ -86,7 +86,7 @@ UIRoutes.prototype.init = function() {
     //After Login pages
 
 
-    self.router.get('/patients-profile', function(req, res) {
+    self.router.get('/patients-profile', sessionCheck, function(req, res) {
 
         res.render('patients-profile.html', {
             layout: false,
@@ -96,7 +96,7 @@ UIRoutes.prototype.init = function() {
             basePath: self.app.conf.web.basepath
         });
     });
-    self.router.get('/snapshot', function(req, res) {
+    self.router.get('/snapshot', sessionCheck, function(req, res) {
 
         res.render('snapshot.html', {
             layout: false,
@@ -107,7 +107,7 @@ UIRoutes.prototype.init = function() {
         });
     });
 
-    self.router.get('/manage-patients', function(req, res) {
+    self.router.get('/manage-patients', sessionCheck, function(req, res) {
 
         res.render('manage-patients.html', {
             layout: false,

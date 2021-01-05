@@ -446,3 +446,26 @@ $(".toggle-password").click(function () {
         input.attr("type", "password");
     }
 });
+
+
+function logout() {
+    var obj = JSON.parse(localStorage.getItem('session'));
+     $.ajax({
+         url:BASE_PATH+"/logout",
+         type: 'POST',
+         data:  JSON.stringify(obj),
+          contentType: "application/json",
+         
+       
+         success: function (data) {
+             // req.session.destroy();
+ 
+             window.location.href = '/hrmonitor/login';
+             // window.location.reload();
+            
+             
+         }
+     });
+ 
+ }
+ 

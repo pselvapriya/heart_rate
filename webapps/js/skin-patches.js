@@ -4,6 +4,10 @@ var device_list = [];
 // var endDate = moment().endOf('day');
 $(document).ready(function() {
     loadDeviceList();
+    $('.repeat-btn').click(function() {
+        // $('.patient-repeat-btn').css('border','none');
+        loadDeviceList();
+    });
 });
 
 var elem = document.documentElement;
@@ -40,7 +44,7 @@ function loadDeviceList() {
             sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -49,7 +53,7 @@ function loadDeviceList() {
             sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -58,7 +62,7 @@ function loadDeviceList() {
             sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -68,9 +72,9 @@ function loadDeviceList() {
             orderable: false,
             mRender: function(data, type, row) {
                 if (row.reportedStamp) {
-                    return '<span class="label label-success">Reported</span>';
+                    return '<span class="label label-success label-device">Reporting</span>';
                 } else {
-                    return '<span class="label label-danger">Not Reported</span>';
+                    return '<span class="label label-danger label-device">Not Reporting</span>';
                 }
             },
         },
@@ -80,7 +84,7 @@ function loadDeviceList() {
             sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             },
         },
         {
@@ -89,7 +93,7 @@ function loadDeviceList() {
             sWidth: '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
+                return moment(data).format(DATE_TIME_FORMAT) ? moment(data).format(DATE_TIME_FORMAT) : '-';
             },
         },
         {
@@ -98,7 +102,7 @@ function loadDeviceList() {
             sWidth: '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
-                return moment(data).format(DATE_TIME_FORMAT);
+                return moment(data).format(DATE_TIME_FORMAT) ? moment(data).format(DATE_TIME_FORMAT) : '-';
             },
         },
 
@@ -117,7 +121,7 @@ function loadDeviceList() {
     device_list = [];
 
     var tableOption = {
-        fixedHeader: false,
+        fixedHeader: true,
         responsive: true,
         paging: true,
         searching: true,
