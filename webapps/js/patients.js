@@ -4,6 +4,7 @@ var device_list = [];
 var patientdata;
 var flag = false;
 var sid;
+var did;
 
 
 $(document).ready(function() {
@@ -134,6 +135,7 @@ function addPatient() {
             country: country,
             zipcode: zipcode,
             created_ts: new Date().getTime(),
+            did: did
         };
         console.log("update", sid);
         $.ajax({
@@ -448,6 +450,7 @@ function editPatient(row) {
             $("#editState").val(patient1.state);
             $("#editCountry").val(patient1.country);
             $("#editZipCode").val(patient1.zipcode);
+            did = patient1.did;
             console.log("update data", patient1);
         }
     }
@@ -577,6 +580,7 @@ function clicklinkdevice() {
 
 // unlink device--------------------------------
 console.log()
+
 function clickUnlinkDevice() {
     var updateData = {
         patient_name: info[0].patient_name,

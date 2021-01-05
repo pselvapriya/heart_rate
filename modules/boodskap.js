@@ -263,23 +263,19 @@ Boodskap.prototype.elasticDeviceSearch = function(query, cbk) {
     const self = this;
 
     var obj = {
-        "type": "DEVICE",
-        query: JSON.stringify({
-            query: {
-                bool: { must: [{ match: { domainKey: "XLOYLUDCHY" } }], should: [] },
-            },
-            sort: [{ reportedStamp: { order: "desc" } }],
-            size: 15,
-            from: 0,
-        }),
+        type: "DEVICE",
+        query: JSON.stringify(query)
     };
 
+    console.log("dfdf", query);
     request.post({
             uri: self.API_URL + "/elastic/search/query/" + self.API_TOKEN,
             headers: { "content-type": "application/json" },
             body: JSON.stringify(obj),
         },
         function(err, res, body) {
+
+
             if (!err) {
                 if (res.statusCode === 200) {
                     var resultObj = self.utils.elasticQueryFormatter(
@@ -292,44 +288,6 @@ Boodskap.prototype.elasticDeviceSearch = function(query, cbk) {
                 }
             } else {
                 // console.error("record search error in platform =>", err);
-                cbk(false, null);
-            }
-        }
-    );
-};
-
-// heart rate analysis chart--------------------------------------
-
-Boodskap.prototype.elasticHRChartSearch = function(rid, query, cbk) {
-    const self = this;
-
-    var obj = {
-        type: "RECORD",
-        query: JSON.stringify(query),
-    };
-
-    if (rid) {
-        obj["specId"] = rid;
-    }
-
-    request.post({
-            uri: self.API_URL + "/elastic/search/query/" + self.API_TOKEN,
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(obj),
-        },
-        function(err, res, body) {
-            if (!err) {
-                if (res.statusCode === 200) {
-                    var resultObj = self.utils.elasticQueryFormatter(
-                        JSON.parse(res.body)
-                    );
-                    cbk(true, resultObj);
-                } else {
-                    console.error("record search error in platform =>", res.body);
-                    cbk(false, JSON.parse(res.body));
-                }
-            } else {
-                console.error("record search error in platform =>", err);
                 cbk(false, null);
             }
         }

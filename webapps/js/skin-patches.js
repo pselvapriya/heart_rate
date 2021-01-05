@@ -37,7 +37,7 @@ function loadDeviceList() {
     var fields = [{
             mData: "id",
             sTitle: "Device Id",
-            sWidth : '10%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -46,7 +46,7 @@ function loadDeviceList() {
         {
             mData: "modelId",
             sTitle: "Model Id",
-            sWidth : '10%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -55,7 +55,7 @@ function loadDeviceList() {
         {
             mData: "version",
             sTitle: "Version",
-            sWidth : '10%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -64,21 +64,20 @@ function loadDeviceList() {
         {
             mData: "Status",
             sTitle: "Status",
-            sWidth : '10%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                if(row.reportedStamp){
-                return '<span class="label label-success">Reported</span>';
-                }
-                else{
-                return '<span class="label label-danger">Not Reported</span>';
+                if (row.reportedStamp) {
+                    return '<span class="label label-success">Reported</span>';
+                } else {
+                    return '<span class="label label-danger">Not Reported</span>';
                 }
             },
         },
         {
             mData: "channel",
             sTitle: "Channel",
-            sWidth : '10%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -87,7 +86,7 @@ function loadDeviceList() {
         {
             mData: "reportedStamp",
             sTitle: "Last Reported Time",
-            sWidth : '10%',
+            sWidth: '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -96,33 +95,23 @@ function loadDeviceList() {
         {
             mData: "registeredStamp",
             sTitle: "Created Time",
-            sWidth : '10%',
+            sWidth: '10%',
             className: "sortingtable",
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             },
         },
-        
+
     ];
 
     var queryParams = {
-        // method: "GET",
-        // params: [],
-        // query: {
-        //     query: {
-        //         bool: { must: [{ match: { domainKey: "XLOYLUDCHY" } }], should: [] },
-        //     },
-        //     sort: [{ reportedStamp: { order: "desc" } }],
-        //     size: 10,
-        //     from: 0,
-        // },
-        // type: "DEVICE",
+
         query: {
             bool: {
                 must: [],
             },
         },
-        sort: [{ created_ts: { order: "asc" } }],
+        sort: [{ registeredStamp: { order: "asc" } }],
     };
 
     device_list = [];
@@ -133,7 +122,7 @@ function loadDeviceList() {
         paging: true,
         searching: true,
         aaSorting: [
-            [3, "desc"]
+            [4, "desc"]
         ],
         ordering: true,
         iDisplayLength: 10,
@@ -150,8 +139,8 @@ function loadDeviceList() {
         bServerSide: true,
         sAjaxSource: BASE_PATH + "/devicelist/dlist",
         fnServerData: function(sSource, aoData, fnCallback, oSettings) {
-            queryParams.query["bool"]["must"] = [];
-            queryParams.query["bool"]["must"] = [];
+            queryParams.query["bool"]["must"] = [{ "match": { domainKey: "XLOYLUDCHY" } }];
+            queryParams.query["bool"]["should"] = [];
             delete queryParams.query["bool"]["minimum_should_match"];
 
             var keyName = fields[oSettings.aaSorting[0][0]];
@@ -194,13 +183,13 @@ function loadDeviceList() {
                     },
                 });
             }
-
+            console.log("query", queryParams);
             oSettings.jqXHR = $.ajax({
-                dataType: "json",
-                contentType: "application/json",
-                type: "POST",
+                "dataType": "json",
+                "contentType": "application/json",
+                "type": "POST",
                 url: sSource,
-                data: JSON.stringify({ query: queryParams }),
+                "data": JSON.stringify({ query: queryParams }),
                 success: function(data) {
                     console.log(data);
 
