@@ -21,9 +21,9 @@ function loadPatientstatusList() {
             mRender: function(data, type, row) {
                 console.log("gender", row.gender)
                 if (row.gender === 'female' && row.gender === 'Female') {
-                    return '<div class="row row1">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                    return '<div class="row row1">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6 class="age-tag">' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
                 } else {
-                    return '<div class="row row1">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                    return '<div class="row row1">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6 class="age-tag">' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
                 }
             }
         },
