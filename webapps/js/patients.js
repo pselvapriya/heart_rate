@@ -271,7 +271,7 @@ function loadAssetList() {
 
                 if (row.did) {
                     $("#unlinkdevice").val = row.did;
-                    return '<a href="" id="unLink" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\')">Unlink</a>';
+                    return '<a href="" id="unLink" data-toggle="modal" data-target="#unModal" onclick="linkdevice(\'' + row._id + '\'),clickUnlinkDevice()">Unlink</a>';
 
                 } else {
 
