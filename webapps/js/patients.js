@@ -284,7 +284,7 @@ function loadAssetList() {
             orderable: false,
             swidth: '10%',
             mRender: function(data, type, row) {
-                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
+                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
         }
     ];
