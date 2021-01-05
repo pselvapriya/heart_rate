@@ -52,18 +52,17 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        }
-        else if (email === "") {
+        } else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
-        }else if (!emailReg.test(email)){
+        } else if (!emailReg.test(email)) {
             // alert("no");
             showToast("Warning", "Enter a email format", "warning");
             $("#patientModal").show();
-        }else if (gender == "Select"){
+        } else if (gender == "Select") {
             showToast("Warning", "Select  a one item", "warning");
             $("#patientModal").show();
-        }else if (address === "") {
+        } else if (address === "") {
             showToast("Warning", "Please a Enter Address", "warning");
             $("#patientModal").show();
         } else if (city === "") {
@@ -175,13 +174,13 @@ function loadAssetList() {
     }
 
     var fields = [{
-        mData: 'did',
-        sTitle: 'Device Id',
-        swidth: '10%',
-        orderable: false,
-        mRender: function(data, type, row) {
-            return data ? data : "-";
-        },
+            mData: 'did',
+            sTitle: 'Device Id',
+            swidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return data ? data : "-";
+            },
         },
         {
             mData: 'patient_name',
@@ -200,11 +199,11 @@ function loadAssetList() {
                 );
             },
         },
-        
+
         {
             mData: 'gender',
             sTitle: 'Gender',
-            visible : false,
+            visible: false,
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
@@ -505,25 +504,7 @@ function deletePatient(row) {
 }
 
 // devicelist model ============================
-$(() => {
-    $.ajax({
-        url: BASE_PATH + "/devicelist/dlist",
-        contentType: "application/json",
-        type: "POST",
-        async: true,
-        success: function(data) {
-            var resultData = data.result.data.data;
-            device_list = resultData;
-            console.log("hello", device_list, patient_list);
-            $("#devicelist").html("");
 
-            resultData.forEach((et) => {
-                let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
-                $("#devicelist").append(tr);
-            });
-        },
-    });
-});
 
 // Device link=============================
 var info = [];
@@ -538,13 +519,46 @@ function linkdevice(patientid) {
     });
     patientdata = patientid;
 
-    // var dlistid = $("#devicelist").val();
-    // patient_list.forEach((ele) => {
-    //     if (dlistid == ele.did) {
+    $(() => {
+        var queryParams = {
+            "query": {
+                "bool": {
+                    "must": [{
+                        "match": {
+                            "domainKey": "XLOYLUDCHY"
+                        }
 
+                    }],
+                    "filter": {
+                        "term": { "modelId": "Vilpower" }
+                    }
+                }
+            },
+            "from": 0,
+            "size": 12
+        };
+        $.ajax({
+            "dataType": 'json',
+            "contentType": 'application/json',
+            "type": "POST",
+            "url": BASE_PATH + '/devicelist/dlist',
+            "data": JSON.stringify({
+                "query": queryParams
+            }),
+            success: function(data) {
+                var resultData = data.result.data.data;
+                device_list = resultData;
+                console.log("hello====", device_list, resultData);
+                // $("#devicelist").html("");
 
-    //     }
-    // })
+                device_list.forEach((et) => {
+                    console.log("fin", et.id);
+                    let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
+                    $("#devicelist").append(tr);
+                });
+            },
+        });
+    });
 }
 
 function clicklinkdevice() {
