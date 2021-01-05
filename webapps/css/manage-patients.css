@@ -23,6 +23,9 @@
     border: none;
     color: white;
 }
+.patient-repeat-btn:focus,.patient-expand-btn:focus {
+    outline: none;
+  }
 #managePatient_filter{
     font-size: 11px;
 }
@@ -152,4 +155,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+.label-device{
+    border-radius: 3px;
 }
