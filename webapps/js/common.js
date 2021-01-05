@@ -23,33 +23,33 @@ $(document).ready(function () {
     })
 
 });
-function logout() {
-    console.log(BASE_PATH);
+// function logout() {
+//     console.log(BASE_PATH);
   
-    Cookies.remove('hrmonitor_cookie')
-    obj = JSON.parse(localStorage.getItem('session'));
+//     Cookies.remove('hrmonitor_cookie')
+//     obj = JSON.parse(localStorage.getItem('session'));
    
-    $.ajax({
-        url: BASE_PATH + "/logout",
-        type: 'POST',
-        contentType: "application/json",
-        data: JSON.stringify(obj),
-        success: function () {
-            //called when successful
-            Cookies.remove('hrmonitor_cookie')
+//     $.ajax({
+//         url: BASE_PATH + "/logout",
+//         type: 'POST',
+//         contentType: "application/json",
+//         data: JSON.stringify(obj),
+//         success: function () {
+//             //called when successful
+//             Cookies.remove('hrmonitor_cookie')
            
             
-                   document.location=BASE_PATH+'/login';
-        },
-        error: function (e) {
-            //called when there is an error
-            console.log(e.message);
-            // cbk(false, null);    
-        }
-    });
+//                    document.location=BASE_PATH+'/login';
+//         },
+//         error: function (e) {
+//             //called when there is an error
+//             console.log(e.message);
+//             // cbk(false, null);    
+//         }
+//     });
    
-    console.log('changest')
-}
+//     console.log('changest')
+// }
     
 
 

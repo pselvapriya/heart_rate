@@ -9,6 +9,9 @@ $(document).ready(function() {
     $('.edit-calender-icon').click(function() {
         $( "#datepicker1" ).focus();
     });
+    $('.patient-repeat-btn').click(function(){
+        loadAssetList();
+    });
 });
 
 var elem = document.documentElement;

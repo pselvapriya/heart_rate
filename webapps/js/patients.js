@@ -51,7 +51,8 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        }else if (email === "") {
+        }
+        else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
         }else if (!emailReg.test(email)){
@@ -253,6 +254,15 @@ function loadAssetList() {
         {
             mData: 'created_ts',
             sTitle: 'Created Time',
+            swidth: '10%',
+            orderable: false,
+            mRender: function(data, type, row) {
+                return moment(data).format(DATE_TIME_FORMAT);
+            },
+        },
+        {
+            mData: 'updated_ts',
+            sTitle: 'Updated Time',
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
