@@ -140,7 +140,43 @@ body {
     padding-left: 15px;
     height: 38px;
 }
-@media (min-width: 350PX) and (max-width: 850px) {
+/* side nav css end */
+
+.menu-active {
+    color: black !important;
+    background-color: #eeeeee;
+    border-right: 5px solid #861182!important;
+}
+
+.show-drop {
+    background-color: white;
+    font-size: 12px;
+    padding-top: 2px;
+}
+
+#profileDiv {
+    background: white;
+    border: 2px solid lightgrey;
+    /* display: none!important; */
+    left: 52%;
+    height: 90%;
+    top: 1%;
+    text-align: left;
+    z-index: 1000;
+    width: 300px;
+}
+
+.card-title,
+.card-text {
+    font-size: 14px;
+    color: black;
+}
+.open-nav{
+    font-size: 20px;cursor: pointer;
+    padding-left: 10px;
+}
+
+@media (min-width: 350px) and (max-width: 566px) {
     #myNav {
         width: 43%;
     }
@@ -162,8 +198,27 @@ body {
         /* top: 15px;cursor: pointer; */
         /* right: 35px; */
     }
+    #profileDiv {
+        background: white;
+        border: 2px solid lightgrey;
+        /* display: none!important; */
+        left: 46%;
+        height: 74%;
+        top: 1%;
+        text-align: left;
+        z-index: 1000;
+        width: 250px;
 }
-
+@media (min-width: 767px) and (max-width:965px){
+    #profileDiv {
+        left: 35%!important;
+        height: 74%;
+        top: 1%;
+        text-align: left;
+        z-index: 1000;
+        width: 250px;
+    }
+}
 @media (min-width: 850px) and (max-width: 950px) {
     #myNav {
         /* width: 25%; */
@@ -175,39 +230,4 @@ body {
         margin-top: -80px;
         border-top: 1px solid lightgrey;
     }
-}
-/* side nav css end */
-
-.menu-active {
-    color: black !important;
-    background-color: #eeeeee;
-    border-right: 5px solid #861182!important;
-}
-
-.show-drop {
-    background-color: white;
-    font-size: 12px;
-    padding-top: 2px;
-}
-
-#profileDiv {
-    background: white;
-    border: 2px solid lightgrey;
-    /* display: none!important; */
-    left: 55%;
-    height: 90%;
-    top: 1%;
-    text-align: left;
-    z-index: 1000;
-    width: 300px;
-}
-
-.card-title,
-.card-text {
-    font-size: 14px;
-    color: black;
-}
-.open-nav{
-    font-size: 20px;cursor: pointer;
-    padding-left: 10px;
 }
