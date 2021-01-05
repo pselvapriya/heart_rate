@@ -4,12 +4,13 @@
 }
 
 .head {
-    margin-top: 13px;
+    border-bottom: 2px solid blueviolet;
+    margin: 0;
+    margin-top: 15px;
 }
 
 .head-title2 {
     text-align: right;
-    margin-top: 5px;
 }
 
 .head-title4 {
@@ -23,9 +24,16 @@ hr {
 .total {
     border: none;
 }
-
+.patient-div{
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+}
 .head-1 {
-    margin: 8px 0 0 0;
+    /* margin: 8px 0 0 0; */
+}
+.head-title4 header{
+    margin: 11px -13px;
+    padding-left: 6px;
 }
 
 .icofont-5 {
@@ -225,8 +233,8 @@ th.sorting_disabled,
     cursor: pointer;
     padding: 2px 10px;
     border: 1px solid #ccc;
-    max-width: 38%;
-    color: black;
+    max-width: 42%;
+    color: black;margin-bottom:10px;
 }
 
 .age-range {
@@ -312,8 +320,10 @@ label.show {
 }
 
 .count {
-    margin-bottom: 5px;
+    font-size: 11px;
     color: black;
+    margin: 11px -22px;
+    padding-left: 6px;
 }
 
 .status_normal {
@@ -471,4 +481,25 @@ input[type=range]::-ms-thumb {
     /* border-radius: 25px; */
     background: rgb(211, 113, 113);
     cursor: pointer;
+}
+.patient-head{
+    font-size: 13px;
+    margin-bottom: 10px;
+    padding-left: 0;
+    color: black
+}
+.menu-patient{
+    color: black;
+    font-size: 12px;
+}
+.dataTables_length {
+    margin-top: 10px;
+    margin-left: 14px!important;
+}
+#patients_profile thead tr th{
+    font-size: 13px;
+}
+#patients_profile{
+    width: 98% !important;
+    margin-left: 12px!important;
 }
