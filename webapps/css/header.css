@@ -153,7 +153,9 @@ body {
     font-size: 12px;
     padding-top: 2px;
 }
-
+#header-div{
+    margin-top:0;
+}
 #profileDiv {
     background: white;
     border: 2px solid lightgrey;
@@ -178,7 +180,7 @@ body {
 
 @media (min-width: 350px) and (max-width: 566px) {
     #myNav {
-        width: 43%;
+        width: 43%!important;
     }
     .overlay {
         width:47%;
@@ -209,6 +211,24 @@ body {
         z-index: 1000;
         width: 250px;
 }
+#header-div{
+    margin-top:-27px;
+}
+}
+@media (min-width: 567px) and (max-width: 767px) {
+    #myNav {
+        width: 42%!important;
+    }
+    .overlay {
+        width: 47% !important;
+        height: 85.5%;
+    }
+    .overlay-content {
+        position: relative;
+        width: 100%;
+    }
+}
+
 @media (min-width: 767px) and (max-width:965px){
     #profileDiv {
         left: 35%!important;
@@ -218,14 +238,21 @@ body {
         z-index: 1000;
         width: 250px;
     }
+    #myNav{
+        width:24%;
+    }
+    .overlay {
+        width: 47% !important;
+        height: 85.5%;
+    }
 }
 @media (min-width: 850px) and (max-width: 950px) {
     #myNav {
-        /* width: 25%; */
+        width: 25%;
     }
     .overlay-content {
         position: relative;
-        /* top: 25%; */
+        top: 13%;
         width: 100%;
         margin-top: -80px;
         border-top: 1px solid lightgrey;
