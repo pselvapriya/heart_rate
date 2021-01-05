@@ -175,7 +175,7 @@ function loadAssetList() {
     var fields = [{
         mData: 'did',
         sTitle: 'Device Id',
-        swidth: '10%',
+        swidth: '20%',
         orderable: false,
         mRender: function(data, type, row) {
             return data ? data : "-";
@@ -211,7 +211,7 @@ function loadAssetList() {
         },
         {
             mData: 'mobile_no',
-            sTitle: 'Mobile Number',
+            sTitle: 'Mobile',
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
@@ -311,8 +311,8 @@ function loadAssetList() {
     patient_list = [];
 
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [

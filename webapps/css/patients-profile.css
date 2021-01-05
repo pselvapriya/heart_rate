@@ -20,6 +20,10 @@ hr {
     margin-bottom: 0px;
 }
 
+.total {
+    border: none;
+}
+
 .head-1 {
     margin: 8px 0 0 0;
 }
@@ -73,7 +77,7 @@ hr {
 .select-box-1 {
     border: 1px solid rgb(207, 205, 205);
     width: 170px;
-    margin: 20px;
+    margin: 20px 20px 20px -20px;
     height: 30px;
     border-radius: 3px;
 }
@@ -81,7 +85,7 @@ hr {
 .select-box-2 {
     border: 1px solid rgb(207, 205, 205);
     width: 240px;
-    margin: 20px;
+    margin: 20px 0 20px 0;
     height: 30px;
     border-radius: 3px;
 }
@@ -89,7 +93,7 @@ hr {
 .select-box-3 {
     border: 1px solid rgb(207, 205, 205);
     width: 240px;
-    margin: 20px;
+    margin: 20px 0 20px 0;
     height: 30px;
     border-radius: 3px;
 }
@@ -105,6 +109,13 @@ hr {
     display: inline-block;
     /* border-bottom: 1px dotted black; */
     /* If you want dots under the hoverable text */
+}
+
+.button5:focus,
+.button6:focus,
+.button7:focus,
+.button8:focus {
+    outline: none;
 }
 
 
@@ -158,28 +169,88 @@ hr {
     justify-content: space-evenly;
 }
 
+th.sorting_disabled,
+.sorting,
+.sorting_desc {
+    font-weight: bold !important;
+}
+
 .heart_icon {
     text-align: right;
 }
 
 .beats {
+    color: rgb(114, 113, 113);
     padding-top: 18px;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 24px;
+    max-width: 17%;
+    margin-top: 0;
 }
 
 .bpm {
     color: rgb(245, 51, 51);
-    font-size: 18px;
+    font-size: 13px;
     font-weight: bolder;
+    margin-bottom: 0;
+}
+
+.beat_range {
+    padding-top: 14px;
+}
+
+.activity {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.address {
+    color: rgb(117, 117, 117);
+}
+
+.p-name {
+    color: rgb(2, 49, 180);
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    padding-top: 10px;
 }
 
 .calender {
+    font-size: 13px;
     background: #fff;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 2px 10px;
     border: 1px solid #ccc;
-    max-width: 37%;
+    max-width: 38%;
+    color: black;
+}
+
+.age-range {
+    font-weight: bold;
+}
+
+.fa-caret-down:before {
+    padding-left: 35px;
+    content: "\f0d7";
+}
+#patients_profile_wrapper label{
+    font-size: 11px;
+}
+thead {
+    text-align: center;
+}
+
+.row1 {
+    padding: 0 20px 0 20px;
+}
+
+label.lab,
+label.show {
+    font-size: 12px;
 }
 
 .patient {
@@ -224,34 +295,180 @@ hr {
 
 .status_low {
     color: white;
-    padding: 0 5px 0 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: rgb(255, 193, 77);
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .status_high {
     color: white;
-    padding: 0 5px 0 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: rgb(245, 52, 52);
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .count {
     margin-bottom: 5px;
+    color: black;
 }
 
 .status_normal {
     color: white;
-    padding: 0 5px 0 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: rgb(64, 214, 152);
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+
+/*slider*/
+
+.age {
+    padding-top: 15px;
+}
+
+.min,
+.max {
+    height: 25px;
+    width: 50px;
+    border-radius: 6px;
+    background-color: rgb(167, 4, 4);
+    color: white;
+}
+
+.sliderId {
+    width: 280px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    height: 100px;
+    margin-left: 40px;
+}
+
+.sliderId svg,
+.sliderId input[type=range] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+input[type=number] {
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number]:invalid,
+input[type=number]:out-of-range {
+    border: 2px solid #e60023;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: rgb(233, 1, 1);
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: rgb(233, 1, 1);
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: rgb(233, 1, 1);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: rgb(167, 4, 4);
+    border-radius: 1px;
+    box-shadow: none;
+    border: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 0px 0px #000;
+    border: 1px solid rgb(167, 4, 4);
+    height: 18px;
+    width: 5px;
+    /* border-radius: 25px; */
+    background: rgb(211, 113, 113);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: rgb(167, 4, 4);
+    border-radius: 1px;
+    box-shadow: none;
+    border: 0;
+}
+
+input[type=range]::-moz-range-thumb {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 0px 0px #000;
+    border: 1px solid rgb(167, 4, 4);
+    height: 18px;
+    width: 5px;
+    /* border-radius: 25px; */
+    background: rgb(211, 113, 113);
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower,
+input[type=range]::-ms-fill-upper {
+    background: rgb(167, 4, 4);
+    border-radius: 1px;
+    box-shadow: none;
+    border: 0;
+}
+
+input[type=range]::-ms-thumb {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 0px 0px #000;
+    border: 1px solid rgb(167, 4, 4);
+    height: 18px;
+    width: 5px;
+    /* border-radius: 25px; */
+    background: rgb(211, 113, 113);
+    cursor: pointer;
 }
