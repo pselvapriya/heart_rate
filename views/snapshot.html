@@ -22,10 +22,10 @@
                         <div class="user-action text-right">
                             <ul class="icofont">
                               
-                               <li>
+                               <li class="buton">
                                     <button class="round-btns max-btn"><i class="fa fa-expand  expen" aria-hidden="true"></i></i></button>
                                </li>
-                               <li>
+                               <li  class="buton">
                                     <button class="round-btns refresh-btn"><i class="fa fa-repeat" aria-hidden="true"></i></button>
                                 </li>
                             </ul>
@@ -43,16 +43,16 @@
                         <form>
                             <div class="row ">
                                 <div class="col-lg-2">
-                                    <select class="select">
+                                    <!-- <select class="select">
                                         <option>Select By Patient</option>
                                         <option>1</option>
                                         <option>2</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                                
                                     <div class="col-md-4 head-title3">
                                         <div id="reportrange" class="calender">
-                                            <i class="fa fa-calendar"></i>&nbsp;
+                                            <i class="fa fa-calendar fa-cal"></i>&nbsp;
                                             <span></span> <i class="fa fa-caret-down"></i>
                                         </div>
                                     </div>
@@ -60,14 +60,14 @@
                                 
                                     <div class="col-lg-2">
                                         <select class="select">
-                                            <option disabled=""selected="">Select By Patient</option>
+                                            <option disabled=""selected="">All Activity</option>
                                             <option>2</option>
                                             <option>2</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-2">
                                         <select class="select">
-                                            <option>Select By Patient</option>
+                                            <option>All Status</option>
                                             <option>1</option>
                                             <option>2</option>
                                         </select>
@@ -86,7 +86,7 @@
                             <div class="">
                                 <img src="images/capture.png" alt="profile-img" class="img-fluid">
                                
-                                    <div class="profile-name"><h3 class="name"><b>Easton Alvarez</b></h3></div>
+                                    <div class="profile-name"><h3 class="name"><b id="name1"> </b></h3></div>
                                     <div class="profile-name1">08/05/1925 <span class="date">-94 Years old</span></div>
                                     <div class="profile-name"><span class="address"> 57, Stillwell Avenue Scotts Mills<br> oregon US 97375</span></div>
                                     <div class="profile-name"><i class="fa fa-phone" aria-hidden="true"></i> 978-785-987</div>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-10">
-                                <div class="myprofile"><span class="profilehead">My profile</span></div>
+                                <div class="myprofile"><span class="profilehead">My Profile</span></div>
                         <!-- <div class="chart-section"> -->
                             <div id="chart" style="width:100%;margin:0 auto;height:250px;"></div>
                             <table id="patients" class="table table-bordered table-responsive"></table>
@@ -155,7 +155,8 @@
                 </div>
             </section>
         
-         <script src="js/snap.js"></script>
+         <script src="/js/snap.js"></script>
+         <script src="/js/patientstatus.js"></script>
         
                
                     
