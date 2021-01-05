@@ -4,7 +4,10 @@ var device_list = [];
 // var endDate = moment().endOf('day');
 $(document).ready(function() {
     loadDeviceList();
-  
+    $('.repeat-btn').click(function(){
+        // $('.patient-repeat-btn').css('border','none');
+        loadDeviceList();
+    });
 });
 
 var elem = document.documentElement;
@@ -69,10 +72,10 @@ function loadDeviceList() {
             orderable: false,
             mRender: function(data, type, row) {
                 if(row.reportedStamp){
-                return '<span class="label label-success">Reporting</span>';
+                return '<span class="label label-success label-device">Reporting</span>';
                 }
                 else{
-                return '<span class="label label-danger">Not Reporting</span>';
+                return '<span class="label label-danger label-device">Not Reporting</span>';
                 }
             },
         },

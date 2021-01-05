@@ -10,6 +10,7 @@ $(document).ready(function() {
         $( "#datepicker1" ).focus();
     });
     $('.patient-repeat-btn').click(function(){
+        $('.patient-repeat-btn').css('border','none');
         loadAssetList();
     });
 });
