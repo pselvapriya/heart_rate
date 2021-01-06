@@ -1,86 +1,149 @@
-$(()=>{
-var queryParams={}
+$(() => {
+    var queryParams = {
+        "aggs": {
+            "activity": {
+                "terms": {
+                    "field": "activity"
+                },
+                "aggs": {
+                    "avg_hr": {
+                        "avg": {
+                            "field": "heart_rate"
+
+
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
     $.ajax({
-        dataType:'json',
-        url: BASE_PATH + "/patienthistory/list",
-        contentType: "application/json",
-        type: "POST",
-        data:JSON.stringify({'query': queryParams}),
+        "dataType": 'json',
+        "contentType": "application/json",
+        "type": "POST",
+        "url": BASE_PATH + "/patientstatus/list",
+        "data": JSON.stringify({ "query": queryParams }),
         success: function(data) {
-            var resultData = data.result.data.data;
-             
-            console.log("hello", resultData);
- 
+            var resultData = data.result.aggregations.activity;
+
+            console.log(resultData.buckets[0].avg_hr);
+
+            var myChart = echarts.init(document.querySelector('#chart'));
+            option = {
+                backgroundColor: '#ffffff',
+
+                title: {
+                    text: '',
+                    left: 'center',
+                    top: 20,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+
+                visualMap: {
+                    show: false,
+                    min: 80,
+                    max: 600,
+                    inRange: {
+                        colorLightness: [0, 1]
+                    }
+                },
+                series: [{
+                    name: 'Activity',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '50%'],
+                    data: [
+
+                        { value: resultData.buckets[0].avg_hr.value, name: resultData.buckets[0].key },
+                        { value: resultData.buckets[1].avg_hr.value, name: resultData.buckets[1].key },
+                        { value: resultData.buckets[2].avg_hr.value, name: resultData.buckets[2].key },
+
+                        // {value: resultData.buckets[3].avg_hr.value, name: resultData.buckets[3].key},
+                        // {value: resultData.buckets[4].avg_hr.value, name: resultData.buckets[4].key}
+                    ].sort(function(a, b) { return a.value - b.value; }),
+                    roseType: 'radius',
+                    label: {
+                        color: 'rgb(54, 54, 54)'
+                    },
+                    labelLine: {
+                        lineStyle: {
+                            color: 'rgb(54, 54, 54)'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    },
+                    itemStyle: {
+                        color: '#d63a34',
+
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+
+                    animationType: 'scale',
+                    animationEasing: 'elasticOut',
+                    animationDelay: function(idx) {
+                        return Math.random() * 200;
+                    }
+                }]
+            };
+            myChart.setOption(option);
         },
     });
 })
+
+
 //piechart
-
 $(() => {
-    var myChart = echarts.init(document.querySelector('#chart'));
-    option = {
-        backgroundColor: '#ffffff',
+    var queryParams = {
 
-        title: {
-            text: '',
-            left: 'center',
-            top: 20,
-            textStyle: {
-                color: '#ccc'
+        "aggregations": {
+            "ages_range": {
+                "range": {
+                    "field": "age",
+                    "ranges": [
+                        { "key": "10-20", "from": 10, "to": 20 },
+                        { "key": "21-30", "from": 21, "to": 30 },
+                        { "key": "31-40", "from": 31, "to": 40 },
+                        { "key": "41-50", "from": 41, "to": 50 },
+                        { "key": "51-60", "from": 51, "to": 60 },
+                        { "key": "61-70", "from": 61, "to": 70 },
+                        { "key": "71-80", "from": 71, "to": 80 },
+                        { "key": "81-90", "from": 81, "to": 90 },
+                        { "key": "91-100", "from": 91, "to": 100 }
+                    ]
+                }
+
             }
+
+        }
+    }
+
+    $.ajax({
+        "dataType": 'json',
+        "contentType": "application/json",
+        "type": "POST",
+        "url": BASE_PATH + "/patientHRstatus/list",
+        "data": JSON.stringify({ "query": queryParams }),
+        success: function(data) {
+            var resultData = data.result.aggregations.ages_range;
+
+            // console.log( resultData.buckets[0].ages_range);
+
         },
 
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
+    });
+})
+$(() => {
 
-        visualMap: {
-            show: false,
-            min: 80,
-            max: 600,
-            inRange: {
-                colorLightness: [0, 1]
-            }
-        },
-        series: [{
-            name: 'Activity',
-            type: 'pie',
-            radius: '55%',
-            center: ['50%', '50%'],
-            data: [
-                { value: 335, name: 'Sleeping' },
-                { value: 310, name: 'Running' },
-                { value: 274, name: 'Reading' },
-                { value: 235, name: 'Working' },
-                { value: 400, name: 'Eating' }
-            ].sort(function(a, b) { return a.value - b.value; }),
-            roseType: 'radius',
-            label: {
-                color: 'rgb(54, 54, 54)'
-            },
-            labelLine: {
-                lineStyle: {
-                    color: 'rgb(54, 54, 54)'
-                },
-                smooth: 0.2,
-                length: 10,
-                length2: 20
-            },
-            itemStyle: {
-                color: '#c23531',
-
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-            },
-
-            animationType: 'scale',
-            animationEasing: 'elasticOut',
-            animationDelay: function(idx) {
-                return Math.random() * 200;
-            }
-        }]
-    };
-    myChart.setOption(option);
 
     var myChart = echarts.init(document.querySelector('#age'));
     option = {
@@ -97,16 +160,16 @@ $(() => {
             radius: '55%',
             center: ['50%', '60%'],
             data: [
-                {value: 335, name: '0-10'},
-                {value: 1548, name: '71-80'},
-                {value: 234, name: '21-30'},
-                {value: 1548, name: '41-50'},
-                {value: 310, name: '11-20'},
-                {value: 1548, name: '51-60'},
-                {value: 1548, name: '61-70'},
-                {value: 135, name: '31-40'},
-                {value: 1548, name: '81-90'},
-                {value: 1548, name: '91-100'}
+                { value: 335, name: '0-10' },
+                { value: 1548, name: '71-80' },
+                { value: 234, name: '21-30' },
+                { value: 1548, name: '41-50' },
+                { value: 310, name: '11-20' },
+                { value: 1548, name: '51-60' },
+                { value: 1548, name: '61-70' },
+                { value: 135, name: '31-40' },
+                { value: 1548, name: '81-90' },
+                { value: 1548, name: '91-100' }
             ],
             emphasis: {
                 itemStyle: {
@@ -133,39 +196,13 @@ $(() => {
         },
         series: [{
             data: [120, 200, 150, 80],
-            type: 'bar'
+            type: 'bar',
+            color: 'rgb(113, 199, 233)'
         }]
     };
     myChart.setOption(option);
 });
-//linechart with API
-var queryParams = {
-    query: {
-        bool: {
-            must: [],
-        },
-    },
-    series: [{
-        data: [120, 200, 150, 80],
-        type: 'bar',
-        color:'rgb(113, 199, 233)'
-    }]
-};
-$.ajax({
-    dataType: "json",
-    contentType: "application/json",
-    type: "POST",
-    url: BASE_PATH + "/hranalysis/hrlist",
-    data: JSON.stringify({ query: queryParams }),
-    success: function(data) {
-        var resultData = data.result.data;
-
-        hr_list = resultData.data;
-
-
-    },
-});
-
+//linechart
 $(() => {
 
     var myChart = echarts.init(document.querySelector('#heartchart'));
@@ -344,6 +381,8 @@ $(() => {
             }
         },
 
+
+
         series: {
             markPoint: {
                 data: [
@@ -351,6 +390,16 @@ $(() => {
                     { type: 'min', name: '' }
                 ]
             },
+            color: {
+                colorstops: [{
+                    offset: 1,
+                    color: 'red' //color at 100% position
+                }],
+                gobal: false //false by default
+            },
+
+
+
 
             name: 'Heartrate Analysis',
             type: 'line',
@@ -361,7 +410,8 @@ $(() => {
                 silent: true,
                 data: [{
                     yAxis: 50,
-                    color: '#d63a34'
+                    lineStyle: { color: '#d63a34' }
+
                 }, {
                     yAxis: 100,
                     color: '#d63a34'
@@ -431,8 +481,12 @@ $(() => {
             type: 'category',
             data: ['active', 'inactive']
         },
+
         yAxis: {
-            type: 'value'
+            type: 'value',
+            axisline: {
+                show: "true"
+            }
         },
         series: [{
             data: [120, 200],
@@ -440,6 +494,7 @@ $(() => {
             color: 'rgb(185, 56, 56)'
         }]
     };
+
     myChart.setOption(option);
 
 

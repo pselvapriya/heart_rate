@@ -113,9 +113,10 @@ function loadDeviceList() {
         query: {
             bool: {
                 must: [],
+                should: []
             },
         },
-        sort: [{ registeredStamp: { order: "asc" } }],
+        sort: [{ modelId: { order: "desc" } }],
     };
 
     device_list = [];
@@ -126,7 +127,7 @@ function loadDeviceList() {
         paging: true,
         searching: true,
         aaSorting: [
-            [4, "desc"]
+            [1, "desc"]
         ],
         ordering: true,
         iDisplayLength: 10,
@@ -143,7 +144,7 @@ function loadDeviceList() {
         bServerSide: true,
         sAjaxSource: BASE_PATH + "/devicelist/dlist",
         fnServerData: function(sSource, aoData, fnCallback, oSettings) {
-            queryParams.query["bool"]["must"] = [{ "match": { domainKey: "XLOYLUDCHY" } }];
+            queryParams.query["bool"]["must"] = [{ "match": { domainKey: "XLOYLUDCHY" } }, { "match": { modelId: "Vilpower" } }];
             queryParams.query["bool"]["should"] = [];
             delete queryParams.query["bool"]["minimum_should_match"];
 
@@ -187,7 +188,7 @@ function loadDeviceList() {
                     },
                 });
             }
-            console.log("query", queryParams);
+
             oSettings.jqXHR = $.ajax({
                 "dataType": "json",
                 "contentType": "application/json",
@@ -195,10 +196,9 @@ function loadDeviceList() {
                 url: sSource,
                 "data": JSON.stringify({ query: queryParams }),
                 success: function(data) {
-                    console.log(data);
 
                     var resultData = data.result.data;
-                    console.log(resultData);
+
                     device_list = resultData.data;
 
                     $(".totalCount").html(data.result.total);

@@ -124,7 +124,6 @@ Common.prototype.commonDeviceSearch = function(req, res) {
     const boodskap = new Boodskap(self.app, req["session"]["sessionObj"].token);
 
     boodskap.elasticDeviceSearch(req.body.query, function(status, result) {
-        console.log("commondevice", status);
         if (status) {
             res.json({ status: true, result: result });
         } else {
