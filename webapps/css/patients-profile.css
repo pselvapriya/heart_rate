@@ -70,7 +70,7 @@ hr {
 .cont {
     display: none;
     border: 1px solid rgb(207, 205, 205);
-    margin: 0 10px 0 10px;
+    margin: 0 -4px 0 -4px;
     background-color: #eff2f5;
 }
 
@@ -202,6 +202,7 @@ hr {
 
 .filters {
     justify-content: space-evenly;
+    height: 71px;
 }
 
 th.sorting_disabled,
@@ -284,6 +285,7 @@ th.sorting_disabled,
 
 .age-range {
     font-weight: bold;
+    font-size: 9px;
 }
 
 .fa-caret-down:before {
@@ -388,12 +390,14 @@ a:hover {
 
 .age {
     padding-top: 15px;
+    
 }
 
 .min,
 .max {
-    height: 25px;
-    width: 50px;
+    font-size: 9px !important;
+    height: 15px;
+    width: 25px;
     border-radius: 6px;
     background-color: rgb(167, 4, 4);
     color: white;
@@ -412,7 +416,7 @@ a:hover {
 .sliderId input[type=range] {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom:34px;
 }
 
 input[type=number] {
