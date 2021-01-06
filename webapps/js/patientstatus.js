@@ -16,7 +16,7 @@ function loadPatientstatusList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Name',
-            sWidth: '15%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log("gender", row.gender)
