@@ -62,7 +62,7 @@
 
 .lab {
     margin: 0;
-    margin-right: 17px;
+    margin-right: 19px;
 }
 
 .logo {
@@ -89,7 +89,8 @@
 }
 
 .click {
-    margin: 15px 0 0 46px;
+    margin: 15px 0 0 35px;
+    
 }
 
 .login-txt {
@@ -183,10 +184,48 @@ h1 {
     margin: 20px;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:759px) {
     .health,.bgheart {
         display: none;
+    
     }
 }
-
-
+@media screen and (max-width:768px) {
+    .form1 {
+        margin-bottom: 90%;
+    }
+}
+@media screen and (max-width:768px){
+    .health{
+        height: 10%;
+        
+    }
+}
+@media screen and (max-width:1024px){
+    .health{
+        height: 10%;
+        
+    }
+}
+@media screen and (max-width:1024px){
+    .bgheart{
+        height: 40%;
+    }
+}
+@media screen and (max-width:869px) {
+    .bgheart {
+        height: 50%;
+    
+    }
+}
+@media screen and (max-width:869px) {
+    .health {
+        height: 20%;
+    
+    }
+}
+@media screen and (max-width:869px) {
+    .form1 {
+        margin-bottom: 50%;
+    }
+}
