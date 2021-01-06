@@ -1,18 +1,10 @@
-
-
-
-/* Dashboard */
 .body-content{
     background-color: #fff;
     border-top: 2px solid #953a93;
-
-    border-radius: 5px;
+   border-radius: 5px;
     margin: 5px 15px;
 }
-
-
  .section-title{
-  /* margin-top:7px; */
   margin-bottom: -10px;
 }
 .patientname{
@@ -30,25 +22,19 @@
 font-size: 5px;
 }
 .active {
-  
-    border-right: none;
+   border-right: none;
 }
-
  .buton{
     display: inline-block;
     list-style-type: none;
     margin-left: 10px;
-   
-}
-
-
+   }
  .round-btns{
     width: 20px;
     height:20px;
     border-radius: 50%;
     line-height: 15px;
-    /* text-align: center; */
-    border: none;
+   border: none;
 }
 .heartimg{
 height: 30px;
@@ -76,9 +62,6 @@ margin-top: 0px;
 font-size: 10px;
 
 }
-/* .user-profile{
-background-color: #f6f6f6;
-} */
 .calender {
     background: #fff;
     cursor: pointer;
@@ -94,10 +77,6 @@ background-color: #f6f6f6;
     color: gray;
 
 }
-/* .fa{
-text-align: end;
-
-} */
 .level{
 margin-bottom: 0px;
 font-size:10px;
@@ -115,11 +94,7 @@ font-size:10px;
      font-size: 10px;
      font-weight: bold;
     }
-    /* .address{
-color:gray;
-    }
-    */
-    .profile-name{
+   .profile-name{
 font-size: 10px;
     }
     .profile-status{
@@ -148,8 +123,7 @@ color: #000;
 
 .filter-section{
     margin-bottom:0px;
-    /* margin-top: 15px; */
-    margin-bottom: 8px;
+   margin-bottom: 8px;
 }
 
 .filter-section h3{
@@ -164,21 +138,18 @@ color: #000;
 .sts-low,.sts-normal,.sts-high{
     border-radius: 5px;
 }
- .clear-btn{
+ .clear-btn:focus{
     padding: -2px;
     background-color: #f2f3f4;
     border: none;
     border-radius: 3px;    
     font-size: 11px;
-    height: 60%;
-}
-/* .filter-section .clear-btn:focus{
+    height: 20px;
     outline: none;
-} */
+}
 .user-action-part .show-list select{
     border: 1px solid #ced4da;
-    /* padding: .375rem .75rem; */
-    color: #495057;
+   color: #495057;
     border-radius: .25rem;
 }
 .user-action-part .show-list span{
@@ -187,15 +158,9 @@ color: #000;
 }
 .user-action-part .search-box{
     border: 1px solid #ced4da;
-    /* padding: .375rem .75rem; */
     color: #495057;
     border-radius: .25rem;
 }
-/* .user-action-part .search-box:focus{
-    outline: none;
-    box-shadow: none;
-} */
-
 .user-data-table .table{
     border:1px solid #edeff2;
 }
@@ -213,16 +178,6 @@ color: #000;
 .dataTables_length select {
     border: 1px solid rgb(177, 176, 176);
 }
-/* .dataTables_filter input {
-    background-size: 0 2px,100% 1px;
-    transition: background 0s ease-out;
-    float: none;
-    box-shadow: none;
-    border-radius: 4px;
-    border: 1px solid rgb(177, 176, 176);
-    margin-left: 10px;
-} */
-/* Profile-Section */
 .user-profile-section{
     border:1px solid #efefef;
     padding: 10px;
@@ -240,12 +195,7 @@ color: #000;
 .name{
     font-size: 10px;
     margin-top: 10px;
-    
-  
-}
-/* .media{  
-color: #707478;
-} */
+    }
 .number{
 margin-top:12px;
 margin-bottom: 3px;
@@ -262,13 +212,6 @@ font-weight: bold;
   font-size: 8px;
   
 }
-
-/* .form-control {
-    min-height: 10px;
-    
-} */
-
-
 .user-profile-section .user-profile ul li p{
     margin-bottom: 10px;
     color: #b8a6a5;
@@ -318,6 +261,16 @@ font-weight: bold;
     padding:5px;
     
 }
+.snap-calender{
+        font-size: 13px;
+        background: #fff;
+        cursor: pointer;
+        padding: 2px 10px;
+        border: 1px solid #ccc;
+        /* max-width: 42%; */
+        color: black;
+        margin-bottom: 10px;
+}
 .heart-rate {
     max-width: 180px;
     height: 50px;
@@ -327,13 +280,14 @@ font-weight: bold;
     overflow:hidden;
         
     }
+    /* th { background: #c5c5c5;} */
     dd, h1, h2, h3, h4, h5, h6, label {
         margin-bottom: 0rem;
         
     }
     div.dataTables_wrapper div.dataTables_filter {
         font-size: 10px;
-        /* margin-top: 0px; */
+       
     }
     .dataTables_length {
         margin-top: -2px;
@@ -342,6 +296,7 @@ font-weight: bold;
     #patients{
      font-size: 10px;   
     }
+    .th { border-bottom: 1px solid  black; }
 
     .svg {
        
@@ -364,16 +319,9 @@ font-weight: bold;
       right: 0;
       animation: heartRateIn 4.5s linear infinite;
     
-     /* Gia na katalavw ti ginetai des auto
-        border:1px solid red;
-        */
-    
     }
-    
-    .fade-out {
+     .fade-out {
       position: absolute;
-      /* width: 120%;
-      height: 100%; */
       top: 0;
       left: -120%;
       animation: heartRateOut 4.5s linear infinite;

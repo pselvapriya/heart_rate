@@ -309,8 +309,10 @@ function myFunction() {
     var x = document.getElementById("contt");
     if (x.style.display === "block") {
         x.style.display = "block";
+        $('.patient-div').css('border-top','1px solid red!important');
     } else {
         x.style.display = "block";
+        $('.patient-div').css('border-top','1px solid red!important');
     }
 }
 
