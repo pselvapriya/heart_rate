@@ -169,15 +169,7 @@ function loadAssetList() {
         $("#managePatient").html("");
     }
 
-    var fields = [{
-            mData: 'did',
-            sTitle: 'Device Id',
-            swidth: '10%',
-            orderable: false,
-            mRender: function(data, type, row) {
-                return data ? data : "-";
-            },
-        },
+    var fields = [
         {
             mData: 'patient_name',
             sTitle: 'Patient Name',
@@ -185,11 +177,12 @@ function loadAssetList() {
             orderable: false,
             mRender: function(data, type, row) {
                 return (
-                    row.patient_name + "," +
+                    
+                    '<span style="font-weight:bold;">' + row.patient_name + '</span>' +
                     "<br>" +
-                    row.age + "," +
+                    'Age :'+ row.age + 
                     "<br>" +
-                    row.gender +
+                    'Gender :'+ ((row.gender).trim().toUpperCase() == 'MALE' ? 'M' : 'F') +
                     "&nbsp;" +
                     "."
                 );
@@ -261,24 +254,24 @@ function loadAssetList() {
             mData: 'updated_ts',
             sTitle: 'Updated Time',
             swidth: '10%',
-            orderable: false,
+            className: "sortingtable",
+            orderable: true,
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
             },
         },
         {
-
-            sTitle: 'Status',
-            swidth: '15%',
+            mData: 'did',
+            sTitle: 'Device Id',
+            swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-
                 if (row.did) {
                     $("#unlinkdevice").val = row.did;
-                    return '<a href="" id="unLink" data-toggle="modal"  onclick="linkdevice(\'' + row._id + '\');clickUnlinkDevice();">Unlink</a>';
+                    return row.did + '<br>'+
+                    '<a href="" id="unLink" data-toggle="modal"  onclick="linkdevice(\'' + row._id + '\');clickUnlinkDevice();">Unlink</a>';
 
                 } else {
-
                     return '<button type="button" id="link" class="btn patient-atag bg-success" data-toggle="modal" data-target="#myModal" onclick="linkdevice(\'' + row._id + '\')">Link</button>';
 
                 }
@@ -290,7 +283,7 @@ function loadAssetList() {
             orderable: false,
             swidth: '10%',
             mRender: function(data, type, row) {
-                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
+                return '<i class="fa fa-pencil-square-o icon-table" aria-hidden="true" data-toggle="modal" data-target="#editModal" onclick="editPatient(\'' + row._id + '\')"></i>' + '&nbsp;&nbsp;' + '<i class="fa fa-trash icon-table" aria-hidden="true" onclick="deletePatient(\'' + row._id + '\')"></i>';
             }
         }
     ];
@@ -301,7 +294,7 @@ function loadAssetList() {
                 must: [],
             },
         },
-        sort: [{ created_ts: { order: "asc" } }],
+        sort: [{ updated_ts: { order: "desc" } }],
     };
 
     patient_list = [];
@@ -312,7 +305,7 @@ function loadAssetList() {
         paging: true,
         searching: true,
         aaSorting: [
-            [3, "desc"]
+            [6, "desc"]
         ],
         ordering: true,
         iDisplayLength: 10,
@@ -576,7 +569,7 @@ function clicklinkdevice() {
     for (i = 0; i <= patient_list.length - 1; i++) {
         if (patient_list[i].did == dlistid && patient_list[i].did != "") {
             showToast("Warning", "Device is Already Linked", "warning");
-
+            $('#myModal').show();
             flag1 = true;
             break;
         } else {
@@ -610,6 +603,8 @@ function clicklinkdevice() {
             type: "POST",
             success: function(result) {
                 //Success -> Show Alert & Refresh the page
+                $("#myModal").hide();
+                $(".modal-backdrop").remove();
                 loadAssetList();
                 successMsg("Device linked Successfully!");
             },
