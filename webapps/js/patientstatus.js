@@ -69,13 +69,14 @@ $(document).ready(function() {
                 "query": queryParams
             }),
             success: function(data) {
-                var resultData = data.aggregations.activity.buckets;
-                // patientactivity_list = resultData;
+                console.log(data);
+                var resultData = data.result.aggregations.keys.buckets;
+                patientactivity_list = resultData;
                 console.log("activity",resultData);
 
                 // $("#devicelist").val('');
                 patientactivity_list.forEach((patient) => {
-                    let tr = `<option value=` + patient.activity + `>` + patient.activity + `</option>`;
+                    let tr = `<option value=` + patient.key + `>` + patient.key + `</option>`;
                     $("#filter_activity").append(tr);
                     
                 });
