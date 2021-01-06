@@ -473,25 +473,46 @@ function editPatient(row) {
 //delete Api
 
 function deletePatient(row) {
-    var confirmalert = conform();
-    if (confirmalert == true) {
-        $.ajax({
-            url: BASE_PATH + "/patient/delete",
-            data: JSON.stringify({ _id: row }),
-            contentType: "application/json",
-            type: "POST",
-            success: function(result) {
-                //Success -> Show Alert & Refresh the page
-                successMsg("Patient Deleted Successfully!");
-                loadAssetList();
-            },
-            error: function(e) {
-                //Error -> Show Error Alert & Reset the form
-                errorMsg("Patient Deleted Failed!");
-                // window.location.reload();
-            },
-        });
-    }
+    
+        Swal.fire({
+            title: 'Are you sure want to Delete?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            showconfirmButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+
+          }).then((result) => {
+              console.log(result,"res");
+            if (result.value) {
+                console.log("conform",result.value);
+                $.ajax({
+                    url: BASE_PATH + "/patient/delete",
+                    data: JSON.stringify({ _id: row }),
+                    contentType: "application/json",
+                    type: "POST",
+                    success: function(result) {
+                        //Success -> Show Alert & Refresh the page
+                        Swal.fire(
+                            'Deleted!',
+                            'Patient Deleted Successfully.',
+                            'success'
+                          )
+                        loadAssetList();
+                    },
+                    error: function(e) {
+                        //Error -> Show Error Alert & Reset the form
+                        errorMsg("Patient Deleted Failed!");
+                        // window.location.reload();
+                    },
+                });
+              
+            }
+          })
+        
+    // }
 }
 
 // devicelist model ============================
@@ -589,8 +610,8 @@ function clicklinkdevice() {
             type: "POST",
             success: function(result) {
                 //Success -> Show Alert & Refresh the page
-                successMsg("Device linked Successfully!");
                 loadAssetList();
+                successMsg("Device linked Successfully!");
             },
             error: function(e) {
                 //Error -> Show Error Alert & Reset the form
@@ -621,24 +642,38 @@ function clickUnlinkDevice() {
         updated_ts: new Date().getTime(),
         created_ts: info[0].created_ts
     };
-    var confirmalert = confirm("Are you sure to unlink the device?");
-    if (confirmalert == true) {
-        $.ajax({
-            url: BASE_PATH + "/patient/update",
-            data: JSON.stringify({ _id: patientdata, updateData }),
-            contentType: "application/json",
-            type: "POST",
-            success: function(result) {
-                //Success -> Show Alert & Refresh the page
-
-                successMsg("Device Unlinked Successfully!");
-                loadAssetList();
-            },
-            error: function(e) {
-                //Error -> Show Error Alert & Reset the form
-                errorMsg("Device Unlinked Failed!");
-                //window.location.reload();
-            },
-        });
-    }
+    Swal.fire({
+        title: 'Are you sure unlink the Device?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+      }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: BASE_PATH + "/patient/update",
+                data: JSON.stringify({ _id: patientdata, updateData }),
+                contentType: "application/json",
+                type: "POST",
+                success: function(result) {
+                    loadAssetList();
+                    Swal.fire(
+                        'Unlinked!',
+                        'Device Unlinked Successfully!',
+                        'success'
+                      )
+                },
+                error: function(e) {
+                    //Error -> Show Error Alert & Reset the form
+                    errorMsg("Device Unlinked Failed!");
+                    //window.location.reload();
+                },
+            });
+         
+        }
+      })
+        
+    
 }

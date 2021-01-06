@@ -124,25 +124,7 @@ function errorMsg(msg) {
     });
 }
 
-function conform(msg) {
-    swal({
-            title: "Are you sure want to remove this item?",
-            text: "You will not be able to recover this item",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Confirm",
-            cancelButtonText: "Cancel",
 
-        },
-        function(isConfirm) {
-            if (isConfirm) {
-                successMsg("Deleted!", "Your item deleted.", "success");
-            } else {
-                successMsg("Cancelled", "You Cancelled", "error");
-            }
-        });
-}
 
 function warningMsg(msg) {
 
