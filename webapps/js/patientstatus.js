@@ -20,10 +20,10 @@ function loadPatientstatusList() {
             orderable: false,
             mRender: function(data, type, row) {
                 console.log("gender", row.gender)
-                if (row.gender === 'female' && row.gender === 'Female') {
-                    return '<div class="row">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                if (data.gender === 'female' && data.gender === 'Female') {
+                    return '<div class="row row1">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
                 } else {
-                    return '<div class="row">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                    return '<div class="row row1">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
                 }
             }
         },
@@ -81,14 +81,14 @@ function loadPatientstatusList() {
             orderable: false,
             mRender: function(data, type, row) {
                 if (row.heart_rate < 60) {
-                    return '<div class="row">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6><h6 class="range">Range 70-130</h6></span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="orange" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
 
                 } else if (row.heart_rate > 120) {
 
-                    return '<div class="row">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6><h6 class="range">Range 70-130</h6></span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="red" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
@@ -96,7 +96,7 @@ function loadPatientstatusList() {
 
                 } else {
 
-                    return '<div class="row">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6><h6 class="range">Range 70-130</h6></span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="green" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
@@ -168,22 +168,22 @@ function loadPatientstatusList() {
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
-    var queryParams = {
-        query: {
-            "bool": {
-                "must": [
-                    { "term": { "activity": "runing" } },
-                    { "term": { "gender": "Male" } },
-                    { "term": { "status": "Low" } },
-                    {
-                        "range": { "age": { "gte": 5, "lte": 20 } }
+    // var queryParams = {
+    //     query: {
+    //         "bool": {
+    //             "must": [
+    //                 { "term": { "activity": "runing" } },
+    //                 { "term": { "gender": "Male" } },
+    //                 { "term": { "status": "Low" } },
+    //                 {
+    //                     "range": { "age": { "gte": 5, "lte": 20 } }
 
-                    }
-                ]
+    //                 }
+    //             ]
 
-            }
-        },
-    };
+    //         }
+    //     },
+    // };
 
 
     patientstatus_list = [];
@@ -248,62 +248,6 @@ function loadPatientstatusList() {
                         }
                     }
                 });
-                
-                    queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "address": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "address.keyword": "*" + searchText + "*"
-                    }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "address.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
-                });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "activity": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "activity.keyword": "*" + searchText + "*"
-                    }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "activity.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
-                });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText.toLowerCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + searchText.toUpperCase() + "*" } });
-                queryParams.query['bool']['should'].push({ "wildcard": { "status": "*" + capitalizeFLetter(searchText) + "*" } })
-                queryParams.query['bool']["minimum_should_match"] = 1;
-                queryParams.query['bool']['should'].push({
-                    "match_phrase": {
-                        "status.keyword": "*" + searchText + "*"
-                    }
-                })
-                queryParams.query['bool']['should'].push({
-                    "match_phrase_prefix": {
-                        "status.keyword": {
-                            "query": "*" + searchText + "*"
-                        }
-                    }
-                });
-                
-                
-                
-                
             }
 
             oSettings.jqXHR = $.ajax({
