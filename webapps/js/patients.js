@@ -516,7 +516,6 @@ var info = [];
 var flag1 = false;
 
 function linkdevice(patientid) {
-
     patient_list.forEach(element => {
         if (element._id == patientid) {
             info = [element];
@@ -553,15 +552,22 @@ function linkdevice(patientid) {
             success: function(data) {
                 var resultData = data.result.data.data;
                 device_list = resultData;
-                // $("#devicelist").html("");
+                $("#devicelist").val('');
+                
 
                 device_list.forEach((et) => {
                     let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
                     $("#devicelist").append(tr);
+                    
                 });
+                
+                
             },
+            
         });
+        // $("#devicelist").empty('');
     });
+    
 }
 
 function clicklinkdevice() {

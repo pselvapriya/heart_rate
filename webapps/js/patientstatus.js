@@ -1,8 +1,90 @@
 var PatientstatusTable = null;
 var patientstatus_list = [];
+var patientactivity_list = [];
 
 $(document).ready(function() {
     loadPatientstatusList();
+    $(() => {
+        // var queryParams = {
+        //     "query": {
+        //         "bool": {
+        //             "must": [{
+        //                 "match": {
+        //                     "domainKey": "XLOYLUDCHY"
+        //                 }
+
+        //             }],
+        //             "filter": {
+        //                 "term": { "modelId": "Vilpower" }
+        //             }
+        //         }
+        //     },
+        //     "from": 0,
+        //     "size": 12
+        // };
+        $.ajax({
+            "dataType": 'json',
+            "contentType": 'application/json',
+            "type": "POST",
+            "url": BASE_PATH + '/patientstatus/list',
+        
+            success: function(data) {
+                var resultData = data.result.data.data;
+                patientstatus_list = resultData;
+                // $("#devicelist").val('');
+                
+
+                patientstatus_list.forEach((et) => {
+                    let tr = `<option value=` + et.status + `>` + et.status + `</option>`;
+                    $("#filter_status").append(tr);
+                    
+                });
+                
+                
+            },
+            
+        });
+    });
+
+    // activity list
+    $(() => {
+        var queryParams = {
+            
+                "aggs": {
+                "keys": {
+                  "terms": {
+                    "field": "activity"
+                  }
+                }
+                }
+                        
+            }
+                        
+        $.ajax({
+            "dataType": 'json',
+            "contentType": 'application/json',
+            "type": "POST",
+            "url": BASE_PATH + '/patientstatus/list',
+            "data": JSON.stringify({
+                "query": queryParams
+            }),
+            success: function(data) {
+                var resultData = data.aggregations.activity.buckets;
+                // patientactivity_list = resultData;
+                console.log("activity",resultData);
+
+                // $("#devicelist").val('');
+                patientactivity_list.forEach((patient) => {
+                    let tr = `<option value=` + patient.activity + `>` + patient.activity + `</option>`;
+                    $("#filter_activity").append(tr);
+                    
+                });
+                
+                
+            },
+            
+        });
+    });
 })
 
 function loadPatientstatusList() {
