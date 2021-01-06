@@ -4,14 +4,10 @@ $(document).ready(function() {
   // $('.overlay-content .nav-link .dashboard').addClass("menu-active");
 });
 $(document).mouseup(function (e){
-
-	var container = $("#profileDiv");
-
-	if (!container.is(e.target) && container.has(e.target).length === 0){
-
-		container.hide();
-		
-	}
+var container = $("#profileDiv");
+if (!container.is(e.target) && container.has(e.target).length === 0){
+container.hide();
+}
 }); 
 $('#myNav .overlay-content .nav-link').on('click', function(){
       document.getElementById("myNav").style.width = "0%";

@@ -79,7 +79,10 @@ function addPatient() {
         } else if (zipcode === "") {
             showToast("Warning", "Please a Enter Zipcode", "warning");
             $("#patientModal").show();
-        } else {
+        } else if (zipcode.length !=6){
+            showToast("Warning", "Maximax 6 number allowed", "warning");
+            $("#patientModal").show();
+        }else {
             //Build Input Objects
             var inputObj = {
                 patient_name: patient_name,
