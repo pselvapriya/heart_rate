@@ -261,6 +261,10 @@ p-name:hover {
     font-weight: bold;
 }
 
+.dataTables_filter input {
+    margin-right: 1rem;
+}
+
 .pagination {
     display: flex;
     padding-left: 0;
@@ -295,9 +299,10 @@ thead {
     padding: 0 20px 0 5px;
 }
 
-label.lab,
-label.show {
-    font-size: 12px;
+label.entires,
+label.Show,
+label.Search {
+    font-size: 13px !important;
 }
 
 .patient {
@@ -359,7 +364,7 @@ label.show {
 }
 
 .count {
-    font-size: 11px;
+    font-size: 12px;
     color: black;
     margin: 11px -22px;
     padding-left: 6px;
@@ -372,6 +377,10 @@ label.show {
     background-color: rgb(64, 214, 152);
     padding-left: 6px;
     padding-right: 6px;
+}
+
+a:hover {
+    color: blue;
 }
 
 

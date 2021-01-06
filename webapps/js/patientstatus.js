@@ -57,7 +57,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'address',
-            sWidth: '15%',
+            sWidth: '13%',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -76,7 +76,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'heart_rate',
-            sWidth: '25%',
+            sWidth: '23%',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
@@ -107,7 +107,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'status',
-            sWidth: '10%',
+            sWidth: '9%',
             sTitle: 'Status',
             orderable: true,
             mRender: function(data, type, row) {
@@ -123,7 +123,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'activity',
-            sWidth: '8%',
+            sWidth: '9%',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -142,7 +142,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '10%',
+            sWidth: '9%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -151,7 +151,7 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '35%',
+            sWidth: '18%',
             className: 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
