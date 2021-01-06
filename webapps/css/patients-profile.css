@@ -252,12 +252,12 @@ th.sorting_disabled,
 }
 
 .p-name {
-    color: rgb(2, 49, 180);
+    color: rgb(2, 49, 180);font-size: 13px;
     font-weight: bold;
 }
 
-p-name:hover {
-    color: rgb(2, 49, 180);
+.p-name:hover {
+    color: rgb(2, 49, 180);font-size: 13px;
     font-weight: bold;
 }
 
@@ -559,5 +559,5 @@ input[type=range]::-ms-thumb {
 
 .age-tag {
     font-size: 12px;
-    color: black;
+    color: black;padding-top: 3px;
 }
