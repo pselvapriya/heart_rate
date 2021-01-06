@@ -5,44 +5,34 @@ var patientactivity_list = [];
 $(document).ready(function() {
     loadPatientstatusList();
     $(() => {
-        // var queryParams = {
-        //     "query": {
-        //         "bool": {
-        //             "must": [{
-        //                 "match": {
-        //                     "domainKey": "XLOYLUDCHY"
-        //                 }
-
-        //             }],
-        //             "filter": {
-        //                 "term": { "modelId": "Vilpower" }
-        //             }
-        //         }
-        //     },
-        //     "from": 0,
-        //     "size": 12
-        // };
+        var queryParams = {
+            
+            "aggs": {
+            "keys": {
+              "terms": {
+                "field": "status"
+              }
+            }
+            }
+                    
+        }
         $.ajax({
             "dataType": 'json',
             "contentType": 'application/json',
             "type": "POST",
             "url": BASE_PATH + '/patientstatus/list',
-        
+            "data": JSON.stringify({
+                "query": queryParams
+            }),
             success: function(data) {
-                var resultData = data.result.data.data;
+                var resultData = data.result.aggregations.keys.buckets;
                 patientstatus_list = resultData;
                 // $("#devicelist").val('');
-                
-
                 patientstatus_list.forEach((et) => {
-                    let tr = `<option value=` + et.status + `>` + et.status + `</option>`;
+                    let tr = `<option value=` + et.key + `>` + et.key + `</option>`;
                     $("#filter_status").append(tr);
-                    
                 });
-                
-                
             },
-            
         });
     });
 
@@ -57,7 +47,6 @@ $(document).ready(function() {
                   }
                 }
                 }
-                        
             }
                         
         $.ajax({
@@ -69,12 +58,8 @@ $(document).ready(function() {
                 "query": queryParams
             }),
             success: function(data) {
-                console.log(data);
                 var resultData = data.result.aggregations.keys.buckets;
                 patientactivity_list = resultData;
-                console.log("activity",resultData);
-
-                // $("#devicelist").val('');
                 patientactivity_list.forEach((patient) => {
                     let tr = `<option value=` + patient.key + `>` + patient.key + `</option>`;
                     $("#filter_activity").append(tr);

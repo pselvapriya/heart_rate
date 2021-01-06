@@ -30,7 +30,7 @@ function addPatient() {
         var age = today.getTime() - DOB.getTime();
         age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
         var gender = $("#selectGender").val();
-        var mobilePattern = '/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/';
+        var mobilePattern = '[0-9]{3}-[0-9]{2}-[0-9]{3}';
         var mobile_no = $("#mobile").val();
         var email = $("#email").val();
         var address = $("#address").val();
@@ -50,7 +50,11 @@ function addPatient() {
         } else if (mobile_no === "") {
             showToast("Warning", "Please a Enter Mobile", "warning");
             $("#patientModal").show();
-        } else if (email === "") {
+        }else if(mobile_no.length !=10){
+            showToast("Warning", "Maximam 10 letter allowed", "warning");
+            $("#patientModal").show();
+        }
+         else if (email === "") {
             showToast("Warning", "Please a Enter Email", "warning");
             $("#patientModal").show();
         } else if (!emailReg.test(email)) {
