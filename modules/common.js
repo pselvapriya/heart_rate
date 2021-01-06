@@ -4,7 +4,7 @@ var Table = require("./tables");
 
 var Common = function(app) {
     this.app = app;
-    this.logger = app.logger;
+
     this.utils = new Utils(app);
     this.table = new Table(app);
 };
@@ -124,23 +124,6 @@ Common.prototype.commonDeviceSearch = function(req, res) {
     const boodskap = new Boodskap(self.app, req["session"]["sessionObj"].token);
 
     boodskap.elasticDeviceSearch(req.body.query, function(status, result) {
-        console.log("commondevice", status);
-        if (status) {
-            res.json({ status: true, result: result });
-        } else {
-            res.json({ status: false, message: result });
-        }
-    });
-};
-
-// heart rate analysis chart-------------------------------
-
-Common.prototype.commonHRChartSearch = function(tablename, req, res) {
-    const self = this;
-
-    const boodskap = new Boodskap(self.app, req["session"]["sessionObj"].token);
-
-    boodskap.elasticHRChartSearch(tablename, req.body.query, function(status, result) {
         if (status) {
             res.json({ status: true, result: result });
         } else {

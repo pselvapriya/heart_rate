@@ -16,14 +16,14 @@ function loadPatientstatusList() {
     var fields = [{
             mData: 'patient_name',
             sTitle: 'Name',
-            sWidth: '15%',
+            sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
                 console.log("gender", row.gender)
                 if (row.gender === 'female' && row.gender === 'Female') {
-                    return '<div class="row row1">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                    return '<div class="row row1">' + '<img src="/images/Capture1.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6 class="age-tag">' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
                 } else {
-                    return '<div class="row row1">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6>' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
+                    return '<div class="row row1">' + '<img src="/images/Capture.PNG"style="height:30px;"width:30px">' + '&nbsp;' + '&nbsp;<a onclick="loadMainPage(\'/snapshot\')"href="#/snapshot"class="p-name">' + row.patient_name + '&nbsp;&nbsp;<i class="fa fa-eye eye-icon" aria-hidden="true"></i>' + '</a>' + '&nbsp;' + '<h6 class="age-tag">' + '<b>' + '&nbsp;' + '&nbsp;' + row.age + '&nbsp;' + 'years old' + '</b>' + '</h6>' + '</div>';
                 }
             }
         },
@@ -57,7 +57,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'address',
-            sWidth: '15%',
+            sWidth: '13%',
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
@@ -76,19 +76,19 @@ function loadPatientstatusList() {
         },
         {
             mData: 'heart_rate',
-            sWidth: '25%',
+            sWidth: '23%',
             sTitle: 'Heartrate',
             orderable: false,
             mRender: function(data, type, row) {
                 if (row.heart_rate < 60) {
-                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6><h6 class="range">Range 70-130</h6></span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="orange" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
 
                 } else if (row.heart_rate > 120) {
 
-                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6><h6 class="range">Range 70-130</h6></span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="red" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
@@ -96,7 +96,7 @@ function loadPatientstatusList() {
 
                 } else {
 
-                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6>Range 70-130</span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
+                    return '<div class="row row1">' + '<h3 class="beats">&nbsp;' + row.heart_rate + '</h3>' + '<span class="col-md-5 beat_range"><h6 class="bpm">BPM</h6><h6 class="range">Range 70-130</h6></span>' + '<span class=" col-md-5 heart_icon"><div class="heart-rate">' +
                         '<svg class="heartimg" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">' +
                         '                  <polyline fill="none" stroke="green" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"></polyline>' +
                         '</svg>' + ' <div class="fade-in">' + '</div>' + '<div class="fade-out">' + '</div>' + '</div></span>' + '</div>';
@@ -107,7 +107,7 @@ function loadPatientstatusList() {
 
         {
             mData: 'status',
-            sWidth: '10%',
+            sWidth: '9%',
             sTitle: 'Status',
             orderable: true,
             mRender: function(data, type, row) {
@@ -123,7 +123,7 @@ function loadPatientstatusList() {
         },
         {
             mData: 'activity',
-            sWidth: '8%',
+            sWidth: '9%',
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
@@ -142,7 +142,7 @@ function loadPatientstatusList() {
         {
             mData: 'did',
             sTitle: 'Skin Patch Id',
-            sWidth: '10%',
+            sWidth: '9%',
             orderable: false,
             mRender: function(data, type, row) {
                 return data;
@@ -151,7 +151,7 @@ function loadPatientstatusList() {
         {
             mData: 'updated_ts',
             sTitle: 'Last Reported Time',
-            sWidth: '35%',
+            sWidth: '18%',
             className: 'sortingtable',
             mRender: function(data, type, row) {
                 return moment(data).format(DATE_TIME_FORMAT);
@@ -188,8 +188,8 @@ function loadPatientstatusList() {
 
     patientstatus_list = [];
     var tableOption = {
-        fixedHeader: false,
-        responsive: false,
+        fixedHeader: true,
+        responsive: true,
         paging: true,
         searching: true,
         aaSorting: [
@@ -258,13 +258,12 @@ function loadPatientstatusList() {
                 "data": JSON.stringify({ "query": queryParams }),
                 success: function(data) {
 
-                    // console.log(data);
 
                     var resultData = data.result.data;
-                    console.log(resultData);
 
                     patientstatus_list = resultData.data;
                     console.log("patient list", patientstatus_list)
+
 
 
                     $(".totalCount").html(data.result.total)
@@ -310,8 +309,10 @@ function myFunction() {
     var x = document.getElementById("contt");
     if (x.style.display === "block") {
         x.style.display = "block";
+        $('.patient-div').css('border-top','1px solid red!important');
     } else {
         x.style.display = "block";
+        $('.patient-div').css('border-top','1px solid red!important');
     }
 }
 

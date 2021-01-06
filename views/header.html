@@ -11,11 +11,11 @@
 </div>
 
 <div class="row header-row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6">
         <span class="open-nav" onclick="openNav()">&#9776; <img src="./images/vilpowerLogo.png" class="logo-img" />
       </span>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 col-sm-6 text-right" id="header-div">
         <img src="./images/profile-image-circle.png" class="circle-img profile-img" />
         <button type="button" class="btn dropdown-toggle show-drop" data-toggle="dropdown" onclick="openCard()">
             <%= sessionObj.userName ? sessionObj.userName : '-' %>

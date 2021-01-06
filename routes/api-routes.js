@@ -5,7 +5,6 @@ var Tables = require("../modules/tables");
 var Device = require("../modules/devicelist");
 var Patientstatus = require("../modules/patientstatus");
 var Phistory = require("../modules/patienthistory");
-var Hrchart = require("../modules/hrchart_analysis");
 
 var Patientasset = require("../modules/patient");
 
@@ -21,8 +20,7 @@ var APIRoutes = function(app, router) {
     this.phistory = new Phistory(app);
     this.devicelist = new Device(app);
 
-    // charts list call-----------------------------
-    this.hrchart = new Hrchart(app);
+
 
 
     this.init();
@@ -77,9 +75,5 @@ APIRoutes.prototype.init = function() {
         self.devicelist.performAction(req, res);
     });
 
-    // chart lists================================================
 
-    self.router.post("/hranalysis/:action", sessionCheck, function(req, res) {
-        self.hrchart.performAction(req, res);
-    });
 };
