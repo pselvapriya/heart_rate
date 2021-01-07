@@ -57,7 +57,7 @@
     /* top:220px; */
 }
 .icon-table{
-    margin-left: 10px;
+    margin-left: 10px;cursor: pointer;
 }
 .add-patient-btn{
     background-color: #f2f3f4;

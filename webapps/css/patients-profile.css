@@ -1,10 +1,4 @@
-.card {
-    border-top: 2px solid rgb(146, 4, 139);
-    border-radius: 3px;
-}
-
-.head {
-    border-bottom: 2px solid blueviolet;
+#full_view {
     margin: 0;
     margin-top: 15px;
 }
@@ -17,17 +11,17 @@
     text-align: right;
 }
 
-hr {
-    margin-bottom: 0px;
-}
-
-.total {
-    border: none;
-}
-
 .patient-div {
+    border-top: 2px solid rgb(226, 43, 144);
     background-color: white;
-    border-bottom: 1px solid lightgrey;
+}
+
+.filter-border {
+    display: block;
+    width: 1300px;
+    height: 1px;
+    background-color: rgb(199, 197, 197);
+    position: absolute;
 }
 
 .head-title4 header {
@@ -111,7 +105,7 @@ hr {
 .select-box-1 {
     border: 1px solid rgb(207, 205, 205);
     width: 170px;
-    margin: 20px 20px 20px -20px;
+    margin: 20px 20px 20px -20px !important;
     height: 30px;
     border-radius: 3px;
 }
@@ -119,7 +113,7 @@ hr {
 .select-box-2 {
     border: 1px solid rgb(207, 205, 205);
     width: 240px;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 20px 0!important;
     height: 30px;
     border-radius: 3px;
 }
@@ -127,7 +121,7 @@ hr {
 .select-box-3 {
     border: 1px solid rgb(207, 205, 205);
     width: 240px;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 20px 0 !important;
     height: 30px;
     border-radius: 3px;
 }
@@ -215,7 +209,7 @@ th.sorting_disabled,
     text-align: right;
 }
 
-.beats {
+.row1 .beats {
     color: rgb(114, 113, 113);
     padding-top: 18px;
     font-weight: bold;
@@ -224,46 +218,44 @@ th.sorting_disabled,
     margin-top: 0;
 }
 
-.bpm {
+.row1 .bpm {
     color: rgb(240, 15, 15);
     font-size: 12px;
     font-weight: 500;
     margin-bottom: 0;
 }
 
-.range {
+.row1 .range {
     font-size: 11px;
     color: black;
     font-weight: 400;
 }
 
-.beat_range {
+.row1 .beat_range {
     padding-top: 14px;
 }
 
-.activity {
+.pro-activity {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 13px;
 }
 
-.address {
+.pro-address {
     color: rgb(117, 117, 117);
     font-size: 12px;
 }
 
 .p-name {
-    color: rgb(2, 49, 180);font-size: 13px;
+    color: rgb(2, 49, 180);
+    font-size: 13px;
     font-weight: bold;
 }
 
 .p-name:hover {
-    color: rgb(2, 49, 180);font-size: 13px;
+    color: rgb(2, 49, 180);
+    font-size: 13px;
     font-weight: bold;
-}
-
-.dataTables_filter input {
-    margin-right: 1rem;
 }
 
 .pagination {
@@ -311,35 +303,35 @@ label.Search {
     height: 10px !important;
 }
 
-.table {
+#patients_profile .table {
     border: 1px solid rgb(216, 214, 214);
     width: 100%;
     height: 100%;
 }
 
-.dataTables_length select,
-.dataTables_filter input,
+#patients_profile .dataTables_filter input,
 .dataTables_filter input:focus,
 .dataTables_length select,
 .dataTables_length select:focus {
+    font-size: 11px;
     border-radius: 3px;
-    border: 1px solid rgb(180, 178, 178);
     height: 30px;
 }
 
+.dataTables_filter input {
+    margin-right: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid rgb(180, 178, 178);
+}
+
 .dataTables_length {
-    margin-left: 0 !important;
+    font-size: 11px;
+    margin-left: 14px!important;
 }
 
-.dataTables_filter {
+#patients_profile_filter label {
+    font-size: 11px;
     margin-right: 0 !important;
-}
-
-.dataTables_filter input,
-.dataTables_filter input:focus,
-.dataTables_length select,
-.dataTables_length select:focus {
-    background-image: none;
 }
 
 .eye-icon {
@@ -381,16 +373,11 @@ label.Search {
     padding-right: 6px;
 }
 
-a:hover {
-    color: blue;
-}
-
 
 /*slider*/
 
 .age {
     padding-top: 15px;
-    
 }
 
 .min,
@@ -416,59 +403,58 @@ a:hover {
 .sliderId input[type=range] {
     position: absolute;
     left: 0;
-    bottom:34px;
+    bottom: 34px;
 }
 
-input[type=number] {
+.sliderId input[type=number] {
     border: 1px solid #ddd;
     text-align: center;
     font-size: 14px;
     -moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
+.sliderId input[type=number]::-webkit-outer-spin-button,
+.sliderId input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-input[type=number]:invalid,
-input[type=number]:out-of-range {
+.sliderId input[type=number]:invalid,
+.sliderId input[type=number]:out-of-range {
     border: 2px solid #e60023;
 }
 
-input[type=range] {
+.sliderId input[type=range] {
     -webkit-appearance: none;
     width: 100%;
 }
 
-input[type=range]:focus {
+.sliderId input[type=range]:focus {
     outline: none;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+.sliderId input[type=range]:focus::-webkit-slider-runnable-track {
     background: rgb(233, 1, 1);
 }
 
-input[type=range]:focus::-ms-fill-lower {
+.sliderId input[type=range]:focus::-ms-fill-lower {
     background: rgb(233, 1, 1);
 }
 
-input[type=range]:focus::-ms-fill-upper {
+.sliderId input[type=range]:focus::-ms-fill-upper {
     background: rgb(233, 1, 1);
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+.sliderId input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 10px;
     cursor: pointer;
-    animate: 0.2s;
     background: rgb(167, 4, 4);
     border-radius: 1px;
     box-shadow: none;
     border: 0;
 }
 
-input[type=range]::-webkit-slider-thumb {
+.sliderId input[type=range]::-webkit-slider-thumb {
     z-index: 2;
     position: relative;
     box-shadow: 0px 0px 0px #000;
@@ -482,18 +468,17 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -7px;
 }
 
-input[type=range]::-moz-range-track {
+.sliderId input[type=range]::-moz-range-track {
     width: 100%;
     height: 5px;
     cursor: pointer;
-    animate: 0.2s;
     background: rgb(167, 4, 4);
     border-radius: 1px;
     box-shadow: none;
     border: 0;
 }
 
-input[type=range]::-moz-range-thumb {
+.sliderId input[type=range]::-moz-range-thumb {
     z-index: 2;
     position: relative;
     box-shadow: 0px 0px 0px #000;
@@ -505,25 +490,24 @@ input[type=range]::-moz-range-thumb {
     cursor: pointer;
 }
 
-input[type=range]::-ms-track {
+.sliderId input[type=range]::-ms-track {
     width: 100%;
     height: 5px;
     cursor: pointer;
-    animate: 0.2s;
     background: transparent;
     border-color: transparent;
     color: transparent;
 }
 
-input[type=range]::-ms-fill-lower,
-input[type=range]::-ms-fill-upper {
+.sliderId input[type=range]::-ms-fill-lower,
+.sliderId input[type=range]::-ms-fill-upper {
     background: rgb(167, 4, 4);
     border-radius: 1px;
     box-shadow: none;
     border: 0;
 }
 
-input[type=range]::-ms-thumb {
+.sliderId input[type=range]::-ms-thumb {
     z-index: 2;
     position: relative;
     box-shadow: 0px 0px 0px #000;
@@ -547,11 +531,6 @@ input[type=range]::-ms-thumb {
     font-size: 12px;
 }
 
-.dataTables_length {
-    margin-top: 10px;
-    margin-left: 14px!important;
-}
-
 #patients_profile thead tr th {
     font-size: 13px;
 }
@@ -564,9 +543,4 @@ input[type=range]::-ms-thumb {
 .age-tag {
     font-size: 12px;
     color: black;padding-top: 3px;
-}
-@media screen and (max-width:740px){
-    .table-row{
-            width: 100%;
-    }
 }
