@@ -71,7 +71,16 @@ function loadDeviceList() {
             sWidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
-                if (row.reportedStamp) {
+                var report = moment(row.reportedStamp);
+                var reg = moment();
+                var con = reg.diff(report , 'hours');
+                console.log(reg.diff(report , 'hours'));
+                // var time =  reg.getTime() - report.getTime(); 
+                // // var time=  moment.duration(report.diff(reg));
+                // // console.log(moment(time).format(DATE_TIME_FORMAT) ? moment(time).format(DATE_TIME_FORMAT));
+                // console.log("time "+row.id,time);
+
+                if (con <= 24) {
                     return '<span class="label label-success label-device">Reporting</span>';
                 } else {
                     return '<span class="label label-danger label-device">Not Reporting</span>';
