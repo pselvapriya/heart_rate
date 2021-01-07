@@ -7,46 +7,18 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('#filter_gender').change(function() {
             genderValue = this.value;
-            alert(genderValue);
+            loadPatientstatusList();
+            // alert(genderValue);
         });
         $('#filter_status').change(function() {
             statusValue = this.value;
+            loadPatientstatusList();
             // alert(statusValue);
-            $(() => {
-                var queryParams = {
-
-                    "aggs": {
-                        "keys": {
-                            "terms": {
-                                "status": statusValue
-                            }
-                        }
-                    }
-
-                }
-                $.ajax({
-                    "dataType": 'json',
-                    "contentType": 'application/json',
-                    "type": "POST",
-                    "url": BASE_PATH + '/patientstatus/list',
-                    "data": JSON.stringify({
-                        "query": queryParams
-                    }),
-                    success: function(data) {
-                        var resultData = data.result.aggregations;
-                        console.log("status filter", resultData)
-                            // $("#devicelist").val('');
-                            // patientstatus_list.forEach((et) => {
-                            //     let tr = `<option value=` + et.key + `>` + et.key + `</option>`;
-                            //     $("#filter_status").append(tr);
-                            // });
-                    },
-                });
-            });
         });
         $('#filter_activity').change(function() {
             activityValue = this.value;
-            alert(activityValue);
+            loadPatientstatusList();
+            // alert(activityValue);
         });
         var data = {
             gender: genderValue,
@@ -280,13 +252,14 @@ function loadPatientstatusList() {
 
     ];
 
+
     var queryParams = {
         query: {
             "bool": {
                 "must": []
             }
         },
-        sort: [{ "created_ts": { "order": "asc" } }]
+
     };
 
 
@@ -353,7 +326,16 @@ function loadPatientstatusList() {
                     }
                 });
             }
-
+            if (genderValue) {
+                queryParams["query"]["bool"]["must"].push({ "term": { "gender": genderValue } })
+            }
+            if (statusValue) {
+                queryParams["query"]["bool"]["must"].push({ "term": { "status": statusValue } })
+            }
+            if (activityValue) {
+                queryParams["query"]["bool"]["must"].push({ "term": { "activity": activityValue } })
+            }
+            console.log("queryParams ", queryParams)
             oSettings.jqXHR = $.ajax({
                 "dataType": 'json',
                 "contentType": 'application/json',
