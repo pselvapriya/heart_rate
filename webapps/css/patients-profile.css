@@ -12,7 +12,7 @@
 }
 
 .patient-div {
-    border-top: 2px solid rgb(226, 43, 144);
+    border-top: 2px solid blueviolet;
     background-color: white;
 }
 
@@ -39,7 +39,9 @@
     margin-top: 23px;
     margin-left: 27px;
 }
-
+.button4:focus{
+    outline: none;cursor: pointer;
+}
 .button5 {
     border: none;
     border-radius: 100%;

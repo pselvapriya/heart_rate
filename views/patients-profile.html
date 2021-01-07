@@ -43,7 +43,7 @@
                 <div class="row filters">
                     <div class="col-md-1 col-lg-1">
                         <select class="select-box-1" id="filter_gender">
-                <option disabled="" selected="">All Gender</option>
+                <option selected="" value="0">All Gender</option>
                 <option id="male">Male</option>
                 <option id="female">Female</option>
             </select>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <select class="select-box-2" id="filter_status">
-                <option disabled="" selected="">All Status</option>
+                <option selected="" value="0">All Status</option>
                 <!-- <option id="low">Low</option>
                 <option id="normal">Normal</option>
                 <option id="high">High</option> -->
@@ -74,14 +74,14 @@
                     </div>
                     <div class="col-lg-2">
                         <select class="select-box-3" id="filter_activity">
-                             <option disabled="" selected="">All Activities</option>
+                             <option selected="" value="0">All Activities</option>
                 <!-- <option>walking</option>
                 <option>running</option>
                  <option>sleeping</option> -->
                 </select>
                     </div>
                     <div class="col-lg-2">
-                        <button class="button4" type="reset"> <i class="fa fa-close icofont-6">Clear</i></button>
+                        <button class="button4" type="reset" onclick="clearFilterValue()"> <i class="fa fa-close icofont-6">Clear</i></button>
                     </div>
 
                 </div>

@@ -7,16 +7,19 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('#filter_gender').change(function() {
             genderValue = this.value;
+            $('#filter_gender').val(genderValue);
             loadPatientstatusList();
             // alert(genderValue);
         });
         $('#filter_status').change(function() {
             statusValue = this.value;
+            $('#filter_status').val(statusValue);
             loadPatientstatusList();
             // alert(statusValue);
         });
         $('#filter_activity').change(function() {
             activityValue = this.value;
+            $('#filter_activity').val(activityValue);
             loadPatientstatusList();
             // alert(activityValue);
         });
@@ -478,3 +481,11 @@ function reload() {
         }
     });
 })();
+
+function clearFilterValue(){
+    alert("chekc");
+    // $('#filter_gender').val('');
+        loadPatientstatusList();
+        // alert(genderValue);
+    
+}
