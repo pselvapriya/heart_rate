@@ -483,7 +483,7 @@ function reload() {
 })();
 
 function clearFilterValue(){
-    alert("chekc");
+    // alert("chekc");
     // $('#filter_gender').val('');
         loadPatientstatusList();
         // alert(genderValue);
