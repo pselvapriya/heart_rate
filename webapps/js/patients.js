@@ -99,6 +99,7 @@ function addPatient() {
                 created_ts: new Date().getTime(),
             };
             //Call API
+            console.log("insert",inputObj);
             $.ajax({
                 url: BASE_PATH + "/patient/insert",
                 data: JSON.stringify(inputObj),
@@ -269,7 +270,7 @@ function loadAssetList() {
         },
         {
             mData: 'did',
-            sTitle: 'Device Id',
+            sTitle: 'Device',
             swidth: '10%',
             orderable: false,
             mRender: function(data, type, row) {
