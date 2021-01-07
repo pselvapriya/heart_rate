@@ -17,6 +17,7 @@
 }
 
 .filter-border {
+    margin-left: -26px;
     display: block;
     width: 1300px;
     height: 1px;
@@ -197,8 +198,10 @@
 }
 
 .filters {
+    justify-content: space-between;
     justify-content: space-evenly;
     height: 71px;
+    width: 100%;
 }
 
 th.sorting_disabled,
