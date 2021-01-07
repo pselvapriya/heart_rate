@@ -9,19 +9,16 @@ $(document).ready(function() {
             genderValue = this.value;
             $('#filter_gender').val(genderValue);
             loadPatientstatusList();
-            // alert(genderValue);
         });
         $('#filter_status').change(function() {
             statusValue = this.value;
             $('#filter_status').val(statusValue);
             loadPatientstatusList();
-            // alert(statusValue);
         });
         $('#filter_activity').change(function() {
             activityValue = this.value;
             $('#filter_activity').val(activityValue);
             loadPatientstatusList();
-            // alert(activityValue);
         });
         var data = {
             gender: genderValue,
@@ -240,7 +237,7 @@ function loadPatientstatusList() {
             sWidth: '9%',
             orderable: false,
             mRender: function(data, type, row) {
-                return data;
+                return data ? data : '-';
             }
         },
         {

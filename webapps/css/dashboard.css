@@ -11,20 +11,23 @@
 
 }    
 .overview{
-    margin-right: 10px;
-    margin-top: 13px;
-    margin-bottom: 13px;
-    /* padding: 5px 15px; */
+    
+    margin:10px 10px 3px 0;
 
 } 
+.title{
+    font-size: 14px;
+}
 
 .pie{
    
     border-top:solid 3px orange;
     border-left: solid 1px #f0f0f0;
     border-right: solid 1px #f0f0f0;
+    border-bottom:solid 1px #f0f0f0 ;
     border-radius: 9px;
     padding-right: 20px;
+    margin-bottom: 120px;
     
 
 }
@@ -38,6 +41,8 @@
 .patientstatus{
     /* padding-top: 10px; */
     margin-top: 10px;
+    margin-left: 20px;
+    size: 13px;
 }
 .statusdetail{
     padding-inline-start:1em;
@@ -88,7 +93,13 @@ li{
     display: flex;
     
 }
-
+.chart1{
+    margin-top: auto;
+    
+}
+.chart3{
+    margin-top: auto;
+}
 
 #chart{
     width:300px;
@@ -105,6 +116,8 @@ li{
 
 .icon1{
     padding-left: 20px;
+    height: 10px;
+    size: 10px;
     /* margin-top: 10px; */
 }
 .icon2{
@@ -114,32 +127,73 @@ li{
 
 .dashboard-head{
     padding-left: 10px;
+    font-size: 13px;
 }
 
 #age{
     margin:0;
-    height: 400px;
+    height: 300px;
     width: 400px;
 }
 .btn1{
-    border: none;
+    border: none;cursor: pointer;
     background-color: rgb(243, 241, 241);
     border-radius: 100%;
-    /* text-size-adjust: 1rem; */
-    height: 24px;
-    /* padding-right: 20px; */
+    height: 21px;
+    width: 17px;
+}
+.btn1 i{
+    font-size: 10px;
+    right: 30px;
+    position: absolute;
+    top: 12px;
+}
+.refresh-btn{
+    border: none;cursor: pointer;
+    background-color: rgb(243, 241, 241);
+    border-radius: 100%;
+    height: 21px;
+    width: 17px;color: black;
+}
+.refresh-btn i{
+    font-size: 10px;
+    right: 15px;
+    position: absolute;
+    top: 12px;
+}
+.refresh-btn:focus{
+    outline: none;
+}
+.ref-btn{
+    border: none;cursor: pointer;
+    background-color: rgb(243, 241, 241);
+    border-radius: 100%;
+    height: 17px;
+    width: 17px;color: black;
+}
+.ref-btn i{
+    font-size: 10px;
+    right: 29px;
+    position: absolute;
+    top: 11px;
+}
+.ref-btn:focus{
+    outline: none;
 }
 .button2{
     border: none;
     background-color: black;
     border-radius: 100%;
     color: white;
-    height: 24px;
-    
-    
-    
-
-}
+    height: 18px;
+    width: 17px;
+    }
+.button2 i { 
+    font-size: 10px;
+    right: 4px;
+    position: absolute;
+    top: 12px;
+    }
 .analysis{
     padding-left: 50px;
 }
@@ -152,7 +206,7 @@ li{
     /* height: 95%; */
     margin-left: 10px;
     border-radius: 9px;
-    /* padding: 6px 13px; */
+    padding-bottom: 15px;
     margin-bottom: 30px;
 }
 
@@ -179,25 +233,32 @@ li{
     border: solid 1px#f0f0f0;
     /* max-width:35%; */
     padding: 5px 10px;
+    display: inline-block;
     
 }
-.stat{
+/* .stat{
     padding-left: 190px;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 13px;
+} */
+.icons{
+    position: relative;
+    top: -5px;right: -24px;
 }
 .icons2{
     padding-right: 15px;
 }
 #totalpatients{
-    width: 340px;
-    height: 400px;
+    width: 80%;
+    height: 280px;
     padding-left: 30px;
+    /* padding-top: 30px; */
+    /* margin-top: 50px; */
     /* margin-top: -392px; */
 }
  .state{
-    font-weight:bold;
-    size:3px;
+    font-weight:bolder;
+    size:10px !important;
     padding-left: 20px;
     margin-top: 5px;
 }
@@ -217,31 +278,38 @@ p{
 }
 .linechart{
     
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: 280px;
+    padding-top:13px ;
+    padding-right:4px ;
+    padding-left: 5px;
 }
 #heartchart{
-    width:200%;
+    width:100%;
     /* margin:0 auto; */
-    height:100%;
+    height:285px;
     /* margin-top: 30px; */
-    padding-left: 20px;
+    /* padding-left: 20px; */
     /* text-align: center; */
    
 }
 
 .subtopic{
     font-weight: bold;
+    size: 10px;
     color: rgb(125, 122, 122);
 }
+p{
+  size: 10px;
+}
 #barchart1{
-    width: 130%;
-    height: 400px;
+    width: 90%;
+    height: 270px;
 
 }
 #barchart2{
-    width: 130%;
-    height: 400px;
+    width: 90%;
+    height: 270px;
     
 }
 .statistics1{
@@ -249,6 +317,8 @@ p{
     color: rgb(158, 34, 34);
     padding-left: 45px;
     border-radius: 5px;
+    margin-top: 20px;
+    size: 13px;
 
 }
 .statistics2{
@@ -256,6 +326,8 @@ p{
     color:rgb(56, 141, 175) ;
     padding-left: 55px;
     padding-right: 24px;
+   size: 13px;
+   margin-top: 20px;
     
 }
 .list{
@@ -263,24 +335,30 @@ p{
     border-top: solid 3px  rgb(83, 172, 197);
     /* margin-left: 10px;  */
     border-radius: 9px;
-    /* overflow-y: scroll; */
+    /* margin-right: 20px; */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .listing{
-    size: 10px;
+    size: 13px;
     margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
 }
 
 
 
 .patientstat{
     margin-top: 11px;
+    
 }
 .patient{
-    font-weight: bold;
-    size: 8px;
-    padding: 0px;
-    margin: 0px;
-    
+    font-weight: bolder;
+    font-size: 13px;
+    margin-top: -23px;
+    margin-left: 1px;
+    margin-bottom: 1rem;
 }
 
 .profile{
@@ -289,11 +367,11 @@ p{
     padding-left: 20px;
     padding-top: 14px;
 }
-.btn1,
-.button2 {
+.btn1:focus,.button2:focus {
     position: relative;
     display: inline-block;
     cursor: pointer;
+    outline: none;
     /* border-bottom: 1px dotted black; */
     /* If you want dots under the hoverable text */
 }
@@ -334,3 +412,13 @@ p{
     visibility: visible;
     opacity: 1;
 }
+/* div.scroll{
+    margin:4px,4px;
+    padding: 4px;
+    background-color:green;
+    width: 500px;
+    height: 110px;
+    overflow-x:hidden;
+    overflow-y: auto;
+    text-align: justify;
+} */
