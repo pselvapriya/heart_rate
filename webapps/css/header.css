@@ -180,10 +180,10 @@ body {
 
 @media (min-width: 350px) and (max-width: 566px) {
     #myNav {
-        width: 43%!important;
+        /* width: 43%!important; */
     }
     .overlay {
-        width:47%;
+        /* width:47%; */
         height: 85.5%;
     }
     .overlay a {
@@ -191,7 +191,7 @@ body {
     }
     .overlay-content {
         position: relative;
-        width: 100%;
+        /* width: 100%; */
         /* margin-top: -70px!important; */
         border-top: 1px solid lightgrey;
     }
@@ -209,7 +209,7 @@ body {
         top: 1%;
         text-align: left;
         z-index: 1000;
-        width: 250px;
+        /* width: 250px; */
 }
 #header-div{
     margin-top:-27px;
@@ -217,15 +217,15 @@ body {
 }
 @media (min-width: 567px) and (max-width: 767px) {
     #myNav {
-        width: 42%!important;
+        /* width: 42%!important; */
     }
     .overlay {
-        width: 47% !important;
+        /* width: 47% !important; */
         height: 85.5%;
     }
     .overlay-content {
         position: relative;
-        width: 100%;
+        /* width: 100%; */
     }
 }
 
@@ -236,24 +236,24 @@ body {
         top: 1%;
         text-align: left;
         z-index: 1000;
-        width: 250px;
+        /* width: 250px; */
     }
     #myNav{
-        width:24%;
+        /* width:24%; */
     }
     .overlay {
-        width: 47% !important;
+        /* width: 47% !important; */
         height: 85.5%;
     }
 }
 @media (min-width: 850px) and (max-width: 950px) {
     #myNav {
-        width: 25%;
+        /* width: 25%; */
     }
     .overlay-content {
         position: relative;
         top: 13%;
-        width: 100%;
+        /* width: 100%; */
         margin-top: -80px;
         border-top: 1px solid lightgrey;
     }

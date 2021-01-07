@@ -272,13 +272,13 @@ th.sorting_disabled,
     padding-top: 10px;
 }
 
-.calender {
+.calender-status {
     font-size: 13px;
     background: #fff;
     cursor: pointer;
     padding: 2px 10px;
     border: 1px solid #ccc;
-    max-width: 42%;
+    max-width:  50%;
     color: black;
     margin-bottom: 10px;
 }
@@ -288,8 +288,8 @@ th.sorting_disabled,
     font-size: 9px;
 }
 
-.fa-caret-down:before {
-    padding-left: 35px;
+.fa-caret-down {
+    padding-left: 100px;
     content: "\f0d7";
 }
 
@@ -564,4 +564,9 @@ input[type=range]::-ms-thumb {
 .age-tag {
     font-size: 12px;
     color: black;padding-top: 3px;
+}
+@media screen and (max-width:740px){
+    .table-row{
+            width: 100%;
+    }
 }
