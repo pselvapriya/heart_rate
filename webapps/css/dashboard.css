@@ -258,7 +258,7 @@ li{
 }
  .state{
     font-weight:bolder;
-    size:10px !important;
+    font-size:13px !important;font-weight: 700;
     padding-left: 20px;
     margin-top: 5px;
 }
@@ -268,13 +268,12 @@ p{
     color:#aaa8a8;
 }
 .barchart{
-    border: solid 1px #f0f0f0; ;
+    border:1px solid lightgray;padding-left: 0; 
     border-top:  solid 3px rgb(128, 207, 238);
     border-radius: 9px;
     /* max-width: 30%; */
     box-sizing: border-box;
-    margin-right: 20px;
-    margin-left: 10px;
+    
 }
 .linechart{
     
@@ -332,7 +331,7 @@ p{
 }
 .list{
     border: solid 1px #f0f0f0;;
-    border-top: solid 3px  rgb(83, 172, 197);
+    
     /* margin-left: 10px;  */
     border-radius: 9px;
     /* margin-right: 20px; */
@@ -355,7 +354,7 @@ p{
 }
 .patient{
     font-weight: bolder;
-    font-size: 13px;
+    font-size: 12px;font-weight: 700;
     margin-top: -23px;
     margin-left: 1px;
     margin-bottom: 1rem;
