@@ -127,7 +127,7 @@ function loadDeviceList() {
         paging: true,
         searching: true,
         aaSorting: [
-            [1, "desc"]
+            [5, "desc"]
         ],
         ordering: true,
         iDisplayLength: 10,
