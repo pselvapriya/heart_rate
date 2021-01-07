@@ -151,9 +151,10 @@ function addPatient() {
             created_ts: new Date().getTime(),
             did: did
         };
+        console.log("update",updateData);
         $.ajax({
             url: BASE_PATH + "/patient/update",
-            data: JSON.stringify({ _id: sid, updateData: updateData }),
+            data: JSON.stringify({ _id: sid, updateData }),
             contentType: "application/json",
             type: "POST",
             success: function(result) {
@@ -167,7 +168,7 @@ function addPatient() {
                 //window.location.reload();
             },
         });
-    }
+    }flag == false
 }
 
 // Patient list API
