@@ -130,12 +130,54 @@ function addPatient() {
         state = $("#editState").val();
         country = $("#editCountry").val();
         zipcode = $("#editZipCode").val();
-
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var DOB = new Date(dob);
         var today = new Date();
         var age = today.getTime() - DOB.getTime();
         age = Math.floor(age / (1000 * 60 * 60 * 24 * 365.25));
         created_ts = new Date().getTime();
+        if (patient_name === "") {
+            showToast("Warning", "Please a Enter Name", "warning");
+            $("#editModal").show();
+        } else if (selectDate === "") {
+            showToast("Warning", "Please a Enter Date", "warning");
+            $("#editModal").show();
+        }else if (gender == "Select") {
+            showToast("Warning", "Select  a one item", "warning");
+            $("#editModal").show();
+        }else if (mobile_no === "") {
+            showToast("Warning", "Please a Enter Mobile", "warning");
+            $("#editModal").show();
+        }else if(mobile_no.length !=10){
+            showToast("Warning", "Maximam 10 letter allowed", "warning");
+            $("#editModal").show();
+        }
+         else if (email === "") {
+            showToast("Warning", "Please a Enter Email", "warning");
+            $("#editModal").show();
+        } else if (!emailReg.test(email)) {
+            // alert("no");
+            showToast("Warning", "Enter a email format", "warning");
+            $("#editModal").show();
+        }  else if (address === "") {
+            showToast("Warning", "Please a Enter Address", "warning");
+            $("#editModal").show();
+        } else if (city === "") {
+            showToast("Warning", "Please a Enter City", "warning");
+            $("#editModal").show();
+        } else if (state === "") {
+            showToast("Warning", "Please a Enter State", "warning");
+            $("#editModal").show();
+        } else if (country === "") {
+            showToast("Warning", "Please a Enter Country", "warning");
+            $("#editModal").show();
+        } else if (zipcode === "") {
+            showToast("Warning", "Please a Enter Zipcode", "warning");
+            $("#editModal").show();
+        } else if (zipcode.length !=6){
+            showToast("Warning", "Maximax 6 number allowed", "warning");
+            $("#editModal").show();
+        }else{
         var updateData = {
             patient_name: patient_name,
             dob: dob,
@@ -158,7 +200,8 @@ function addPatient() {
             contentType: "application/json",
             type: "POST",
             success: function(result) {
-                //Success -> Show Alert & Refresh the page
+                $("#editModal").hide();
+                    $(".modal-backdrop").remove();
                 successMsg("Patient Updated Successfully!");
                 loadAssetList();
             },
@@ -168,7 +211,8 @@ function addPatient() {
                 //window.location.reload();
             },
         });
-    }flag == false
+    }
+}flag == false
 }
 
 // Patient list API
