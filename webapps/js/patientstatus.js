@@ -3,6 +3,61 @@ var patientstatus_list = [];
 
 $(document).ready(function() {
     loadPatientstatusList();
+    // $(() => {
+    // var queryParams = {
+    //     "query": {
+    //         "bool": {
+
+    //             "filter": {
+    //                 "term": { "modelId": "Vilpower" }
+    //             }
+    //         }
+    //     },
+    //     "from": 0,
+    //     "size": 12
+    // };
+    $.ajax({
+        "dataType": 'json',
+        "contentType": 'application/json',
+        "type": "POST",
+        "url": BASE_PATH + '/patientstatus/list',
+
+        success: function(data) {
+            console.log("check");
+            var resultData = data.result.data.data;
+            patientstatus_list = resultData;
+            console.log("patient", patientstatus_list)
+                // $("#devicelist").html("");
+
+            patientstatus_list.forEach((et) => {
+                let tr = `<option value=` + et.status + `>` + et.status + `</option>`;
+                $("#filter_status").append(tr);
+            });
+        },
+    });
+
+    // activity option list
+    $.ajax({
+        "dataType": 'json',
+        "contentType": 'application/json',
+        "type": "POST",
+        "url": BASE_PATH + '/patientstatus/list',
+
+        success: function(data) {
+            console.log("check");
+            var resultData = data.result.data.data;
+            patientstatus_list = resultData;
+            console.log("patient", patientstatus_list)
+                // $("#devicelist").html("");
+
+            patientstatus_list.forEach((et) => {
+                let tr = `<option value=` + et.activity + `>` + et.activity + `</option>`;
+                $("#filter_activity").append(tr);
+            });
+        },
+    });
+
+
 })
 
 function loadPatientstatusList() {
@@ -61,7 +116,7 @@ function loadPatientstatusList() {
             sTitle: 'Address',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<div class="row">' + '<p class="col-12 address">' + row.address +
+                return '<div class="row">' + '<p class="col-12 pro-address">' + row.address +
                     "&nbsp;" +
                     "," +
                     row.city +
@@ -117,7 +172,6 @@ function loadPatientstatusList() {
                     return '<label class="status_high">' + row.status + '</label>';
                 } else {
                     return '<label class="status_normal">' + row.status + '</label>';
-
                 }
             }
         },
@@ -127,7 +181,7 @@ function loadPatientstatusList() {
             sTitle: 'Activity',
             orderable: false,
             mRender: function(data, type, row) {
-                return '<div class="activity">' + data + '</div>';
+                return '<div class="pro-activity">' + data + '</div>';
             }
         },
         // {
@@ -168,22 +222,6 @@ function loadPatientstatusList() {
         },
         sort: [{ "created_ts": { "order": "asc" } }]
     };
-    // var queryParams = {
-    //     query: {
-    //         "bool": {
-    //             "must": [
-    //                 { "term": { "activity": "runing" } },
-    //                 { "term": { "gender": "Male" } },
-    //                 { "term": { "status": "Low" } },
-    //                 {
-    //                     "range": { "age": { "gte": 5, "lte": 20 } }
-
-    //                 }
-    //             ]
-
-    //         }
-    //     },
-    // };
 
 
     patientstatus_list = [];
@@ -249,6 +287,20 @@ function loadPatientstatusList() {
                     }
                 });
             }
+            // $(() => {
+            //         var queryParams = {
+            //             "aggs": {
+            //                 "gender": {
+            //                     "term": { "field": "gender" }
+            //                 }
+            //             },
+            //             "size": 0
+            //         };
+            //         patientstatus_list.forEach((et) => {
+            //                 let tr = `<option value=` + et.id + `>` + et.id + `</option>`;
+            //                 console.log("value", tr)
+            //                 $("#filter_gender").append(tr);
+            //             }),
 
             oSettings.jqXHR = $.ajax({
                 "dataType": 'json',
@@ -258,13 +310,10 @@ function loadPatientstatusList() {
                 "data": JSON.stringify({ "query": queryParams }),
                 success: function(data) {
 
-
                     var resultData = data.result.data;
 
                     patientstatus_list = resultData.data;
                     console.log("patient list", patientstatus_list)
-
-
 
                     $(".totalCount").html(data.result.total)
 
@@ -273,12 +322,13 @@ function loadPatientstatusList() {
                 }
             });
         },
+
         "initComplete": function(settings, json) {}
     };
 
+
     PatientstatusTable = $("#patients_profile").DataTable(tableOption);
 }
-
 
 $(function() {
 
@@ -309,10 +359,10 @@ function myFunction() {
     var x = document.getElementById("contt");
     if (x.style.display === "block") {
         x.style.display = "block";
-        $('.patient-div').css('border-top','1px solid red!important');
+        $('.patient-div').css('border-top', '1px solid red!important');
     } else {
         x.style.display = "block";
-        $('.patient-div').css('border-top','1px solid red!important');
+        $('.patient-div').css('border-top', '1px solid red!important');
     }
 }
 

@@ -1,10 +1,4 @@
-.card {
-    border-top: 2px solid rgb(146, 4, 139);
-    border-radius: 3px;
-}
-
-.head {
-    border-bottom: 2px solid blueviolet;
+#full_view {
     margin: 0;
     margin-top: 15px;
 }
@@ -17,17 +11,17 @@
     text-align: right;
 }
 
-hr {
-    margin-bottom: 0px;
-}
-
-.total {
-    border: none;
-}
-
 .patient-div {
+    border-top: 2px solid rgb(226, 43, 144);
     background-color: white;
-    border-bottom: 1px solid lightgrey;
+}
+
+.filter-border {
+    display: block;
+    width: 1300px;
+    height: 1px;
+    background-color: rgb(199, 197, 197);
+    position: absolute;
 }
 
 .head-title4 header {
@@ -215,7 +209,7 @@ th.sorting_disabled,
     text-align: right;
 }
 
-.beats {
+.row1 .beats {
     color: rgb(114, 113, 113);
     padding-top: 18px;
     font-weight: bold;
@@ -224,30 +218,30 @@ th.sorting_disabled,
     margin-top: 0;
 }
 
-.bpm {
+.row1 .bpm {
     color: rgb(240, 15, 15);
     font-size: 12px;
     font-weight: 500;
     margin-bottom: 0;
 }
 
-.range {
+.row1 .range {
     font-size: 11px;
     color: black;
     font-weight: 400;
 }
 
-.beat_range {
+.row1 .beat_range {
     padding-top: 14px;
 }
 
-.activity {
+.pro-activity {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 13px;
 }
 
-.address {
+.pro-address {
     color: rgb(117, 117, 117);
     font-size: 12px;
 }
@@ -262,10 +256,6 @@ th.sorting_disabled,
     color: rgb(2, 49, 180);
     font-size: 13px;
     font-weight: bold;
-}
-
-.dataTables_filter input {
-    margin-right: 1rem;
 }
 
 .pagination {
@@ -313,35 +303,29 @@ label.Search {
     height: 10px !important;
 }
 
-.table {
+#patients_profile .table {
     border: 1px solid rgb(216, 214, 214);
     width: 100%;
     height: 100%;
 }
 
-.dataTables_length select,
-.dataTables_filter input,
+#patients_profile .dataTables_filter input,
 .dataTables_filter input:focus,
 .dataTables_length select,
 .dataTables_length select:focus {
+    font-size: 12px;
     border-radius: 3px;
-    border: 1px solid rgb(180, 178, 178);
     height: 30px;
 }
 
-.dataTables_length {
-    margin-left: 0 !important;
+.dataTables_filter input {
+    margin-right: 1rem;
+    border-radius: 3px;
+    border: 1px solid rgb(180, 178, 178);
 }
 
 .dataTables_filter {
     margin-right: 0 !important;
-}
-
-.dataTables_filter input,
-.dataTables_filter input:focus,
-.dataTables_length select,
-.dataTables_length select:focus {
-    background-image: none;
 }
 
 .eye-icon {
@@ -381,10 +365,6 @@ label.Search {
     background-color: rgb(64, 214, 152);
     padding-left: 6px;
     padding-right: 6px;
-}
-
-a:hover {
-    color: blue;
 }
 
 
@@ -564,3 +544,10 @@ input[type=range]::-ms-thumb {
     color: black;
     padding-top: 3px;
 }
+
+
+/* @media (min-width: 765px) {
+    {
+        margin-top: 50%;
+    }
+} */
